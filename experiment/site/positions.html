@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Positions — Strategy Lab</title>
+<style>
+:root {
+  --bg: #F5F4F1;
+  --card: #FFFFFF;
+  --border: #E3E1DB;
+  --ink: #16181D;
+  --ink-soft: #6B6F76;
+  --accent: #2B3A67;
+  --accent-soft: #E8EAF2;
+  --gain: #1F7A5C;
+  --loss: #B23A3A;
+  --mono: ui-monospace, "SF Mono", "Roboto Mono", Consolas, monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1040px; margin: 0 auto; padding: 40px 24px 80px; }
+header.page-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 8px; flex-wrap: wrap; gap: 12px;
+}
+h1 { font-size: 22px; font-weight: 650; margin: 0; letter-spacing: -0.01em; }
+.subtitle { color: var(--ink-soft); font-size: 13px; margin: 0 0 28px; }
+nav.tabs { display: flex; gap: 4px; margin-bottom: 24px; border-bottom: 1px solid var(--border); }
+nav.tabs a {
+  padding: 10px 4px; margin-right: 20px; text-decoration: none; color: var(--ink-soft);
+  font-size: 14px; border-bottom: 2px solid transparent; font-weight: 500;
+}
+nav.tabs a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+.range-pills { display: flex; gap: 6px; margin-bottom: 20px; }
+.range-pills button {
+  border: 1px solid var(--border); background: var(--card); color: var(--ink-soft);
+  padding: 6px 14px; border-radius: 999px; font-size: 13px; cursor: pointer; font-family: var(--sans);
+}
+.range-pills button.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+.card-list { display: flex; flex-direction: column; gap: 10px; }
+.strategy-card, .stock-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+  padding: 16px 20px; display: flex; align-items: center; gap: 16px;
+}
+.rank { font-family: var(--mono); font-size: 13px; color: var(--ink-soft); width: 24px; flex-shrink: 0; }
+.name-block { flex: 1; min-width: 0; }
+.name { font-weight: 600; font-size: 14px; margin: 0 0 2px; }
+.name .status-badge {
+  font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 4px;
+  background: #F0E6E6; color: var(--loss); margin-left: 8px; vertical-align: middle;
+}
+.sub { font-size: 12px; color: var(--ink-soft); }
+.category-tag {
+  font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em;
+  background: var(--accent-soft); color: var(--accent); padding: 1px 6px; border-radius: 4px; margin-right: 6px;
+}
+.methodology-link { font-size: 13px; color: var(--accent); text-decoration: none; font-weight: 500; }
+.methodology-link:hover { text-decoration: underline; }
+.spark { width: 110px; height: 36px; flex-shrink: 0; }
+.figures { text-align: right; flex-shrink: 0; width: 130px; }
+.equity { font-family: var(--mono); font-size: 14px; font-weight: 600; }
+.delta { font-family: var(--mono); font-size: 12px; margin-top: 2px; }
+.delta.gain { color: var(--gain); }
+.delta.loss { color: var(--loss); }
+.delta.flat { color: var(--ink-soft); }
+.na { color: var(--ink-soft); font-size: 12px; }
+
+.stock-bar-track { flex: 1; height: 8px; background: var(--accent-soft); border-radius: 4px; overflow: hidden; }
+.stock-bar-fill { height: 100%; background: var(--accent); }
+.stock-meta { width: 190px; text-align: right; font-family: var(--mono); font-size: 13px; }
+.stock-meta .n-strat { color: var(--ink-soft); font-family: var(--sans); font-size: 12px; margin-left: 6px; }
+
+.empty-note {
+  background: var(--accent-soft); border: 1px solid var(--border); border-radius: 8px;
+  padding: 14px 18px; font-size: 13px; color: var(--ink); margin-bottom: 20px; line-height: 1.5;
+}
+footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family: var(--mono); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="page-head">
+    <h1>Positions by Stock</h1>
+  </header>
+  <p class="subtitle">Total capital invested per symbol, aggregated across all active strategies &middot; generated 2026-09-04T02:21:24.871862+00:00</p>
+  
+<nav class="tabs">
+  <a href="index.html" class="">Strategies</a>
+  <a href="positions.html" class="active">Positions</a>
+</nav>
+
+  <div class="empty-note">
+    Ranked by total dollar value currently allocated across all strategies —
+    a proxy for how strongly the strategy set favors each stock right now,
+    not the stock's own independent price return.
+  </div>
+  <div class="card-list">
+    
+        <div class="stock-card">
+          <div class="rank">1</div>
+          <div class="name-block"><p class="name">CRM</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:100.0%"></div></div>
+          <div class="stock-meta">$62,296<span class="n-strat">21 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">2</div>
+          <div class="name-block"><p class="name">MSTR</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:81.0%"></div></div>
+          <div class="stock-meta">$50,481<span class="n-strat">23 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">3</div>
+          <div class="name-block"><p class="name">NIO</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:76.8%"></div></div>
+          <div class="stock-meta">$47,861<span class="n-strat">6 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">4</div>
+          <div class="name-block"><p class="name">SNOW</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:72.3%"></div></div>
+          <div class="stock-meta">$45,056<span class="n-strat">14 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">5</div>
+          <div class="name-block"><p class="name">HOOD</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:55.2%"></div></div>
+          <div class="stock-meta">$34,359<span class="n-strat">24 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">6</div>
+          <div class="name-block"><p class="name">ADBE</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:37.5%"></div></div>
+          <div class="stock-meta">$23,383<span class="n-strat">8 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">7</div>
+          <div class="name-block"><p class="name">AI</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:32.4%"></div></div>
+          <div class="stock-meta">$20,190<span class="n-strat">10 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">8</div>
+          <div class="name-block"><p class="name">XOM</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:32.1%"></div></div>
+          <div class="stock-meta">$20,000<span class="n-strat">2 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">9</div>
+          <div class="name-block"><p class="name">PFE</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:25.4%"></div></div>
+          <div class="stock-meta">$15,795<span class="n-strat">7 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">10</div>
+          <div class="name-block"><p class="name">U</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:24.2%"></div></div>
+          <div class="stock-meta">$15,100<span class="n-strat">7 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">11</div>
+          <div class="name-block"><p class="name">MARA</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:19.3%"></div></div>
+          <div class="stock-meta">$12,011<span class="n-strat">10 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">12</div>
+          <div class="name-block"><p class="name">RBLX</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:16.5%"></div></div>
+          <div class="stock-meta">$10,254<span class="n-strat">4 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">13</div>
+          <div class="name-block"><p class="name">AMC</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:13.7%"></div></div>
+          <div class="stock-meta">$8,527<span class="n-strat">6 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">14</div>
+          <div class="name-block"><p class="name">LCID</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:13.1%"></div></div>
+          <div class="stock-meta">$8,164<span class="n-strat">2 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">15</div>
+          <div class="name-block"><p class="name">JNJ</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:12.6%"></div></div>
+          <div class="stock-meta">$7,877<span class="n-strat">6 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">16</div>
+          <div class="name-block"><p class="name">V</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:10.1%"></div></div>
+          <div class="stock-meta">$6,293<span class="n-strat">3 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">17</div>
+          <div class="name-block"><p class="name">COIN</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:9.7%"></div></div>
+          <div class="stock-meta">$6,023<span class="n-strat">16 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">18</div>
+          <div class="name-block"><p class="name">UNH</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:8.7%"></div></div>
+          <div class="stock-meta">$5,405<span class="n-strat">4 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">19</div>
+          <div class="name-block"><p class="name">META</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:8.6%"></div></div>
+          <div class="stock-meta">$5,376<span class="n-strat">4 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">20</div>
+          <div class="name-block"><p class="name">INTC</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:8.4%"></div></div>
+          <div class="stock-meta">$5,219<span class="n-strat">3 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">21</div>
+          <div class="name-block"><p class="name">RIOT</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:8.2%"></div></div>
+          <div class="stock-meta">$5,130<span class="n-strat">2 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">22</div>
+          <div class="name-block"><p class="name">PLTR</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:7.1%"></div></div>
+          <div class="stock-meta">$4,398<span class="n-strat">14 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">23</div>
+          <div class="name-block"><p class="name">SMCI</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:5.9%"></div></div>
+          <div class="stock-meta">$3,694<span class="n-strat">12 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">24</div>
+          <div class="name-block"><p class="name">JPM</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:5.7%"></div></div>
+          <div class="stock-meta">$3,541<span class="n-strat">3 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">25</div>
+          <div class="name-block"><p class="name">TSLA</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:5.3%"></div></div>
+          <div class="stock-meta">$3,318<span class="n-strat">11 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">26</div>
+          <div class="name-block"><p class="name">MSFT</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:5.3%"></div></div>
+          <div class="stock-meta">$3,306<span class="n-strat">7 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">27</div>
+          <div class="name-block"><p class="name">AAPL</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:5.2%"></div></div>
+          <div class="stock-meta">$3,256<span class="n-strat">7 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">28</div>
+          <div class="name-block"><p class="name">ARM</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:2.9%"></div></div>
+          <div class="stock-meta">$1,782<span class="n-strat">3 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">29</div>
+          <div class="name-block"><p class="name">BAC</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:2.4%"></div></div>
+          <div class="stock-meta">$1,513<span class="n-strat">3 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">30</div>
+          <div class="name-block"><p class="name">SOFI</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:2.3%"></div></div>
+          <div class="stock-meta">$1,455<span class="n-strat">4 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">31</div>
+          <div class="name-block"><p class="name">CVNA</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:2.0%"></div></div>
+          <div class="stock-meta">$1,271<span class="n-strat">3 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">32</div>
+          <div class="name-block"><p class="name">NFLX</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:1.7%"></div></div>
+          <div class="stock-meta">$1,074<span class="n-strat">4 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">33</div>
+          <div class="name-block"><p class="name">UPST</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:1.6%"></div></div>
+          <div class="stock-meta">$1,023<span class="n-strat">2 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">34</div>
+          <div class="name-block"><p class="name">GME</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:1.6%"></div></div>
+          <div class="stock-meta">$996<span class="n-strat">4 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">35</div>
+          <div class="name-block"><p class="name">HD</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:1.2%"></div></div>
+          <div class="stock-meta">$762<span class="n-strat">2 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">36</div>
+          <div class="name-block"><p class="name">RKLB</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:0.9%"></div></div>
+          <div class="stock-meta">$544<span class="n-strat">1 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">37</div>
+          <div class="name-block"><p class="name">GOOGL</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:0.8%"></div></div>
+          <div class="stock-meta">$511<span class="n-strat">1 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">38</div>
+          <div class="name-block"><p class="name">CSCO</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:0.7%"></div></div>
+          <div class="stock-meta">$464<span class="n-strat">1 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">39</div>
+          <div class="name-block"><p class="name">AFRM</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:0.6%"></div></div>
+          <div class="stock-meta">$385<span class="n-strat">1 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">40</div>
+          <div class="name-block"><p class="name">IONQ</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:0.6%"></div></div>
+          <div class="stock-meta">$381<span class="n-strat">1 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">41</div>
+          <div class="name-block"><p class="name">MA</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:0.4%"></div></div>
+          <div class="stock-meta">$278<span class="n-strat">1 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">42</div>
+          <div class="name-block"><p class="name">DKNG</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:0.4%"></div></div>
+          <div class="stock-meta">$253<span class="n-strat">2 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">43</div>
+          <div class="name-block"><p class="name">NVDA</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:0.4%"></div></div>
+          <div class="stock-meta">$246<span class="n-strat">2 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">44</div>
+          <div class="name-block"><p class="name">AMZN</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:0.4%"></div></div>
+          <div class="stock-meta">$245<span class="n-strat">2 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">45</div>
+          <div class="name-block"><p class="name">SOUN</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:0.4%"></div></div>
+          <div class="stock-meta">$236<span class="n-strat">1 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">46</div>
+          <div class="name-block"><p class="name">PG</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:0.3%"></div></div>
+          <div class="stock-meta">$158<span class="n-strat">1 strategies</span></div>
+        </div>
+        <div class="stock-card">
+          <div class="rank">47</div>
+          <div class="name-block"><p class="name">KO</p></div>
+          <div class="stock-bar-track"><div class="stock-bar-fill" style="width:0.2%"></div></div>
+          <div class="stock-meta">$110<span class="n-strat">1 strategies</span></div>
+        </div>
+  </div>
+  <footer>data as of 2026-09-04T02:21:24.871862+00:00</footer>
+</div>
+</body>
+</html>

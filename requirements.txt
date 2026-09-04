@@ -1,0 +1,5 @@
+alpaca-py>=0.33
+numpy
+pandas
+scipy
+yfinance

@@ -1,0 +1,1458 @@
+{
+  "generated_at": "2026-09-04T02:21:24.871862+00:00",
+  "strategies": [
+    {
+      "strategy_id": "ema_50_200",
+      "display_name": "EMA 50/200 Golden Cross",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.000000000002,
+      "roi": 1.8189894035458566e-16,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.000000000002
+        }
+      ]
+    },
+    {
+      "strategy_id": "macd_momentum",
+      "display_name": "MACD Histogram Momentum",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.000000000002,
+      "roi": 1.8189894035458566e-16,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.000000000002
+        }
+      ]
+    },
+    {
+      "strategy_id": "anchored_vwap_52w_low",
+      "display_name": "Anchored VWAP from 52-Week Low",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.000000000002,
+      "roi": 1.8189894035458566e-16,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.000000000002
+        }
+      ]
+    },
+    {
+      "strategy_id": "distance_52w_high",
+      "display_name": "Near 52-Week High (Momentum)",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.000000000002,
+      "roi": 1.8189894035458566e-16,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.000000000002
+        }
+      ]
+    },
+    {
+      "strategy_id": "hurst_trending_regime",
+      "display_name": "Hurst Exponent Trending Regime",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.000000000002,
+      "roi": 1.8189894035458566e-16,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.000000000002
+        }
+      ]
+    },
+    {
+      "strategy_id": "ichimoku_cloud_signal",
+      "display_name": "Ichimoku Cloud Position",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.000000000002,
+      "roi": 1.8189894035458566e-16,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.000000000002
+        }
+      ]
+    },
+    {
+      "strategy_id": "bollinger_reversion",
+      "display_name": "Bollinger Band Mean Reversion",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "donchian_breakout",
+      "display_name": "Donchian Channel Breakout",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "gex_regime",
+      "display_name": "Negative GEX + Uptrend",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "adx_trend",
+      "display_name": "ADX Trend Strength",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "parabolic_sar",
+      "display_name": "Parabolic SAR Trend",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "multi_timeframe_trend",
+      "display_name": "Multi-Timeframe Trend Alignment",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "mfi_momentum",
+      "display_name": "Money Flow Index Momentum",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "cci_momentum",
+      "display_name": "CCI Momentum",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "cross_sectional_momentum",
+      "display_name": "Cross-Sectional Momentum Ranking",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "relative_strength_market",
+      "display_name": "Relative Strength vs SPY",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "obv_trend",
+      "display_name": "On-Balance Volume Trend",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "ad_line_trend",
+      "display_name": "Accumulation/Distribution Trend",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "chaikin_money_flow",
+      "display_name": "Chaikin Money Flow",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "unusual_volume_spike",
+      "display_name": "Unusual Volume Spike",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "session_vwap",
+      "display_name": "Price vs Session VWAP",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "zscore_reversion",
+      "display_name": "Z-Score Mean Reversion",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "distance_52w_low",
+      "display_name": "Near 52-Week Low (Reversion)",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "overnight_gap_fill",
+      "display_name": "Overnight Gap-Down Fill",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "autocorrelation_momentum",
+      "display_name": "Return Autocorrelation",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "put_call_oi_ratio",
+      "display_name": "Put/Call Open Interest Ratio",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "max_pain_proximity",
+      "display_name": "Max Pain Proximity",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "sector_rotation",
+      "display_name": "Sector Rotation (Top Sector)",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "risk_on_off",
+      "display_name": "Risk-On/Risk-Off Composite",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "oil_sensitivity_filter",
+      "display_name": "Oil Sensitivity Filter",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "seasonality_composite",
+      "display_name": "Turn-of-Month + Day-of-Week Seasonality",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "iv_term_structure",
+      "display_name": "IV Term Structure Backwardation",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "iv_rank_low",
+      "display_name": "Low IV Rank (Cheap Options, Building Momentum)",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "earnings_surprise_drift",
+      "display_name": "Post-Earnings Surprise Drift",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "short_squeeze_candidate",
+      "display_name": "Short Squeeze Candidate",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "ma_slope_acceleration",
+      "display_name": "Moving Average Slope Acceleration",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "bollinger_squeeze_breakout",
+      "display_name": "Bollinger Squeeze Breakout",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "pairs_correlation_reversion",
+      "display_name": "Pairs Correlation Reversion",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "keltner_breakout",
+      "display_name": "Keltner Channel Breakout",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 10000.0,
+      "roi": 0.0,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 10000.0
+        }
+      ]
+    },
+    {
+      "strategy_id": "ema_9_20",
+      "display_name": "EMA 9/20 Crossover",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 9999.999999999998,
+      "roi": -1.8189894035458566e-16,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 9999.999999999998
+        }
+      ]
+    },
+    {
+      "strategy_id": "rsi_momentum",
+      "display_name": "RSI Momentum",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 9999.999999999998,
+      "roi": -1.8189894035458566e-16,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 9999.999999999998
+        }
+      ]
+    },
+    {
+      "strategy_id": "supertrend",
+      "display_name": "Supertrend",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 9999.999999999998,
+      "roi": -1.8189894035458566e-16,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 9999.999999999998
+        }
+      ]
+    },
+    {
+      "strategy_id": "roc_momentum",
+      "display_name": "Rate of Change Momentum",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 9999.999999999998,
+      "roi": -1.8189894035458566e-16,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 9999.999999999998
+        }
+      ]
+    },
+    {
+      "strategy_id": "vwma_deviation",
+      "display_name": "Price vs VWMA Deviation",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 9999.999999999998,
+      "roi": -1.8189894035458566e-16,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 9999.999999999998
+        }
+      ]
+    },
+    {
+      "strategy_id": "oi_concentration",
+      "display_name": "Open Interest Magnet Strike",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 9999.999999999998,
+      "roi": -1.8189894035458566e-16,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 9999.999999999998
+        }
+      ]
+    },
+    {
+      "strategy_id": "vix_regime_filter",
+      "display_name": "VIX Regime Filter",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 9999.999999999998,
+      "roi": -1.8189894035458566e-16,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 9999.999999999998
+        }
+      ]
+    },
+    {
+      "strategy_id": "dollar_strength_filter",
+      "display_name": "Dollar Strength Filter",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 9999.999999999998,
+      "roi": -1.8189894035458566e-16,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 9999.999999999998
+        }
+      ]
+    },
+    {
+      "strategy_id": "credit_spread_proxy",
+      "display_name": "Credit Spread Proxy",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 9999.999999999998,
+      "roi": -1.8189894035458566e-16,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 9999.999999999998
+        }
+      ]
+    },
+    {
+      "strategy_id": "stochastic_momentum",
+      "display_name": "Stochastic Oscillator Momentum",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 9999.999999999998,
+      "roi": -1.8189894035458566e-16,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 9999.999999999998
+        }
+      ]
+    },
+    {
+      "strategy_id": "options_skew",
+      "display_name": "Options Skew (Call-Side Demand)",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 9999.999999999996,
+      "roi": -3.637978807091713e-16,
+      "returns_by_range": {
+        "1D": null,
+        "1W": null,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 9999.999999999996
+        }
+      ]
+    }
+  ],
+  "benchmark": {
+    "equity_history": [
+      {
+        "date": "2026-09-04",
+        "equity": 10000.0
+      }
+    ],
+    "returns_by_range": {
+      "1D": null,
+      "1W": null,
+      "1M": null,
+      "YTD": null,
+      "1Y": null,
+      "5Y": null
+    }
+  },
+  "positions_by_stock": [
+    {
+      "symbol": "CRM",
+      "total_value": 62295.72356955567,
+      "n_strategies": 21
+    },
+    {
+      "symbol": "MSTR",
+      "total_value": 50481.25500742796,
+      "n_strategies": 23
+    },
+    {
+      "symbol": "NIO",
+      "total_value": 47861.41300329424,
+      "n_strategies": 6
+    },
+    {
+      "symbol": "SNOW",
+      "total_value": 45056.27103327722,
+      "n_strategies": 14
+    },
+    {
+      "symbol": "HOOD",
+      "total_value": 34358.86897995035,
+      "n_strategies": 24
+    },
+    {
+      "symbol": "ADBE",
+      "total_value": 23383.49015628535,
+      "n_strategies": 8
+    },
+    {
+      "symbol": "AI",
+      "total_value": 20189.534221680562,
+      "n_strategies": 10
+    },
+    {
+      "symbol": "XOM",
+      "total_value": 20000.0,
+      "n_strategies": 2
+    },
+    {
+      "symbol": "PFE",
+      "total_value": 15795.242420263818,
+      "n_strategies": 7
+    },
+    {
+      "symbol": "U",
+      "total_value": 15099.812441556664,
+      "n_strategies": 7
+    },
+    {
+      "symbol": "MARA",
+      "total_value": 12011.309407531982,
+      "n_strategies": 10
+    },
+    {
+      "symbol": "RBLX",
+      "total_value": 10254.422531263559,
+      "n_strategies": 4
+    },
+    {
+      "symbol": "AMC",
+      "total_value": 8526.93076572735,
+      "n_strategies": 6
+    },
+    {
+      "symbol": "LCID",
+      "total_value": 8163.647396993214,
+      "n_strategies": 2
+    },
+    {
+      "symbol": "JNJ",
+      "total_value": 7877.21729956805,
+      "n_strategies": 6
+    },
+    {
+      "symbol": "V",
+      "total_value": 6293.049608052907,
+      "n_strategies": 3
+    },
+    {
+      "symbol": "COIN",
+      "total_value": 6023.024440693743,
+      "n_strategies": 16
+    },
+    {
+      "symbol": "UNH",
+      "total_value": 5405.330941006344,
+      "n_strategies": 4
+    },
+    {
+      "symbol": "META",
+      "total_value": 5376.016393597532,
+      "n_strategies": 4
+    },
+    {
+      "symbol": "INTC",
+      "total_value": 5218.742795014639,
+      "n_strategies": 3
+    },
+    {
+      "symbol": "RIOT",
+      "total_value": 5129.585619969776,
+      "n_strategies": 2
+    },
+    {
+      "symbol": "PLTR",
+      "total_value": 4398.105224056718,
+      "n_strategies": 14
+    },
+    {
+      "symbol": "SMCI",
+      "total_value": 3693.7922520686047,
+      "n_strategies": 12
+    },
+    {
+      "symbol": "JPM",
+      "total_value": 3540.9767735846685,
+      "n_strategies": 3
+    },
+    {
+      "symbol": "TSLA",
+      "total_value": 3318.145651652423,
+      "n_strategies": 11
+    },
+    {
+      "symbol": "MSFT",
+      "total_value": 3306.0095272144526,
+      "n_strategies": 7
+    },
+    {
+      "symbol": "AAPL",
+      "total_value": 3255.716575064022,
+      "n_strategies": 7
+    },
+    {
+      "symbol": "ARM",
+      "total_value": 1782.3797813364054,
+      "n_strategies": 3
+    },
+    {
+      "symbol": "BAC",
+      "total_value": 1512.5370208979525,
+      "n_strategies": 3
+    },
+    {
+      "symbol": "SOFI",
+      "total_value": 1454.8028137305018,
+      "n_strategies": 4
+    },
+    {
+      "symbol": "CVNA",
+      "total_value": 1270.7247804448957,
+      "n_strategies": 3
+    },
+    {
+      "symbol": "NFLX",
+      "total_value": 1074.312505740474,
+      "n_strategies": 4
+    },
+    {
+      "symbol": "UPST",
+      "total_value": 1023.1522513110096,
+      "n_strategies": 2
+    },
+    {
+      "symbol": "GME",
+      "total_value": 995.9357553064904,
+      "n_strategies": 4
+    },
+    {
+      "symbol": "HD",
+      "total_value": 761.8939611414412,
+      "n_strategies": 2
+    },
+    {
+      "symbol": "RKLB",
+      "total_value": 543.5499772924795,
+      "n_strategies": 1
+    },
+    {
+      "symbol": "GOOGL",
+      "total_value": 511.45378734396513,
+      "n_strategies": 1
+    },
+    {
+      "symbol": "CSCO",
+      "total_value": 463.88303718124973,
+      "n_strategies": 1
+    },
+    {
+      "symbol": "AFRM",
+      "total_value": 384.6566149515104,
+      "n_strategies": 1
+    },
+    {
+      "symbol": "IONQ",
+      "total_value": 380.78329321889345,
+      "n_strategies": 1
+    },
+    {
+      "symbol": "MA",
+      "total_value": 278.2027831076986,
+      "n_strategies": 1
+    },
+    {
+      "symbol": "DKNG",
+      "total_value": 253.20527811481867,
+      "n_strategies": 2
+    },
+    {
+      "symbol": "NVDA",
+      "total_value": 246.43439750916085,
+      "n_strategies": 2
+    },
+    {
+      "symbol": "AMZN",
+      "total_value": 244.6763063772584,
+      "n_strategies": 2
+    },
+    {
+      "symbol": "SOUN",
+      "total_value": 236.4776100830384,
+      "n_strategies": 1
+    },
+    {
+      "symbol": "PG",
+      "total_value": 157.77338685469752,
+      "n_strategies": 1
+    },
+    {
+      "symbol": "KO",
+      "total_value": 109.53062170424879,
+      "n_strategies": 1
+    }
+  ]
+}

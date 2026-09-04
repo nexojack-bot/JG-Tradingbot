@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Strategy Lab</title>
+<style>
+:root {
+  --bg: #F5F4F1;
+  --card: #FFFFFF;
+  --border: #E3E1DB;
+  --ink: #16181D;
+  --ink-soft: #6B6F76;
+  --accent: #2B3A67;
+  --accent-soft: #E8EAF2;
+  --gain: #1F7A5C;
+  --loss: #B23A3A;
+  --mono: ui-monospace, "SF Mono", "Roboto Mono", Consolas, monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1040px; margin: 0 auto; padding: 40px 24px 80px; }
+header.page-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 8px; flex-wrap: wrap; gap: 12px;
+}
+h1 { font-size: 22px; font-weight: 650; margin: 0; letter-spacing: -0.01em; }
+.subtitle { color: var(--ink-soft); font-size: 13px; margin: 0 0 28px; }
+nav.tabs { display: flex; gap: 4px; margin-bottom: 24px; border-bottom: 1px solid var(--border); }
+nav.tabs a {
+  padding: 10px 4px; margin-right: 20px; text-decoration: none; color: var(--ink-soft);
+  font-size: 14px; border-bottom: 2px solid transparent; font-weight: 500;
+}
+nav.tabs a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+.range-pills { display: flex; gap: 6px; margin-bottom: 20px; }
+.range-pills button {
+  border: 1px solid var(--border); background: var(--card); color: var(--ink-soft);
+  padding: 6px 14px; border-radius: 999px; font-size: 13px; cursor: pointer; font-family: var(--sans);
+}
+.range-pills button.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+.card-list { display: flex; flex-direction: column; gap: 10px; }
+.strategy-card, .stock-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+  padding: 16px 20px; display: flex; align-items: center; gap: 16px;
+}
+.rank { font-family: var(--mono); font-size: 13px; color: var(--ink-soft); width: 24px; flex-shrink: 0; }
+.name-block { flex: 1; min-width: 0; }
+.name { font-weight: 600; font-size: 14px; margin: 0 0 2px; }
+.name .status-badge {
+  font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 4px;
+  background: #F0E6E6; color: var(--loss); margin-left: 8px; vertical-align: middle;
+}
+.sub { font-size: 12px; color: var(--ink-soft); }
+.category-tag {
+  font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em;
+  background: var(--accent-soft); color: var(--accent); padding: 1px 6px; border-radius: 4px; margin-right: 6px;
+}
+.methodology-link { font-size: 13px; color: var(--accent); text-decoration: none; font-weight: 500; }
+.methodology-link:hover { text-decoration: underline; }
+.spark { width: 110px; height: 36px; flex-shrink: 0; }
+.figures { text-align: right; flex-shrink: 0; width: 130px; }
+.equity { font-family: var(--mono); font-size: 14px; font-weight: 600; }
+.delta { font-family: var(--mono); font-size: 12px; margin-top: 2px; }
+.delta.gain { color: var(--gain); }
+.delta.loss { color: var(--loss); }
+.delta.flat { color: var(--ink-soft); }
+.na { color: var(--ink-soft); font-size: 12px; }
+
+.stock-bar-track { flex: 1; height: 8px; background: var(--accent-soft); border-radius: 4px; overflow: hidden; }
+.stock-bar-fill { height: 100%; background: var(--accent); }
+.stock-meta { width: 190px; text-align: right; font-family: var(--mono); font-size: 13px; }
+.stock-meta .n-strat { color: var(--ink-soft); font-family: var(--sans); font-size: 12px; margin-left: 6px; }
+
+.empty-note {
+  background: var(--accent-soft); border: 1px solid var(--border); border-radius: 8px;
+  padding: 14px 18px; font-size: 13px; color: var(--ink); margin-bottom: 20px; line-height: 1.5;
+}
+footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family: var(--mono); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="page-head">
+    <h1>Strategy Lab</h1>
+    <a class="methodology-link" href="https://github.com/nexojack-bot/JG-Tradingbot/blob/main/METHODOLOGY.md" target="_blank">Methodology &amp; limitations &rarr;</a>
+  </header>
+  <p class="subtitle">A systematic screening study across 50 independent strategies (trend, momentum, volume, volatility, options-derived, macro, fundamental, calendar) &middot; ranked by return, benchmarked against SPY &middot; generated 2026-09-04T02:21:24.871862+00:00</p>
+  
+<nav class="tabs">
+  <a href="index.html" class="active">Strategies</a>
+  <a href="positions.html" class="">Positions</a>
+</nav>
+
+  <div class="empty-note" id="early-note" style="display:none">
+    Most ranges show no data yet — this experiment just started. Returns
+    populate as daily runs accumulate real history. See the methodology
+    doc for the validation plan and known limitations before drawing any
+    conclusions from early numbers.
+  </div>
+  <div class="range-pills">
+    <button data-range="1D" class="" onclick="setRange(&quot;1D&quot;)">1D</button><button data-range="1W" class="" onclick="setRange(&quot;1W&quot;)">1W</button><button data-range="1M" class="active" onclick="setRange(&quot;1M&quot;)">1M</button><button data-range="YTD" class="" onclick="setRange(&quot;YTD&quot;)">YTD</button><button data-range="1Y" class="" onclick="setRange(&quot;1Y&quot;)">1Y</button><button data-range="5Y" class="" onclick="setRange(&quot;5Y&quot;)">5Y</button>
+  </div>
+  <div class="card-list" id="list">
+    
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">1</div>
+          <div class="name-block">
+            <p class="name">EMA 50/200 Golden Cross</p>
+            <p class="sub"><span class="category-tag">Trend</span> ema_50_200</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">2</div>
+          <div class="name-block">
+            <p class="name">MACD Histogram Momentum</p>
+            <p class="sub"><span class="category-tag">Momentum</span> macd_momentum</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">3</div>
+          <div class="name-block">
+            <p class="name">Anchored VWAP from 52-Week Low</p>
+            <p class="sub"><span class="category-tag">Volume</span> anchored_vwap_52w_low</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">4</div>
+          <div class="name-block">
+            <p class="name">Near 52-Week High (Momentum)</p>
+            <p class="sub"><span class="category-tag">Volatility / Statistical</span> distance_52w_high</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">5</div>
+          <div class="name-block">
+            <p class="name">Hurst Exponent Trending Regime</p>
+            <p class="sub"><span class="category-tag">Volatility / Statistical</span> hurst_trending_regime</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">6</div>
+          <div class="name-block">
+            <p class="name">Ichimoku Cloud Position</p>
+            <p class="sub"><span class="category-tag">Trend</span> ichimoku_cloud_signal</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">7</div>
+          <div class="name-block">
+            <p class="name">Bollinger Band Mean Reversion</p>
+            <p class="sub"><span class="category-tag">Volatility / Statistical</span> bollinger_reversion</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">8</div>
+          <div class="name-block">
+            <p class="name">Donchian Channel Breakout</p>
+            <p class="sub"><span class="category-tag">Trend</span> donchian_breakout</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">9</div>
+          <div class="name-block">
+            <p class="name">Negative GEX + Uptrend</p>
+            <p class="sub"><span class="category-tag">Options-Derived</span> gex_regime</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">10</div>
+          <div class="name-block">
+            <p class="name">ADX Trend Strength</p>
+            <p class="sub"><span class="category-tag">Trend</span> adx_trend</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">11</div>
+          <div class="name-block">
+            <p class="name">Parabolic SAR Trend</p>
+            <p class="sub"><span class="category-tag">Trend</span> parabolic_sar</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">12</div>
+          <div class="name-block">
+            <p class="name">Multi-Timeframe Trend Alignment</p>
+            <p class="sub"><span class="category-tag">Trend</span> multi_timeframe_trend</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">13</div>
+          <div class="name-block">
+            <p class="name">Money Flow Index Momentum</p>
+            <p class="sub"><span class="category-tag">Momentum</span> mfi_momentum</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">14</div>
+          <div class="name-block">
+            <p class="name">CCI Momentum</p>
+            <p class="sub"><span class="category-tag">Momentum</span> cci_momentum</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">15</div>
+          <div class="name-block">
+            <p class="name">Cross-Sectional Momentum Ranking</p>
+            <p class="sub"><span class="category-tag">Momentum</span> cross_sectional_momentum</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">16</div>
+          <div class="name-block">
+            <p class="name">Relative Strength vs SPY</p>
+            <p class="sub"><span class="category-tag">Momentum</span> relative_strength_market</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">17</div>
+          <div class="name-block">
+            <p class="name">On-Balance Volume Trend</p>
+            <p class="sub"><span class="category-tag">Volume</span> obv_trend</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">18</div>
+          <div class="name-block">
+            <p class="name">Accumulation/Distribution Trend</p>
+            <p class="sub"><span class="category-tag">Volume</span> ad_line_trend</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">19</div>
+          <div class="name-block">
+            <p class="name">Chaikin Money Flow</p>
+            <p class="sub"><span class="category-tag">Volume</span> chaikin_money_flow</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">20</div>
+          <div class="name-block">
+            <p class="name">Unusual Volume Spike</p>
+            <p class="sub"><span class="category-tag">Volume</span> unusual_volume_spike</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">21</div>
+          <div class="name-block">
+            <p class="name">Price vs Session VWAP</p>
+            <p class="sub"><span class="category-tag">Volume</span> session_vwap</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">22</div>
+          <div class="name-block">
+            <p class="name">Z-Score Mean Reversion</p>
+            <p class="sub"><span class="category-tag">Volatility / Statistical</span> zscore_reversion</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">23</div>
+          <div class="name-block">
+            <p class="name">Near 52-Week Low (Reversion)</p>
+            <p class="sub"><span class="category-tag">Volatility / Statistical</span> distance_52w_low</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">24</div>
+          <div class="name-block">
+            <p class="name">Overnight Gap-Down Fill</p>
+            <p class="sub"><span class="category-tag">Volatility / Statistical</span> overnight_gap_fill</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">25</div>
+          <div class="name-block">
+            <p class="name">Return Autocorrelation</p>
+            <p class="sub"><span class="category-tag">Volatility / Statistical</span> autocorrelation_momentum</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">26</div>
+          <div class="name-block">
+            <p class="name">Put/Call Open Interest Ratio</p>
+            <p class="sub"><span class="category-tag">Options-Derived</span> put_call_oi_ratio</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">27</div>
+          <div class="name-block">
+            <p class="name">Max Pain Proximity</p>
+            <p class="sub"><span class="category-tag">Options-Derived</span> max_pain_proximity</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">28</div>
+          <div class="name-block">
+            <p class="name">Sector Rotation (Top Sector)</p>
+            <p class="sub"><span class="category-tag">Macro</span> sector_rotation</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">29</div>
+          <div class="name-block">
+            <p class="name">Risk-On/Risk-Off Composite</p>
+            <p class="sub"><span class="category-tag">Macro</span> risk_on_off</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">30</div>
+          <div class="name-block">
+            <p class="name">Oil Sensitivity Filter</p>
+            <p class="sub"><span class="category-tag">Macro</span> oil_sensitivity_filter</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">31</div>
+          <div class="name-block">
+            <p class="name">Turn-of-Month + Day-of-Week Seasonality</p>
+            <p class="sub"><span class="category-tag">Calendar</span> seasonality_composite</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">32</div>
+          <div class="name-block">
+            <p class="name">IV Term Structure Backwardation</p>
+            <p class="sub"><span class="category-tag">Options-Derived</span> iv_term_structure</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">33</div>
+          <div class="name-block">
+            <p class="name">Low IV Rank (Cheap Options, Building Momentum)</p>
+            <p class="sub"><span class="category-tag">Options-Derived</span> iv_rank_low</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">34</div>
+          <div class="name-block">
+            <p class="name">Post-Earnings Surprise Drift</p>
+            <p class="sub"><span class="category-tag">Fundamental</span> earnings_surprise_drift</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">35</div>
+          <div class="name-block">
+            <p class="name">Short Squeeze Candidate</p>
+            <p class="sub"><span class="category-tag">Fundamental</span> short_squeeze_candidate</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">36</div>
+          <div class="name-block">
+            <p class="name">Moving Average Slope Acceleration</p>
+            <p class="sub"><span class="category-tag">Trend</span> ma_slope_acceleration</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">37</div>
+          <div class="name-block">
+            <p class="name">Bollinger Squeeze Breakout</p>
+            <p class="sub"><span class="category-tag">Volatility / Statistical</span> bollinger_squeeze_breakout</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">38</div>
+          <div class="name-block">
+            <p class="name">Pairs Correlation Reversion</p>
+            <p class="sub"><span class="category-tag">Volatility / Statistical</span> pairs_correlation_reversion</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">39</div>
+          <div class="name-block">
+            <p class="name">Keltner Channel Breakout</p>
+            <p class="sub"><span class="category-tag">Trend</span> keltner_breakout</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">40</div>
+          <div class="name-block">
+            <p class="name">EMA 9/20 Crossover</p>
+            <p class="sub"><span class="category-tag">Trend</span> ema_9_20</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">41</div>
+          <div class="name-block">
+            <p class="name">RSI Momentum</p>
+            <p class="sub"><span class="category-tag">Momentum</span> rsi_momentum</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">42</div>
+          <div class="name-block">
+            <p class="name">Supertrend</p>
+            <p class="sub"><span class="category-tag">Trend</span> supertrend</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">43</div>
+          <div class="name-block">
+            <p class="name">Rate of Change Momentum</p>
+            <p class="sub"><span class="category-tag">Momentum</span> roc_momentum</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">44</div>
+          <div class="name-block">
+            <p class="name">Price vs VWMA Deviation</p>
+            <p class="sub"><span class="category-tag">Volume</span> vwma_deviation</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">45</div>
+          <div class="name-block">
+            <p class="name">Open Interest Magnet Strike</p>
+            <p class="sub"><span class="category-tag">Options-Derived</span> oi_concentration</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">46</div>
+          <div class="name-block">
+            <p class="name">VIX Regime Filter</p>
+            <p class="sub"><span class="category-tag">Macro</span> vix_regime_filter</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">47</div>
+          <div class="name-block">
+            <p class="name">Dollar Strength Filter</p>
+            <p class="sub"><span class="category-tag">Macro</span> dollar_strength_filter</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">48</div>
+          <div class="name-block">
+            <p class="name">Credit Spread Proxy</p>
+            <p class="sub"><span class="category-tag">Macro</span> credit_spread_proxy</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">49</div>
+          <div class="name-block">
+            <p class="name">Stochastic Oscillator Momentum</p>
+            <p class="sub"><span class="category-tag">Momentum</span> stochastic_momentum</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+        <div class="strategy-card" data-returns='{"1D": null, "1W": null, "1M": null, "YTD": null, "1Y": null, "5Y": null}'>
+          <div class="rank">50</div>
+          <div class="name-block">
+            <p class="name">Options Skew (Call-Side Demand)</p>
+            <p class="sub"><span class="category-tag">Options-Derived</span> options_skew</p>
+          </div>
+          <svg class="spark" viewBox="0 0 110 36"><line x1="4" y1="18.0" x2="106" y2="18.0" stroke="#D8D6CF" stroke-width="2"/></svg>
+          <div class="figures">
+            <div class="equity">$10,000.00</div>
+            <div class="delta-slot"></div>
+          </div>
+        </div>
+  </div>
+  <footer>data as of 2026-09-04T02:21:24.871862+00:00</footer>
+</div>
+<script>
+
+const RANGES = ["1D","1W","1M","YTD","1Y","5Y"];
+let currentRange = "1M";
+
+function fmtPct(v) {
+  if (v === null || v === undefined) return null;
+  const pct = (v * 100).toFixed(2);
+  return (v >= 0 ? "+" : "") + pct + "%";
+}
+function deltaClass(v) {
+  if (v === null || v === undefined) return "na";
+  if (Math.abs(v) < 0.0001) return "flat";
+  return v > 0 ? "gain" : "loss";
+}
+function setRange(r) {
+  currentRange = r;
+  document.querySelectorAll(".range-pills button").forEach(b => {
+    b.classList.toggle("active", b.dataset.range === r);
+  });
+  render();
+}
+
+function render() {
+  let anyData = false;
+  document.querySelectorAll(".strategy-card").forEach(card => {
+    const returns = JSON.parse(card.dataset.returns);
+    const v = returns[currentRange];
+    const slot = card.querySelector(".delta-slot");
+    if (v === null || v === undefined) {
+      slot.innerHTML = '<span class="na">n/a</span>';
+    } else {
+      anyData = true;
+      slot.innerHTML = `<span class="delta ${deltaClass(v)}">${fmtPct(v)}</span>`;
+    }
+  });
+  document.getElementById("early-note").style.display = anyData ? "none" : "block";
+}
+render();
+</script>
+</body>
+</html>
