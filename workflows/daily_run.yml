@@ -1,0 +1,73 @@
+name: Daily Strategy Run
+
+# Runs once a day after US market close. Cron is in UTC — 21:30 UTC covers
+# both EST (close 21:00 UTC) and EDT (close 20:00 UTC) with a safety buffer
+# either way, so this doesn't need adjusting for daylight saving.
+# workflow_dispatch lets you trigger a run manually from the Actions tab —
+# useful for testing before trusting the schedule.
+on:
+  schedule:
+    - cron: "30 21 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  run-daily-experiment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run daily experiment
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+        run: python run_experiment_day.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add experiment/experiment.db experiment/dashboard_data.json experiment/site/
+          git diff --staged --quiet || git commit -m "Daily run: $(date -u +%Y-%m-%d)"
+          git push
+
+  deploy-pages:
+    needs: run-daily-experiment
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout repo (post-commit)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: experiment/site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
