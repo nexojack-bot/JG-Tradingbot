@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T21:41:45.163696+00:00",
+  "generated_at": "2026-09-05T21:39:36.046810+00:00",
   "strategies": [
     {
       "strategy_id": "ma_slope_acceleration",
@@ -11,7 +11,7 @@
       "latest_equity": 10417.468285971654,
       "roi": 0.04174682859716541,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -21,6 +21,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 10417.468285971654
+        },
+        {
+          "date": "2026-09-05",
           "equity": 10417.468285971654
         }
       ]
@@ -32,10 +36,10 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 10137.56159783473,
-      "roi": 0.013756159783473049,
+      "latest_equity": 10137.561597834732,
+      "roi": 0.013756159783473231,
       "returns_by_range": {
-        "1D": null,
+        "1D": 1.7943066347773138e-16,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -46,6 +50,10 @@
         {
           "date": "2026-09-04",
           "equity": 10137.56159783473
+        },
+        {
+          "date": "2026-09-05",
+          "equity": 10137.561597834732
         }
       ]
     },
@@ -59,7 +67,7 @@
       "latest_equity": 10070.0553093602,
       "roi": 0.007005530936019932,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -69,6 +77,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 10070.0553093602
+        },
+        {
+          "date": "2026-09-05",
           "equity": 10070.0553093602
         }
       ]
@@ -83,7 +95,7 @@
       "latest_equity": 10048.623733048293,
       "roi": 0.004862373304829271,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -93,6 +105,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 10048.623733048293
+        },
+        {
+          "date": "2026-09-05",
           "equity": 10048.623733048293
         }
       ]
@@ -107,7 +123,7 @@
       "latest_equity": 10000.0,
       "roi": 0.0,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -117,6 +133,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 10000.0
+        },
+        {
+          "date": "2026-09-05",
           "equity": 10000.0
         }
       ]
@@ -131,7 +151,7 @@
       "latest_equity": 10000.0,
       "roi": 0.0,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -141,6 +161,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 10000.0
+        },
+        {
+          "date": "2026-09-05",
           "equity": 10000.0
         }
       ]
@@ -155,7 +179,7 @@
       "latest_equity": 10000.0,
       "roi": 0.0,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -165,6 +189,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 10000.0
+        },
+        {
+          "date": "2026-09-05",
           "equity": 10000.0
         }
       ]
@@ -179,7 +207,7 @@
       "latest_equity": 10000.0,
       "roi": 0.0,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -189,6 +217,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 10000.0
+        },
+        {
+          "date": "2026-09-05",
           "equity": 10000.0
         }
       ]
@@ -203,7 +235,7 @@
       "latest_equity": 10000.0,
       "roi": 0.0,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -213,6 +245,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 10000.0
+        },
+        {
+          "date": "2026-09-05",
           "equity": 10000.0
         }
       ]
@@ -227,7 +263,7 @@
       "latest_equity": 9986.52385667631,
       "roi": -0.001347614332369085,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -237,6 +273,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9986.52385667631
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9986.52385667631
         }
       ]
@@ -251,7 +291,7 @@
       "latest_equity": 9959.081635431268,
       "roi": -0.00409183645687317,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -261,6 +301,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9959.081635431268
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9959.081635431268
         }
       ]
@@ -275,7 +319,7 @@
       "latest_equity": 9903.886880595368,
       "roi": -0.009611311940463201,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -285,6 +329,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9903.886880595368
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9903.886880595368
         }
       ]
@@ -299,7 +347,7 @@
       "latest_equity": 9889.516198641291,
       "roi": -0.011048380135870867,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -309,6 +357,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9889.516198641291
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9889.516198641291
         }
       ]
@@ -323,7 +375,7 @@
       "latest_equity": 9884.470817628711,
       "roi": -0.01155291823712887,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -333,6 +385,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9884.470817628711
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9884.470817628711
         }
       ]
@@ -347,7 +403,7 @@
       "latest_equity": 9874.271530260026,
       "roi": -0.012572846973997366,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -357,6 +413,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9874.271530260026
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9874.271530260026
         }
       ]
@@ -371,7 +431,7 @@
       "latest_equity": 9872.199467335944,
       "roi": -0.012780053266405593,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -381,6 +441,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9872.199467335944
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9872.199467335944
         }
       ]
@@ -395,7 +459,7 @@
       "latest_equity": 9863.121935555902,
       "roi": -0.013687806444409761,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -405,6 +469,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9863.121935555902
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9863.121935555902
         }
       ]
@@ -419,7 +487,7 @@
       "latest_equity": 9858.090675702591,
       "roi": -0.01419093242974086,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -429,6 +497,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9858.090675702591
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9858.090675702591
         }
       ]
@@ -443,7 +515,7 @@
       "latest_equity": 9844.559585492227,
       "roi": -0.015544041450777332,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -453,6 +525,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9844.559585492227
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9844.559585492227
         }
       ]
@@ -467,7 +543,7 @@
       "latest_equity": 9844.559585492227,
       "roi": -0.015544041450777332,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -477,6 +553,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9844.559585492227
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9844.559585492227
         }
       ]
@@ -491,7 +571,7 @@
       "latest_equity": 9837.641673643846,
       "roi": -0.016235832635615406,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -501,6 +581,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9837.641673643846
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9837.641673643846
         }
       ]
@@ -515,7 +599,7 @@
       "latest_equity": 9837.641673643846,
       "roi": -0.016235832635615406,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -525,6 +609,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9837.641673643846
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9837.641673643846
         }
       ]
@@ -539,7 +627,7 @@
       "latest_equity": 9837.61320624795,
       "roi": -0.01623867937520499,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -549,6 +637,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9837.61320624795
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9837.61320624795
         }
       ]
@@ -563,7 +655,7 @@
       "latest_equity": 9837.073342545282,
       "roi": -0.01629266574547182,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -573,6 +665,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9837.073342545282
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9837.073342545282
         }
       ]
@@ -587,7 +683,7 @@
       "latest_equity": 9836.75675080954,
       "roi": -0.01632432491904601,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -597,6 +693,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9836.75675080954
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9836.75675080954
         }
       ]
@@ -611,7 +711,7 @@
       "latest_equity": 9831.08316380001,
       "roi": -0.01689168361999891,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -621,6 +721,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9831.08316380001
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9831.08316380001
         }
       ]
@@ -635,7 +739,7 @@
       "latest_equity": 9831.08316380001,
       "roi": -0.01689168361999891,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -645,6 +749,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9831.08316380001
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9831.08316380001
         }
       ]
@@ -659,7 +767,7 @@
       "latest_equity": 9830.3627492292,
       "roi": -0.016963725077080015,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -669,6 +777,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9830.3627492292
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9830.3627492292
         }
       ]
@@ -683,7 +795,7 @@
       "latest_equity": 9819.932039991765,
       "roi": -0.01800679600082349,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -693,6 +805,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9819.932039991765
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9819.932039991765
         }
       ]
@@ -707,7 +823,7 @@
       "latest_equity": 9819.932039991765,
       "roi": -0.01800679600082349,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -717,6 +833,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9819.932039991765
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9819.932039991765
         }
       ]
@@ -731,7 +851,7 @@
       "latest_equity": 9814.874220517006,
       "roi": -0.01851257794829944,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -741,6 +861,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9814.874220517006
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9814.874220517006
         }
       ]
@@ -755,7 +879,7 @@
       "latest_equity": 9809.416975822016,
       "roi": -0.019058302417798403,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -765,6 +889,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9809.416975822016
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9809.416975822016
         }
       ]
@@ -779,7 +907,7 @@
       "latest_equity": 9806.981127533718,
       "roi": -0.01930188724662821,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -789,6 +917,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9806.981127533718
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9806.981127533718
         }
       ]
@@ -803,7 +935,7 @@
       "latest_equity": 9803.350603184208,
       "roi": -0.0196649396815792,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -813,6 +945,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9803.350603184208
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9803.350603184208
         }
       ]
@@ -827,7 +963,7 @@
       "latest_equity": 9787.445612605545,
       "roi": -0.021255438739445527,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -837,6 +973,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9787.445612605545
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9787.445612605545
         }
       ]
@@ -851,7 +991,7 @@
       "latest_equity": 9783.689841741565,
       "roi": -0.021631015825843498,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -861,6 +1001,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9783.689841741565
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9783.689841741565
         }
       ]
@@ -875,7 +1019,7 @@
       "latest_equity": 9764.109698698727,
       "roi": -0.023589030130127323,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -885,6 +1029,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9764.109698698727
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9764.109698698727
         }
       ]
@@ -899,7 +1047,7 @@
       "latest_equity": 9761.858382892293,
       "roi": -0.023814161710770713,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -909,6 +1057,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9761.858382892293
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9761.858382892293
         }
       ]
@@ -923,7 +1075,7 @@
       "latest_equity": 9747.008867242246,
       "roi": -0.02529911327577538,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -933,6 +1085,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9747.008867242246
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9747.008867242246
         }
       ]
@@ -947,7 +1103,7 @@
       "latest_equity": 9745.158346217098,
       "roi": -0.025484165378290163,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -957,6 +1113,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9745.158346217098
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9745.158346217098
         }
       ]
@@ -971,7 +1131,7 @@
       "latest_equity": 9740.583440773786,
       "roi": -0.02594165592262143,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -981,6 +1141,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9740.583440773786
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9740.583440773786
         }
       ]
@@ -995,7 +1159,7 @@
       "latest_equity": 9739.986274292633,
       "roi": -0.026001372570736748,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -1005,6 +1169,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9739.986274292633
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9739.986274292633
         }
       ]
@@ -1019,7 +1187,7 @@
       "latest_equity": 9716.161498834716,
       "roi": -0.028383850116528445,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -1029,6 +1197,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9716.161498834716
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9716.161498834716
         }
       ]
@@ -1043,7 +1215,7 @@
       "latest_equity": 9693.615412282294,
       "roi": -0.030638458771770637,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -1053,6 +1225,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9693.615412282294
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9693.615412282294
         }
       ]
@@ -1067,7 +1243,7 @@
       "latest_equity": 9616.198689076406,
       "roi": -0.038380131092359444,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -1077,6 +1253,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9616.198689076406
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9616.198689076406
         }
       ]
@@ -1091,7 +1271,7 @@
       "latest_equity": 9509.233895390596,
       "roi": -0.049076610460940355,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -1101,6 +1281,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9509.233895390596
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9509.233895390596
         }
       ]
@@ -1115,7 +1299,7 @@
       "latest_equity": 9505.765957384438,
       "roi": -0.049423404261556246,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -1125,6 +1309,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9505.765957384438
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9505.765957384438
         }
       ]
@@ -1139,7 +1327,7 @@
       "latest_equity": 9481.383437760309,
       "roi": -0.05186165622396911,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -1149,6 +1337,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9481.383437760309
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9481.383437760309
         }
       ]
@@ -1163,7 +1355,7 @@
       "latest_equity": 9386.46263655368,
       "roi": -0.06135373634463194,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -1173,6 +1365,10 @@
       "equity_history": [
         {
           "date": "2026-09-04",
+          "equity": 9386.46263655368
+        },
+        {
+          "date": "2026-09-05",
           "equity": 9386.46263655368
         }
       ]
@@ -1187,7 +1383,7 @@
       "latest_equity": 9326.68416447944,
       "roi": -0.06733158355205596,
       "returns_by_range": {
-        "1D": null,
+        "1D": 0.0,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -1198,6 +1394,10 @@
         {
           "date": "2026-09-04",
           "equity": 9326.68416447944
+        },
+        {
+          "date": "2026-09-05",
+          "equity": 9326.68416447944
         }
       ]
     }
@@ -1207,10 +1407,14 @@
       {
         "date": "2026-09-04",
         "equity": 9961.457376773544
+      },
+      {
+        "date": "2026-09-05",
+        "equity": 9961.457376773544
       }
     ],
     "returns_by_range": {
-      "1D": null,
+      "1D": 0.0,
       "1W": null,
       "1M": null,
       "YTD": null,
@@ -1276,23 +1480,18 @@
     },
     {
       "symbol": "INTC",
-      "total_value": 8155.517358596346,
+      "total_value": 8155.536459332884,
       "n_strategies": 5
     },
     {
       "symbol": "JNJ",
-      "total_value": 7786.684327694985,
-      "n_strategies": 6
+      "total_value": 7805.853675615548,
+      "n_strategies": 7
     },
     {
       "symbol": "LCID",
-      "total_value": 7700.978397944101,
-      "n_strategies": 2
-    },
-    {
-      "symbol": "RIOT",
-      "total_value": 7065.682354171251,
-      "n_strategies": 7
+      "total_value": 6414.030670339799,
+      "n_strategies": 1
     },
     {
       "symbol": "V",
@@ -1305,11 +1504,6 @@
       "n_strategies": 19
     },
     {
-      "symbol": "AMC",
-      "total_value": 5896.579772181758,
-      "n_strategies": 11
-    },
-    {
       "symbol": "UNH",
       "total_value": 5354.10068816097,
       "n_strategies": 4
@@ -1318,11 +1512,6 @@
       "symbol": "META",
       "total_value": 5038.250799695079,
       "n_strategies": 7
-    },
-    {
-      "symbol": "ARM",
-      "total_value": 4260.54449816802,
-      "n_strategies": 5
     },
     {
       "symbol": "PLTR",
@@ -1335,9 +1524,9 @@
       "n_strategies": 8
     },
     {
-      "symbol": "SMCI",
-      "total_value": 3771.3797520431476,
-      "n_strategies": 17
+      "symbol": "AMC",
+      "total_value": 3937.438487895409,
+      "n_strategies": 10
     },
     {
       "symbol": "JPM",
@@ -1345,14 +1534,29 @@
       "n_strategies": 4
     },
     {
+      "symbol": "ARM",
+      "total_value": 3585.723169858229,
+      "n_strategies": 3
+    },
+    {
+      "symbol": "TSLA",
+      "total_value": 3355.466440563676,
+      "n_strategies": 13
+    },
+    {
       "symbol": "MSFT",
       "total_value": 3238.479104424571,
       "n_strategies": 7
     },
     {
-      "symbol": "TSLA",
-      "total_value": 3170.2963502514194,
-      "n_strategies": 12
+      "symbol": "SMCI",
+      "total_value": 2836.2224176595946,
+      "n_strategies": 15
+    },
+    {
+      "symbol": "RIOT",
+      "total_value": 2094.4655623398867,
+      "n_strategies": 7
     },
     {
       "symbol": "BAC",
@@ -1395,6 +1599,11 @@
       "n_strategies": 2
     },
     {
+      "symbol": "DKNG",
+      "total_value": 992.7750806197257,
+      "n_strategies": 3
+    },
+    {
       "symbol": "AFRM",
       "total_value": 905.5422631088297,
       "n_strategies": 2
@@ -1403,16 +1612,6 @@
       "symbol": "SOUN",
       "total_value": 822.6328085906782,
       "n_strategies": 3
-    },
-    {
-      "symbol": "HD",
-      "total_value": 798.2974974320772,
-      "n_strategies": 2
-    },
-    {
-      "symbol": "RKLB",
-      "total_value": 543.5499772924795,
-      "n_strategies": 1
     },
     {
       "symbol": "CSCO",
@@ -1425,19 +1624,14 @@
       "n_strategies": 1
     },
     {
-      "symbol": "IONQ",
-      "total_value": 380.78329321889345,
-      "n_strategies": 1
-    },
-    {
       "symbol": "MA",
       "total_value": 275.1153881678819,
       "n_strategies": 1
     },
     {
-      "symbol": "DKNG",
-      "total_value": 251.32115450751533,
-      "n_strategies": 2
+      "symbol": "HD",
+      "total_value": 256.4604467078474,
+      "n_strategies": 1
     },
     {
       "symbol": "AMZN",
@@ -1445,14 +1639,19 @@
       "n_strategies": 2
     },
     {
+      "symbol": "RKLB",
+      "total_value": 240.66346419981264,
+      "n_strategies": 1
+    },
+    {
       "symbol": "NVDA",
-      "total_value": 175.8700296315135,
-      "n_strategies": 5
+      "total_value": 182.2969032299859,
+      "n_strategies": 6
     },
     {
       "symbol": "PG",
-      "total_value": 157.25792792677584,
-      "n_strategies": 1
+      "total_value": 162.07164245075558,
+      "n_strategies": 2
     }
   ]
 }
