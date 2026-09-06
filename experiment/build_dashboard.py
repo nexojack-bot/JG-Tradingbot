@@ -7,8 +7,11 @@ site. Run export_dashboard_data.py first, then this.
 
 import json
 import os
+import sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 HERE = os.path.dirname(__file__)
+from experiment.strategy_metadata import STRATEGY_DETAILS
 
 CSS = """
 :root {
@@ -90,12 +93,15 @@ nav.tabs a.active { color: var(--accent); border-bottom-color: var(--accent); }
 footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family: var(--mono); }
 """
 
-TABS_HTML = """
-<nav class="tabs">
-  <a href="index.html" class="{idx_active}">Strategies</a>
-  <a href="positions.html" class="{pos_active}">Positions</a>
-</nav>
-"""
+def _nav_html(active_page: str) -> str:
+    pages = [("index.html", "Strategies"), ("recommendations.html", "Recommendations"),
+             ("holdings.html", "Total Holdings"), ("positions.html", "Positions"),
+             ("correlation.html", "Correlation")]
+    links = "\n".join(
+        f'  <a href="{href}" class="{"active" if href == active_page else ""}">{label}</a>'
+        for href, label in pages
+    )
+    return f'<nav class="tabs">\n{links}\n</nav>'
 
 RANGE_JS = """
 const RANGES = ["1D","1W","1M","YTD","1Y","5Y"];
@@ -187,7 +193,9 @@ def build_index(data: dict) -> str:
         badge = f'<span class="status-badge">Eliminated {s["eliminated_on"] or ""}</span>' if s["status"] == "eliminated" else ""
         category = STRATEGY_CATEGORIES.get(s["strategy_id"], "Other")
         spark = _sparkline_svg(s["equity_history"])
+        equity_str = f'${s["latest_equity"]:,.2f}' if s["latest_equity"] is not None else '<span class="na">no data yet</span>'
         rows.append(f'''
+        <a href="strategy_{s["strategy_id"]}.html" style="text-decoration:none;color:inherit">
         <div class="strategy-card" data-returns='{json.dumps(s["returns_by_range"])}'>
           <div class="rank">{i}</div>
           <div class="name-block">
@@ -196,10 +204,11 @@ def build_index(data: dict) -> str:
           </div>
           {spark}
           <div class="figures">
-            <div class="equity">${s["latest_equity"]:,.2f}</div>
+            <div class="equity">{equity_str}</div>
             <div class="delta-slot"></div>
           </div>
-        </div>''')
+        </div>
+        </a>''')
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -215,7 +224,7 @@ def build_index(data: dict) -> str:
     <a class="methodology-link" href="https://github.com/nexojack-bot/JG-Tradingbot/blob/main/METHODOLOGY.md" target="_blank">Methodology &amp; limitations &rarr;</a>
   </header>
   <p class="subtitle">A systematic screening study across 50 independent strategies (trend, momentum, volume, volatility, options-derived, macro, fundamental, calendar) &middot; ranked by return, benchmarked against SPY &middot; generated {data["generated_at"]}</p>
-  {TABS_HTML.format(idx_active="active", pos_active="")}
+  {_nav_html("index.html")}
   <div class="empty-note" id="early-note" style="display:none">
     Most ranges show no data yet — this experiment just started. Returns
     populate as daily runs accumulate real history. See the methodology
@@ -280,7 +289,7 @@ def build_positions(data: dict) -> str:
     <h1>Positions by Stock</h1>
   </header>
   <p class="subtitle">Total capital invested per symbol, aggregated across all active strategies &middot; generated {data["generated_at"]}</p>
-  {TABS_HTML.format(idx_active="", pos_active="active")}
+  {_nav_html("positions.html")}
   <div class="empty-note">
     Ranked by total dollar value currently allocated across all strategies —
     a proxy for how strongly the strategy set favors each stock right now,
@@ -289,6 +298,320 @@ def build_positions(data: dict) -> str:
   <div class="card-list">
     {"".join(rows) if rows else '<p class="na">No positions recorded yet.</p>'}
   </div>
+  <footer>data as of {data["generated_at"]}</footer>
+</div>
+</body>
+</html>"""
+
+
+def build_recommendations(data: dict) -> str:
+    rec = data.get("recommendations", {})
+    best = rec.get("best_strategy")
+
+    def render_list(items, list_label):
+        if not items:
+            return '<p class="na">No symbols currently qualify.</p>'
+        rows = []
+        for i, item in enumerate(items, 1):
+            best_stance = item["best_strategy_stance"]
+            stance_class = {"buy": "gain", "sell": "loss", "hold": "flat"}.get(best_stance, "na")
+            rows.append(f'''
+            <div class="stock-card">
+              <div class="rank">{i}</div>
+              <div class="name-block"><p class="name">{item["symbol"]}</p></div>
+              <div class="stock-bar-track"><div class="stock-bar-fill" style="width:{item["pct"]*100:.1f}%"></div></div>
+              <div class="stock-meta">{item["count"]}/{item["n_active_strategies"]} strategies ({item["pct"]*100:.0f}%)
+                <div class="delta {stance_class}" style="margin-top:2px">Best strategy: {best_stance}</div>
+              </div>
+            </div>''')
+        return "".join(rows)
+
+    best_block = ""
+    if best:
+        roi_str = f'{best["roi"]*100:+.2f}%' if best["roi"] is not None else "n/a"
+        best_block = f'<div class="empty-note"><strong>Currently best-performing strategy:</strong> {best["display_name"]} (ROI: {roi_str}) — its individual stance is cross-referenced in every list below.</div>'
+
+    date_str = rec.get("date") or "n/a"
+
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Daily Recommendations — Strategy Lab</title>
+<style>{CSS}</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="page-head">
+    <h1>Daily Recommendations</h1>
+    <a class="methodology-link" href="https://github.com/nexojack-bot/JG-Tradingbot/blob/main/METHODOLOGY.md" target="_blank">Methodology &amp; limitations &rarr;</a>
+  </header>
+  <p class="subtitle">Aggregated across {rec.get("n_active_strategies", 0)} active strategies for {date_str} — NOT investment advice, a research aggregation of mechanical signals. See methodology for what this can and can't tell you.</p>
+  {_nav_html("recommendations.html")}
+  {best_block}
+
+  <h2 style="font-size:16px;margin:28px 0 12px;">Top 10 — Buy</h2>
+  <div class="card-list">{render_list(rec.get("top_buy", []), "buy")}</div>
+
+  <h2 style="font-size:16px;margin:28px 0 12px;">Top 10 — Hold</h2>
+  <div class="card-list">{render_list(rec.get("top_hold", []), "hold")}</div>
+
+  <h2 style="font-size:16px;margin:28px 0 12px;">Top 10 — Sell</h2>
+  <div class="card-list">{render_list(rec.get("top_sell", []), "sell")}</div>
+
+  <footer>data as of {data["generated_at"]}</footer>
+</div>
+</body>
+</html>"""
+
+
+def build_holdings(data: dict) -> str:
+    holdings = data.get("total_holdings", {"equity_history": [], "returns_by_range": {}})
+    series_json = json.dumps(holdings["equity_history"])
+    n_strategies = len([s for s in data["strategies"] if s["status"] == "active"])
+    total_start = sum(s["starting_cash"] for s in data["strategies"])
+
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Total Holdings — Strategy Lab</title>
+<style>{CSS}
+.big-chart {{ width: 100%; height: 280px; }}
+.chart-header {{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; }}
+.chart-total {{ font-family: var(--mono); font-size: 28px; font-weight: 700; }}
+.chart-change {{ font-family: var(--mono); font-size: 15px; margin-top:4px; }}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="page-head">
+    <h1>Total Holdings</h1>
+  </header>
+  <p class="subtitle">Combined equity across all {n_strategies} active strategies (${total_start:,.0f} total starting capital) &middot; generated {data["generated_at"]}</p>
+  {_nav_html("holdings.html")}
+  <div class="range-pills">{_range_pills_html()}</div>
+
+  <div class="strategy-card" style="flex-direction:column;align-items:stretch;padding:24px">
+    <div class="chart-header">
+      <div>
+        <div class="chart-total" id="chart-total">$0.00</div>
+        <div class="chart-change" id="chart-change"></div>
+      </div>
+    </div>
+    <svg class="big-chart" id="big-chart" viewBox="0 0 900 280" preserveAspectRatio="none"></svg>
+  </div>
+
+  <footer>data as of {data["generated_at"]}</footer>
+</div>
+<script>
+{RANGE_JS}
+const SERIES = {series_json};
+
+function filterByRange(series, range) {{
+  if (series.length === 0) return series;
+  const lastDate = new Date(series[series.length - 1].date);
+  let cutoff;
+  if (range === "YTD") {{
+    cutoff = new Date(lastDate.getFullYear(), 0, 1);
+  }} else {{
+    const daysMap = {{"1D": 1, "1W": 7, "1M": 30, "1Y": 365, "5Y": 365*5}};
+    cutoff = new Date(lastDate);
+    cutoff.setDate(cutoff.getDate() - daysMap[range]);
+  }}
+  return series.filter(p => new Date(p.date) >= cutoff);
+}}
+
+function drawChart(points) {{
+  const svg = document.getElementById("big-chart");
+  if (points.length < 2) {{
+    svg.innerHTML = '<line x1="20" y1="140" x2="880" y2="140" stroke="#D8D6CF" stroke-width="2"/>';
+    return;
+  }}
+  const values = points.map(p => p.equity);
+  const lo = Math.min(...values), hi = Math.max(...values);
+  const span = (hi - lo) || 1;
+  const w = 900, h = 280, pad = 20;
+  const pts = points.map((p, i) => {{
+    const x = pad + (w - 2*pad) * (i / (points.length - 1));
+    const y = h - pad - (h - 2*pad) * ((p.equity - lo) / span);
+    return x.toFixed(1) + "," + y.toFixed(1);
+  }}).join(" ");
+  const color = values[values.length-1] >= values[0] ? "#1F7A5C" : "#B23A3A";
+  svg.innerHTML = '<polyline points="' + pts + '" fill="none" stroke="' + color + '" stroke-width="2.5"/>';
+}}
+
+function render() {{
+  const filtered = filterByRange(SERIES, currentRange);
+  drawChart(filtered);
+  const totalEl = document.getElementById("chart-total");
+  const changeEl = document.getElementById("chart-change");
+  if (SERIES.length === 0) {{
+    totalEl.textContent = "$0.00";
+    changeEl.innerHTML = '<span class="na">No data yet</span>';
+    return;
+  }}
+  const latest = SERIES[SERIES.length - 1].equity;
+  totalEl.textContent = "$" + latest.toLocaleString(undefined, {{minimumFractionDigits:2, maximumFractionDigits:2}});
+  if (filtered.length < 2) {{
+    changeEl.innerHTML = '<span class="na">Not enough history for this range yet</span>';
+    return;
+  }}
+  const start = filtered[0].equity;
+  const change = (latest - start) / start;
+  changeEl.innerHTML = '<span class="delta ' + deltaClass(change) + '">' + fmtPct(change) + ' over ' + currentRange + '</span>';
+}}
+render();
+</script>
+</body>
+</html>"""
+
+
+def build_correlation(data: dict) -> str:
+    corr_data = data.get("correlation", {"matrix": {}, "most_correlated_pairs": []})
+    matrix = corr_data["matrix"]
+    ids = list(matrix.keys())
+    name_by_id = {s["strategy_id"]: s["display_name"] for s in data["strategies"]}
+
+    def color_for(v):
+        if v is None:
+            return "#EDEBE6"
+        # red for negative, green for positive, intensity by magnitude, white near zero
+        if v >= 0:
+            r, g, b = 255 - int(v * 90), 255 - int(v * 40), 255 - int(v * 90)
+        else:
+            r, g, b = 255 - int(abs(v) * 40), 255 - int(abs(v) * 90), 255 - int(abs(v) * 90)
+        return f"rgb({max(0,r)},{max(0,g)},{max(0,b)})"
+
+    cell_size = max(6, min(14, 700 // max(1, len(ids))))
+    heatmap_rows = []
+    for row_id in ids:
+        cells = "".join(
+            f'<div class="corr-cell" style="width:{cell_size}px;height:{cell_size}px;background:{color_for(matrix[row_id].get(col_id))}" title="{name_by_id.get(row_id,row_id)} vs {name_by_id.get(col_id,col_id)}: {matrix[row_id].get(col_id)}"></div>'
+            for col_id in ids
+        )
+        heatmap_rows.append(f'<div class="corr-row">{cells}</div>')
+
+    pair_rows = []
+    for p in corr_data["most_correlated_pairs"][:20]:
+        a_name = name_by_id.get(p["strategy_a"], p["strategy_a"])
+        b_name = name_by_id.get(p["strategy_b"], p["strategy_b"])
+        corr_class = "loss" if p["correlation"] < 0 else "gain"
+        pair_rows.append(f'''
+        <div class="stock-card">
+          <div class="name-block"><p class="name">{a_name} &harr; {b_name}</p></div>
+          <div class="stock-meta"><span class="delta {corr_class}">{p["correlation"]:+.3f}</span></div>
+        </div>''')
+
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Strategy Correlation — Strategy Lab</title>
+<style>{CSS}
+.corr-row {{ display: flex; }}
+.corr-cell {{ flex-shrink: 0; }}
+.corr-heatmap {{ overflow-x: auto; padding: 16px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 24px; }}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="page-head">
+    <h1>Strategy Correlation</h1>
+    <a class="methodology-link" href="https://github.com/nexojack-bot/JG-Tradingbot/blob/main/METHODOLOGY.md" target="_blank">Methodology &amp; limitations &rarr;</a>
+  </header>
+  <p class="subtitle">Pairwise correlation of daily returns across all {len(ids)} strategies &middot; generated {data["generated_at"]}</p>
+  {_nav_html("correlation.html")}
+  <div class="empty-note">
+    Two strategies with good, distinct-looking equity curves can still be
+    highly correlated with EACH OTHER — meaning they express one real idea
+    twice, not two independent ones. The heatmap gives the overview; the
+    list below surfaces the specific pairs worth consolidating or
+    investigating first. Requires at least 10 overlapping days of history
+    per pair — shows blank/grey until then.
+  </div>
+  <div class="corr-heatmap">{"".join(heatmap_rows)}</div>
+  <h2 style="font-size:16px;margin:28px 0 12px;">Most correlated pairs</h2>
+  <div class="card-list">
+    {"".join(pair_rows) if pair_rows else '<p class="na">Not enough overlapping history yet.</p>'}
+  </div>
+  <footer>data as of {data["generated_at"]}</footer>
+</div>
+</body>
+</html>"""
+
+
+def build_strategy_detail(strategy: dict, data: dict) -> str:
+    meta = STRATEGY_DETAILS.get(strategy["strategy_id"], {
+        "description": "No description on file for this strategy yet.",
+        "formula": "", "variables": {},
+    })
+    category = STRATEGY_CATEGORIES.get(strategy["strategy_id"], "Other")
+
+    var_rows = "".join(
+        f'<div class="sub" style="margin-bottom:4px"><strong>{k}</strong> &mdash; {v}</div>'
+        for k, v in meta["variables"].items()
+    )
+    formula_block = f'''
+    <div class="strategy-card" style="flex-direction:column;align-items:stretch;padding:20px">
+      <p class="sub" style="text-transform:uppercase;letter-spacing:0.03em;font-weight:600;margin-bottom:10px">Formula</p>
+      <div class="equity" style="font-size:16px;margin-bottom:14px">{meta["formula"] or "Pure calendar/rule-based logic — no closed-form formula."}</div>
+      {var_rows}
+    </div>''' if meta["formula"] or meta["variables"] else ""
+
+    positions = strategy.get("current_positions", {})
+    if positions:
+        pos_rows = "".join(
+            f'<div class="stock-card"><div class="name-block"><p class="name">{sym}</p></div>'
+            f'<div class="stock-meta">{p["shares"]:.4f} shares @ ${p["entry_price"]:.2f}<span class="n-strat">entry {p["entry_date"]}</span></div></div>'
+            for sym, p in positions.items()
+        )
+    else:
+        pos_rows = '<p class="na">No open positions currently held.</p>'
+
+    dd = strategy.get("max_drawdown")
+    dd_str = f'{dd*100:.2f}%' if dd is not None else 'n/a'
+    roi_str = f'{strategy["roi"]*100:+.2f}%' if strategy["roi"] is not None else 'n/a'
+    equity_str = f'${strategy["latest_equity"]:,.2f}' if strategy["latest_equity"] is not None else 'n/a'
+    spark = _sparkline_svg(strategy["equity_history"], width=300, height=80)
+
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>{strategy["display_name"]} — Strategy Lab</title>
+<style>{CSS}</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="page-head">
+    <h1>{strategy["display_name"]}</h1>
+    <a class="methodology-link" href="index.html">&larr; Back to all strategies</a>
+  </header>
+  <p class="subtitle"><span class="category-tag">{category}</span> {strategy["strategy_id"]}</p>
+
+  <div style="display:flex; gap:16px; margin: 20px 0;">
+    <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
+      <p class="sub">Current equity</p><p class="equity">{equity_str}</p>
+    </div>
+    <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
+      <p class="sub">Total return</p><p class="equity">{roi_str}</p>
+    </div>
+    <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
+      <p class="sub">Max drawdown</p><p class="equity">{dd_str}</p>
+    </div>
+  </div>
+
+  {spark}
+
+  <h2 style="font-size:16px;margin:24px 0 12px;">What this strategy does</h2>
+  <p style="font-size:14px;line-height:1.6;color:var(--ink)">{meta["description"]}</p>
+
+  {formula_block}
+
+  <h2 style="font-size:16px;margin:24px 0 12px;">Current positions</h2>
+  <div class="card-list">{pos_rows}</div>
+
   <footer>data as of {data["generated_at"]}</footer>
 </div>
 </body>
@@ -307,6 +630,16 @@ def build(data_path: str = None, output_dir: str = None):
         f.write(build_index(data))
     with open(os.path.join(output_dir, "positions.html"), "w") as f:
         f.write(build_positions(data))
+    with open(os.path.join(output_dir, "recommendations.html"), "w") as f:
+        f.write(build_recommendations(data))
+    with open(os.path.join(output_dir, "holdings.html"), "w") as f:
+        f.write(build_holdings(data))
+    with open(os.path.join(output_dir, "correlation.html"), "w") as f:
+        f.write(build_correlation(data))
+
+    for s in data["strategies"]:
+        with open(os.path.join(output_dir, f'strategy_{s["strategy_id"]}.html'), "w") as f:
+            f.write(build_strategy_detail(s, data))
 
     return output_dir
 

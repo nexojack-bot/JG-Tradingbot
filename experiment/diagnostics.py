@@ -42,3 +42,26 @@ def excess_return(strategy_equity: list, benchmark_equity: list) -> float:
     strategy_return = (strategy_equity[-1] / strategy_equity[0]) - 1
     benchmark_return = (benchmark_equity[-1] / benchmark_equity[0]) - 1
     return strategy_return - benchmark_return
+
+
+def max_drawdown(equity_series: list) -> float:
+    """
+    Maximum peak-to-trough decline, as a positive fraction (0.15 = a 15%
+    drawdown at its worst point). Two strategies with identical final
+    returns can have very different risk profiles — this is what
+    distinguishes "steady climb" from "round trip through a deep hole."
+    Returns None if there's fewer than 2 points (nothing to measure a
+    decline against yet).
+    """
+    if len(equity_series) < 2:
+        return None
+    peak = equity_series[0]
+    max_dd = 0.0
+    for value in equity_series:
+        if value > peak:
+            peak = value
+        if peak > 0:
+            dd = (peak - value) / peak
+            if dd > max_dd:
+                max_dd = dd
+    return max_dd
