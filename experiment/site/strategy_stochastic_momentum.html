@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Stochastic Oscillator Momentum — Strategy Lab</title>
+<style>
+:root {
+  --bg: #F5F4F1;
+  --card: #FFFFFF;
+  --border: #E3E1DB;
+  --ink: #16181D;
+  --ink-soft: #6B6F76;
+  --accent: #2B3A67;
+  --accent-soft: #E8EAF2;
+  --gain: #1F7A5C;
+  --loss: #B23A3A;
+  --mono: ui-monospace, "SF Mono", "Roboto Mono", Consolas, monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1040px; margin: 0 auto; padding: 40px 24px 80px; }
+header.page-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 8px; flex-wrap: wrap; gap: 12px;
+}
+h1 { font-size: 22px; font-weight: 650; margin: 0; letter-spacing: -0.01em; }
+.subtitle { color: var(--ink-soft); font-size: 13px; margin: 0 0 28px; }
+nav.tabs { display: flex; gap: 4px; margin-bottom: 24px; border-bottom: 1px solid var(--border); }
+nav.tabs a {
+  padding: 10px 4px; margin-right: 20px; text-decoration: none; color: var(--ink-soft);
+  font-size: 14px; border-bottom: 2px solid transparent; font-weight: 500;
+}
+nav.tabs a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+.range-pills { display: flex; gap: 6px; margin-bottom: 20px; }
+.range-pills button {
+  border: 1px solid var(--border); background: var(--card); color: var(--ink-soft);
+  padding: 6px 14px; border-radius: 999px; font-size: 13px; cursor: pointer; font-family: var(--sans);
+}
+.range-pills button.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+.card-list { display: flex; flex-direction: column; gap: 10px; }
+.strategy-card, .stock-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+  padding: 16px 20px; display: flex; align-items: center; gap: 16px;
+}
+.rank { font-family: var(--mono); font-size: 13px; color: var(--ink-soft); width: 24px; flex-shrink: 0; }
+.name-block { flex: 1; min-width: 0; }
+.name { font-weight: 600; font-size: 14px; margin: 0 0 2px; }
+.name .status-badge {
+  font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 4px;
+  background: #F0E6E6; color: var(--loss); margin-left: 8px; vertical-align: middle;
+}
+.sub { font-size: 12px; color: var(--ink-soft); }
+.category-tag {
+  font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em;
+  background: var(--accent-soft); color: var(--accent); padding: 1px 6px; border-radius: 4px; margin-right: 6px;
+}
+.methodology-link { font-size: 13px; color: var(--accent); text-decoration: none; font-weight: 500; }
+.methodology-link:hover { text-decoration: underline; }
+.spark { width: 110px; height: 36px; flex-shrink: 0; }
+.figures { text-align: right; flex-shrink: 0; width: 130px; }
+.equity { font-family: var(--mono); font-size: 14px; font-weight: 600; }
+.delta { font-family: var(--mono); font-size: 12px; margin-top: 2px; }
+.delta.gain { color: var(--gain); }
+.delta.loss { color: var(--loss); }
+.delta.flat { color: var(--ink-soft); }
+.na { color: var(--ink-soft); font-size: 12px; }
+
+.stock-bar-track { flex: 1; height: 8px; background: var(--accent-soft); border-radius: 4px; overflow: hidden; }
+.stock-bar-fill { height: 100%; background: var(--accent); }
+.stock-meta { width: 190px; text-align: right; font-family: var(--mono); font-size: 13px; }
+.stock-meta .n-strat { color: var(--ink-soft); font-family: var(--sans); font-size: 12px; margin-left: 6px; }
+
+.empty-note {
+  background: var(--accent-soft); border: 1px solid var(--border); border-radius: 8px;
+  padding: 14px 18px; font-size: 13px; color: var(--ink); margin-bottom: 20px; line-height: 1.5;
+}
+footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family: var(--mono); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="page-head">
+    <h1>Stochastic Oscillator Momentum</h1>
+    <a class="methodology-link" href="index.html">&larr; Back to all strategies</a>
+  </header>
+  <p class="subtitle"><span class="category-tag">Momentum</span> stochastic_momentum</p>
+
+  <div style="display:flex; gap:16px; margin: 20px 0;">
+    <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
+      <p class="sub">Current equity</p><p class="equity">$10,048.62</p>
+    </div>
+    <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
+      <p class="sub">Total return</p><p class="equity">+0.49%</p>
+    </div>
+    <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
+      <p class="sub">Max drawdown</p><p class="equity">0.00%</p>
+    </div>
+  </div>
+
+  <svg class="spark" viewBox="0 0 300 80"><polyline points="4.0,76.0 150.0,76.0 296.0,76.0" fill="none" stroke="#1F7A5C" stroke-width="2"/></svg>
+
+  <h2 style="font-size:16px;margin:24px 0 12px;">What this strategy does</h2>
+  <p style="font-size:14px;line-height:1.6;color:var(--ink)">Measures where today's close sits within the recent high-low range, as a percentage. Scores a bullish %K/%D crossover in the 50-80 zone — momentum with room to run before the 80+ overbought zone.</p>
+
+  
+    <div class="strategy-card" style="flex-direction:column;align-items:stretch;padding:20px">
+      <p class="sub" style="text-transform:uppercase;letter-spacing:0.03em;font-weight:600;margin-bottom:10px">Formula</p>
+      <div class="equity" style="font-size:16px;margin-bottom:14px">%K = 100 &times; (Close &minus; Low<sub>14</sub>) / (High<sub>14</sub> &minus; Low<sub>14</sub>); %D = SMA<sub>3</sub>(%K)</div>
+      <div class="sub" style="margin-bottom:4px"><strong>Low<sub>14</sub>/High<sub>14</sub></strong> &mdash; Lowest low / highest high over the prior 14 days.</div><div class="sub" style="margin-bottom:4px"><strong>%D</strong> &mdash; A 3-day smoothed average of %K, used as the signal line.</div>
+    </div>
+
+  <h2 style="font-size:16px;margin:24px 0 12px;">Current positions</h2>
+  <div class="card-list"><div class="stock-card"><div class="name-block"><p class="name">AMC</p></div><div class="stock-meta">63.9778 shares @ $2.65<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">ARM</p></div><div class="stock-meta">8.7936 shares @ $252.09<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">COIN</p></div><div class="stock-meta">0.4407 shares @ $184.64<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">GOOGL</p></div><div class="stock-meta">1.4934 shares @ $342.48<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">INTC</p></div><div class="stock-meta">32.1878 shares @ $95.80<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">JPM</p></div><div class="stock-meta">2.6995 shares @ $362.06<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">MARA</p></div><div class="stock-meta">38.6126 shares @ $11.60<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">PLTR</p></div><div class="stock-meta">3.5351 shares @ $182.53<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">SNOW</p></div><div class="stock-meta">2.7860 shares @ $356.47<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">SOFI</p></div><div class="stock-meta">50.8777 shares @ $18.51<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">UNH</p></div><div class="stock-meta">0.2629 shares @ $400.94<span class="n-strat">entry 2026-09-04</span></div></div></div>
+
+  <footer>data as of 2026-09-06T23:37:50.273780+00:00</footer>
+</div>
+</body>
+</html>

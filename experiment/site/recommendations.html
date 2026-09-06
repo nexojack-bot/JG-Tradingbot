@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Daily Recommendations — Strategy Lab</title>
+<style>
+:root {
+  --bg: #F5F4F1;
+  --card: #FFFFFF;
+  --border: #E3E1DB;
+  --ink: #16181D;
+  --ink-soft: #6B6F76;
+  --accent: #2B3A67;
+  --accent-soft: #E8EAF2;
+  --gain: #1F7A5C;
+  --loss: #B23A3A;
+  --mono: ui-monospace, "SF Mono", "Roboto Mono", Consolas, monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1040px; margin: 0 auto; padding: 40px 24px 80px; }
+header.page-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 8px; flex-wrap: wrap; gap: 12px;
+}
+h1 { font-size: 22px; font-weight: 650; margin: 0; letter-spacing: -0.01em; }
+.subtitle { color: var(--ink-soft); font-size: 13px; margin: 0 0 28px; }
+nav.tabs { display: flex; gap: 4px; margin-bottom: 24px; border-bottom: 1px solid var(--border); }
+nav.tabs a {
+  padding: 10px 4px; margin-right: 20px; text-decoration: none; color: var(--ink-soft);
+  font-size: 14px; border-bottom: 2px solid transparent; font-weight: 500;
+}
+nav.tabs a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+.range-pills { display: flex; gap: 6px; margin-bottom: 20px; }
+.range-pills button {
+  border: 1px solid var(--border); background: var(--card); color: var(--ink-soft);
+  padding: 6px 14px; border-radius: 999px; font-size: 13px; cursor: pointer; font-family: var(--sans);
+}
+.range-pills button.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+.card-list { display: flex; flex-direction: column; gap: 10px; }
+.strategy-card, .stock-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+  padding: 16px 20px; display: flex; align-items: center; gap: 16px;
+}
+.rank { font-family: var(--mono); font-size: 13px; color: var(--ink-soft); width: 24px; flex-shrink: 0; }
+.name-block { flex: 1; min-width: 0; }
+.name { font-weight: 600; font-size: 14px; margin: 0 0 2px; }
+.name .status-badge {
+  font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 4px;
+  background: #F0E6E6; color: var(--loss); margin-left: 8px; vertical-align: middle;
+}
+.sub { font-size: 12px; color: var(--ink-soft); }
+.category-tag {
+  font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em;
+  background: var(--accent-soft); color: var(--accent); padding: 1px 6px; border-radius: 4px; margin-right: 6px;
+}
+.methodology-link { font-size: 13px; color: var(--accent); text-decoration: none; font-weight: 500; }
+.methodology-link:hover { text-decoration: underline; }
+.spark { width: 110px; height: 36px; flex-shrink: 0; }
+.figures { text-align: right; flex-shrink: 0; width: 130px; }
+.equity { font-family: var(--mono); font-size: 14px; font-weight: 600; }
+.delta { font-family: var(--mono); font-size: 12px; margin-top: 2px; }
+.delta.gain { color: var(--gain); }
+.delta.loss { color: var(--loss); }
+.delta.flat { color: var(--ink-soft); }
+.na { color: var(--ink-soft); font-size: 12px; }
+
+.stock-bar-track { flex: 1; height: 8px; background: var(--accent-soft); border-radius: 4px; overflow: hidden; }
+.stock-bar-fill { height: 100%; background: var(--accent); }
+.stock-meta { width: 190px; text-align: right; font-family: var(--mono); font-size: 13px; }
+.stock-meta .n-strat { color: var(--ink-soft); font-family: var(--sans); font-size: 12px; margin-left: 6px; }
+
+.empty-note {
+  background: var(--accent-soft); border: 1px solid var(--border); border-radius: 8px;
+  padding: 14px 18px; font-size: 13px; color: var(--ink); margin-bottom: 20px; line-height: 1.5;
+}
+footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family: var(--mono); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="page-head">
+    <h1>Daily Recommendations</h1>
+    <a class="methodology-link" href="https://github.com/nexojack-bot/JG-Tradingbot/blob/main/METHODOLOGY.md" target="_blank">Methodology &amp; limitations &rarr;</a>
+  </header>
+  <p class="subtitle">Aggregated across 50 active strategies for 2026-09-06 — NOT investment advice, a research aggregation of mechanical signals. See methodology for what this can and can't tell you.</p>
+  <nav class="tabs">
+  <a href="index.html" class="">Strategies</a>
+  <a href="recommendations.html" class="active">Recommendations</a>
+  <a href="holdings.html" class="">Total Holdings</a>
+  <a href="positions.html" class="">Positions</a>
+  <a href="correlation.html" class="">Correlation</a>
+</nav>
+  <div class="empty-note"><strong>Currently best-performing strategy:</strong> Moving Average Slope Acceleration (ROI: +4.17%) — its individual stance is cross-referenced in every list below.</div>
+
+  <h2 style="font-size:16px;margin:28px 0 12px;">Top 10 — Buy</h2>
+  <div class="card-list"><p class="na">No symbols currently qualify.</p></div>
+
+  <h2 style="font-size:16px;margin:28px 0 12px;">Top 10 — Hold</h2>
+  <div class="card-list">
+            <div class="stock-card">
+              <div class="rank">1</div>
+              <div class="name-block"><p class="name">HOOD</p></div>
+              <div class="stock-bar-track"><div class="stock-bar-fill" style="width:54.0%"></div></div>
+              <div class="stock-meta">27/50 strategies (54%)
+                <div class="delta flat" style="margin-top:2px">Best strategy: hold</div>
+              </div>
+            </div>
+            <div class="stock-card">
+              <div class="rank">2</div>
+              <div class="name-block"><p class="name">MSTR</p></div>
+              <div class="stock-bar-track"><div class="stock-bar-fill" style="width:52.0%"></div></div>
+              <div class="stock-meta">26/50 strategies (52%)
+                <div class="delta flat" style="margin-top:2px">Best strategy: hold</div>
+              </div>
+            </div>
+            <div class="stock-card">
+              <div class="rank">3</div>
+              <div class="name-block"><p class="name">CRM</p></div>
+              <div class="stock-bar-track"><div class="stock-bar-fill" style="width:42.0%"></div></div>
+              <div class="stock-meta">21/50 strategies (42%)
+                <div class="delta na" style="margin-top:2px">Best strategy: no position</div>
+              </div>
+            </div>
+            <div class="stock-card">
+              <div class="rank">4</div>
+              <div class="name-block"><p class="name">COIN</p></div>
+              <div class="stock-bar-track"><div class="stock-bar-fill" style="width:38.0%"></div></div>
+              <div class="stock-meta">19/50 strategies (38%)
+                <div class="delta na" style="margin-top:2px">Best strategy: no position</div>
+              </div>
+            </div>
+            <div class="stock-card">
+              <div class="rank">5</div>
+              <div class="name-block"><p class="name">SMCI</p></div>
+              <div class="stock-bar-track"><div class="stock-bar-fill" style="width:30.0%"></div></div>
+              <div class="stock-meta">15/50 strategies (30%)
+                <div class="delta na" style="margin-top:2px">Best strategy: no position</div>
+              </div>
+            </div>
+            <div class="stock-card">
+              <div class="rank">6</div>
+              <div class="name-block"><p class="name">SNOW</p></div>
+              <div class="stock-bar-track"><div class="stock-bar-fill" style="width:30.0%"></div></div>
+              <div class="stock-meta">15/50 strategies (30%)
+                <div class="delta na" style="margin-top:2px">Best strategy: no position</div>
+              </div>
+            </div>
+            <div class="stock-card">
+              <div class="rank">7</div>
+              <div class="name-block"><p class="name">PLTR</p></div>
+              <div class="stock-bar-track"><div class="stock-bar-fill" style="width:28.0%"></div></div>
+              <div class="stock-meta">14/50 strategies (28%)
+                <div class="delta na" style="margin-top:2px">Best strategy: no position</div>
+              </div>
+            </div>
+            <div class="stock-card">
+              <div class="rank">8</div>
+              <div class="name-block"><p class="name">TSLA</p></div>
+              <div class="stock-bar-track"><div class="stock-bar-fill" style="width:26.0%"></div></div>
+              <div class="stock-meta">13/50 strategies (26%)
+                <div class="delta na" style="margin-top:2px">Best strategy: no position</div>
+              </div>
+            </div>
+            <div class="stock-card">
+              <div class="rank">9</div>
+              <div class="name-block"><p class="name">MARA</p></div>
+              <div class="stock-bar-track"><div class="stock-bar-fill" style="width:26.0%"></div></div>
+              <div class="stock-meta">13/50 strategies (26%)
+                <div class="delta flat" style="margin-top:2px">Best strategy: hold</div>
+              </div>
+            </div>
+            <div class="stock-card">
+              <div class="rank">10</div>
+              <div class="name-block"><p class="name">AI</p></div>
+              <div class="stock-bar-track"><div class="stock-bar-fill" style="width:22.0%"></div></div>
+              <div class="stock-meta">11/50 strategies (22%)
+                <div class="delta na" style="margin-top:2px">Best strategy: no position</div>
+              </div>
+            </div></div>
+
+  <h2 style="font-size:16px;margin:28px 0 12px;">Top 10 — Sell</h2>
+  <div class="card-list"><p class="na">No symbols currently qualify.</p></div>
+
+  <footer>data as of 2026-09-06T23:37:50.273780+00:00</footer>
+</div>
+</body>
+</html>

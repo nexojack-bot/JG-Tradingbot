@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T21:40:31.867286+00:00",
+  "generated_at": "2026-09-06T23:37:50.273780+00:00",
   "strategies": [
     {
       "strategy_id": "ma_slope_acceleration",
@@ -10,6 +10,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 10417.468285971654,
       "roi": 0.04174682859716541,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -31,7 +32,44 @@
           "date": "2026-09-06",
           "equity": 10417.468285971654
         }
-      ]
+      ],
+      "current_positions": {
+        "AMC": {
+          "shares": 534.7061957425543,
+          "entry_price": 2.65,
+          "entry_date": "2026-09-04"
+        },
+        "GME": {
+          "shares": 14.47996862246144,
+          "entry_price": 19.23,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 7.480934456173031,
+          "entry_price": 122.11,
+          "entry_date": "2026-09-04"
+        },
+        "MARA": {
+          "shares": 476.6207061953643,
+          "entry_price": 11.31,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 3.144085227125427,
+          "entry_price": 142.8,
+          "entry_date": "2026-09-04"
+        },
+        "RBLX": {
+          "shares": 9.991204359348757,
+          "entry_price": 41.51,
+          "entry_date": "2026-09-04"
+        },
+        "RIOT": {
+          "shares": 70.51785062833775,
+          "entry_price": 21.8,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "max_pain_proximity",
@@ -42,6 +80,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 10137.561597834732,
       "roi": 0.013756159783473231,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -63,7 +102,64 @@
           "date": "2026-09-06",
           "equity": 10137.561597834732
         }
-      ]
+      ],
+      "current_positions": {
+        "ADBE": {
+          "shares": 1.3360628674591553,
+          "entry_price": 266.51,
+          "entry_date": "2026-09-04"
+        },
+        "AFRM": {
+          "shares": 7.339059335134236,
+          "entry_price": 72.35,
+          "entry_date": "2026-09-04"
+        },
+        "DKNG": {
+          "shares": 30.881046485306555,
+          "entry_price": 24.01,
+          "entry_date": "2026-09-05"
+        },
+        "HD": {
+          "shares": 0.7988177751373536,
+          "entry_price": 318.48423822774697,
+          "entry_date": "2026-09-05"
+        },
+        "LCID": {
+          "shares": 1370.5193740042307,
+          "entry_price": 4.6,
+          "entry_date": "2026-09-05"
+        },
+        "NIO": {
+          "shares": 51.78292753518491,
+          "entry_price": 3.86,
+          "entry_date": "2026-09-04"
+        },
+        "RKLB": {
+          "shares": 3.7451519483319733,
+          "entry_price": 64.26,
+          "entry_date": "2026-09-05"
+        },
+        "SOUN": {
+          "shares": 35.08569882537662,
+          "entry_price": 6.74,
+          "entry_date": "2026-09-04"
+        },
+        "TSLA": {
+          "shares": 0.5229611678497976,
+          "entry_price": 354.08,
+          "entry_date": "2026-09-05"
+        },
+        "U": {
+          "shares": 8.771167202467707,
+          "entry_price": 41.66,
+          "entry_date": "2026-09-04"
+        },
+        "UPST": {
+          "shares": 21.8919209300448,
+          "entry_price": 28.52,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "iv_term_structure",
@@ -74,6 +170,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 10070.0553093602,
       "roi": 0.007005530936019932,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -95,7 +192,44 @@
           "date": "2026-09-06",
           "equity": 10070.0553093602
         }
-      ]
+      ],
+      "current_positions": {
+        "AAPL": {
+          "shares": 3.1767275894543223,
+          "entry_price": 319.97,
+          "entry_date": "2026-09-04"
+        },
+        "ADBE": {
+          "shares": 10.957075180907385,
+          "entry_price": 285.75,
+          "entry_date": "2026-09-04"
+        },
+        "AI": {
+          "shares": 167.8278613734048,
+          "entry_price": 10.46,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 1.084768457687379,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "KO": {
+          "shares": 10.59905126452419,
+          "entry_price": 88.07,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 0.9548382271616939,
+          "entry_price": 144.82,
+          "entry_date": "2026-09-04"
+        },
+        "U": {
+          "shares": 29.20200774147162,
+          "entry_price": 41.66,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "stochastic_momentum",
@@ -106,6 +240,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 10048.623733048293,
       "roi": 0.004862373304829271,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -127,7 +262,64 @@
           "date": "2026-09-06",
           "equity": 10048.623733048293
         }
-      ]
+      ],
+      "current_positions": {
+        "AMC": {
+          "shares": 63.97782990247403,
+          "entry_price": 2.65,
+          "entry_date": "2026-09-04"
+        },
+        "ARM": {
+          "shares": 8.793559334744359,
+          "entry_price": 252.09,
+          "entry_date": "2026-09-04"
+        },
+        "COIN": {
+          "shares": 0.44067955058110503,
+          "entry_price": 184.64,
+          "entry_date": "2026-09-04"
+        },
+        "GOOGL": {
+          "shares": 1.4933829343143106,
+          "entry_price": 342.48,
+          "entry_date": "2026-09-04"
+        },
+        "INTC": {
+          "shares": 32.18780083069035,
+          "entry_price": 95.8,
+          "entry_date": "2026-09-04"
+        },
+        "JPM": {
+          "shares": 2.6994878190356566,
+          "entry_price": 362.06,
+          "entry_date": "2026-09-04"
+        },
+        "MARA": {
+          "shares": 38.61263325153495,
+          "entry_price": 11.6,
+          "entry_date": "2026-09-04"
+        },
+        "PLTR": {
+          "shares": 3.5350516350388332,
+          "entry_price": 182.53,
+          "entry_date": "2026-09-04"
+        },
+        "SNOW": {
+          "shares": 2.7859531672701943,
+          "entry_price": 356.47,
+          "entry_date": "2026-09-04"
+        },
+        "SOFI": {
+          "shares": 50.87774053141531,
+          "entry_price": 18.51,
+          "entry_date": "2026-09-04"
+        },
+        "UNH": {
+          "shares": 0.2629462278060646,
+          "entry_price": 400.94,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "gex_regime",
@@ -138,6 +330,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 10000.0,
       "roi": 0.0,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -159,7 +352,8 @@
           "date": "2026-09-06",
           "equity": 10000.0
         }
-      ]
+      ],
+      "current_positions": {}
     },
     {
       "strategy_id": "distance_52w_low",
@@ -170,6 +364,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 10000.0,
       "roi": 0.0,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -191,7 +386,8 @@
           "date": "2026-09-06",
           "equity": 10000.0
         }
-      ]
+      ],
+      "current_positions": {}
     },
     {
       "strategy_id": "risk_on_off",
@@ -202,6 +398,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 10000.0,
       "roi": 0.0,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -223,7 +420,8 @@
           "date": "2026-09-06",
           "equity": 10000.0
         }
-      ]
+      ],
+      "current_positions": {}
     },
     {
       "strategy_id": "seasonality_composite",
@@ -234,6 +432,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 10000.0,
       "roi": 0.0,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -255,7 +454,8 @@
           "date": "2026-09-06",
           "equity": 10000.0
         }
-      ]
+      ],
+      "current_positions": {}
     },
     {
       "strategy_id": "iv_rank_low",
@@ -266,6 +466,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 10000.0,
       "roi": 0.0,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -287,7 +488,8 @@
           "date": "2026-09-06",
           "equity": 10000.0
         }
-      ]
+      ],
+      "current_positions": {}
     },
     {
       "strategy_id": "ema_50_200",
@@ -298,6 +500,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9986.52385667631,
       "roi": -0.001347614332369085,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -319,7 +522,59 @@
           "date": "2026-09-06",
           "equity": 9986.52385667631
         }
-      ]
+      ],
+      "current_positions": {
+        "AMC": {
+          "shares": 224.15174468060337,
+          "entry_price": 2.5520725196007774,
+          "entry_date": "2026-09-04"
+        },
+        "ARM": {
+          "shares": 4.367421983240336,
+          "entry_price": 242.59,
+          "entry_date": "2026-09-04"
+        },
+        "BAC": {
+          "shares": 2.028615758489067,
+          "entry_price": 63.04,
+          "entry_date": "2026-09-04"
+        },
+        "CSCO": {
+          "shares": 4.326980482064876,
+          "entry_price": 108.61762093653452,
+          "entry_date": "2026-09-04"
+        },
+        "INTC": {
+          "shares": 34.1691319274281,
+          "entry_price": 91.67,
+          "entry_date": "2026-09-04"
+        },
+        "JNJ": {
+          "shares": 0.5796238379356705,
+          "entry_price": 278.43,
+          "entry_date": "2026-09-04"
+        },
+        "KO": {
+          "shares": 1.233314060401405,
+          "entry_price": 88.81,
+          "entry_date": "2026-09-04"
+        },
+        "SNOW": {
+          "shares": 11.206877811481544,
+          "entry_price": 356.47,
+          "entry_date": "2026-09-04"
+        },
+        "U": {
+          "shares": 5.81513711549029,
+          "entry_price": 42.08,
+          "entry_date": "2026-09-04"
+        },
+        "UNH": {
+          "shares": 0.3256636741834167,
+          "entry_price": 400.94,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "hurst_trending_regime",
@@ -330,6 +585,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9959.081635431268,
       "roi": -0.00409183645687317,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -351,7 +607,119 @@
           "date": "2026-09-06",
           "equity": 9959.081635431268
         }
-      ]
+      ],
+      "current_positions": {
+        "AAPL": {
+          "shares": 0.48975501435613006,
+          "entry_price": 328.21,
+          "entry_date": "2026-09-04"
+        },
+        "ADBE": {
+          "shares": 1.3956247412010987,
+          "entry_price": 285.75,
+          "entry_date": "2026-09-04"
+        },
+        "AI": {
+          "shares": 12.971381965832014,
+          "entry_price": 10.9,
+          "entry_date": "2026-09-04"
+        },
+        "AMZN": {
+          "shares": 0.5320399098149337,
+          "entry_price": 258.9,
+          "entry_date": "2026-09-04"
+        },
+        "ARM": {
+          "shares": 1.0629988869350935,
+          "entry_price": 252.09,
+          "entry_date": "2026-09-04"
+        },
+        "BAC": {
+          "shares": 17.719671401270546,
+          "entry_price": 63.04,
+          "entry_date": "2026-09-04"
+        },
+        "COIN": {
+          "shares": 0.5728551781779126,
+          "entry_price": 184.64,
+          "entry_date": "2026-09-04"
+        },
+        "CRM": {
+          "shares": 0.9491868165950755,
+          "entry_price": 264.43,
+          "entry_date": "2026-09-04"
+        },
+        "CVNA": {
+          "shares": 10.90572869008368,
+          "entry_price": 73.43,
+          "entry_date": "2026-09-04"
+        },
+        "GME": {
+          "shares": 8.222443139539259,
+          "entry_price": 19.23,
+          "entry_date": "2026-09-04"
+        },
+        "INTC": {
+          "shares": 15.368293746411819,
+          "entry_price": 91.67,
+          "entry_date": "2026-09-04"
+        },
+        "JPM": {
+          "shares": 0.3046382945513225,
+          "entry_price": 358.64,
+          "entry_date": "2026-09-04"
+        },
+        "MARA": {
+          "shares": 77.25319343100361,
+          "entry_price": 11.6,
+          "entry_date": "2026-09-04"
+        },
+        "MSFT": {
+          "shares": 1.0611006013837865,
+          "entry_price": 510.12,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 10.469782711671035,
+          "entry_price": 144.82,
+          "entry_date": "2026-09-04"
+        },
+        "NFLX": {
+          "shares": 2.6820200951906257,
+          "entry_price": 82.67,
+          "entry_date": "2026-09-04"
+        },
+        "PG": {
+          "shares": 1.0738727665035226,
+          "entry_price": 146.92,
+          "entry_date": "2026-09-04"
+        },
+        "PLTR": {
+          "shares": 0.6626304130689651,
+          "entry_price": 182.53,
+          "entry_date": "2026-09-04"
+        },
+        "RIOT": {
+          "shares": 6.388037832167751,
+          "entry_price": 21.14,
+          "entry_date": "2026-09-04"
+        },
+        "SMCI": {
+          "shares": 5.822239066225285,
+          "entry_price": 37.87,
+          "entry_date": "2026-09-04"
+        },
+        "SNOW": {
+          "shares": 1.0628896789264666,
+          "entry_price": 356.47,
+          "entry_date": "2026-09-04"
+        },
+        "UNH": {
+          "shares": 1.9246622007464698,
+          "entry_price": 400.94,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "obv_trend",
@@ -362,6 +730,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9903.886880595368,
       "roi": -0.009611311940463201,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -383,7 +752,19 @@
           "date": "2026-09-06",
           "equity": 9903.886880595368
         }
-      ]
+      ],
+      "current_positions": {
+        "UNH": {
+          "shares": 10.968373382888691,
+          "entry_price": 400.94,
+          "entry_date": "2026-09-04"
+        },
+        "V": {
+          "shares": 14.79165775805837,
+          "entry_price": 378.75,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "macd_momentum",
@@ -394,6 +775,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9889.516198641291,
       "roi": -0.011048380135870867,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -415,7 +797,44 @@
           "date": "2026-09-06",
           "equity": 9889.516198641291
         }
-      ]
+      ],
+      "current_positions": {
+        "AAPL": {
+          "shares": 0.6626987371727094,
+          "entry_price": 328.21,
+          "entry_date": "2026-09-04"
+        },
+        "COIN": {
+          "shares": 0.9299665989986193,
+          "entry_price": 192.7,
+          "entry_date": "2026-09-04"
+        },
+        "CRM": {
+          "shares": 11.907666243371908,
+          "entry_price": 264.43,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 1.4270801794165815,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "META": {
+          "shares": 7.661821044553514,
+          "entry_price": 610.68,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 2.4492209193771943,
+          "entry_price": 144.82,
+          "entry_date": "2026-09-04"
+        },
+        "TSLA": {
+          "shares": 3.3024973366325128,
+          "entry_price": 376.365,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "distance_52w_high",
@@ -426,6 +845,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9884.470817628711,
       "roi": -0.01155291823712887,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -447,7 +867,34 @@
           "date": "2026-09-06",
           "equity": 9884.470817628711
         }
-      ]
+      ],
+      "current_positions": {
+        "CRM": {
+          "shares": 2.263288371240497,
+          "entry_price": 264.43,
+          "entry_date": "2026-09-04"
+        },
+        "JNJ": {
+          "shares": 17.52693216231268,
+          "entry_price": 278.43,
+          "entry_date": "2026-09-04"
+        },
+        "JPM": {
+          "shares": 6.599000289003822,
+          "entry_price": 362.06,
+          "entry_date": "2026-09-04"
+        },
+        "PFE": {
+          "shares": 54.79602076173921,
+          "entry_price": 28.81,
+          "entry_date": "2026-09-04"
+        },
+        "V": {
+          "shares": 1.4616172442448179,
+          "entry_price": 378.75,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "overnight_gap_fill",
@@ -458,6 +905,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9874.271530260026,
       "roi": -0.012572846973997366,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -479,7 +927,49 @@
           "date": "2026-09-06",
           "equity": 9874.271530260026
         }
-      ]
+      ],
+      "current_positions": {
+        "ADBE": {
+          "shares": 0.22440529362756179,
+          "entry_price": 266.51,
+          "entry_date": "2026-09-04"
+        },
+        "COIN": {
+          "shares": 0.3539174881792035,
+          "entry_price": 184.64,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 0.2304178043207233,
+          "entry_price": 122.11,
+          "entry_date": "2026-09-04"
+        },
+        "MARA": {
+          "shares": 3.166282815818431,
+          "entry_price": 11.31,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 2.2436254280513204,
+          "entry_price": 142.8,
+          "entry_date": "2026-09-04"
+        },
+        "NIO": {
+          "shares": 2449.965631780724,
+          "entry_price": 3.86,
+          "entry_date": "2026-09-04"
+        },
+        "SOFI": {
+          "shares": 0.3452240789657249,
+          "entry_price": 18.22,
+          "entry_date": "2026-09-04"
+        },
+        "TSLA": {
+          "shares": 0.13731890842236794,
+          "entry_price": 354.08,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "options_skew",
@@ -490,6 +980,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9872.199467335944,
       "roi": -0.012780053266405593,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -511,7 +1002,54 @@
           "date": "2026-09-06",
           "equity": 9872.199467335944
         }
-      ]
+      ],
+      "current_positions": {
+        "AMC": {
+          "shares": 145.53306720318088,
+          "entry_price": 2.65,
+          "entry_date": "2026-09-04"
+        },
+        "COIN": {
+          "shares": 0.6695377279387411,
+          "entry_price": 192.7,
+          "entry_date": "2026-09-04"
+        },
+        "DKNG": {
+          "shares": 4.493518759600482,
+          "entry_price": 24.19,
+          "entry_date": "2026-09-04"
+        },
+        "GME": {
+          "shares": 21.7497285848686,
+          "entry_price": 19.23,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 1.1623468624616433,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "MARA": {
+          "shares": 168.3139754165591,
+          "entry_price": 11.6,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 3.4596979233304452,
+          "entry_price": 144.82,
+          "entry_date": "2026-09-04"
+        },
+        "U": {
+          "shares": 141.7778790866066,
+          "entry_price": 42.08,
+          "entry_date": "2026-09-04"
+        },
+        "UPST": {
+          "shares": 13.982982692360869,
+          "entry_price": 28.52,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "adx_trend",
@@ -522,6 +1060,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9863.121935555902,
       "roi": -0.013687806444409761,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -543,7 +1082,44 @@
           "date": "2026-09-06",
           "equity": 9863.121935555902
         }
-      ]
+      ],
+      "current_positions": {
+        "CRM": {
+          "shares": 1.7908495644066755,
+          "entry_price": 264.43,
+          "entry_date": "2026-09-04"
+        },
+        "MA": {
+          "shares": 0.47498383689487733,
+          "entry_price": 585.71,
+          "entry_date": "2026-09-04"
+        },
+        "MSFT": {
+          "shares": 1.1281903769146502,
+          "entry_price": 510.12,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 2.459475824645437,
+          "entry_price": 144.82,
+          "entry_date": "2026-09-04"
+        },
+        "PFE": {
+          "shares": 252.00334978739195,
+          "entry_price": 28.81,
+          "entry_date": "2026-09-04"
+        },
+        "PLTR": {
+          "shares": 1.0175202628026623,
+          "entry_price": 182.53,
+          "entry_date": "2026-09-04"
+        },
+        "U": {
+          "shares": 20.68927332783412,
+          "entry_price": 42.08,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "zscore_reversion",
@@ -554,6 +1130,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9858.090675702591,
       "roi": -0.01419093242974086,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -575,7 +1152,19 @@
           "date": "2026-09-06",
           "equity": 9858.090675702591
         }
-      ]
+      ],
+      "current_positions": {
+        "NIO": {
+          "shares": 2449.9656317807244,
+          "entry_price": 3.86,
+          "entry_date": "2026-09-04"
+        },
+        "SOUN": {
+          "shares": 81.3384680913707,
+          "entry_price": 6.74,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "bollinger_reversion",
@@ -586,6 +1175,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9844.559585492227,
       "roi": -0.015544041450777332,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -607,7 +1197,14 @@
           "date": "2026-09-06",
           "equity": 9844.559585492227
         }
-      ]
+      ],
+      "current_positions": {
+        "NIO": {
+          "shares": 2590.6735751295337,
+          "entry_price": 3.86,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "earnings_surprise_drift",
@@ -618,6 +1215,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9844.559585492227,
       "roi": -0.015544041450777332,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -639,7 +1237,14 @@
           "date": "2026-09-06",
           "equity": 9844.559585492227
         }
-      ]
+      ],
+      "current_positions": {
+        "NIO": {
+          "shares": 2590.6735751295337,
+          "entry_price": 3.86,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "dollar_strength_filter",
@@ -650,6 +1255,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9837.641673643846,
       "roi": -0.016235832635615406,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -671,7 +1277,39 @@
           "date": "2026-09-06",
           "equity": 9837.641673643846
         }
-      ]
+      ],
+      "current_positions": {
+        "COIN": {
+          "shares": 3.888896375363489,
+          "entry_price": 192.7,
+          "entry_date": "2026-09-04"
+        },
+        "CRM": {
+          "shares": 7.860350186909451,
+          "entry_price": 264.43,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 10.51737836675151,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 35.13387682481331,
+          "entry_price": 144.82,
+          "entry_date": "2026-09-04"
+        },
+        "PLTR": {
+          "shares": 0.7202452039328024,
+          "entry_price": 182.53,
+          "entry_date": "2026-09-04"
+        },
+        "TSLA": {
+          "shares": 0.37883442538811174,
+          "entry_price": 376.365,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "credit_spread_proxy",
@@ -682,6 +1320,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9837.641673643846,
       "roi": -0.016235832635615406,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -703,7 +1342,54 @@
           "date": "2026-09-06",
           "equity": 9837.641673643846
         }
-      ]
+      ],
+      "current_positions": {
+        "COIN": {
+          "shares": 3.888896375363489,
+          "entry_price": 192.7,
+          "entry_date": "2026-09-04"
+        },
+        "CRM": {
+          "shares": 7.860350186909451,
+          "entry_price": 264.43,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 10.51737836675151,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "MARA": {
+          "shares": 5.050979421410871,
+          "entry_price": 11.31,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 35.13387682481331,
+          "entry_price": 144.82,
+          "entry_date": "2026-09-04"
+        },
+        "PLTR": {
+          "shares": 0.7202452039328024,
+          "entry_price": 182.53,
+          "entry_date": "2026-09-04"
+        },
+        "RBLX": {
+          "shares": 1.8133558482830683,
+          "entry_price": 43.31,
+          "entry_date": "2026-09-04"
+        },
+        "SMCI": {
+          "shares": 9.729768280083345,
+          "entry_price": 37.87,
+          "entry_date": "2026-09-04"
+        },
+        "TSLA": {
+          "shares": 0.37883442538811174,
+          "entry_price": 376.365,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "relative_strength_market",
@@ -714,6 +1400,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9837.61320624795,
       "roi": -0.01623867937520499,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -735,7 +1422,49 @@
           "date": "2026-09-06",
           "equity": 9837.61320624795
         }
-      ]
+      ],
+      "current_positions": {
+        "COIN": {
+          "shares": 3.897263195589114,
+          "entry_price": 192.7,
+          "entry_date": "2026-09-04"
+        },
+        "CRM": {
+          "shares": 7.8627916084512535,
+          "entry_price": 264.43,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 10.529376686386664,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 35.088129032109755,
+          "entry_price": 144.82,
+          "entry_date": "2026-09-04"
+        },
+        "PLTR": {
+          "shares": 0.7240625392476185,
+          "entry_price": 182.53,
+          "entry_date": "2026-09-04"
+        },
+        "RBLX": {
+          "shares": 1.9854826646656107,
+          "entry_price": 43.31,
+          "entry_date": "2026-09-04"
+        },
+        "SMCI": {
+          "shares": 11.022431505004857,
+          "entry_price": 37.87,
+          "entry_date": "2026-09-04"
+        },
+        "TSLA": {
+          "shares": 0.3807865686815488,
+          "entry_price": 376.365,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "oi_concentration",
@@ -746,6 +1475,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9837.073342545282,
       "roi": -0.01629266574547182,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -767,7 +1497,39 @@
           "date": "2026-09-06",
           "equity": 9837.073342545282
         }
-      ]
+      ],
+      "current_positions": {
+        "AI": {
+          "shares": 37.96472902594107,
+          "entry_price": 10.9,
+          "entry_date": "2026-09-04"
+        },
+        "BAC": {
+          "shares": 4.245003146362733,
+          "entry_price": 63.04,
+          "entry_date": "2026-09-04"
+        },
+        "DKNG": {
+          "shares": 5.9738346143068615,
+          "entry_price": 24.19,
+          "entry_date": "2026-09-04"
+        },
+        "GME": {
+          "shares": 7.338590558304402,
+          "entry_price": 19.23,
+          "entry_date": "2026-09-04"
+        },
+        "MARA": {
+          "shares": 24.5823339528466,
+          "entry_price": 11.6,
+          "entry_date": "2026-09-04"
+        },
+        "NIO": {
+          "shares": 2266.2684522438435,
+          "entry_price": 3.86,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "vwma_deviation",
@@ -778,6 +1540,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9836.75675080954,
       "roi": -0.01632432491904601,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -799,7 +1562,54 @@
           "date": "2026-09-06",
           "equity": 9836.75675080954
         }
-      ]
+      ],
+      "current_positions": {
+        "COIN": {
+          "shares": 1.601405085322867,
+          "entry_price": 192.7,
+          "entry_date": "2026-09-04"
+        },
+        "CRM": {
+          "shares": 3.688729406697453,
+          "entry_price": 264.43,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 16.242948275378993,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "MARA": {
+          "shares": 15.99182070231942,
+          "entry_price": 11.6,
+          "entry_date": "2026-09-04"
+        },
+        "META": {
+          "shares": 0.02471483609571156,
+          "entry_price": 616.77,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 44.11957343481987,
+          "entry_price": 144.82,
+          "entry_date": "2026-09-04"
+        },
+        "RBLX": {
+          "shares": 1.4430520828323408,
+          "entry_price": 41.51,
+          "entry_date": "2026-09-04"
+        },
+        "RIOT": {
+          "shares": 1.2783353364392307,
+          "entry_price": 21.8,
+          "entry_date": "2026-09-04"
+        },
+        "SMCI": {
+          "shares": 0.37043025296061355,
+          "entry_price": 39.59,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "sector_rotation",
@@ -810,6 +1620,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9831.08316380001,
       "roi": -0.01689168361999891,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -831,7 +1642,14 @@
           "date": "2026-09-06",
           "equity": 9831.08316380001
         }
-      ]
+      ],
+      "current_positions": {
+        "XOM": {
+          "shares": 61.648480364959,
+          "entry_price": 162.21,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "oil_sensitivity_filter",
@@ -842,6 +1660,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9831.08316380001,
       "roi": -0.01689168361999891,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -863,7 +1682,14 @@
           "date": "2026-09-06",
           "equity": 9831.08316380001
         }
-      ]
+      ],
+      "current_positions": {
+        "XOM": {
+          "shares": 61.648480364959,
+          "entry_price": 162.21,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "session_vwap",
@@ -874,6 +1700,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9830.3627492292,
       "roi": -0.016963725077080015,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -895,7 +1722,34 @@
           "date": "2026-09-06",
           "equity": 9830.3627492292
         }
-      ]
+      ],
+      "current_positions": {
+        "COIN": {
+          "shares": 1.5724342185679303,
+          "entry_price": 192.7,
+          "entry_date": "2026-09-04"
+        },
+        "CRM": {
+          "shares": 3.6872768093859216,
+          "entry_price": 264.43,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 16.4709812946927,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "MARA": {
+          "shares": 14.01613130345768,
+          "entry_price": 11.6,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 44.91863975405233,
+          "entry_price": 144.82,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "ema_9_20",
@@ -906,6 +1760,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9819.932039991765,
       "roi": -0.01800679600082349,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -927,7 +1782,39 @@
           "date": "2026-09-06",
           "equity": 9819.932039991765
         }
-      ]
+      ],
+      "current_positions": {
+        "COIN": {
+          "shares": 1.2801750010478747,
+          "entry_price": 192.7,
+          "entry_date": "2026-09-04"
+        },
+        "CRM": {
+          "shares": 22.977735732308954,
+          "entry_price": 264.43,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 1.9609190671225458,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 21.701142497839687,
+          "entry_price": 144.82,
+          "entry_date": "2026-09-04"
+        },
+        "PLTR": {
+          "shares": 0.8782034478962779,
+          "entry_price": 182.53,
+          "entry_date": "2026-09-04"
+        },
+        "SMCI": {
+          "shares": 3.4244483673208532,
+          "entry_price": 37.87,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "vix_regime_filter",
@@ -938,6 +1825,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9819.932039991765,
       "roi": -0.01800679600082349,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -959,7 +1847,39 @@
           "date": "2026-09-06",
           "equity": 9819.932039991765
         }
-      ]
+      ],
+      "current_positions": {
+        "COIN": {
+          "shares": 1.2801750010478747,
+          "entry_price": 192.7,
+          "entry_date": "2026-09-04"
+        },
+        "CRM": {
+          "shares": 22.977735732308954,
+          "entry_price": 264.43,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 1.9609190671225458,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 21.701142497839687,
+          "entry_price": 144.82,
+          "entry_date": "2026-09-04"
+        },
+        "PLTR": {
+          "shares": 0.8782034478962779,
+          "entry_price": 182.53,
+          "entry_date": "2026-09-04"
+        },
+        "SMCI": {
+          "shares": 3.4244483673208532,
+          "entry_price": 37.87,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "roc_momentum",
@@ -970,6 +1890,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9814.874220517006,
       "roi": -0.01851257794829944,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -991,7 +1912,49 @@
           "date": "2026-09-06",
           "equity": 9814.874220517006
         }
-      ]
+      ],
+      "current_positions": {
+        "COIN": {
+          "shares": 0.6110667872409121,
+          "entry_price": 192.7,
+          "entry_date": "2026-09-04"
+        },
+        "CRM": {
+          "shares": 10.278598940453925,
+          "entry_price": 264.43,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 34.13334778793596,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "META": {
+          "shares": 0.06417359743179604,
+          "entry_price": 610.68,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 19.241154853731825,
+          "entry_price": 144.82,
+          "entry_date": "2026-09-04"
+        },
+        "NVDA": {
+          "shares": 0.052723836735005226,
+          "entry_price": 230.36,
+          "entry_date": "2026-09-04"
+        },
+        "RBLX": {
+          "shares": 1.086523346744116,
+          "entry_price": 43.31,
+          "entry_date": "2026-09-04"
+        },
+        "RIOT": {
+          "shares": 1.0588300561208084,
+          "entry_price": 21.8,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "supertrend",
@@ -1002,6 +1965,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9809.416975822016,
       "roi": -0.019058302417798403,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -1023,7 +1987,84 @@
           "date": "2026-09-06",
           "equity": 9809.416975822016
         }
-      ]
+      ],
+      "current_positions": {
+        "AI": {
+          "shares": 29.495679276614837,
+          "entry_price": 10.9,
+          "entry_date": "2026-09-04"
+        },
+        "AMC": {
+          "shares": 82.19516438050067,
+          "entry_price": 2.548070839690858,
+          "entry_date": "2026-09-04"
+        },
+        "COIN": {
+          "shares": 4.921531201312119,
+          "entry_price": 192.7,
+          "entry_date": "2026-09-04"
+        },
+        "CRM": {
+          "shares": 0.6436209355511696,
+          "entry_price": 264.43,
+          "entry_date": "2026-09-04"
+        },
+        "CVNA": {
+          "shares": 1.4831082907977524,
+          "entry_price": 73.43,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 11.29801757294956,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "MARA": {
+          "shares": 225.4937285797466,
+          "entry_price": 11.6,
+          "entry_date": "2026-09-04"
+        },
+        "META": {
+          "shares": 0.0777600840322636,
+          "entry_price": 616.77,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 23.196521410445364,
+          "entry_price": 144.82,
+          "entry_date": "2026-09-04"
+        },
+        "NVDA": {
+          "shares": 0.14358811108193695,
+          "entry_price": 230.36,
+          "entry_date": "2026-09-04"
+        },
+        "SMCI": {
+          "shares": 7.839980957986639,
+          "entry_price": 37.87,
+          "entry_date": "2026-09-04"
+        },
+        "SNOW": {
+          "shares": 0.5008735607622486,
+          "entry_price": 356.47,
+          "entry_date": "2026-09-04"
+        },
+        "SOFI": {
+          "shares": 6.108142020264072,
+          "entry_price": 18.51,
+          "entry_date": "2026-09-04"
+        },
+        "SOUN": {
+          "shares": 5.628178571483861,
+          "entry_price": 6.74,
+          "entry_date": "2026-09-04"
+        },
+        "TSLA": {
+          "shares": 0.4094091706172593,
+          "entry_price": 376.365,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "keltner_breakout",
@@ -1034,6 +2075,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9806.981127533718,
       "roi": -0.01930188724662821,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -1055,7 +2097,24 @@
           "date": "2026-09-06",
           "equity": 9806.981127533718
         }
-      ]
+      ],
+      "current_positions": {
+        "CRM": {
+          "shares": 33.96403634971749,
+          "entry_price": 264.43,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 2.5208496233444757,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 4.864587094466789,
+          "entry_price": 144.82,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "ad_line_trend",
@@ -1066,6 +2125,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9803.350603184208,
       "roi": -0.0196649396815792,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -1087,7 +2147,14 @@
           "date": "2026-09-06",
           "equity": 9803.350603184208
         }
-      ]
+      ],
+      "current_positions": {
+        "CRM": {
+          "shares": 37.817191695344704,
+          "entry_price": 264.43,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "parabolic_sar",
@@ -1098,6 +2165,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9787.445612605545,
       "roi": -0.021255438739445527,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -1119,7 +2187,84 @@
           "date": "2026-09-06",
           "equity": 9787.445612605545
         }
-      ]
+      ],
+      "current_positions": {
+        "AI": {
+          "shares": 22.830938644375834,
+          "entry_price": 10.9,
+          "entry_date": "2026-09-04"
+        },
+        "COIN": {
+          "shares": 1.7704966444005439,
+          "entry_price": 192.7,
+          "entry_date": "2026-09-04"
+        },
+        "CRM": {
+          "shares": 17.216042281815188,
+          "entry_price": 264.43,
+          "entry_date": "2026-09-04"
+        },
+        "CVNA": {
+          "shares": 0.19146239615286906,
+          "entry_price": 74.59,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 18.869074272656057,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "INTC": {
+          "shares": 0.33198188943272666,
+          "entry_price": 95.8,
+          "entry_date": "2026-09-04"
+        },
+        "MARA": {
+          "shares": 82.25965807849526,
+          "entry_price": 11.6,
+          "entry_date": "2026-09-04"
+        },
+        "META": {
+          "shares": 0.06907055927691064,
+          "entry_price": 610.68,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 4.677898754685798,
+          "entry_price": 144.82,
+          "entry_date": "2026-09-04"
+        },
+        "NVDA": {
+          "shares": 0.06010494389724175,
+          "entry_price": 228.45,
+          "entry_date": "2026-09-04"
+        },
+        "RBLX": {
+          "shares": 0.5397388446166473,
+          "entry_price": 43.31,
+          "entry_date": "2026-09-04"
+        },
+        "RIOT": {
+          "shares": 16.170220713353054,
+          "entry_price": 21.8,
+          "entry_date": "2026-09-04"
+        },
+        "SMCI": {
+          "shares": 0.5967042917399662,
+          "entry_price": 39.59,
+          "entry_date": "2026-09-04"
+        },
+        "SNOW": {
+          "shares": 0.7073910985837318,
+          "entry_price": 356.47,
+          "entry_date": "2026-09-04"
+        },
+        "TSLA": {
+          "shares": 0.32702071700570756,
+          "entry_price": 376.365,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "chaikin_money_flow",
@@ -1130,6 +2275,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9783.689841741565,
       "roi": -0.021631015825843498,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -1151,7 +2297,59 @@
           "date": "2026-09-06",
           "equity": 9783.689841741565
         }
-      ]
+      ],
+      "current_positions": {
+        "AAPL": {
+          "shares": 0.6076305688305653,
+          "entry_price": 328.21,
+          "entry_date": "2026-09-04"
+        },
+        "ADBE": {
+          "shares": 0.46271886984968597,
+          "entry_price": 285.75,
+          "entry_date": "2026-09-04"
+        },
+        "AI": {
+          "shares": 163.77838777906848,
+          "entry_price": 10.9,
+          "entry_date": "2026-09-04"
+        },
+        "CRM": {
+          "shares": 1.074085342257975,
+          "entry_price": 264.43,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 0.9732816063600804,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "JNJ": {
+          "shares": 5.302048955337046,
+          "entry_price": 278.43,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 4.54897909543676,
+          "entry_price": 144.82,
+          "entry_date": "2026-09-04"
+        },
+        "PFE": {
+          "shares": 161.57950924112902,
+          "entry_price": 28.81,
+          "entry_date": "2026-09-04"
+        },
+        "PLTR": {
+          "shares": 1.0837152148977531,
+          "entry_price": 182.53,
+          "entry_date": "2026-09-04"
+        },
+        "TSLA": {
+          "shares": 1.3014130312498804,
+          "entry_price": 376.365,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "donchian_breakout",
@@ -1162,6 +2360,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9764.109698698727,
       "roi": -0.023589030130127323,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -1183,7 +2382,29 @@
           "date": "2026-09-06",
           "equity": 9764.109698698727
         }
-      ]
+      ],
+      "current_positions": {
+        "HOOD": {
+          "shares": 71.12664514377055,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 2.0877086364794852,
+          "entry_price": 144.82,
+          "entry_date": "2026-09-04"
+        },
+        "SNOW": {
+          "shares": 1.6069390287515515,
+          "entry_price": 356.47,
+          "entry_date": "2026-09-04"
+        },
+        "TSLA": {
+          "shares": 0.6746570413160401,
+          "entry_price": 376.365,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "rsi_momentum",
@@ -1194,6 +2415,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9761.858382892293,
       "roi": -0.023814161710770713,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -1215,7 +2437,104 @@
           "date": "2026-09-06",
           "equity": 9761.858382892293
         }
-      ]
+      ],
+      "current_positions": {
+        "AAPL": {
+          "shares": 1.2571924734996838,
+          "entry_price": 328.21,
+          "entry_date": "2026-09-04"
+        },
+        "ADBE": {
+          "shares": 0.8633464860715861,
+          "entry_price": 285.75,
+          "entry_date": "2026-09-04"
+        },
+        "AI": {
+          "shares": 26.454138767257128,
+          "entry_price": 10.9,
+          "entry_date": "2026-09-04"
+        },
+        "COIN": {
+          "shares": 1.0659832520467225,
+          "entry_price": 192.7,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 15.355651064238302,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "JNJ": {
+          "shares": 2.531562425105853,
+          "entry_price": 278.43,
+          "entry_date": "2026-09-04"
+        },
+        "JPM": {
+          "shares": 0.4815946781966932,
+          "entry_price": 362.06,
+          "entry_date": "2026-09-04"
+        },
+        "META": {
+          "shares": 0.2464143065544733,
+          "entry_price": 610.68,
+          "entry_date": "2026-09-04"
+        },
+        "MSFT": {
+          "shares": 1.7216814486001082,
+          "entry_price": 510.12,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 9.657809620259254,
+          "entry_price": 144.82,
+          "entry_date": "2026-09-04"
+        },
+        "NFLX": {
+          "shares": 5.373115006907458,
+          "entry_price": 82.67,
+          "entry_date": "2026-09-04"
+        },
+        "NVDA": {
+          "shares": 0.35116517952123966,
+          "entry_price": 228.45,
+          "entry_date": "2026-09-04"
+        },
+        "PFE": {
+          "shares": 51.79530195879757,
+          "entry_price": 28.81,
+          "entry_date": "2026-09-04"
+        },
+        "PLTR": {
+          "shares": 1.027088929221988,
+          "entry_price": 182.53,
+          "entry_date": "2026-09-04"
+        },
+        "RBLX": {
+          "shares": 1.0083278115025582,
+          "entry_price": 43.31,
+          "entry_date": "2026-09-04"
+        },
+        "SMCI": {
+          "shares": 4.166382386351641,
+          "entry_price": 38.41315724227604,
+          "entry_date": "2026-09-04"
+        },
+        "SNOW": {
+          "shares": 2.5064442462165575,
+          "entry_price": 356.47,
+          "entry_date": "2026-09-04"
+        },
+        "TSLA": {
+          "shares": 0.4983935085193896,
+          "entry_price": 376.365,
+          "entry_date": "2026-09-04"
+        },
+        "V": {
+          "shares": 0.3620374942061376,
+          "entry_price": 378.75,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "cross_sectional_momentum",
@@ -1226,6 +2545,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9747.008867242246,
       "roi": -0.02529911327577538,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -1247,7 +2567,59 @@
           "date": "2026-09-06",
           "equity": 9747.008867242246
         }
-      ]
+      ],
+      "current_positions": {
+        "AMC": {
+          "shares": 31.24986708628697,
+          "entry_price": 2.54,
+          "entry_date": "2026-09-04"
+        },
+        "COIN": {
+          "shares": 0.6451202586877863,
+          "entry_price": 192.7,
+          "entry_date": "2026-09-04"
+        },
+        "CRM": {
+          "shares": 9.890363055269182,
+          "entry_price": 264.43,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 16.87364703305601,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "MSFT": {
+          "shares": 0.3245935132241812,
+          "entry_price": 510.12,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 0.8423893718321848,
+          "entry_price": 144.82,
+          "entry_date": "2026-09-04"
+        },
+        "PLTR": {
+          "shares": 3.4377889533795924,
+          "entry_price": 182.53,
+          "entry_date": "2026-09-04"
+        },
+        "SMCI": {
+          "shares": 5.15506822837648,
+          "entry_price": 39.59,
+          "entry_date": "2026-09-04"
+        },
+        "SNOW": {
+          "shares": 5.808122607886044,
+          "entry_price": 356.47,
+          "entry_date": "2026-09-04"
+        },
+        "U": {
+          "shares": 45.0429092580103,
+          "entry_price": 42.08,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "ichimoku_cloud_signal",
@@ -1258,6 +2630,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9745.158346217098,
       "roi": -0.025484165378290163,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -1279,7 +2652,49 @@
           "date": "2026-09-06",
           "equity": 9745.158346217098
         }
-      ]
+      ],
+      "current_positions": {
+        "ADBE": {
+          "shares": 0.9398863011468452,
+          "entry_price": 285.75,
+          "entry_date": "2026-09-04"
+        },
+        "CRM": {
+          "shares": 17.53859546129963,
+          "entry_price": 264.43,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 2.4230767337029486,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "MSFT": {
+          "shares": 0.7255594135117602,
+          "entry_price": 510.12,
+          "entry_date": "2026-09-04"
+        },
+        "PFE": {
+          "shares": 4.129548163955696,
+          "entry_price": 28.81,
+          "entry_date": "2026-09-04"
+        },
+        "PLTR": {
+          "shares": 6.204206507409526,
+          "entry_price": 182.53,
+          "entry_date": "2026-09-04"
+        },
+        "SNOW": {
+          "shares": 3.030286400662356,
+          "entry_price": 356.47,
+          "entry_date": "2026-09-04"
+        },
+        "U": {
+          "shares": 49.66102432800955,
+          "entry_price": 42.08,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "mfi_momentum",
@@ -1290,6 +2705,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9740.583440773786,
       "roi": -0.02594165592262143,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -1311,7 +2727,89 @@
           "date": "2026-09-06",
           "equity": 9740.583440773786
         }
-      ]
+      ],
+      "current_positions": {
+        "AAPL": {
+          "shares": 0.9804929017207139,
+          "entry_price": 328.21,
+          "entry_date": "2026-09-04"
+        },
+        "ADBE": {
+          "shares": 1.640992820457263,
+          "entry_price": 285.75,
+          "entry_date": "2026-09-04"
+        },
+        "AFRM": {
+          "shares": 5.177074225457744,
+          "entry_price": 74.3,
+          "entry_date": "2026-09-04"
+        },
+        "AI": {
+          "shares": 195.16333867568792,
+          "entry_price": 10.9,
+          "entry_date": "2026-09-04"
+        },
+        "AMC": {
+          "shares": 22.94795279924935,
+          "entry_price": 2.65,
+          "entry_date": "2026-09-04"
+        },
+        "COIN": {
+          "shares": 2.4654526467952933,
+          "entry_price": 192.7,
+          "entry_date": "2026-09-04"
+        },
+        "GME": {
+          "shares": 0.7061350567947683,
+          "entry_price": 19.16,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 16.254206389804228,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "JNJ": {
+          "shares": 1.9227065661977856,
+          "entry_price": 278.43,
+          "entry_date": "2026-09-04"
+        },
+        "MARA": {
+          "shares": 31.896654492862098,
+          "entry_price": 11.6,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 16.752298304429996,
+          "entry_price": 144.82,
+          "entry_date": "2026-09-04"
+        },
+        "NFLX": {
+          "shares": 3.162513585921191,
+          "entry_price": 82.67,
+          "entry_date": "2026-09-04"
+        },
+        "PFE": {
+          "shares": 9.144726134917676,
+          "entry_price": 28.81,
+          "entry_date": "2026-09-04"
+        },
+        "RBLX": {
+          "shares": 1.8940996343356016,
+          "entry_price": 41.51,
+          "entry_date": "2026-09-04"
+        },
+        "SOFI": {
+          "shares": 8.856657356088167,
+          "entry_price": 18.51,
+          "entry_date": "2026-09-04"
+        },
+        "V": {
+          "shares": 0.06926322785579185,
+          "entry_price": 375.07,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "multi_timeframe_trend",
@@ -1322,6 +2820,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9739.986274292633,
       "roi": -0.026001372570736748,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -1343,7 +2842,49 @@
           "date": "2026-09-06",
           "equity": 9739.986274292633
         }
-      ]
+      ],
+      "current_positions": {
+        "AMC": {
+          "shares": 305.66779537953204,
+          "entry_price": 2.54,
+          "entry_date": "2026-09-04"
+        },
+        "CRM": {
+          "shares": 11.246685664118077,
+          "entry_price": 264.43,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 3.031590947227136,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "MSFT": {
+          "shares": 0.37836214000513,
+          "entry_price": 510.12,
+          "entry_date": "2026-09-04"
+        },
+        "PLTR": {
+          "shares": 2.4922911162217494,
+          "entry_price": 182.53,
+          "entry_date": "2026-09-04"
+        },
+        "SMCI": {
+          "shares": 5.066497698540799,
+          "entry_price": 37.98651477227075,
+          "entry_date": "2026-09-04"
+        },
+        "SNOW": {
+          "shares": 10.25479188137817,
+          "entry_price": 356.47,
+          "entry_date": "2026-09-04"
+        },
+        "U": {
+          "shares": 32.704240978440126,
+          "entry_price": 42.08,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "short_squeeze_candidate",
@@ -1354,6 +2895,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9716.161498834716,
       "roi": -0.028383850116528445,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -1375,7 +2917,39 @@
           "date": "2026-09-06",
           "equity": 9716.161498834716
         }
-      ]
+      ],
+      "current_positions": {
+        "AI": {
+          "shares": 442.0454851632864,
+          "entry_price": 10.9,
+          "entry_date": "2026-09-04"
+        },
+        "COIN": {
+          "shares": 0.7675645534408319,
+          "entry_price": 192.7,
+          "entry_date": "2026-09-04"
+        },
+        "CVNA": {
+          "shares": 2.6362476122933516,
+          "entry_price": 73.43449935165418,
+          "entry_date": "2026-09-04"
+        },
+        "MARA": {
+          "shares": 357.03757833703526,
+          "entry_price": 11.6,
+          "entry_date": "2026-09-04"
+        },
+        "SMCI": {
+          "shares": 12.213964248020202,
+          "entry_price": 37.87,
+          "entry_date": "2026-09-04"
+        },
+        "SOFI": {
+          "shares": 12.75296596638165,
+          "entry_price": 18.51,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "anchored_vwap_52w_low",
@@ -1386,6 +2960,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9693.615412282294,
       "roi": -0.030638458771770637,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -1407,7 +2982,64 @@
           "date": "2026-09-06",
           "equity": 9693.615412282294
         }
-      ]
+      ],
+      "current_positions": {
+        "AMC": {
+          "shares": 49.766209647055085,
+          "entry_price": 2.54,
+          "entry_date": "2026-09-05"
+        },
+        "CRM": {
+          "shares": 2.0897516185960394,
+          "entry_price": 264.43,
+          "entry_date": "2026-09-04"
+        },
+        "CSCO": {
+          "shares": 0.3317391848686785,
+          "entry_price": 109.2,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 4.6593929551734545,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "INTC": {
+          "shares": 3.0736523506391435,
+          "entry_price": 91.67026790444068,
+          "entry_date": "2026-09-05"
+        },
+        "JNJ": {
+          "shares": 0.4286797634440837,
+          "entry_price": 278.43,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 4.0905936326384005,
+          "entry_price": 144.82,
+          "entry_date": "2026-09-04"
+        },
+        "PLTR": {
+          "shares": 0.7139929698825945,
+          "entry_price": 182.53,
+          "entry_date": "2026-09-04"
+        },
+        "SMCI": {
+          "shares": 1.4523246860581316,
+          "entry_price": 39.59,
+          "entry_date": "2026-09-04"
+        },
+        "SNOW": {
+          "shares": 13.659296145243808,
+          "entry_price": 356.47,
+          "entry_date": "2026-09-04"
+        },
+        "U": {
+          "shares": 63.145382900776916,
+          "entry_price": 42.08,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "put_call_oi_ratio",
@@ -1418,6 +3050,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9616.198689076406,
       "roi": -0.038380131092359444,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -1439,7 +3072,59 @@
           "date": "2026-09-06",
           "equity": 9616.198689076406
         }
-      ]
+      ],
+      "current_positions": {
+        "AI": {
+          "shares": 886.7128271877792,
+          "entry_price": 10.9,
+          "entry_date": "2026-09-04"
+        },
+        "AMC": {
+          "shares": 25.63001766739674,
+          "entry_price": 2.65,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 0.13482242622509916,
+          "entry_price": 122.11,
+          "entry_date": "2026-09-04"
+        },
+        "JNJ": {
+          "shares": 0.06964846826495462,
+          "entry_price": 275.23,
+          "entry_date": "2026-09-05"
+        },
+        "MSTR": {
+          "shares": 1.0299681489770283,
+          "entry_price": 144.82,
+          "entry_date": "2026-09-04"
+        },
+        "NVDA": {
+          "shares": 0.02789926028161317,
+          "entry_price": 230.36,
+          "entry_date": "2026-09-05"
+        },
+        "PG": {
+          "shares": 0.03287158238172449,
+          "entry_price": 146.44,
+          "entry_date": "2026-09-05"
+        },
+        "RIOT": {
+          "shares": 0.4118852151634847,
+          "entry_price": 21.8,
+          "entry_date": "2026-09-05"
+        },
+        "SMCI": {
+          "shares": 1.2013309809870698,
+          "entry_price": 37.87,
+          "entry_date": "2026-09-05"
+        },
+        "SNOW": {
+          "shares": 0.0675325477860782,
+          "entry_price": 337.18,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "bollinger_squeeze_breakout",
@@ -1450,6 +3135,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9509.233895390596,
       "roi": -0.049076610460940355,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -1471,7 +3157,24 @@
           "date": "2026-09-06",
           "equity": 9509.233895390596
         }
-      ]
+      ],
+      "current_positions": {
+        "AAPL": {
+          "shares": 5.421438742373981,
+          "entry_price": 328.21,
+          "entry_date": "2026-09-04"
+        },
+        "SNOW": {
+          "shares": 22.37727568729297,
+          "entry_price": 356.47,
+          "entry_date": "2026-09-04"
+        },
+        "TSLA": {
+          "shares": 0.6477810798456589,
+          "entry_price": 376.365,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "cci_momentum",
@@ -1482,6 +3185,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9505.765957384438,
       "roi": -0.049423404261556246,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -1503,7 +3207,64 @@
           "date": "2026-09-06",
           "equity": 9505.765957384438
         }
-      ]
+      ],
+      "current_positions": {
+        "AAPL": {
+          "shares": 0.5004057574211955,
+          "entry_price": 328.21,
+          "entry_date": "2026-09-04"
+        },
+        "GME": {
+          "shares": 0.9612513746986012,
+          "entry_price": 19.16,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 1.9146959511358335,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "META": {
+          "shares": 0.024813183474625605,
+          "entry_price": 616.77,
+          "entry_date": "2026-09-04"
+        },
+        "MSTR": {
+          "shares": 0.03654475426188886,
+          "entry_price": 142.8,
+          "entry_date": "2026-09-04"
+        },
+        "NVDA": {
+          "shares": 0.15587525482601713,
+          "entry_price": 230.36,
+          "entry_date": "2026-09-04"
+        },
+        "RBLX": {
+          "shares": 6.705895545843196,
+          "entry_price": 41.51,
+          "entry_date": "2026-09-04"
+        },
+        "RIOT": {
+          "shares": 0.25124216061453974,
+          "entry_price": 21.8,
+          "entry_date": "2026-09-04"
+        },
+        "SMCI": {
+          "shares": 0.15384978278568334,
+          "entry_price": 39.59,
+          "entry_date": "2026-09-04"
+        },
+        "SNOW": {
+          "shares": 25.363477143504472,
+          "entry_price": 356.47,
+          "entry_date": "2026-09-04"
+        },
+        "TSLA": {
+          "shares": 0.516669778380032,
+          "entry_price": 376.365,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "unusual_volume_spike",
@@ -1514,6 +3275,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9481.383437760309,
       "roi": -0.05186165622396911,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -1535,7 +3297,24 @@
           "date": "2026-09-06",
           "equity": 9481.383437760309
         }
-      ]
+      ],
+      "current_positions": {
+        "AI": {
+          "shares": 34.83393953989665,
+          "entry_price": 10.9,
+          "entry_date": "2026-09-04"
+        },
+        "HOOD": {
+          "shares": 4.180471355411762,
+          "entry_price": 124.72,
+          "entry_date": "2026-09-04"
+        },
+        "SNOW": {
+          "shares": 25.525069912105288,
+          "entry_price": 356.47,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "pairs_correlation_reversion",
@@ -1546,6 +3325,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9386.46263655368,
       "roi": -0.06135373634463194,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -1567,7 +3347,34 @@
           "date": "2026-09-06",
           "equity": 9386.46263655368
         }
-      ]
+      ],
+      "current_positions": {
+        "ADBE": {
+          "shares": 30.576716602239625,
+          "entry_price": 285.75,
+          "entry_date": "2026-09-04"
+        },
+        "AMZN": {
+          "shares": 0.41302114224091196,
+          "entry_price": 258.9,
+          "entry_date": "2026-09-04"
+        },
+        "MSFT": {
+          "shares": 1.1413592232396528,
+          "entry_price": 510.12,
+          "entry_date": "2026-09-04"
+        },
+        "NFLX": {
+          "shares": 1.777543107559218,
+          "entry_price": 82.67,
+          "entry_date": "2026-09-04"
+        },
+        "PFE": {
+          "shares": 14.807094811625248,
+          "entry_price": 28.81,
+          "entry_date": "2026-09-04"
+        }
+      }
     },
     {
       "strategy_id": "autocorrelation_momentum",
@@ -1578,6 +3385,7 @@
       "starting_cash": 10000.0,
       "latest_equity": 9326.68416447944,
       "roi": -0.06733158355205596,
+      "max_drawdown": 0.0,
       "returns_by_range": {
         "1D": 0.0,
         "1W": null,
@@ -1599,7 +3407,14 @@
           "date": "2026-09-06",
           "equity": 9326.68416447944
         }
-      ]
+      ],
+      "current_positions": {
+        "ADBE": {
+          "shares": 34.99562554680665,
+          "entry_price": 285.75,
+          "entry_date": "2026-09-04"
+        }
+      }
     }
   ],
   "benchmark": {
@@ -1857,5 +3672,2717 @@
       "total_value": 162.07164245075558,
       "n_strategies": 2
     }
-  ]
+  ],
+  "recommendations": {
+    "date": "2026-09-06",
+    "n_active_strategies": 50,
+    "best_strategy": {
+      "strategy_id": "ma_slope_acceleration",
+      "display_name": "Moving Average Slope Acceleration",
+      "roi": 0.04174682859716541
+    },
+    "top_buy": [],
+    "top_hold": [
+      {
+        "symbol": "HOOD",
+        "count": 27,
+        "n_active_strategies": 50,
+        "pct": 0.54,
+        "best_strategy_stance": "hold"
+      },
+      {
+        "symbol": "MSTR",
+        "count": 26,
+        "n_active_strategies": 50,
+        "pct": 0.52,
+        "best_strategy_stance": "hold"
+      },
+      {
+        "symbol": "CRM",
+        "count": 21,
+        "n_active_strategies": 50,
+        "pct": 0.42,
+        "best_strategy_stance": "no position"
+      },
+      {
+        "symbol": "COIN",
+        "count": 19,
+        "n_active_strategies": 50,
+        "pct": 0.38,
+        "best_strategy_stance": "no position"
+      },
+      {
+        "symbol": "SMCI",
+        "count": 15,
+        "n_active_strategies": 50,
+        "pct": 0.3,
+        "best_strategy_stance": "no position"
+      },
+      {
+        "symbol": "SNOW",
+        "count": 15,
+        "n_active_strategies": 50,
+        "pct": 0.3,
+        "best_strategy_stance": "no position"
+      },
+      {
+        "symbol": "PLTR",
+        "count": 14,
+        "n_active_strategies": 50,
+        "pct": 0.28,
+        "best_strategy_stance": "no position"
+      },
+      {
+        "symbol": "TSLA",
+        "count": 13,
+        "n_active_strategies": 50,
+        "pct": 0.26,
+        "best_strategy_stance": "no position"
+      },
+      {
+        "symbol": "MARA",
+        "count": 13,
+        "n_active_strategies": 50,
+        "pct": 0.26,
+        "best_strategy_stance": "hold"
+      },
+      {
+        "symbol": "AI",
+        "count": 11,
+        "n_active_strategies": 50,
+        "pct": 0.22,
+        "best_strategy_stance": "no position"
+      }
+    ],
+    "top_sell": []
+  },
+  "correlation": {
+    "matrix": {
+      "ma_slope_acceleration": {
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "ma_slope_acceleration": 1.0
+      },
+      "max_pain_proximity": {
+        "ma_slope_acceleration": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "max_pain_proximity": 1.0
+      },
+      "iv_term_structure": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "iv_term_structure": 1.0
+      },
+      "stochastic_momentum": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "stochastic_momentum": 1.0
+      },
+      "gex_regime": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "gex_regime": 1.0
+      },
+      "distance_52w_low": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "distance_52w_low": 1.0
+      },
+      "risk_on_off": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "risk_on_off": 1.0
+      },
+      "seasonality_composite": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "seasonality_composite": 1.0
+      },
+      "iv_rank_low": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "iv_rank_low": 1.0
+      },
+      "ema_50_200": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "ema_50_200": 1.0
+      },
+      "hurst_trending_regime": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "hurst_trending_regime": 1.0
+      },
+      "obv_trend": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "obv_trend": 1.0
+      },
+      "macd_momentum": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "macd_momentum": 1.0
+      },
+      "distance_52w_high": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "distance_52w_high": 1.0
+      },
+      "overnight_gap_fill": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "overnight_gap_fill": 1.0
+      },
+      "options_skew": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "options_skew": 1.0
+      },
+      "adx_trend": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "adx_trend": 1.0
+      },
+      "zscore_reversion": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "zscore_reversion": 1.0
+      },
+      "bollinger_reversion": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "bollinger_reversion": 1.0
+      },
+      "earnings_surprise_drift": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "earnings_surprise_drift": 1.0
+      },
+      "dollar_strength_filter": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "dollar_strength_filter": 1.0
+      },
+      "credit_spread_proxy": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "credit_spread_proxy": 1.0
+      },
+      "relative_strength_market": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "relative_strength_market": 1.0
+      },
+      "oi_concentration": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "oi_concentration": 1.0
+      },
+      "vwma_deviation": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "vwma_deviation": 1.0
+      },
+      "sector_rotation": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "sector_rotation": 1.0
+      },
+      "oil_sensitivity_filter": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "oil_sensitivity_filter": 1.0
+      },
+      "session_vwap": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "session_vwap": 1.0
+      },
+      "ema_9_20": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "ema_9_20": 1.0
+      },
+      "vix_regime_filter": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "vix_regime_filter": 1.0
+      },
+      "roc_momentum": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "roc_momentum": 1.0
+      },
+      "supertrend": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "supertrend": 1.0
+      },
+      "keltner_breakout": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "keltner_breakout": 1.0
+      },
+      "ad_line_trend": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "ad_line_trend": 1.0
+      },
+      "parabolic_sar": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "parabolic_sar": 1.0
+      },
+      "chaikin_money_flow": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "chaikin_money_flow": 1.0
+      },
+      "donchian_breakout": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "donchian_breakout": 1.0
+      },
+      "rsi_momentum": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "rsi_momentum": 1.0
+      },
+      "cross_sectional_momentum": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "cross_sectional_momentum": 1.0
+      },
+      "ichimoku_cloud_signal": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "ichimoku_cloud_signal": 1.0
+      },
+      "mfi_momentum": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "mfi_momentum": 1.0
+      },
+      "multi_timeframe_trend": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "multi_timeframe_trend": 1.0
+      },
+      "short_squeeze_candidate": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "short_squeeze_candidate": 1.0
+      },
+      "anchored_vwap_52w_low": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "anchored_vwap_52w_low": 1.0
+      },
+      "put_call_oi_ratio": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "put_call_oi_ratio": 1.0
+      },
+      "bollinger_squeeze_breakout": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "bollinger_squeeze_breakout": 1.0
+      },
+      "cci_momentum": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "cci_momentum": 1.0
+      },
+      "unusual_volume_spike": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "unusual_volume_spike": 1.0
+      },
+      "pairs_correlation_reversion": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "autocorrelation_momentum": null,
+        "pairs_correlation_reversion": 1.0
+      },
+      "autocorrelation_momentum": {
+        "ma_slope_acceleration": null,
+        "max_pain_proximity": null,
+        "iv_term_structure": null,
+        "stochastic_momentum": null,
+        "gex_regime": null,
+        "distance_52w_low": null,
+        "risk_on_off": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "ema_50_200": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "macd_momentum": null,
+        "distance_52w_high": null,
+        "overnight_gap_fill": null,
+        "options_skew": null,
+        "adx_trend": null,
+        "zscore_reversion": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "dollar_strength_filter": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "oi_concentration": null,
+        "vwma_deviation": null,
+        "sector_rotation": null,
+        "oil_sensitivity_filter": null,
+        "session_vwap": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "roc_momentum": null,
+        "supertrend": null,
+        "keltner_breakout": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "chaikin_money_flow": null,
+        "donchian_breakout": null,
+        "rsi_momentum": null,
+        "cross_sectional_momentum": null,
+        "ichimoku_cloud_signal": null,
+        "mfi_momentum": null,
+        "multi_timeframe_trend": null,
+        "short_squeeze_candidate": null,
+        "anchored_vwap_52w_low": null,
+        "put_call_oi_ratio": null,
+        "bollinger_squeeze_breakout": null,
+        "cci_momentum": null,
+        "unusual_volume_spike": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": 1.0
+      }
+    },
+    "most_correlated_pairs": []
+  },
+  "total_holdings": {
+    "equity_history": [
+      {
+        "date": "2026-09-04",
+        "equity": 491313.0799820126
+      },
+      {
+        "date": "2026-09-05",
+        "equity": 491313.0799820126
+      },
+      {
+        "date": "2026-09-06",
+        "equity": 491313.0799820126
+      }
+    ],
+    "returns_by_range": {
+      "1D": 0.0,
+      "1W": null,
+      "1M": null,
+      "YTD": null,
+      "1Y": null,
+      "5Y": null
+    }
+  }
 }

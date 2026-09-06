@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Total Holdings — Strategy Lab</title>
+<style>
+:root {
+  --bg: #F5F4F1;
+  --card: #FFFFFF;
+  --border: #E3E1DB;
+  --ink: #16181D;
+  --ink-soft: #6B6F76;
+  --accent: #2B3A67;
+  --accent-soft: #E8EAF2;
+  --gain: #1F7A5C;
+  --loss: #B23A3A;
+  --mono: ui-monospace, "SF Mono", "Roboto Mono", Consolas, monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1040px; margin: 0 auto; padding: 40px 24px 80px; }
+header.page-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 8px; flex-wrap: wrap; gap: 12px;
+}
+h1 { font-size: 22px; font-weight: 650; margin: 0; letter-spacing: -0.01em; }
+.subtitle { color: var(--ink-soft); font-size: 13px; margin: 0 0 28px; }
+nav.tabs { display: flex; gap: 4px; margin-bottom: 24px; border-bottom: 1px solid var(--border); }
+nav.tabs a {
+  padding: 10px 4px; margin-right: 20px; text-decoration: none; color: var(--ink-soft);
+  font-size: 14px; border-bottom: 2px solid transparent; font-weight: 500;
+}
+nav.tabs a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+.range-pills { display: flex; gap: 6px; margin-bottom: 20px; }
+.range-pills button {
+  border: 1px solid var(--border); background: var(--card); color: var(--ink-soft);
+  padding: 6px 14px; border-radius: 999px; font-size: 13px; cursor: pointer; font-family: var(--sans);
+}
+.range-pills button.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+.card-list { display: flex; flex-direction: column; gap: 10px; }
+.strategy-card, .stock-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+  padding: 16px 20px; display: flex; align-items: center; gap: 16px;
+}
+.rank { font-family: var(--mono); font-size: 13px; color: var(--ink-soft); width: 24px; flex-shrink: 0; }
+.name-block { flex: 1; min-width: 0; }
+.name { font-weight: 600; font-size: 14px; margin: 0 0 2px; }
+.name .status-badge {
+  font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 4px;
+  background: #F0E6E6; color: var(--loss); margin-left: 8px; vertical-align: middle;
+}
+.sub { font-size: 12px; color: var(--ink-soft); }
+.category-tag {
+  font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em;
+  background: var(--accent-soft); color: var(--accent); padding: 1px 6px; border-radius: 4px; margin-right: 6px;
+}
+.methodology-link { font-size: 13px; color: var(--accent); text-decoration: none; font-weight: 500; }
+.methodology-link:hover { text-decoration: underline; }
+.spark { width: 110px; height: 36px; flex-shrink: 0; }
+.figures { text-align: right; flex-shrink: 0; width: 130px; }
+.equity { font-family: var(--mono); font-size: 14px; font-weight: 600; }
+.delta { font-family: var(--mono); font-size: 12px; margin-top: 2px; }
+.delta.gain { color: var(--gain); }
+.delta.loss { color: var(--loss); }
+.delta.flat { color: var(--ink-soft); }
+.na { color: var(--ink-soft); font-size: 12px; }
+
+.stock-bar-track { flex: 1; height: 8px; background: var(--accent-soft); border-radius: 4px; overflow: hidden; }
+.stock-bar-fill { height: 100%; background: var(--accent); }
+.stock-meta { width: 190px; text-align: right; font-family: var(--mono); font-size: 13px; }
+.stock-meta .n-strat { color: var(--ink-soft); font-family: var(--sans); font-size: 12px; margin-left: 6px; }
+
+.empty-note {
+  background: var(--accent-soft); border: 1px solid var(--border); border-radius: 8px;
+  padding: 14px 18px; font-size: 13px; color: var(--ink); margin-bottom: 20px; line-height: 1.5;
+}
+footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family: var(--mono); }
+
+.big-chart { width: 100%; height: 280px; }
+.chart-header { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; }
+.chart-total { font-family: var(--mono); font-size: 28px; font-weight: 700; }
+.chart-change { font-family: var(--mono); font-size: 15px; margin-top:4px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="page-head">
+    <h1>Total Holdings</h1>
+  </header>
+  <p class="subtitle">Combined equity across all 50 active strategies ($500,000 total starting capital) &middot; generated 2026-09-06T23:37:50.273780+00:00</p>
+  <nav class="tabs">
+  <a href="index.html" class="">Strategies</a>
+  <a href="recommendations.html" class="">Recommendations</a>
+  <a href="holdings.html" class="active">Total Holdings</a>
+  <a href="positions.html" class="">Positions</a>
+  <a href="correlation.html" class="">Correlation</a>
+</nav>
+  <div class="range-pills"><button data-range="1D" class="" onclick="setRange(&quot;1D&quot;)">1D</button><button data-range="1W" class="" onclick="setRange(&quot;1W&quot;)">1W</button><button data-range="1M" class="active" onclick="setRange(&quot;1M&quot;)">1M</button><button data-range="YTD" class="" onclick="setRange(&quot;YTD&quot;)">YTD</button><button data-range="1Y" class="" onclick="setRange(&quot;1Y&quot;)">1Y</button><button data-range="5Y" class="" onclick="setRange(&quot;5Y&quot;)">5Y</button></div>
+
+  <div class="strategy-card" style="flex-direction:column;align-items:stretch;padding:24px">
+    <div class="chart-header">
+      <div>
+        <div class="chart-total" id="chart-total">$0.00</div>
+        <div class="chart-change" id="chart-change"></div>
+      </div>
+    </div>
+    <svg class="big-chart" id="big-chart" viewBox="0 0 900 280" preserveAspectRatio="none"></svg>
+  </div>
+
+  <footer>data as of 2026-09-06T23:37:50.273780+00:00</footer>
+</div>
+<script>
+
+const RANGES = ["1D","1W","1M","YTD","1Y","5Y"];
+let currentRange = "1M";
+
+function fmtPct(v) {
+  if (v === null || v === undefined) return null;
+  const pct = (v * 100).toFixed(2);
+  return (v >= 0 ? "+" : "") + pct + "%";
+}
+function deltaClass(v) {
+  if (v === null || v === undefined) return "na";
+  if (Math.abs(v) < 0.0001) return "flat";
+  return v > 0 ? "gain" : "loss";
+}
+function setRange(r) {
+  currentRange = r;
+  document.querySelectorAll(".range-pills button").forEach(b => {
+    b.classList.toggle("active", b.dataset.range === r);
+  });
+  render();
+}
+
+const SERIES = [{"date": "2026-09-04", "equity": 491313.0799820126}, {"date": "2026-09-05", "equity": 491313.0799820126}, {"date": "2026-09-06", "equity": 491313.0799820126}];
+
+function filterByRange(series, range) {
+  if (series.length === 0) return series;
+  const lastDate = new Date(series[series.length - 1].date);
+  let cutoff;
+  if (range === "YTD") {
+    cutoff = new Date(lastDate.getFullYear(), 0, 1);
+  } else {
+    const daysMap = {"1D": 1, "1W": 7, "1M": 30, "1Y": 365, "5Y": 365*5};
+    cutoff = new Date(lastDate);
+    cutoff.setDate(cutoff.getDate() - daysMap[range]);
+  }
+  return series.filter(p => new Date(p.date) >= cutoff);
+}
+
+function drawChart(points) {
+  const svg = document.getElementById("big-chart");
+  if (points.length < 2) {
+    svg.innerHTML = '<line x1="20" y1="140" x2="880" y2="140" stroke="#D8D6CF" stroke-width="2"/>';
+    return;
+  }
+  const values = points.map(p => p.equity);
+  const lo = Math.min(...values), hi = Math.max(...values);
+  const span = (hi - lo) || 1;
+  const w = 900, h = 280, pad = 20;
+  const pts = points.map((p, i) => {
+    const x = pad + (w - 2*pad) * (i / (points.length - 1));
+    const y = h - pad - (h - 2*pad) * ((p.equity - lo) / span);
+    return x.toFixed(1) + "," + y.toFixed(1);
+  }).join(" ");
+  const color = values[values.length-1] >= values[0] ? "#1F7A5C" : "#B23A3A";
+  svg.innerHTML = '<polyline points="' + pts + '" fill="none" stroke="' + color + '" stroke-width="2.5"/>';
+}
+
+function render() {
+  const filtered = filterByRange(SERIES, currentRange);
+  drawChart(filtered);
+  const totalEl = document.getElementById("chart-total");
+  const changeEl = document.getElementById("chart-change");
+  if (SERIES.length === 0) {
+    totalEl.textContent = "$0.00";
+    changeEl.innerHTML = '<span class="na">No data yet</span>';
+    return;
+  }
+  const latest = SERIES[SERIES.length - 1].equity;
+  totalEl.textContent = "$" + latest.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
+  if (filtered.length < 2) {
+    changeEl.innerHTML = '<span class="na">Not enough history for this range yet</span>';
+    return;
+  }
+  const start = filtered[0].equity;
+  const change = (latest - start) / start;
+  changeEl.innerHTML = '<span class="delta ' + deltaClass(change) + '">' + fmtPct(change) + ' over ' + currentRange + '</span>';
+}
+render();
+</script>
+</body>
+</html>
