@@ -22,6 +22,9 @@ position rule "sell if profitable, hold if not"):
 import sqlite3
 import os
 
+import config
+from experiment.slippage import execution_price
+
 DB_PATH = os.path.join(os.path.dirname(__file__), "experiment.db")
 
 
@@ -83,6 +86,26 @@ def init_db():
         shares REAL,
         price REAL,
         reason TEXT
+    );
+
+    CREATE TABLE IF NOT EXISTS slippage_log (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        strategy_id TEXT,
+        date TEXT,
+        symbol TEXT,
+        side TEXT,
+        market_price REAL,
+        executed_price REAL,
+        shares REAL,
+        cost REAL
+    );
+
+    CREATE TABLE IF NOT EXISTS daily_stance (
+        strategy_id TEXT,
+        date TEXT,
+        symbol TEXT,
+        stance TEXT,
+        PRIMARY KEY (strategy_id, date, symbol)
     );
     """)
     conn.commit()
@@ -162,6 +185,53 @@ def _log_trade(strategy_id: str, date: str, action: str, symbol: str, shares: fl
     conn.close()
 
 
+def _log_slippage(strategy_id: str, date: str, symbol: str, side: str,
+                   market_price: float, executed_price: float, shares: float):
+    cost = abs(executed_price - market_price) * shares
+    conn = get_connection()
+    conn.execute(
+        "INSERT INTO slippage_log (strategy_id, date, symbol, side, market_price, executed_price, shares, cost) "
+        "VALUES (?,?,?,?,?,?,?,?)",
+        (strategy_id, date, symbol, side, market_price, executed_price, shares, cost),
+    )
+    conn.commit()
+    conn.close()
+    return cost
+
+
+def record_daily_stances(strategy_id: str, date: str, stances: dict):
+    conn = get_connection()
+    for symbol, stance in stances.items():
+        conn.execute(
+            "INSERT OR REPLACE INTO daily_stance (strategy_id, date, symbol, stance) VALUES (?,?,?,?)",
+            (strategy_id, date, symbol, stance),
+        )
+    conn.commit()
+    conn.close()
+
+
+def get_stances_for_date(date: str) -> list:
+    """All (strategy_id, symbol, stance) rows for one date, across every
+    strategy — the raw material for the daily recommendations aggregation."""
+    conn = get_connection()
+    rows = conn.execute(
+        "SELECT strategy_id, symbol, stance FROM daily_stance WHERE date = ?", (date,)
+    ).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+def total_slippage_paid(strategy_id: str = None) -> float:
+    conn = get_connection()
+    if strategy_id:
+        row = conn.execute("SELECT SUM(cost) AS total FROM slippage_log WHERE strategy_id = ?",
+                            (strategy_id,)).fetchone()
+    else:
+        row = conn.execute("SELECT SUM(cost) AS total FROM slippage_log").fetchone()
+    conn.close()
+    return row["total"] or 0.0
+
+
 def total_equity(strategy_id: str, current_prices: dict) -> float:
     """
     current_prices: {symbol: price}. Every held symbol MUST have a price
@@ -207,10 +277,12 @@ def rebalance_to_targets(strategy_id: str, target_weights: dict, current_prices:
         if symbol in frozen:
             continue
         if symbol not in target_weights:
-            price = current_prices[symbol]
-            proceeds = pos["shares"] * price
+            market_price = current_prices[symbol]
+            exec_price = execution_price(symbol, market_price, "sell")
+            proceeds = pos["shares"] * exec_price
             cash += proceeds
-            _log_trade(strategy_id, date, "sell", symbol, pos["shares"], price, "rotated out of target")
+            _log_trade(strategy_id, date, "sell", symbol, pos["shares"], exec_price, "rotated out of target")
+            _log_slippage(strategy_id, date, symbol, "sell", market_price, exec_price, pos["shares"])
             _delete_position(strategy_id, symbol)
             sold.append(symbol)
             del positions[symbol]
@@ -240,6 +312,7 @@ def rebalance_to_targets(strategy_id: str, target_weights: dict, current_prices:
 
     # 5. Buy/resize toward each active target.
     bought, resized = [], []
+    resize_direction = {}
     for symbol, weight in active_targets.items():
         price = current_prices.get(symbol)
         if price is None or price <= 0:
@@ -252,20 +325,26 @@ def rebalance_to_targets(strategy_id: str, target_weights: dict, current_prices:
             continue
 
         if delta_value > 0:
-            additional_shares = delta_value / price
+            market_price = price
+            exec_price = execution_price(symbol, market_price, "buy")
+            additional_shares = delta_value / exec_price
             is_existing = symbol in positions
             new_shares = (positions[symbol]["shares"] if is_existing else 0.0) + additional_shares
             if is_existing:
                 old_shares = positions[symbol]["shares"]
-                entry_price = ((old_shares * positions[symbol]["entry_price"]) + (additional_shares * price)) / new_shares
+                entry_price = ((old_shares * positions[symbol]["entry_price"]) + (additional_shares * exec_price)) / new_shares
             else:
-                entry_price = price
+                entry_price = exec_price
             _upsert_position(strategy_id, symbol, new_shares, entry_price, date)
             cash -= delta_value
-            _log_trade(strategy_id, date, "buy", symbol, additional_shares, price, reasons.get(symbol, ""))
+            _log_trade(strategy_id, date, "buy", symbol, additional_shares, exec_price, reasons.get(symbol, ""))
+            _log_slippage(strategy_id, date, symbol, "buy", market_price, exec_price, additional_shares)
             (resized if is_existing else bought).append(symbol)
+            resize_direction[symbol] = "increased" if is_existing else None
         else:
-            shares_to_sell = abs(delta_value) / price
+            market_price = price
+            exec_price = execution_price(symbol, market_price, "sell")
+            shares_to_sell = abs(delta_value) / exec_price
             remaining_shares = positions[symbol]["shares"] - shares_to_sell
             cash += abs(delta_value)
             if remaining_shares <= 1e-9:
@@ -273,12 +352,32 @@ def rebalance_to_targets(strategy_id: str, target_weights: dict, current_prices:
                 sold.append(symbol)
             else:
                 _upsert_position(strategy_id, symbol, remaining_shares, positions[symbol]["entry_price"], date)
-            _log_trade(strategy_id, date, "sell", symbol, shares_to_sell, price, "trimmed to target weight")
+            _log_trade(strategy_id, date, "sell", symbol, shares_to_sell, exec_price, "trimmed to target weight")
+            _log_slippage(strategy_id, date, symbol, "sell", market_price, exec_price, shares_to_sell)
             resized.append(symbol)
+            resize_direction[symbol] = "decreased"
 
     set_cash(strategy_id, cash)
 
-    return {"frozen": list(frozen.keys()), "sold": sold, "bought": bought, "resized": resized}
+    # Build a clean per-symbol stance for today — powers the daily
+    # recommendations page. Every symbol touched today (held, bought,
+    # sold, or frozen) gets exactly one of: "buy", "hold", "sell".
+    stances = {}
+    for s in frozen:
+        stances[s] = "hold"          # frozen loser — held, untouched
+    for s in sold:
+        stances[s] = "sell"          # fully exited
+    for s in bought:
+        stances[s] = "buy"           # new position
+    for s in resized:
+        stances[s] = "buy" if resize_direction.get(s) == "increased" else "sell"
+    # anything still held after all the above, with no change today
+    # (delta was negligible, skipped as a no-op trade) counts as "hold"
+    for s in get_positions(strategy_id):
+        stances.setdefault(s, "hold")
+
+    return {"frozen": list(frozen.keys()), "sold": sold, "bought": bought,
+            "resized": resized, "stances": stances}
 
 
 def record_equity_and_positions(strategy_id: str, date: str, current_prices: dict):

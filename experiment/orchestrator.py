@@ -55,6 +55,7 @@ def run_strategy_day(strategy_id: str, date: str, watchlist: list, cache: DailyD
             current_prices[s] = float(df["close"].iloc[-1])
 
     rebalance_result = portfolio.rebalance_to_targets(strategy_id, target_weights, current_prices, date)
+    portfolio.record_daily_stances(strategy_id, date, rebalance_result.get("stances", {}))
     equity = portfolio.record_equity_and_positions(strategy_id, date, current_prices)
 
     elim_result = elimination.check_elimination(strategy_id, date, equity,
