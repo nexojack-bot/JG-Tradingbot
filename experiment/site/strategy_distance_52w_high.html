@@ -5,15 +5,20 @@
 <title>Near 52-Week High (Momentum) — Strategy Lab</title>
 <style>
 :root {
-  --bg: #F5F4F1;
+  --bg: #F7F7F5;
   --card: #FFFFFF;
-  --border: #E3E1DB;
-  --ink: #16181D;
-  --ink-soft: #6B6F76;
-  --accent: #2B3A67;
-  --accent-soft: #E8EAF2;
-  --gain: #1F7A5C;
-  --loss: #B23A3A;
+  --border: #DDDDD8;
+  --border-light: #E7E7E3;
+  --ink: #202124;
+  --ink-soft: #737780;
+  --ink-muted: #9699A1;
+  --accent: #2D416F;
+  --accent-soft: #E7E9F0;
+  --gain: #21835F;
+  --gain-soft: #E4ECE7;
+  --loss: #BE3B39;
+  --loss-soft: #F2E4E4;
+  --grid-line: #E1E1DE;
   --mono: ui-monospace, "SF Mono", "Roboto Mono", Consolas, monospace;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 }
@@ -22,12 +27,13 @@ body {
   margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
 }
-.wrap { max-width: 1040px; margin: 0 auto; padding: 40px 24px 80px; }
+.page-shell { display: flex; max-width: 1320px; margin: 0 auto; gap: 24px; align-items: flex-start; padding: 18px 24px; }
+.wrap { flex: 1; min-width: 0; max-width: 980px; margin: 0; padding: 22px 0 80px; }
 header.page-head {
   display: flex; justify-content: space-between; align-items: baseline;
   margin-bottom: 8px; flex-wrap: wrap; gap: 12px;
 }
-h1 { font-size: 22px; font-weight: 650; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: 30px; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
 .subtitle { color: var(--ink-soft); font-size: 13px; margin: 0 0 28px; }
 nav.tabs { display: flex; gap: 4px; margin-bottom: 24px; border-bottom: 1px solid var(--border); }
 nav.tabs a {
@@ -99,16 +105,110 @@ a:has(.strategy-card):hover .strategy-card {
 .hero-stat .value { font-family: var(--mono); font-size: 22px; font-weight: 700; }
 .hero-stat .value.gain { color: var(--gain); }
 .hero-stat .value.loss { color: var(--loss); }
+
+.sidebar {
+  width: 260px; flex-shrink: 0; background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 24px; position: sticky; top: 18px;
+}
+.sidebar-title { font-size: 19px; font-weight: 700; color: var(--ink); }
+.sidebar-meta { font-size: 12px; color: var(--ink-soft); margin-top: 3px; }
+.sidebar-divider { height: 1px; background: var(--border-light); margin: 18px 0; }
+.sidebar-label { font-size: 12px; color: var(--ink-soft); margin-bottom: 6px; }
+.sidebar-value { font-family: var(--mono); font-size: 24px; font-weight: 700; }
+.sidebar-delta { font-family: var(--mono); font-size: 13px; margin: 3px 0 10px; }
+.sidebar-delta.gain { color: var(--gain); }
+.sidebar-delta.loss { color: var(--loss); }
+.elim-badge {
+  display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600;
+  padding: 2px 8px; border-radius: 10px;
+}
+.elim-badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.donut {
+  width: 72px; height: 72px; border-radius: 50%; flex-shrink: 0; position: relative;
+}
+.donut::after {
+  content: ""; position: absolute; inset: 14px; background: var(--card); border-radius: 50%;
+}
+@media (max-width: 900px) {
+  .page-shell { flex-direction: column; }
+  .sidebar { width: 100%; position: static; }
+}
 footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family: var(--mono); }
 </style>
 </head>
 <body>
+<div class="page-shell">
+
+    <aside class="sidebar">
+      <div class="sidebar-title">Strategy Lab</div>
+      <div class="sidebar-meta">As of 2026-09-07 00:29 UTC</div>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-label">Combined portfolio</div>
+      <div class="sidebar-value">$491,313.08</div>
+      <div class="sidebar-delta loss">-1.74% since inception</div>
+      <svg class="spark" viewBox="0 0 210 54">
+      <defs><linearGradient id="grad83" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#1F7A5C" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#1F7A5C" stop-opacity="0.02"/>
+      </linearGradient></defs>
+      <polygon points="2.0,27.0 70.7,27.0 139.3,27.0 208.0,27.0 208.0,54 2.0,54" fill="url(#grad83)"/>
+      <polyline points="2.0,27.0 70.7,27.0 139.3,27.0 208.0,27.0" fill="none" stroke="#1F7A5C" stroke-width="2"/>
+    </svg>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-label">Category allocation</div>
+      <div style="display:flex;align-items:center;gap:16px;margin-top:10px">
+        <div class="donut" style="background:conic-gradient(#2D416F 0.0deg 72.3deg, #B56B1E 72.3deg 136.6deg, #216B70 136.6deg 194.0deg, #A64A4A 194.0deg 244.9deg, #4C607A 244.9deg 295.0deg, #39705A 295.0deg 338.3deg, #675B78 338.3deg 352.7deg, #9699A1 352.7deg 360.0deg)"></div>
+        <div style="flex:1;min-width:0">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:13px">
+          <span style="width:10px;height:10px;border-radius:50%;background:#2D416F;flex-shrink:0"></span>
+          <span style="flex:1;color:var(--ink)">Trend</span>
+          <span style="color:var(--ink-soft);font-family:var(--mono)">20.1%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:13px">
+          <span style="width:10px;height:10px;border-radius:50%;background:#B56B1E;flex-shrink:0"></span>
+          <span style="flex:1;color:var(--ink)">Volatility / Statistical</span>
+          <span style="color:var(--ink-soft);font-family:var(--mono)">17.8%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:13px">
+          <span style="width:10px;height:10px;border-radius:50%;background:#216B70;flex-shrink:0"></span>
+          <span style="flex:1;color:var(--ink)">Momentum</span>
+          <span style="color:var(--ink-soft);font-family:var(--mono)">15.9%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:13px">
+          <span style="width:10px;height:10px;border-radius:50%;background:#A64A4A;flex-shrink:0"></span>
+          <span style="flex:1;color:var(--ink)">Options-Derived</span>
+          <span style="color:var(--ink-soft);font-family:var(--mono)">14.2%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:13px">
+          <span style="width:10px;height:10px;border-radius:50%;background:#4C607A;flex-shrink:0"></span>
+          <span style="flex:1;color:var(--ink)">Volume</span>
+          <span style="color:var(--ink-soft);font-family:var(--mono)">13.9%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:13px">
+          <span style="width:10px;height:10px;border-radius:50%;background:#39705A;flex-shrink:0"></span>
+          <span style="flex:1;color:var(--ink)">Macro</span>
+          <span style="color:var(--ink-soft);font-family:var(--mono)">12.0%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:13px">
+          <span style="width:10px;height:10px;border-radius:50%;background:#675B78;flex-shrink:0"></span>
+          <span style="flex:1;color:var(--ink)">Fundamental</span>
+          <span style="color:var(--ink-soft);font-family:var(--mono)">4.0%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:13px">
+          <span style="width:10px;height:10px;border-radius:50%;background:#9699A1;flex-shrink:0"></span>
+          <span style="flex:1;color:var(--ink)">Calendar</span>
+          <span style="color:var(--ink-soft);font-family:var(--mono)">2.0%</span>
+        </div></div>
+      </div>
+      <div class="sidebar-divider"></div>
+      <a class="methodology-link" href="https://github.com/nexojack-bot/JG-Tradingbot/blob/main/METHODOLOGY.md" target="_blank" style="font-size:13px">Methodology &amp; limitations &rarr;</a>
+    </aside>
 <div class="wrap">
   <header class="page-head">
     <h1>Near 52-Week High (Momentum)</h1>
     <a class="methodology-link" href="index.html">&larr; Back to all strategies</a>
   </header>
-  <p class="subtitle"><span class="category-tag" style="background:#6B4C9A22;color:#6B4C9A">Volatility / Statistical</span> distance_52w_high</p>
+  <p class="subtitle"><span class="category-tag" style="background:#F2E4E4;color:#A64A4A">Volatility / Statistical</span> distance_52w_high</p>
 
   <div style="display:flex; gap:16px; margin: 20px 0;">
     <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
@@ -120,14 +220,17 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
     <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
       <p class="sub">Max drawdown</p><p class="equity">0.00%</p>
     </div>
+    <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
+      <p class="sub">Elimination status</p><p class="equity" style="color:var(--ink-muted);font-size:15px">Building history</p>
+    </div>
   </div>
 
   <svg class="spark" viewBox="0 0 300 80">
-      <defs><linearGradient id="grad64" x1="0" y1="0" x2="0" y2="1">
+      <defs><linearGradient id="grad82" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0%" stop-color="#1F7A5C" stop-opacity="0.35"/>
         <stop offset="100%" stop-color="#1F7A5C" stop-opacity="0.02"/>
       </linearGradient></defs>
-      <polygon points="2.0,40.0 100.7,40.0 199.3,40.0 298.0,40.0 298.0,80 2.0,80" fill="url(#grad64)"/>
+      <polygon points="2.0,40.0 100.7,40.0 199.3,40.0 298.0,40.0 298.0,80 2.0,80" fill="url(#grad82)"/>
       <polyline points="2.0,40.0 100.7,40.0 199.3,40.0 298.0,40.0" fill="none" stroke="#1F7A5C" stroke-width="2"/>
     </svg>
 
@@ -144,7 +247,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
   <h2 style="font-size:16px;margin:24px 0 12px;">Current positions</h2>
   <div class="card-list"><div class="stock-card"><div class="name-block"><p class="name">CRM</p></div><div class="stock-meta">2.2633 shares @ $264.43<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">JNJ</p></div><div class="stock-meta">17.5269 shares @ $278.43<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">JPM</p></div><div class="stock-meta">6.5990 shares @ $362.06<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">PFE</p></div><div class="stock-meta">54.7960 shares @ $28.81<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">V</p></div><div class="stock-meta">1.4616 shares @ $378.75<span class="n-strat">entry 2026-09-04</span></div></div></div>
 
-  <footer>data as of 2026-09-07T00:02:56.331622+00:00</footer>
+  <footer>data as of 2026-09-07T00:29:03.504195+00:00</footer>
+</div>
 </div>
 </body>
 </html>

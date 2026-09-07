@@ -5,15 +5,20 @@
 <title>Strategy Lab</title>
 <style>
 :root {
-  --bg: #F5F4F1;
+  --bg: #F7F7F5;
   --card: #FFFFFF;
-  --border: #E3E1DB;
-  --ink: #16181D;
-  --ink-soft: #6B6F76;
-  --accent: #2B3A67;
-  --accent-soft: #E8EAF2;
-  --gain: #1F7A5C;
-  --loss: #B23A3A;
+  --border: #DDDDD8;
+  --border-light: #E7E7E3;
+  --ink: #202124;
+  --ink-soft: #737780;
+  --ink-muted: #9699A1;
+  --accent: #2D416F;
+  --accent-soft: #E7E9F0;
+  --gain: #21835F;
+  --gain-soft: #E4ECE7;
+  --loss: #BE3B39;
+  --loss-soft: #F2E4E4;
+  --grid-line: #E1E1DE;
   --mono: ui-monospace, "SF Mono", "Roboto Mono", Consolas, monospace;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 }
@@ -22,12 +27,13 @@ body {
   margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
 }
-.wrap { max-width: 1040px; margin: 0 auto; padding: 40px 24px 80px; }
+.page-shell { display: flex; max-width: 1320px; margin: 0 auto; gap: 24px; align-items: flex-start; padding: 18px 24px; }
+.wrap { flex: 1; min-width: 0; max-width: 980px; margin: 0; padding: 22px 0 80px; }
 header.page-head {
   display: flex; justify-content: space-between; align-items: baseline;
   margin-bottom: 8px; flex-wrap: wrap; gap: 12px;
 }
-h1 { font-size: 22px; font-weight: 650; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: 30px; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
 .subtitle { color: var(--ink-soft); font-size: 13px; margin: 0 0 28px; }
 nav.tabs { display: flex; gap: 4px; margin-bottom: 24px; border-bottom: 1px solid var(--border); }
 nav.tabs a {
@@ -99,16 +105,110 @@ a:has(.strategy-card):hover .strategy-card {
 .hero-stat .value { font-family: var(--mono); font-size: 22px; font-weight: 700; }
 .hero-stat .value.gain { color: var(--gain); }
 .hero-stat .value.loss { color: var(--loss); }
+
+.sidebar {
+  width: 260px; flex-shrink: 0; background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 24px; position: sticky; top: 18px;
+}
+.sidebar-title { font-size: 19px; font-weight: 700; color: var(--ink); }
+.sidebar-meta { font-size: 12px; color: var(--ink-soft); margin-top: 3px; }
+.sidebar-divider { height: 1px; background: var(--border-light); margin: 18px 0; }
+.sidebar-label { font-size: 12px; color: var(--ink-soft); margin-bottom: 6px; }
+.sidebar-value { font-family: var(--mono); font-size: 24px; font-weight: 700; }
+.sidebar-delta { font-family: var(--mono); font-size: 13px; margin: 3px 0 10px; }
+.sidebar-delta.gain { color: var(--gain); }
+.sidebar-delta.loss { color: var(--loss); }
+.elim-badge {
+  display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600;
+  padding: 2px 8px; border-radius: 10px;
+}
+.elim-badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.donut {
+  width: 72px; height: 72px; border-radius: 50%; flex-shrink: 0; position: relative;
+}
+.donut::after {
+  content: ""; position: absolute; inset: 14px; background: var(--card); border-radius: 50%;
+}
+@media (max-width: 900px) {
+  .page-shell { flex-direction: column; }
+  .sidebar { width: 100%; position: static; }
+}
 footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family: var(--mono); }
 </style>
 </head>
 <body>
+<div class="page-shell">
+
+    <aside class="sidebar">
+      <div class="sidebar-title">Strategy Lab</div>
+      <div class="sidebar-meta">As of 2026-09-07 00:29 UTC</div>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-label">Combined portfolio</div>
+      <div class="sidebar-value">$491,313.08</div>
+      <div class="sidebar-delta loss">-1.74% since inception</div>
+      <svg class="spark" viewBox="0 0 210 54">
+      <defs><linearGradient id="grad51" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#1F7A5C" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#1F7A5C" stop-opacity="0.02"/>
+      </linearGradient></defs>
+      <polygon points="2.0,27.0 70.7,27.0 139.3,27.0 208.0,27.0 208.0,54 2.0,54" fill="url(#grad51)"/>
+      <polyline points="2.0,27.0 70.7,27.0 139.3,27.0 208.0,27.0" fill="none" stroke="#1F7A5C" stroke-width="2"/>
+    </svg>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-label">Category allocation</div>
+      <div style="display:flex;align-items:center;gap:16px;margin-top:10px">
+        <div class="donut" style="background:conic-gradient(#2D416F 0.0deg 72.3deg, #B56B1E 72.3deg 136.6deg, #216B70 136.6deg 194.0deg, #A64A4A 194.0deg 244.9deg, #4C607A 244.9deg 295.0deg, #39705A 295.0deg 338.3deg, #675B78 338.3deg 352.7deg, #9699A1 352.7deg 360.0deg)"></div>
+        <div style="flex:1;min-width:0">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:13px">
+          <span style="width:10px;height:10px;border-radius:50%;background:#2D416F;flex-shrink:0"></span>
+          <span style="flex:1;color:var(--ink)">Trend</span>
+          <span style="color:var(--ink-soft);font-family:var(--mono)">20.1%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:13px">
+          <span style="width:10px;height:10px;border-radius:50%;background:#B56B1E;flex-shrink:0"></span>
+          <span style="flex:1;color:var(--ink)">Volatility / Statistical</span>
+          <span style="color:var(--ink-soft);font-family:var(--mono)">17.8%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:13px">
+          <span style="width:10px;height:10px;border-radius:50%;background:#216B70;flex-shrink:0"></span>
+          <span style="flex:1;color:var(--ink)">Momentum</span>
+          <span style="color:var(--ink-soft);font-family:var(--mono)">15.9%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:13px">
+          <span style="width:10px;height:10px;border-radius:50%;background:#A64A4A;flex-shrink:0"></span>
+          <span style="flex:1;color:var(--ink)">Options-Derived</span>
+          <span style="color:var(--ink-soft);font-family:var(--mono)">14.2%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:13px">
+          <span style="width:10px;height:10px;border-radius:50%;background:#4C607A;flex-shrink:0"></span>
+          <span style="flex:1;color:var(--ink)">Volume</span>
+          <span style="color:var(--ink-soft);font-family:var(--mono)">13.9%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:13px">
+          <span style="width:10px;height:10px;border-radius:50%;background:#39705A;flex-shrink:0"></span>
+          <span style="flex:1;color:var(--ink)">Macro</span>
+          <span style="color:var(--ink-soft);font-family:var(--mono)">12.0%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:13px">
+          <span style="width:10px;height:10px;border-radius:50%;background:#675B78;flex-shrink:0"></span>
+          <span style="flex:1;color:var(--ink)">Fundamental</span>
+          <span style="color:var(--ink-soft);font-family:var(--mono)">4.0%</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:13px">
+          <span style="width:10px;height:10px;border-radius:50%;background:#9699A1;flex-shrink:0"></span>
+          <span style="flex:1;color:var(--ink)">Calendar</span>
+          <span style="color:var(--ink-soft);font-family:var(--mono)">2.0%</span>
+        </div></div>
+      </div>
+      <div class="sidebar-divider"></div>
+      <a class="methodology-link" href="https://github.com/nexojack-bot/JG-Tradingbot/blob/main/METHODOLOGY.md" target="_blank" style="font-size:13px">Methodology &amp; limitations &rarr;</a>
+    </aside>
 <div class="wrap">
   <header class="page-head">
     <h1>Strategy Lab</h1>
     <a class="methodology-link" href="https://github.com/nexojack-bot/JG-Tradingbot/blob/main/METHODOLOGY.md" target="_blank">Methodology &amp; limitations &rarr;</a>
   </header>
-  <p class="subtitle">A systematic screening study across 50 independent strategies (trend, momentum, volume, volatility, options-derived, macro, fundamental, calendar) &middot; ranked by return, benchmarked against SPY &middot; generated 2026-09-07T00:02:56.331622+00:00</p>
+  <p class="subtitle">A systematic screening study across 50 independent strategies (trend, momentum, volume, volatility, options-derived, macro, fundamental, calendar) &middot; ranked by return, benchmarked against SPY &middot; generated 2026-09-07T00:29:03.504195+00:00</p>
   <nav class="tabs">
   <a href="index.html" class="active">Strategies</a>
   <a href="recommendations.html" class="">Recommendations</a>
@@ -118,14 +218,6 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
 </nav>
   
     <div class="hero-strip">
-      <div class="hero-stat">
-        <div class="label">Total capital deployed</div>
-        <div class="value">$500,000</div>
-      </div>
-      <div class="hero-stat">
-        <div class="label">Combined value today</div>
-        <div class="value loss">$491,313 <span style="font-size:14px">(-1.74%)</span></div>
-      </div>
       <div class="hero-stat">
         <div class="label">Days running</div>
         <div class="value">4</div>
@@ -155,7 +247,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank top3" style="background:var(--accent)">1</div>
           <div class="name-block">
             <p class="name">Moving Average Slope Acceleration</p>
-            <p class="sub"><span class="category-tag" style="background:#2B3A6722;color:#2B3A67">Trend</span> ma_slope_acceleration</p>
+            <p class="sub"><span class="category-tag" style="background:#E7E9F0;color:#2D416F">Trend</span> ma_slope_acceleration</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad1" x1="0" y1="0" x2="0" y2="1">
@@ -176,7 +269,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank top3" style="background:#8A8F98">2</div>
           <div class="name-block">
             <p class="name">Max Pain Proximity</p>
-            <p class="sub"><span class="category-tag" style="background:#0F5C5C22;color:#0F5C5C">Options-Derived</span> max_pain_proximity</p>
+            <p class="sub"><span class="category-tag" style="background:#E2EBEB;color:#216B70">Options-Derived</span> max_pain_proximity</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad2" x1="0" y1="0" x2="0" y2="1">
@@ -197,7 +291,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank top3" style="background:#B8752B">3</div>
           <div class="name-block">
             <p class="name">IV Term Structure Backwardation</p>
-            <p class="sub"><span class="category-tag" style="background:#0F5C5C22;color:#0F5C5C">Options-Derived</span> iv_term_structure</p>
+            <p class="sub"><span class="category-tag" style="background:#E2EBEB;color:#216B70">Options-Derived</span> iv_term_structure</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad3" x1="0" y1="0" x2="0" y2="1">
@@ -218,7 +313,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">4</div>
           <div class="name-block">
             <p class="name">Stochastic Oscillator Momentum</p>
-            <p class="sub"><span class="category-tag" style="background:#B8752B22;color:#B8752B">Momentum</span> stochastic_momentum</p>
+            <p class="sub"><span class="category-tag" style="background:#F4EBDD;color:#B56B1E">Momentum</span> stochastic_momentum</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad4" x1="0" y1="0" x2="0" y2="1">
@@ -239,7 +335,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">5</div>
           <div class="name-block">
             <p class="name">Negative GEX + Uptrend</p>
-            <p class="sub"><span class="category-tag" style="background:#0F5C5C22;color:#0F5C5C">Options-Derived</span> gex_regime</p>
+            <p class="sub"><span class="category-tag" style="background:#E2EBEB;color:#216B70">Options-Derived</span> gex_regime</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad5" x1="0" y1="0" x2="0" y2="1">
@@ -260,7 +357,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">6</div>
           <div class="name-block">
             <p class="name">Near 52-Week Low (Reversion)</p>
-            <p class="sub"><span class="category-tag" style="background:#6B4C9A22;color:#6B4C9A">Volatility / Statistical</span> distance_52w_low</p>
+            <p class="sub"><span class="category-tag" style="background:#F2E4E4;color:#A64A4A">Volatility / Statistical</span> distance_52w_low</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad6" x1="0" y1="0" x2="0" y2="1">
@@ -281,7 +379,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">7</div>
           <div class="name-block">
             <p class="name">Risk-On/Risk-Off Composite</p>
-            <p class="sub"><span class="category-tag" style="background:#4A556822;color:#4A5568">Macro</span> risk_on_off</p>
+            <p class="sub"><span class="category-tag" style="background:#E6EAF0;color:#4C607A">Macro</span> risk_on_off</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad7" x1="0" y1="0" x2="0" y2="1">
@@ -302,7 +401,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">8</div>
           <div class="name-block">
             <p class="name">Turn-of-Month + Day-of-Week Seasonality</p>
-            <p class="sub"><span class="category-tag" style="background:#9A4C6B22;color:#9A4C6B">Calendar</span> seasonality_composite</p>
+            <p class="sub"><span class="category-tag" style="background:#EBE8F0;color:#675B78">Calendar</span> seasonality_composite</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad8" x1="0" y1="0" x2="0" y2="1">
@@ -323,7 +423,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">9</div>
           <div class="name-block">
             <p class="name">Low IV Rank (Cheap Options, Building Momentum)</p>
-            <p class="sub"><span class="category-tag" style="background:#0F5C5C22;color:#0F5C5C">Options-Derived</span> iv_rank_low</p>
+            <p class="sub"><span class="category-tag" style="background:#E2EBEB;color:#216B70">Options-Derived</span> iv_rank_low</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad9" x1="0" y1="0" x2="0" y2="1">
@@ -344,7 +445,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">10</div>
           <div class="name-block">
             <p class="name">EMA 50/200 Golden Cross</p>
-            <p class="sub"><span class="category-tag" style="background:#2B3A6722;color:#2B3A67">Trend</span> ema_50_200</p>
+            <p class="sub"><span class="category-tag" style="background:#E7E9F0;color:#2D416F">Trend</span> ema_50_200</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad10" x1="0" y1="0" x2="0" y2="1">
@@ -365,7 +467,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">11</div>
           <div class="name-block">
             <p class="name">Hurst Exponent Trending Regime</p>
-            <p class="sub"><span class="category-tag" style="background:#6B4C9A22;color:#6B4C9A">Volatility / Statistical</span> hurst_trending_regime</p>
+            <p class="sub"><span class="category-tag" style="background:#F2E4E4;color:#A64A4A">Volatility / Statistical</span> hurst_trending_regime</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad11" x1="0" y1="0" x2="0" y2="1">
@@ -386,7 +489,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">12</div>
           <div class="name-block">
             <p class="name">On-Balance Volume Trend</p>
-            <p class="sub"><span class="category-tag" style="background:#1F7A7A22;color:#1F7A7A">Volume</span> obv_trend</p>
+            <p class="sub"><span class="category-tag" style="background:#E2EBEB;color:#216B70">Volume</span> obv_trend</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad12" x1="0" y1="0" x2="0" y2="1">
@@ -407,7 +511,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">13</div>
           <div class="name-block">
             <p class="name">MACD Histogram Momentum</p>
-            <p class="sub"><span class="category-tag" style="background:#B8752B22;color:#B8752B">Momentum</span> macd_momentum</p>
+            <p class="sub"><span class="category-tag" style="background:#F4EBDD;color:#B56B1E">Momentum</span> macd_momentum</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad13" x1="0" y1="0" x2="0" y2="1">
@@ -428,7 +533,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">14</div>
           <div class="name-block">
             <p class="name">Near 52-Week High (Momentum)</p>
-            <p class="sub"><span class="category-tag" style="background:#6B4C9A22;color:#6B4C9A">Volatility / Statistical</span> distance_52w_high</p>
+            <p class="sub"><span class="category-tag" style="background:#F2E4E4;color:#A64A4A">Volatility / Statistical</span> distance_52w_high</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad14" x1="0" y1="0" x2="0" y2="1">
@@ -449,7 +555,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">15</div>
           <div class="name-block">
             <p class="name">Overnight Gap-Down Fill</p>
-            <p class="sub"><span class="category-tag" style="background:#6B4C9A22;color:#6B4C9A">Volatility / Statistical</span> overnight_gap_fill</p>
+            <p class="sub"><span class="category-tag" style="background:#F2E4E4;color:#A64A4A">Volatility / Statistical</span> overnight_gap_fill</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad15" x1="0" y1="0" x2="0" y2="1">
@@ -470,7 +577,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">16</div>
           <div class="name-block">
             <p class="name">Options Skew (Call-Side Demand)</p>
-            <p class="sub"><span class="category-tag" style="background:#0F5C5C22;color:#0F5C5C">Options-Derived</span> options_skew</p>
+            <p class="sub"><span class="category-tag" style="background:#E2EBEB;color:#216B70">Options-Derived</span> options_skew</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad16" x1="0" y1="0" x2="0" y2="1">
@@ -491,7 +599,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">17</div>
           <div class="name-block">
             <p class="name">ADX Trend Strength</p>
-            <p class="sub"><span class="category-tag" style="background:#2B3A6722;color:#2B3A67">Trend</span> adx_trend</p>
+            <p class="sub"><span class="category-tag" style="background:#E7E9F0;color:#2D416F">Trend</span> adx_trend</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad17" x1="0" y1="0" x2="0" y2="1">
@@ -512,7 +621,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">18</div>
           <div class="name-block">
             <p class="name">Z-Score Mean Reversion</p>
-            <p class="sub"><span class="category-tag" style="background:#6B4C9A22;color:#6B4C9A">Volatility / Statistical</span> zscore_reversion</p>
+            <p class="sub"><span class="category-tag" style="background:#F2E4E4;color:#A64A4A">Volatility / Statistical</span> zscore_reversion</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad18" x1="0" y1="0" x2="0" y2="1">
@@ -533,7 +643,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">19</div>
           <div class="name-block">
             <p class="name">Bollinger Band Mean Reversion</p>
-            <p class="sub"><span class="category-tag" style="background:#6B4C9A22;color:#6B4C9A">Volatility / Statistical</span> bollinger_reversion</p>
+            <p class="sub"><span class="category-tag" style="background:#F2E4E4;color:#A64A4A">Volatility / Statistical</span> bollinger_reversion</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad19" x1="0" y1="0" x2="0" y2="1">
@@ -554,7 +665,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">20</div>
           <div class="name-block">
             <p class="name">Post-Earnings Surprise Drift</p>
-            <p class="sub"><span class="category-tag" style="background:#A6553A22;color:#A6553A">Fundamental</span> earnings_surprise_drift</p>
+            <p class="sub"><span class="category-tag" style="background:#E4ECE7;color:#39705A">Fundamental</span> earnings_surprise_drift</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad20" x1="0" y1="0" x2="0" y2="1">
@@ -575,7 +687,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">21</div>
           <div class="name-block">
             <p class="name">Dollar Strength Filter</p>
-            <p class="sub"><span class="category-tag" style="background:#4A556822;color:#4A5568">Macro</span> dollar_strength_filter</p>
+            <p class="sub"><span class="category-tag" style="background:#E6EAF0;color:#4C607A">Macro</span> dollar_strength_filter</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad21" x1="0" y1="0" x2="0" y2="1">
@@ -596,7 +709,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">22</div>
           <div class="name-block">
             <p class="name">Credit Spread Proxy</p>
-            <p class="sub"><span class="category-tag" style="background:#4A556822;color:#4A5568">Macro</span> credit_spread_proxy</p>
+            <p class="sub"><span class="category-tag" style="background:#E6EAF0;color:#4C607A">Macro</span> credit_spread_proxy</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad22" x1="0" y1="0" x2="0" y2="1">
@@ -617,7 +731,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">23</div>
           <div class="name-block">
             <p class="name">Relative Strength vs SPY</p>
-            <p class="sub"><span class="category-tag" style="background:#B8752B22;color:#B8752B">Momentum</span> relative_strength_market</p>
+            <p class="sub"><span class="category-tag" style="background:#F4EBDD;color:#B56B1E">Momentum</span> relative_strength_market</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad23" x1="0" y1="0" x2="0" y2="1">
@@ -638,7 +753,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">24</div>
           <div class="name-block">
             <p class="name">Open Interest Magnet Strike</p>
-            <p class="sub"><span class="category-tag" style="background:#0F5C5C22;color:#0F5C5C">Options-Derived</span> oi_concentration</p>
+            <p class="sub"><span class="category-tag" style="background:#E2EBEB;color:#216B70">Options-Derived</span> oi_concentration</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad24" x1="0" y1="0" x2="0" y2="1">
@@ -659,7 +775,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">25</div>
           <div class="name-block">
             <p class="name">Price vs VWMA Deviation</p>
-            <p class="sub"><span class="category-tag" style="background:#1F7A7A22;color:#1F7A7A">Volume</span> vwma_deviation</p>
+            <p class="sub"><span class="category-tag" style="background:#E2EBEB;color:#216B70">Volume</span> vwma_deviation</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad25" x1="0" y1="0" x2="0" y2="1">
@@ -680,7 +797,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">26</div>
           <div class="name-block">
             <p class="name">Sector Rotation (Top Sector)</p>
-            <p class="sub"><span class="category-tag" style="background:#4A556822;color:#4A5568">Macro</span> sector_rotation</p>
+            <p class="sub"><span class="category-tag" style="background:#E6EAF0;color:#4C607A">Macro</span> sector_rotation</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad26" x1="0" y1="0" x2="0" y2="1">
@@ -701,7 +819,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">27</div>
           <div class="name-block">
             <p class="name">Oil Sensitivity Filter</p>
-            <p class="sub"><span class="category-tag" style="background:#4A556822;color:#4A5568">Macro</span> oil_sensitivity_filter</p>
+            <p class="sub"><span class="category-tag" style="background:#E6EAF0;color:#4C607A">Macro</span> oil_sensitivity_filter</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad27" x1="0" y1="0" x2="0" y2="1">
@@ -722,7 +841,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">28</div>
           <div class="name-block">
             <p class="name">Price vs Session VWAP</p>
-            <p class="sub"><span class="category-tag" style="background:#1F7A7A22;color:#1F7A7A">Volume</span> session_vwap</p>
+            <p class="sub"><span class="category-tag" style="background:#E2EBEB;color:#216B70">Volume</span> session_vwap</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad28" x1="0" y1="0" x2="0" y2="1">
@@ -743,7 +863,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">29</div>
           <div class="name-block">
             <p class="name">EMA 9/20 Crossover</p>
-            <p class="sub"><span class="category-tag" style="background:#2B3A6722;color:#2B3A67">Trend</span> ema_9_20</p>
+            <p class="sub"><span class="category-tag" style="background:#E7E9F0;color:#2D416F">Trend</span> ema_9_20</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad29" x1="0" y1="0" x2="0" y2="1">
@@ -764,7 +885,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">30</div>
           <div class="name-block">
             <p class="name">VIX Regime Filter</p>
-            <p class="sub"><span class="category-tag" style="background:#4A556822;color:#4A5568">Macro</span> vix_regime_filter</p>
+            <p class="sub"><span class="category-tag" style="background:#E6EAF0;color:#4C607A">Macro</span> vix_regime_filter</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad30" x1="0" y1="0" x2="0" y2="1">
@@ -785,7 +907,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">31</div>
           <div class="name-block">
             <p class="name">Rate of Change Momentum</p>
-            <p class="sub"><span class="category-tag" style="background:#B8752B22;color:#B8752B">Momentum</span> roc_momentum</p>
+            <p class="sub"><span class="category-tag" style="background:#F4EBDD;color:#B56B1E">Momentum</span> roc_momentum</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad31" x1="0" y1="0" x2="0" y2="1">
@@ -806,7 +929,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">32</div>
           <div class="name-block">
             <p class="name">Supertrend</p>
-            <p class="sub"><span class="category-tag" style="background:#2B3A6722;color:#2B3A67">Trend</span> supertrend</p>
+            <p class="sub"><span class="category-tag" style="background:#E7E9F0;color:#2D416F">Trend</span> supertrend</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad32" x1="0" y1="0" x2="0" y2="1">
@@ -827,7 +951,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">33</div>
           <div class="name-block">
             <p class="name">Keltner Channel Breakout</p>
-            <p class="sub"><span class="category-tag" style="background:#2B3A6722;color:#2B3A67">Trend</span> keltner_breakout</p>
+            <p class="sub"><span class="category-tag" style="background:#E7E9F0;color:#2D416F">Trend</span> keltner_breakout</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad33" x1="0" y1="0" x2="0" y2="1">
@@ -848,7 +973,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">34</div>
           <div class="name-block">
             <p class="name">Accumulation/Distribution Trend</p>
-            <p class="sub"><span class="category-tag" style="background:#1F7A7A22;color:#1F7A7A">Volume</span> ad_line_trend</p>
+            <p class="sub"><span class="category-tag" style="background:#E2EBEB;color:#216B70">Volume</span> ad_line_trend</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad34" x1="0" y1="0" x2="0" y2="1">
@@ -869,7 +995,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">35</div>
           <div class="name-block">
             <p class="name">Parabolic SAR Trend</p>
-            <p class="sub"><span class="category-tag" style="background:#2B3A6722;color:#2B3A67">Trend</span> parabolic_sar</p>
+            <p class="sub"><span class="category-tag" style="background:#E7E9F0;color:#2D416F">Trend</span> parabolic_sar</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad35" x1="0" y1="0" x2="0" y2="1">
@@ -890,7 +1017,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">36</div>
           <div class="name-block">
             <p class="name">Chaikin Money Flow</p>
-            <p class="sub"><span class="category-tag" style="background:#1F7A7A22;color:#1F7A7A">Volume</span> chaikin_money_flow</p>
+            <p class="sub"><span class="category-tag" style="background:#E2EBEB;color:#216B70">Volume</span> chaikin_money_flow</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad36" x1="0" y1="0" x2="0" y2="1">
@@ -911,7 +1039,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">37</div>
           <div class="name-block">
             <p class="name">Donchian Channel Breakout</p>
-            <p class="sub"><span class="category-tag" style="background:#2B3A6722;color:#2B3A67">Trend</span> donchian_breakout</p>
+            <p class="sub"><span class="category-tag" style="background:#E7E9F0;color:#2D416F">Trend</span> donchian_breakout</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad37" x1="0" y1="0" x2="0" y2="1">
@@ -932,7 +1061,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">38</div>
           <div class="name-block">
             <p class="name">RSI Momentum</p>
-            <p class="sub"><span class="category-tag" style="background:#B8752B22;color:#B8752B">Momentum</span> rsi_momentum</p>
+            <p class="sub"><span class="category-tag" style="background:#F4EBDD;color:#B56B1E">Momentum</span> rsi_momentum</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad38" x1="0" y1="0" x2="0" y2="1">
@@ -953,7 +1083,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">39</div>
           <div class="name-block">
             <p class="name">Cross-Sectional Momentum Ranking</p>
-            <p class="sub"><span class="category-tag" style="background:#B8752B22;color:#B8752B">Momentum</span> cross_sectional_momentum</p>
+            <p class="sub"><span class="category-tag" style="background:#F4EBDD;color:#B56B1E">Momentum</span> cross_sectional_momentum</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad39" x1="0" y1="0" x2="0" y2="1">
@@ -974,7 +1105,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">40</div>
           <div class="name-block">
             <p class="name">Ichimoku Cloud Position</p>
-            <p class="sub"><span class="category-tag" style="background:#2B3A6722;color:#2B3A67">Trend</span> ichimoku_cloud_signal</p>
+            <p class="sub"><span class="category-tag" style="background:#E7E9F0;color:#2D416F">Trend</span> ichimoku_cloud_signal</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad40" x1="0" y1="0" x2="0" y2="1">
@@ -995,7 +1127,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">41</div>
           <div class="name-block">
             <p class="name">Money Flow Index Momentum</p>
-            <p class="sub"><span class="category-tag" style="background:#B8752B22;color:#B8752B">Momentum</span> mfi_momentum</p>
+            <p class="sub"><span class="category-tag" style="background:#F4EBDD;color:#B56B1E">Momentum</span> mfi_momentum</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad41" x1="0" y1="0" x2="0" y2="1">
@@ -1016,7 +1149,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">42</div>
           <div class="name-block">
             <p class="name">Multi-Timeframe Trend Alignment</p>
-            <p class="sub"><span class="category-tag" style="background:#2B3A6722;color:#2B3A67">Trend</span> multi_timeframe_trend</p>
+            <p class="sub"><span class="category-tag" style="background:#E7E9F0;color:#2D416F">Trend</span> multi_timeframe_trend</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad42" x1="0" y1="0" x2="0" y2="1">
@@ -1037,7 +1171,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">43</div>
           <div class="name-block">
             <p class="name">Short Squeeze Candidate</p>
-            <p class="sub"><span class="category-tag" style="background:#A6553A22;color:#A6553A">Fundamental</span> short_squeeze_candidate</p>
+            <p class="sub"><span class="category-tag" style="background:#E4ECE7;color:#39705A">Fundamental</span> short_squeeze_candidate</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad43" x1="0" y1="0" x2="0" y2="1">
@@ -1058,7 +1193,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">44</div>
           <div class="name-block">
             <p class="name">Anchored VWAP from 52-Week Low</p>
-            <p class="sub"><span class="category-tag" style="background:#1F7A7A22;color:#1F7A7A">Volume</span> anchored_vwap_52w_low</p>
+            <p class="sub"><span class="category-tag" style="background:#E2EBEB;color:#216B70">Volume</span> anchored_vwap_52w_low</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad44" x1="0" y1="0" x2="0" y2="1">
@@ -1079,7 +1215,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">45</div>
           <div class="name-block">
             <p class="name">Put/Call Open Interest Ratio</p>
-            <p class="sub"><span class="category-tag" style="background:#0F5C5C22;color:#0F5C5C">Options-Derived</span> put_call_oi_ratio</p>
+            <p class="sub"><span class="category-tag" style="background:#E2EBEB;color:#216B70">Options-Derived</span> put_call_oi_ratio</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad45" x1="0" y1="0" x2="0" y2="1">
@@ -1100,7 +1237,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">46</div>
           <div class="name-block">
             <p class="name">Bollinger Squeeze Breakout</p>
-            <p class="sub"><span class="category-tag" style="background:#6B4C9A22;color:#6B4C9A">Volatility / Statistical</span> bollinger_squeeze_breakout</p>
+            <p class="sub"><span class="category-tag" style="background:#F2E4E4;color:#A64A4A">Volatility / Statistical</span> bollinger_squeeze_breakout</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad46" x1="0" y1="0" x2="0" y2="1">
@@ -1121,7 +1259,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">47</div>
           <div class="name-block">
             <p class="name">CCI Momentum</p>
-            <p class="sub"><span class="category-tag" style="background:#B8752B22;color:#B8752B">Momentum</span> cci_momentum</p>
+            <p class="sub"><span class="category-tag" style="background:#F4EBDD;color:#B56B1E">Momentum</span> cci_momentum</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad47" x1="0" y1="0" x2="0" y2="1">
@@ -1142,7 +1281,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">48</div>
           <div class="name-block">
             <p class="name">Unusual Volume Spike</p>
-            <p class="sub"><span class="category-tag" style="background:#1F7A7A22;color:#1F7A7A">Volume</span> unusual_volume_spike</p>
+            <p class="sub"><span class="category-tag" style="background:#E2EBEB;color:#216B70">Volume</span> unusual_volume_spike</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad48" x1="0" y1="0" x2="0" y2="1">
@@ -1163,7 +1303,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">49</div>
           <div class="name-block">
             <p class="name">Pairs Correlation Reversion</p>
-            <p class="sub"><span class="category-tag" style="background:#6B4C9A22;color:#6B4C9A">Volatility / Statistical</span> pairs_correlation_reversion</p>
+            <p class="sub"><span class="category-tag" style="background:#F2E4E4;color:#A64A4A">Volatility / Statistical</span> pairs_correlation_reversion</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad49" x1="0" y1="0" x2="0" y2="1">
@@ -1184,7 +1325,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
           <div class="rank">50</div>
           <div class="name-block">
             <p class="name">Return Autocorrelation</p>
-            <p class="sub"><span class="category-tag" style="background:#6B4C9A22;color:#6B4C9A">Volatility / Statistical</span> autocorrelation_momentum</p>
+            <p class="sub"><span class="category-tag" style="background:#F2E4E4;color:#A64A4A">Volatility / Statistical</span> autocorrelation_momentum</p>
+            <span class="elim-badge" style="background:var(--ink-muted)18;color:var(--ink-muted)">Building history</span>
           </div>
           <svg class="spark" viewBox="0 0 150 48">
       <defs><linearGradient id="grad50" x1="0" y1="0" x2="0" y2="1">
@@ -1201,7 +1343,8 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
         </div>
         </a>
   </div>
-  <footer>data as of 2026-09-07T00:02:56.331622+00:00</footer>
+  <footer>data as of 2026-09-07T00:29:03.504195+00:00</footer>
+</div>
 </div>
 <script>
 
