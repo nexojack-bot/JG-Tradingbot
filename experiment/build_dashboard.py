@@ -55,10 +55,18 @@ nav.tabs a.active { color: var(--accent); border-bottom-color: var(--accent); }
 
 .card-list { display: flex; flex-direction: column; gap: 10px; }
 .strategy-card, .stock-card {
-  background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+  background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--border); border-radius: 10px;
   padding: 16px 20px; display: flex; align-items: center; gap: 16px;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
 }
-.rank { font-family: var(--mono); font-size: 13px; color: var(--ink-soft); width: 24px; flex-shrink: 0; }
+a:has(.strategy-card):hover .strategy-card {
+  box-shadow: 0 4px 14px rgba(20,20,30,0.08); transform: translateY(-1px);
+}
+.rank { font-family: var(--mono); font-size: 13px; color: var(--ink-soft); width: 28px; flex-shrink: 0; text-align: center; }
+.rank.top3 {
+  width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-weight: 700; color: #fff; font-size: 12px;
+}
 .name-block { flex: 1; min-width: 0; }
 .name { font-weight: 600; font-size: 14px; margin: 0 0 2px; }
 .name .status-badge {
@@ -67,12 +75,13 @@ nav.tabs a.active { color: var(--accent); border-bottom-color: var(--accent); }
 }
 .sub { font-size: 12px; color: var(--ink-soft); }
 .category-tag {
-  font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em;
-  background: var(--accent-soft); color: var(--accent); padding: 1px 6px; border-radius: 4px; margin-right: 6px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.01em;
+  background: var(--accent-soft); color: var(--accent);
+  padding: 1px 7px; border-radius: 4px; margin-right: 6px;
 }
 .methodology-link { font-size: 13px; color: var(--accent); text-decoration: none; font-weight: 500; }
 .methodology-link:hover { text-decoration: underline; }
-.spark { width: 110px; height: 36px; flex-shrink: 0; }
+.spark { width: 150px; height: 48px; flex-shrink: 0; }
 .figures { text-align: right; flex-shrink: 0; width: 130px; }
 .equity { font-family: var(--mono); font-size: 14px; font-weight: 600; }
 .delta { font-family: var(--mono); font-size: 12px; margin-top: 2px; }
@@ -90,6 +99,16 @@ nav.tabs a.active { color: var(--accent); border-bottom-color: var(--accent); }
   background: var(--accent-soft); border: 1px solid var(--border); border-radius: 8px;
   padding: 14px 18px; font-size: 13px; color: var(--ink); margin-bottom: 20px; line-height: 1.5;
 }
+.hero-strip {
+  display: flex; gap: 0; margin: 4px 0 28px; background: var(--card);
+  border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+}
+.hero-stat { flex: 1; padding: 18px 22px; border-right: 1px solid var(--border); }
+.hero-stat:last-child { border-right: none; }
+.hero-stat .label { font-size: 12px; color: var(--ink-soft); margin-bottom: 6px; }
+.hero-stat .value { font-family: var(--mono); font-size: 22px; font-weight: 700; }
+.hero-stat .value.gain { color: var(--gain); }
+.hero-stat .value.loss { color: var(--loss); }
 footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family: var(--mono); }
 """
 
@@ -127,20 +146,54 @@ function setRange(r) {
 """
 
 
-def _sparkline_svg(equity_history, width=110, height=36):
-    """Tiny inline SVG sparkline — no Chart.js needed for these small previews."""
+_spark_counter = [0]
+
+
+def _sparkline_svg(equity_history, width=150, height=48, gain_color="#1F7A5C", loss_color="#B23A3A"):
+    """Filled-area sparkline — a thin flat line reads as empty/lifeless
+    even when real; filling the area under it gives the same data real
+    visual weight, especially important right now while most series are
+    still short (early in the experiment)."""
     if not equity_history or len(equity_history) < 2:
         return f'<svg class="spark" viewBox="0 0 {width} {height}"><line x1="4" y1="{height/2}" x2="{width-4}" y2="{height/2}" stroke="#D8D6CF" stroke-width="2"/></svg>'
     values = [e["equity"] for e in equity_history]
     lo, hi = min(values), max(values)
-    span = (hi - lo) or 1
+    span = (hi - lo) or (values[0] * 0.01 or 1)  # tiny synthetic span for a flat series so the fill still has visible depth
+    pad_lo, pad_hi = lo - span * 0.15, hi + span * 0.15
+    span = pad_hi - pad_lo
     pts = []
     for i, v in enumerate(values):
-        x = 4 + (width - 8) * (i / (len(values) - 1) if len(values) > 1 else 0)
-        y = height - 4 - (height - 8) * ((v - lo) / span)
-        pts.append(f"{x:.1f},{y:.1f}")
-    color = "#1F7A5C" if values[-1] >= values[0] else "#B23A3A"
-    return f'<svg class="spark" viewBox="0 0 {width} {height}"><polyline points="{" ".join(pts)}" fill="none" stroke="{color}" stroke-width="2"/></svg>'
+        x = 2 + (width - 4) * (i / (len(values) - 1) if len(values) > 1 else 0)
+        y = height - 3 - (height - 6) * ((v - pad_lo) / span)
+        pts.append((x, y))
+    color = gain_color if values[-1] >= values[0] else loss_color
+    line_points = " ".join(f"{x:.1f},{y:.1f}" for x, y in pts)
+    area_points = line_points + f" {pts[-1][0]:.1f},{height} {pts[0][0]:.1f},{height}"
+    # A GLOBAL counter, not a hash of the data, guarantees a unique gradient
+    # id per sparkline. Earlier version hashed the first equity value —
+    # every strategy starts at exactly $10,000, so nearly all 50 sparklines
+    # collided on the same id, and the browser silently reused the FIRST
+    # one's fill color for every other, regardless of that strategy's own
+    # gain/loss direction. Caught by actually looking at the rendered
+    # output: red (losing) lines were showing with green fills underneath.
+    _spark_counter[0] += 1
+    grad_id = f"grad{_spark_counter[0]}"
+    return f'''<svg class="spark" viewBox="0 0 {width} {height}">
+      <defs><linearGradient id="{grad_id}" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="{color}" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="{color}" stop-opacity="0.02"/>
+      </linearGradient></defs>
+      <polygon points="{area_points}" fill="url(#{grad_id})"/>
+      <polyline points="{line_points}" fill="none" stroke="{color}" stroke-width="2"/>
+    </svg>'''
+
+
+CATEGORY_COLORS = {
+    "Trend": "#2B3A67", "Momentum": "#B8752B", "Volume": "#1F7A7A",
+    "Volatility / Statistical": "#6B4C9A", "Options-Derived": "#0F5C5C",
+    "Macro": "#4A5568", "Fundamental": "#A6553A", "Calendar": "#9A4C6B",
+    "Other": "#6B6F76",
+}
 
 
 def _range_pills_html(active_range="1M"):
@@ -188,19 +241,63 @@ STRATEGY_CATEGORIES = {
 
 def build_index(data: dict) -> str:
     strategies = data["strategies"]
+
+    # Hero stats — real aggregate numbers, computed from the data itself.
+    active = [s for s in strategies if s["status"] == "active"]
+    total_deployed = sum(s["starting_cash"] for s in strategies)
+    total_current = sum(s["latest_equity"] for s in strategies if s["latest_equity"] is not None)
+    total_change = total_current - total_deployed
+    total_change_pct = (total_change / total_deployed) if total_deployed else 0
+    n_days = max((len(s["equity_history"]) for s in strategies), default=0)
+    best = max((s for s in active if s["roi"] is not None), key=lambda s: s["roi"], default=None)
+
+    hero = f'''
+    <div class="hero-strip">
+      <div class="hero-stat">
+        <div class="label">Total capital deployed</div>
+        <div class="value">${total_deployed:,.0f}</div>
+      </div>
+      <div class="hero-stat">
+        <div class="label">Combined value today</div>
+        <div class="value {"gain" if total_change >= 0 else "loss"}">${total_current:,.0f} <span style="font-size:14px">({total_change_pct:+.2%})</span></div>
+      </div>
+      <div class="hero-stat">
+        <div class="label">Days running</div>
+        <div class="value">{n_days}</div>
+      </div>
+      <div class="hero-stat">
+        <div class="label">Active / eliminated</div>
+        <div class="value">{len(active)} / {len(strategies)-len(active)}</div>
+      </div>
+      <div class="hero-stat">
+        <div class="label">Current leader</div>
+        <div class="value" style="font-size:15px">{best["display_name"] if best else "n/a"}</div>
+      </div>
+    </div>'''
+
     rows = []
     for i, s in enumerate(strategies, 1):
         badge = f'<span class="status-badge">Eliminated {s["eliminated_on"] or ""}</span>' if s["status"] == "eliminated" else ""
         category = STRATEGY_CATEGORIES.get(s["strategy_id"], "Other")
+        cat_color = CATEGORY_COLORS.get(category, CATEGORY_COLORS["Other"])
+        up = s["roi"] is not None and s["roi"] >= 0
+        accent = "var(--gain)" if up else ("var(--loss)" if s["roi"] is not None else "var(--border)")
         spark = _sparkline_svg(s["equity_history"])
         equity_str = f'${s["latest_equity"]:,.2f}' if s["latest_equity"] is not None else '<span class="na">no data yet</span>'
+
+        if i <= 3:
+            badge_color = {1: "var(--accent)", 2: "#8A8F98", 3: "#B8752B"}[i]
+            rank_html = f'<div class="rank top3" style="background:{badge_color}">{i}</div>'
+        else:
+            rank_html = f'<div class="rank">{i}</div>'
+
         rows.append(f'''
         <a href="strategy_{s["strategy_id"]}.html" style="text-decoration:none;color:inherit">
-        <div class="strategy-card" data-returns='{json.dumps(s["returns_by_range"])}'>
-          <div class="rank">{i}</div>
+        <div class="strategy-card" data-returns='{json.dumps(s["returns_by_range"])}' style="border-left-color:{accent}">
+          {rank_html}
           <div class="name-block">
             <p class="name">{s["display_name"]}{badge}</p>
-            <p class="sub"><span class="category-tag">{category}</span> {s["strategy_id"]}</p>
+            <p class="sub"><span class="category-tag" style="background:{cat_color}22;color:{cat_color}">{category}</span> {s["strategy_id"]}</p>
           </div>
           {spark}
           <div class="figures">
@@ -225,6 +322,7 @@ def build_index(data: dict) -> str:
   </header>
   <p class="subtitle">A systematic screening study across 50 independent strategies (trend, momentum, volume, volatility, options-derived, macro, fundamental, calendar) &middot; ranked by return, benchmarked against SPY &middot; generated {data["generated_at"]}</p>
   {_nav_html("index.html")}
+  {hero}
   <div class="empty-note" id="early-note" style="display:none">
     Most ranges show no data yet — this experiment just started. Returns
     populate as daily runs accumulate real history. See the methodology
@@ -547,6 +645,7 @@ def build_strategy_detail(strategy: dict, data: dict) -> str:
         "formula": "", "variables": {},
     })
     category = STRATEGY_CATEGORIES.get(strategy["strategy_id"], "Other")
+    cat_color = CATEGORY_COLORS.get(category, CATEGORY_COLORS["Other"])
 
     var_rows = "".join(
         f'<div class="sub" style="margin-bottom:4px"><strong>{k}</strong> &mdash; {v}</div>'
@@ -588,7 +687,7 @@ def build_strategy_detail(strategy: dict, data: dict) -> str:
     <h1>{strategy["display_name"]}</h1>
     <a class="methodology-link" href="index.html">&larr; Back to all strategies</a>
   </header>
-  <p class="subtitle"><span class="category-tag">{category}</span> {strategy["strategy_id"]}</p>
+  <p class="subtitle"><span class="category-tag" style="background:{cat_color}22;color:{cat_color}">{category}</span> {strategy["strategy_id"]}</p>
 
   <div style="display:flex; gap:16px; margin: 20px 0;">
     <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
