@@ -128,6 +128,11 @@ a:has(.strategy-card):hover .strategy-card {
 .sidebar-delta { font-family: var(--mono); font-size: 13px; margin: 3px 0 10px; }
 .sidebar-delta.gain { color: var(--gain); }
 .sidebar-delta.loss { color: var(--loss); }
+.elim-badge {
+  display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600;
+  padding: 2px 8px; border-radius: 10px;
+}
+.elim-badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 .donut {
   width: 72px; height: 72px; border-radius: 50%; flex-shrink: 0; position: relative;
 }
@@ -331,6 +336,23 @@ STRATEGY_CATEGORIES = {
 }
 
 
+def _elimination_status(strategy_1w_return, benchmark_1w_return):
+    """
+    Translates the actual elimination rule (7-day decline, exempted if the
+    benchmark also declined) into a visible status, using each series'
+    own 1W return — already computed identically to elimination.py's
+    calendar-day lookback, so this reads the real mechanic rather than an
+    approximation of it.
+    """
+    if strategy_1w_return is None:
+        return {"label": "Building history", "color": "var(--ink-muted)", "pct": None}
+    if strategy_1w_return >= 0:
+        return {"label": "Safe", "color": "var(--gain)", "pct": strategy_1w_return}
+    if benchmark_1w_return is not None and benchmark_1w_return < 0:
+        return {"label": "Declining, market-protected", "color": "#B56B1E", "pct": strategy_1w_return}
+    return {"label": "At risk of elimination", "color": "var(--loss)", "pct": strategy_1w_return}
+
+
 def build_index(data: dict) -> str:
     strategies = data["strategies"]
 
@@ -359,6 +381,8 @@ def build_index(data: dict) -> str:
       </div>
     </div>'''
 
+    benchmark_1w = data.get("benchmark", {}).get("returns_by_range", {}).get("1W")
+
     rows = []
     for i, s in enumerate(strategies, 1):
         badge = f'<span class="status-badge">Eliminated {s["eliminated_on"] or ""}</span>' if s["status"] == "eliminated" else ""
@@ -376,6 +400,11 @@ def build_index(data: dict) -> str:
         else:
             rank_html = f'<div class="rank">{i}</div>'
 
+        elim_html = ""
+        if s["status"] == "active":
+            es = _elimination_status(s["returns_by_range"].get("1W"), benchmark_1w)
+            elim_html = f'<span class="elim-badge" style="background:{es["color"]}18;color:{es["color"]}">{es["label"]}</span>'
+
         rows.append(f'''
         <a href="strategy_{s["strategy_id"]}.html" style="text-decoration:none;color:inherit">
         <div class="strategy-card" data-returns='{json.dumps(s["returns_by_range"])}' style="border-left-color:{accent}">
@@ -383,6 +412,7 @@ def build_index(data: dict) -> str:
           <div class="name-block">
             <p class="name">{s["display_name"]}{badge}</p>
             <p class="sub"><span class="category-tag" style="background:{cat_bg};color:{cat_color}">{category}</span> {s["strategy_id"]}</p>
+            {elim_html}
           </div>
           {spark}
           <div class="figures">
@@ -470,6 +500,8 @@ def build_positions(data: dict) -> str:
 <style>{CSS}</style>
 </head>
 <body>
+<div class="page-shell">
+{_sidebar_html(data)}
 <div class="wrap">
   <header class="page-head">
     <h1>Positions by Stock</h1>
@@ -485,6 +517,7 @@ def build_positions(data: dict) -> str:
     {"".join(rows) if rows else '<p class="na">No positions recorded yet.</p>'}
   </div>
   <footer>data as of {data["generated_at"]}</footer>
+</div>
 </div>
 </body>
 </html>"""
@@ -527,6 +560,8 @@ def build_recommendations(data: dict) -> str:
 <style>{CSS}</style>
 </head>
 <body>
+<div class="page-shell">
+{_sidebar_html(data)}
 <div class="wrap">
   <header class="page-head">
     <h1>Daily Recommendations</h1>
@@ -546,6 +581,7 @@ def build_recommendations(data: dict) -> str:
   <div class="card-list">{render_list(rec.get("top_sell", []), "sell")}</div>
 
   <footer>data as of {data["generated_at"]}</footer>
+</div>
 </div>
 </body>
 </html>"""
@@ -570,6 +606,8 @@ def build_holdings(data: dict) -> str:
 </style>
 </head>
 <body>
+<div class="page-shell">
+{_sidebar_html(data)}
 <div class="wrap">
   <header class="page-head">
     <h1>Total Holdings</h1>
@@ -589,6 +627,7 @@ def build_holdings(data: dict) -> str:
   </div>
 
   <footer>data as of {data["generated_at"]}</footer>
+</div>
 </div>
 <script>
 {RANGE_JS}
@@ -701,6 +740,8 @@ def build_correlation(data: dict) -> str:
 </style>
 </head>
 <body>
+<div class="page-shell">
+{_sidebar_html(data)}
 <div class="wrap">
   <header class="page-head">
     <h1>Strategy Correlation</h1>
@@ -722,6 +763,7 @@ def build_correlation(data: dict) -> str:
     {"".join(pair_rows) if pair_rows else '<p class="na">Not enough overlapping history yet.</p>'}
   </div>
   <footer>data as of {data["generated_at"]}</footer>
+</div>
 </div>
 </body>
 </html>"""
@@ -763,6 +805,10 @@ def build_strategy_detail(strategy: dict, data: dict) -> str:
     equity_str = f'${strategy["latest_equity"]:,.2f}' if strategy["latest_equity"] is not None else 'n/a'
     spark = _sparkline_svg(strategy["equity_history"], width=300, height=80)
 
+    benchmark_1w = data.get("benchmark", {}).get("returns_by_range", {}).get("1W")
+    es = _elimination_status(strategy["returns_by_range"].get("1W"), benchmark_1w) if strategy["status"] == "active" else \
+         {"label": f'Eliminated {strategy.get("eliminated_on","")}', "color": "var(--loss)"}
+
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -771,6 +817,8 @@ def build_strategy_detail(strategy: dict, data: dict) -> str:
 <style>{CSS}</style>
 </head>
 <body>
+<div class="page-shell">
+{_sidebar_html(data)}
 <div class="wrap">
   <header class="page-head">
     <h1>{strategy["display_name"]}</h1>
@@ -788,6 +836,9 @@ def build_strategy_detail(strategy: dict, data: dict) -> str:
     <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
       <p class="sub">Max drawdown</p><p class="equity">{dd_str}</p>
     </div>
+    <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
+      <p class="sub">Elimination status</p><p class="equity" style="color:{es["color"]};font-size:15px">{es["label"]}</p>
+    </div>
   </div>
 
   {spark}
@@ -801,6 +852,7 @@ def build_strategy_detail(strategy: dict, data: dict) -> str:
   <div class="card-list">{pos_rows}</div>
 
   <footer>data as of {data["generated_at"]}</footer>
+</div>
 </div>
 </body>
 </html>"""
