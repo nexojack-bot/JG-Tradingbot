@@ -15,15 +15,20 @@ from experiment.strategy_metadata import STRATEGY_DETAILS
 
 CSS = """
 :root {
-  --bg: #F5F4F1;
+  --bg: #F7F7F5;
   --card: #FFFFFF;
-  --border: #E3E1DB;
-  --ink: #16181D;
-  --ink-soft: #6B6F76;
-  --accent: #2B3A67;
-  --accent-soft: #E8EAF2;
-  --gain: #1F7A5C;
-  --loss: #B23A3A;
+  --border: #DDDDD8;
+  --border-light: #E7E7E3;
+  --ink: #202124;
+  --ink-soft: #737780;
+  --ink-muted: #9699A1;
+  --accent: #2D416F;
+  --accent-soft: #E7E9F0;
+  --gain: #21835F;
+  --gain-soft: #E4ECE7;
+  --loss: #BE3B39;
+  --loss-soft: #F2E4E4;
+  --grid-line: #E1E1DE;
   --mono: ui-monospace, "SF Mono", "Roboto Mono", Consolas, monospace;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 }
@@ -32,12 +37,13 @@ body {
   margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
 }
-.wrap { max-width: 1040px; margin: 0 auto; padding: 40px 24px 80px; }
+.page-shell { display: flex; max-width: 1320px; margin: 0 auto; gap: 24px; align-items: flex-start; padding: 18px 24px; }
+.wrap { flex: 1; min-width: 0; max-width: 980px; margin: 0; padding: 22px 0 80px; }
 header.page-head {
   display: flex; justify-content: space-between; align-items: baseline;
   margin-bottom: 8px; flex-wrap: wrap; gap: 12px;
 }
-h1 { font-size: 22px; font-weight: 650; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: 30px; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
 .subtitle { color: var(--ink-soft); font-size: 13px; margin: 0 0 28px; }
 nav.tabs { display: flex; gap: 4px; margin-bottom: 24px; border-bottom: 1px solid var(--border); }
 nav.tabs a {
@@ -109,6 +115,29 @@ a:has(.strategy-card):hover .strategy-card {
 .hero-stat .value { font-family: var(--mono); font-size: 22px; font-weight: 700; }
 .hero-stat .value.gain { color: var(--gain); }
 .hero-stat .value.loss { color: var(--loss); }
+
+.sidebar {
+  width: 260px; flex-shrink: 0; background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 24px; position: sticky; top: 18px;
+}
+.sidebar-title { font-size: 19px; font-weight: 700; color: var(--ink); }
+.sidebar-meta { font-size: 12px; color: var(--ink-soft); margin-top: 3px; }
+.sidebar-divider { height: 1px; background: var(--border-light); margin: 18px 0; }
+.sidebar-label { font-size: 12px; color: var(--ink-soft); margin-bottom: 6px; }
+.sidebar-value { font-family: var(--mono); font-size: 24px; font-weight: 700; }
+.sidebar-delta { font-family: var(--mono); font-size: 13px; margin: 3px 0 10px; }
+.sidebar-delta.gain { color: var(--gain); }
+.sidebar-delta.loss { color: var(--loss); }
+.donut {
+  width: 72px; height: 72px; border-radius: 50%; flex-shrink: 0; position: relative;
+}
+.donut::after {
+  content: ""; position: absolute; inset: 14px; background: var(--card); border-radius: 50%;
+}
+@media (max-width: 900px) {
+  .page-shell { flex-direction: column; }
+  .sidebar { width: 100%; position: static; }
+}
 footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family: var(--mono); }
 """
 
@@ -189,11 +218,74 @@ def _sparkline_svg(equity_history, width=150, height=48, gain_color="#1F7A5C", l
 
 
 CATEGORY_COLORS = {
-    "Trend": "#2B3A67", "Momentum": "#B8752B", "Volume": "#1F7A7A",
-    "Volatility / Statistical": "#6B4C9A", "Options-Derived": "#0F5C5C",
-    "Macro": "#4A5568", "Fundamental": "#A6553A", "Calendar": "#9A4C6B",
-    "Other": "#6B6F76",
+    "Trend": "#2D416F", "Momentum": "#B56B1E", "Volume": "#216B70",
+    "Volatility / Statistical": "#A64A4A", "Options-Derived": "#216B70",
+    "Macro": "#4C607A", "Fundamental": "#39705A", "Calendar": "#675B78",
+    "Other": "#737780",
 }
+CATEGORY_TAG_BG = {
+    "Trend": "#E7E9F0", "Momentum": "#F4EBDD", "Volume": "#E2EBEB",
+    "Volatility / Statistical": "#F2E4E4", "Options-Derived": "#E2EBEB",
+    "Macro": "#E6EAF0", "Fundamental": "#E4ECE7", "Calendar": "#EBE8F0",
+    "Other": "#EDEBE6",
+}
+DONUT_COLORS = ["#2D416F", "#B56B1E", "#216B70", "#A64A4A", "#4C607A", "#39705A", "#675B78", "#9699A1"]
+
+
+def _sidebar_html(data: dict) -> str:
+    strategies = data["strategies"]
+    total_deployed = sum(s["starting_cash"] for s in strategies)
+    total_current = sum(s["latest_equity"] for s in strategies if s["latest_equity"] is not None)
+    total_change_pct = ((total_current - total_deployed) / total_deployed) if total_deployed else 0
+    holdings_series = data.get("total_holdings", {}).get("equity_history", [])
+    mini_chart = _sparkline_svg(holdings_series, width=210, height=54)
+
+    # Dollar-weighted allocation across the 8 strategy categories — a
+    # visualization specific to this project's own methodology, not a
+    # generic asset-class donut.
+    cat_totals = {}
+    for s in strategies:
+        cat = STRATEGY_CATEGORIES.get(s["strategy_id"], "Other")
+        cat_totals[cat] = cat_totals.get(cat, 0) + (s["latest_equity"] or 0)
+    total_cat = sum(cat_totals.values()) or 1
+    cat_sorted = sorted(cat_totals.items(), key=lambda kv: -kv[1])
+
+    gradient_stops = []
+    legend_rows = []
+    running_pct = 0.0
+    for i, (cat, val) in enumerate(cat_sorted):
+        pct = val / total_cat
+        color = DONUT_COLORS[i % len(DONUT_COLORS)]
+        start_deg = running_pct * 360
+        running_pct += pct
+        end_deg = running_pct * 360
+        gradient_stops.append(f"{color} {start_deg:.1f}deg {end_deg:.1f}deg")
+        legend_rows.append(f'''
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:13px">
+          <span style="width:10px;height:10px;border-radius:50%;background:{color};flex-shrink:0"></span>
+          <span style="flex:1;color:var(--ink)">{cat}</span>
+          <span style="color:var(--ink-soft);font-family:var(--mono)">{pct*100:.1f}%</span>
+        </div>''')
+    gradient_css = ", ".join(gradient_stops) if gradient_stops else "#EDEBE6 0deg 360deg"
+
+    return f'''
+    <aside class="sidebar">
+      <div class="sidebar-title">Strategy Lab</div>
+      <div class="sidebar-meta">As of {data["generated_at"][:16].replace("T", " ")} UTC</div>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-label">Combined portfolio</div>
+      <div class="sidebar-value">${total_current:,.2f}</div>
+      <div class="sidebar-delta {"gain" if total_change_pct >= 0 else "loss"}">{total_change_pct:+.2%} since inception</div>
+      {mini_chart}
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-label">Category allocation</div>
+      <div style="display:flex;align-items:center;gap:16px;margin-top:10px">
+        <div class="donut" style="background:conic-gradient({gradient_css})"></div>
+        <div style="flex:1;min-width:0">{"".join(legend_rows)}</div>
+      </div>
+      <div class="sidebar-divider"></div>
+      <a class="methodology-link" href="https://github.com/nexojack-bot/JG-Tradingbot/blob/main/METHODOLOGY.md" target="_blank" style="font-size:13px">Methodology &amp; limitations &rarr;</a>
+    </aside>'''
 
 
 def _range_pills_html(active_range="1M"):
@@ -254,14 +346,6 @@ def build_index(data: dict) -> str:
     hero = f'''
     <div class="hero-strip">
       <div class="hero-stat">
-        <div class="label">Total capital deployed</div>
-        <div class="value">${total_deployed:,.0f}</div>
-      </div>
-      <div class="hero-stat">
-        <div class="label">Combined value today</div>
-        <div class="value {"gain" if total_change >= 0 else "loss"}">${total_current:,.0f} <span style="font-size:14px">({total_change_pct:+.2%})</span></div>
-      </div>
-      <div class="hero-stat">
         <div class="label">Days running</div>
         <div class="value">{n_days}</div>
       </div>
@@ -280,6 +364,7 @@ def build_index(data: dict) -> str:
         badge = f'<span class="status-badge">Eliminated {s["eliminated_on"] or ""}</span>' if s["status"] == "eliminated" else ""
         category = STRATEGY_CATEGORIES.get(s["strategy_id"], "Other")
         cat_color = CATEGORY_COLORS.get(category, CATEGORY_COLORS["Other"])
+        cat_bg = CATEGORY_TAG_BG.get(category, CATEGORY_TAG_BG["Other"])
         up = s["roi"] is not None and s["roi"] >= 0
         accent = "var(--gain)" if up else ("var(--loss)" if s["roi"] is not None else "var(--border)")
         spark = _sparkline_svg(s["equity_history"])
@@ -297,7 +382,7 @@ def build_index(data: dict) -> str:
           {rank_html}
           <div class="name-block">
             <p class="name">{s["display_name"]}{badge}</p>
-            <p class="sub"><span class="category-tag" style="background:{cat_color}22;color:{cat_color}">{category}</span> {s["strategy_id"]}</p>
+            <p class="sub"><span class="category-tag" style="background:{cat_bg};color:{cat_color}">{category}</span> {s["strategy_id"]}</p>
           </div>
           {spark}
           <div class="figures">
@@ -315,6 +400,8 @@ def build_index(data: dict) -> str:
 <style>{CSS}</style>
 </head>
 <body>
+<div class="page-shell">
+{_sidebar_html(data)}
 <div class="wrap">
   <header class="page-head">
     <h1>Strategy Lab</h1>
@@ -336,6 +423,7 @@ def build_index(data: dict) -> str:
     {"".join(rows)}
   </div>
   <footer>data as of {data["generated_at"]}</footer>
+</div>
 </div>
 <script>
 {RANGE_JS}
@@ -646,6 +734,7 @@ def build_strategy_detail(strategy: dict, data: dict) -> str:
     })
     category = STRATEGY_CATEGORIES.get(strategy["strategy_id"], "Other")
     cat_color = CATEGORY_COLORS.get(category, CATEGORY_COLORS["Other"])
+    cat_bg = CATEGORY_TAG_BG.get(category, CATEGORY_TAG_BG["Other"])
 
     var_rows = "".join(
         f'<div class="sub" style="margin-bottom:4px"><strong>{k}</strong> &mdash; {v}</div>'
@@ -687,7 +776,7 @@ def build_strategy_detail(strategy: dict, data: dict) -> str:
     <h1>{strategy["display_name"]}</h1>
     <a class="methodology-link" href="index.html">&larr; Back to all strategies</a>
   </header>
-  <p class="subtitle"><span class="category-tag" style="background:{cat_color}22;color:{cat_color}">{category}</span> {strategy["strategy_id"]}</p>
+  <p class="subtitle"><span class="category-tag" style="background:{cat_bg};color:{cat_color}">{category}</span> {strategy["strategy_id"]}</p>
 
   <div style="display:flex; gap:16px; margin: 20px 0;">
     <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
