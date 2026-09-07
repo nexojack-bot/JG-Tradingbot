@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07T03:46:18.068818+00:00",
+  "generated_at": "2026-09-07T07:20:23.426212+00:00",
   "strategies": [
     {
       "strategy_id": "ma_slope_acceleration",
@@ -73,7 +73,18 @@
           "entry_price": 21.8,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Trend"
     },
     {
       "strategy_id": "max_pain_proximity",
@@ -167,7 +178,18 @@
           "entry_price": 28.52,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Options-Derived"
     },
     {
       "strategy_id": "iv_term_structure",
@@ -241,7 +263,18 @@
           "entry_price": 41.66,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Options-Derived"
     },
     {
       "strategy_id": "stochastic_momentum",
@@ -335,7 +368,18 @@
           "entry_price": 400.94,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Momentum"
     },
     {
       "strategy_id": "gex_regime",
@@ -373,7 +417,18 @@
           "equity": 10000.0
         }
       ],
-      "current_positions": {}
+      "current_positions": {},
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Options-Derived"
     },
     {
       "strategy_id": "distance_52w_low",
@@ -411,7 +466,18 @@
           "equity": 10000.0
         }
       ],
-      "current_positions": {}
+      "current_positions": {},
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Volatility / Statistical"
     },
     {
       "strategy_id": "risk_on_off",
@@ -449,7 +515,18 @@
           "equity": 10000.0
         }
       ],
-      "current_positions": {}
+      "current_positions": {},
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Macro"
     },
     {
       "strategy_id": "seasonality_composite",
@@ -487,7 +564,18 @@
           "equity": 10000.0
         }
       ],
-      "current_positions": {}
+      "current_positions": {},
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Calendar"
     },
     {
       "strategy_id": "iv_rank_low",
@@ -525,7 +613,18 @@
           "equity": 10000.0
         }
       ],
-      "current_positions": {}
+      "current_positions": {},
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Options-Derived"
     },
     {
       "strategy_id": "ema_50_200",
@@ -614,7 +713,18 @@
           "entry_price": 400.94,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Trend"
     },
     {
       "strategy_id": "hurst_trending_regime",
@@ -763,7 +873,18 @@
           "entry_price": 400.94,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Volatility / Statistical"
     },
     {
       "strategy_id": "obv_trend",
@@ -812,7 +933,18 @@
           "entry_price": 378.75,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Volume"
     },
     {
       "strategy_id": "macd_momentum",
@@ -886,7 +1018,18 @@
           "entry_price": 376.365,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Momentum"
     },
     {
       "strategy_id": "distance_52w_high",
@@ -950,7 +1093,18 @@
           "entry_price": 378.75,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Volatility / Statistical"
     },
     {
       "strategy_id": "overnight_gap_fill",
@@ -1029,7 +1183,18 @@
           "entry_price": 354.08,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Volatility / Statistical"
     },
     {
       "strategy_id": "options_skew",
@@ -1113,7 +1278,18 @@
           "entry_price": 28.52,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Options-Derived"
     },
     {
       "strategy_id": "adx_trend",
@@ -1187,7 +1363,18 @@
           "entry_price": 42.08,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Trend"
     },
     {
       "strategy_id": "zscore_reversion",
@@ -1236,7 +1423,18 @@
           "entry_price": 6.74,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Volatility / Statistical"
     },
     {
       "strategy_id": "bollinger_reversion",
@@ -1280,7 +1478,18 @@
           "entry_price": 3.86,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Volatility / Statistical"
     },
     {
       "strategy_id": "earnings_surprise_drift",
@@ -1324,7 +1533,18 @@
           "entry_price": 3.86,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Fundamental"
     },
     {
       "strategy_id": "dollar_strength_filter",
@@ -1393,7 +1613,18 @@
           "entry_price": 376.365,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Macro"
     },
     {
       "strategy_id": "credit_spread_proxy",
@@ -1477,7 +1708,18 @@
           "entry_price": 376.365,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Macro"
     },
     {
       "strategy_id": "relative_strength_market",
@@ -1556,7 +1798,18 @@
           "entry_price": 376.365,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Momentum"
     },
     {
       "strategy_id": "oi_concentration",
@@ -1625,7 +1878,18 @@
           "entry_price": 3.86,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Options-Derived"
     },
     {
       "strategy_id": "vwma_deviation",
@@ -1709,7 +1973,18 @@
           "entry_price": 39.59,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Volume"
     },
     {
       "strategy_id": "sector_rotation",
@@ -1753,7 +2028,18 @@
           "entry_price": 162.21,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Macro"
     },
     {
       "strategy_id": "oil_sensitivity_filter",
@@ -1797,7 +2083,18 @@
           "entry_price": 162.21,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Macro"
     },
     {
       "strategy_id": "session_vwap",
@@ -1861,7 +2158,18 @@
           "entry_price": 144.82,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Volume"
     },
     {
       "strategy_id": "ema_9_20",
@@ -1930,7 +2238,18 @@
           "entry_price": 37.87,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Trend"
     },
     {
       "strategy_id": "vix_regime_filter",
@@ -1999,7 +2318,18 @@
           "entry_price": 37.87,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Macro"
     },
     {
       "strategy_id": "roc_momentum",
@@ -2078,7 +2408,18 @@
           "entry_price": 21.8,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Momentum"
     },
     {
       "strategy_id": "supertrend",
@@ -2192,7 +2533,18 @@
           "entry_price": 376.365,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Trend"
     },
     {
       "strategy_id": "keltner_breakout",
@@ -2246,7 +2598,18 @@
           "entry_price": 144.82,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Trend"
     },
     {
       "strategy_id": "ad_line_trend",
@@ -2290,7 +2653,18 @@
           "entry_price": 264.43,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Volume"
     },
     {
       "strategy_id": "parabolic_sar",
@@ -2404,7 +2778,18 @@
           "entry_price": 376.365,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Trend"
     },
     {
       "strategy_id": "chaikin_money_flow",
@@ -2493,7 +2878,18 @@
           "entry_price": 376.365,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Volume"
     },
     {
       "strategy_id": "donchian_breakout",
@@ -2552,7 +2948,18 @@
           "entry_price": 376.365,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Trend"
     },
     {
       "strategy_id": "rsi_momentum",
@@ -2686,7 +3093,18 @@
           "entry_price": 378.75,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Momentum"
     },
     {
       "strategy_id": "cross_sectional_momentum",
@@ -2775,7 +3193,18 @@
           "entry_price": 42.08,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Momentum"
     },
     {
       "strategy_id": "ichimoku_cloud_signal",
@@ -2854,7 +3283,18 @@
           "entry_price": 42.08,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Trend"
     },
     {
       "strategy_id": "mfi_momentum",
@@ -2973,7 +3413,18 @@
           "entry_price": 375.07,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Momentum"
     },
     {
       "strategy_id": "multi_timeframe_trend",
@@ -3052,7 +3503,18 @@
           "entry_price": 42.08,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Trend"
     },
     {
       "strategy_id": "short_squeeze_candidate",
@@ -3121,7 +3583,18 @@
           "entry_price": 18.51,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Fundamental"
     },
     {
       "strategy_id": "anchored_vwap_52w_low",
@@ -3215,7 +3688,18 @@
           "entry_price": 42.08,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Volume"
     },
     {
       "strategy_id": "put_call_oi_ratio",
@@ -3304,7 +3788,18 @@
           "entry_price": 337.18,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Options-Derived"
     },
     {
       "strategy_id": "bollinger_squeeze_breakout",
@@ -3358,7 +3853,18 @@
           "entry_price": 376.365,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Volatility / Statistical"
     },
     {
       "strategy_id": "cci_momentum",
@@ -3452,7 +3958,18 @@
           "entry_price": 376.365,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Momentum"
     },
     {
       "strategy_id": "unusual_volume_spike",
@@ -3506,7 +4023,18 @@
           "entry_price": 356.47,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Volume"
     },
     {
       "strategy_id": "pairs_correlation_reversion",
@@ -3570,7 +4098,18 @@
           "entry_price": 28.81,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Volatility / Statistical"
     },
     {
       "strategy_id": "autocorrelation_momentum",
@@ -3614,7 +4153,18 @@
           "entry_price": 285.75,
           "entry_date": "2026-09-04"
         }
-      }
+      },
+      "n_days": 4,
+      "validation": {
+        "label": "Building history",
+        "n_days": 4,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": null,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Volatility / Statistical"
     }
   ],
   "benchmark": {
@@ -6565,6 +7115,94 @@
     },
     "most_correlated_pairs": []
   },
+  "effective_signal_count": {
+    "effective_n": null,
+    "nominal_n": 50,
+    "mean_correlation": null,
+    "reason": "insufficient_correlation_data"
+  },
+  "category_families": [
+    {
+      "category": "Calendar",
+      "n_signals": 1,
+      "avg_return": 0.0,
+      "median_return": 0.0,
+      "best_signal": "Turn-of-Month + Day-of-Week Seasonality",
+      "best_return": 0.0,
+      "worst_signal": "Turn-of-Month + Day-of-Week Seasonality",
+      "worst_return": 0.0
+    },
+    {
+      "category": "Fundamental",
+      "n_signals": 2,
+      "avg_return": -0.021963945783652888,
+      "median_return": -0.015544041450777332,
+      "best_signal": "Post-Earnings Surprise Drift",
+      "best_return": -0.015544041450777332,
+      "worst_signal": "Short Squeeze Candidate",
+      "worst_return": -0.028383850116528445
+    },
+    {
+      "category": "Macro",
+      "n_signals": 6,
+      "avg_return": -0.01404363808534202,
+      "median_return": -0.016235832635615406,
+      "best_signal": "Risk-On/Risk-Off Composite",
+      "best_return": 0.0,
+      "worst_signal": "VIX Regime Filter",
+      "worst_return": -0.01800679600082349
+    },
+    {
+      "category": "Momentum",
+      "n_signals": 8,
+      "avg_return": -0.020676949915658726,
+      "median_return": -0.01851257794829944,
+      "best_signal": "Stochastic Oscillator Momentum",
+      "best_return": 0.004862373304829271,
+      "worst_signal": "CCI Momentum",
+      "worst_return": -0.049423404261556246
+    },
+    {
+      "category": "Options-Derived",
+      "n_signals": 7,
+      "avg_return": -0.006670165626391957,
+      "median_return": 0.0,
+      "best_signal": "Max Pain Proximity",
+      "best_return": 0.013756159783473231,
+      "worst_signal": "Put/Call Open Interest Ratio",
+      "worst_return": -0.038380131092359444
+    },
+    {
+      "category": "Trend",
+      "n_signals": 10,
+      "avg_return": -0.012598558466346332,
+      "median_return": -0.019058302417798403,
+      "best_signal": "Moving Average Slope Acceleration",
+      "best_return": 0.04174682859716541,
+      "worst_signal": "Multi-Timeframe Trend Alignment",
+      "worst_return": -0.026001372570736748
+    },
+    {
+      "category": "Volatility / Statistical",
+      "n_signals": 9,
+      "avg_return": -0.02619050065623843,
+      "median_return": -0.01419093242974086,
+      "best_signal": "Near 52-Week Low (Reversion)",
+      "best_return": 0.0,
+      "worst_signal": "Return Autocorrelation",
+      "worst_return": -0.06733158355205596
+    },
+    {
+      "category": "Volume",
+      "n_signals": 7,
+      "avg_return": -0.023813633205678808,
+      "median_return": -0.0196649396815792,
+      "best_signal": "On-Balance Volume Trend",
+      "best_return": -0.009611311940463201,
+      "worst_signal": "Unusual Volume Spike",
+      "worst_return": -0.05186165622396911
+    }
+  ],
   "total_holdings": {
     "equity_history": [
       {

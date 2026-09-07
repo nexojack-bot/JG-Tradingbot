@@ -141,11 +141,14 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
 
     <aside class="sidebar">
       <div class="sidebar-title">Strategy Lab</div>
-      <div class="sidebar-meta">As of 2026-09-07 03:46 UTC</div>
+      <div class="sidebar-meta">As of Sep 7, 2026, 7:20 AM UTC</div>
       <div class="sidebar-divider"></div>
+      <div style="font-size:10px;line-height:1.6;padding:8px 10px;background:var(--accent-soft);border-radius:6px;margin-bottom:14px">
+        <span style="color:var(--ink-muted);font-weight:400">Data</span><span style="color:var(--border)"> &rarr; </span><span style="color:var(--ink-muted);font-weight:400">Research</span><span style="color:var(--border)"> &rarr; </span><span style="color:var(--ink-muted);font-weight:400">Backtest</span><span style="color:var(--border)"> &rarr; </span><span style="color:var(--ink-muted);font-weight:400">OOS</span><span style="color:var(--border)"> &rarr; </span><span style="color:var(--accent);font-weight:700">Paper Trading</span><span style="color:var(--border)"> &rarr; </span><span style="color:var(--ink-muted);font-weight:400">Live</span>
+      </div>
       <div class="sidebar-label">Combined portfolio</div>
-      <div class="sidebar-value">$491,313.08</div>
-      <div class="sidebar-delta loss">-1.74% since inception</div>
+      <div class="sidebar-value">$491,313 <span style="font-size:14px;color:var(--ink-soft);font-weight:400">/ $500,000</span></div>
+      <div class="sidebar-delta loss">-1.74% since inception &middot; 4 trading days</div>
       <svg class="spark" viewBox="0 0 210 54">
       <defs><linearGradient id="grad83" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0%" stop-color="#1F7A5C" stop-opacity="0.35"/>
@@ -154,6 +157,7 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
       <polygon points="2.0,27.0 70.7,27.0 139.3,27.0 208.0,27.0 208.0,54 2.0,54" fill="url(#grad83)"/>
       <polyline points="2.0,27.0 70.7,27.0 139.3,27.0 208.0,27.0" fill="none" stroke="#1F7A5C" stroke-width="2"/>
     </svg>
+      <div class="sidebar-label" style="margin-top:14px">Effective independent signals</div><div class="sidebar-meta">Insufficient correlation history yet</div>
       <div class="sidebar-divider"></div>
       <div class="sidebar-label">Category allocation</div>
       <div style="display:flex;align-items:center;gap:16px;margin-top:10px">
@@ -210,6 +214,13 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
   </header>
   <p class="subtitle"><span class="category-tag" style="background:#F2E4E4;color:#A64A4A">Volatility / Statistical</span> distance_52w_high</p>
 
+  
+    <div class="empty-note" style="display:flex;justify-content:space-between;align-items:center">
+      <div><strong>Building history</strong> &middot; n = 4 trading days &middot;
+      signal strength and statistical confidence are DIFFERENT axes — a strong-looking
+      return with a short sample is not validated evidence of edge.</div>
+    </div>
+
   <div style="display:flex; gap:16px; margin: 20px 0;">
     <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
       <p class="sub">Current equity</p><p class="equity">$9,884.47</p>
@@ -222,6 +233,21 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
     </div>
     <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
       <p class="sub">Elimination status</p><p class="equity" style="color:var(--ink-muted);font-size:15px">Building history</p>
+    </div>
+  </div>
+
+  <div style="display:flex; gap:16px; margin: 0 0 20px;">
+    <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
+      <p class="sub">Annualized volatility</p><p class="equity" style="font-size:16px"><span class="na">Insufficient history</span></p>
+    </div>
+    <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
+      <p class="sub">Sharpe ratio</p><p class="equity" style="font-size:16px"><span class="na">Insufficient history</span></p>
+    </div>
+    <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
+      <p class="sub">Sortino ratio</p><p class="equity" style="font-size:16px"><span class="na">Insufficient history</span></p>
+    </div>
+    <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
+      <p class="sub">Beta vs SPY</p><p class="equity" style="font-size:16px"><span class="na">Insufficient history</span></p>
     </div>
   </div>
 
@@ -247,7 +273,7 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
   <h2 style="font-size:16px;margin:24px 0 12px;">Current positions</h2>
   <div class="card-list"><div class="stock-card"><div class="name-block"><p class="name">CRM</p></div><div class="stock-meta">2.2633 shares @ $264.43<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">JNJ</p></div><div class="stock-meta">17.5269 shares @ $278.43<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">JPM</p></div><div class="stock-meta">6.5990 shares @ $362.06<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">PFE</p></div><div class="stock-meta">54.7960 shares @ $28.81<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">V</p></div><div class="stock-meta">1.4616 shares @ $378.75<span class="n-strat">entry 2026-09-04</span></div></div></div>
 
-  <footer>data as of 2026-09-07T03:46:18.068818+00:00</footer>
+  <footer>data as of 2026-09-07T07:20:23.426212+00:00</footer>
 </div>
 </div>
 </body>
