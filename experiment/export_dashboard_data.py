@@ -10,7 +10,9 @@ import datetime as dt
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-from experiment import portfolio, diagnostics, correlation
+from experiment import portfolio, diagnostics, correlation, risk_analytics
+from experiment.build_dashboard import STRATEGY_CATEGORIES
+import config
 
 
 def compute_returns_for_ranges(equity_series: list) -> dict:
@@ -125,6 +127,7 @@ def compute_total_holdings_series(strategies_data: list) -> list:
 def export(output_path: str = None):
     output_path = output_path or os.path.join(os.path.dirname(__file__), "dashboard_data.json")
 
+    benchmark_series = portfolio.get_equity_series("__benchmark_SPY")
     leaderboard = portfolio.leaderboard()
     strategies_data = []
     for row in leaderboard:
@@ -136,6 +139,7 @@ def export(output_path: str = None):
         if equity_series:
             roi = (equity_series[-1]["equity"] - row["starting_cash"]) / row["starting_cash"]
         current_positions = portfolio.get_positions(sid)
+        n_days = len(equity_series)
         strategies_data.append({
             "strategy_id": sid,
             "display_name": row["display_name"],
@@ -149,12 +153,45 @@ def export(output_path: str = None):
             "returns_by_range": compute_returns_for_ranges(equity_series),
             "equity_history": equity_series,
             "current_positions": current_positions,
+            "n_days": n_days,
+            "validation": risk_analytics.validation_tier(n_days),
+            "annualized_volatility": risk_analytics.annualized_volatility(equity_series),
+            "sharpe_ratio": risk_analytics.sharpe_ratio(equity_series, config.RISK_FREE_RATE),
+            "sortino_ratio": risk_analytics.sortino_ratio(equity_series, config.RISK_FREE_RATE),
+            "beta": risk_analytics.beta_vs_benchmark(equity_series, benchmark_series),
+            "category": STRATEGY_CATEGORIES.get(sid, "Other"),
         })
     strategies_data.sort(key=lambda s: (s["roi"] if s["roi"] is not None else -999), reverse=True)
 
-    benchmark_series = portfolio.get_equity_series("__benchmark_SPY")
-
     stock_positions = portfolio.positions_by_stock()
+    corr_data = correlation.compute_correlation_matrix(strategies_data)
+    all_corr_values = [p["correlation"] for p in corr_data["most_correlated_pairs"]]
+    effective_n = risk_analytics.effective_signal_count(all_corr_values, len(strategies_data))
+
+    # Category-family stats — avg/median/best/worst return per signal
+    # family, computed from the actual strategies_data, not invented.
+    family_stats = {}
+    for s in strategies_data:
+        cat = s["category"]
+        family_stats.setdefault(cat, []).append(s)
+    category_families = []
+    for cat, members in sorted(family_stats.items()):
+        rois = [m["roi"] for m in members if m["roi"] is not None]
+        if rois:
+            best = max(members, key=lambda m: m["roi"] if m["roi"] is not None else -999)
+            worst = min(members, key=lambda m: m["roi"] if m["roi"] is not None else 999)
+            category_families.append({
+                "category": cat, "n_signals": len(members),
+                "avg_return": sum(rois) / len(rois),
+                "median_return": sorted(rois)[len(rois)//2],
+                "best_signal": best["display_name"], "best_return": best["roi"],
+                "worst_signal": worst["display_name"], "worst_return": worst["roi"],
+            })
+        else:
+            category_families.append({"category": cat, "n_signals": len(members),
+                                        "avg_return": None, "median_return": None,
+                                        "best_signal": None, "best_return": None,
+                                        "worst_signal": None, "worst_return": None})
 
     data = {
         "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
@@ -165,7 +202,9 @@ def export(output_path: str = None):
         },
         "positions_by_stock": stock_positions,
         "recommendations": compute_daily_recommendations(strategies_data),
-        "correlation": correlation.compute_correlation_matrix(strategies_data),
+        "correlation": corr_data,
+        "effective_signal_count": effective_n,
+        "category_families": category_families,
         "total_holdings": {
             "equity_history": compute_total_holdings_series(strategies_data),
             "returns_by_range": compute_returns_for_ranges(compute_total_holdings_series(strategies_data)),
