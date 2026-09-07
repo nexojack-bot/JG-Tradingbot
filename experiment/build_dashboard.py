@@ -8,6 +8,7 @@ site. Run export_dashboard_data.py first, then this.
 import json
 import os
 import sys
+import datetime as dt
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 HERE = os.path.dirname(__file__)
@@ -237,6 +238,17 @@ CATEGORY_TAG_BG = {
 DONUT_COLORS = ["#2D416F", "#B56B1E", "#216B70", "#A64A4A", "#4C607A", "#39705A", "#675B78", "#9699A1"]
 
 
+def _format_timestamp(iso_str: str) -> str:
+    """Human-readable timestamp — 'Sep 7, 2026, 12:36 AM UTC' instead of a
+    raw ISO string. Stays in UTC rather than guessing the viewer's local
+    timezone, which a static site has no reliable way to know server-side."""
+    try:
+        d = dt.datetime.fromisoformat(iso_str.replace("Z", "+00:00"))
+        return d.strftime("%b %-d, %Y, %-I:%M %p UTC")
+    except Exception:
+        return iso_str[:16].replace("T", " ") + " UTC"
+
+
 def _sidebar_html(data: dict) -> str:
     strategies = data["strategies"]
     total_deployed = sum(s["starting_cash"] for s in strategies)
@@ -244,6 +256,14 @@ def _sidebar_html(data: dict) -> str:
     total_change_pct = ((total_current - total_deployed) / total_deployed) if total_deployed else 0
     holdings_series = data.get("total_holdings", {}).get("equity_history", [])
     mini_chart = _sparkline_svg(holdings_series, width=210, height=54)
+    n_days = max((s["n_days"] for s in strategies), default=0)
+
+    eff = data.get("effective_signal_count", {})
+    eff_html = ""
+    if eff.get("effective_n") is not None:
+        eff_html = f'<div class="sidebar-label" style="margin-top:14px">Effective independent signals</div><div class="sidebar-value" style="font-size:18px">{eff["effective_n"]:.1f} <span style="font-size:12px;color:var(--ink-soft);font-weight:400">of {eff["nominal_n"]} nominal</span></div>'
+    else:
+        eff_html = '<div class="sidebar-label" style="margin-top:14px">Effective independent signals</div><div class="sidebar-meta">Insufficient correlation history yet</div>'
 
     # Dollar-weighted allocation across the 8 strategy categories — a
     # visualization specific to this project's own methodology, not a
@@ -273,15 +293,27 @@ def _sidebar_html(data: dict) -> str:
         </div>''')
     gradient_css = ", ".join(gradient_stops) if gradient_stops else "#EDEBE6 0deg 360deg"
 
+    pipeline_stages = ["Data", "Research", "Backtest", "OOS", "Paper Trading", "Live"]
+    current_stage = "Paper Trading"
+    pipeline_html = "".join(
+        f'<span style="color:{"var(--accent)" if s==current_stage else "var(--ink-muted)"};font-weight:{"700" if s==current_stage else "400"}">{s}</span>'
+        + ('<span style="color:var(--border)"> &rarr; </span>' if s != pipeline_stages[-1] else '')
+        for s in pipeline_stages
+    )
+
     return f'''
     <aside class="sidebar">
       <div class="sidebar-title">Strategy Lab</div>
-      <div class="sidebar-meta">As of {data["generated_at"][:16].replace("T", " ")} UTC</div>
+      <div class="sidebar-meta">As of {_format_timestamp(data["generated_at"])}</div>
       <div class="sidebar-divider"></div>
+      <div style="font-size:10px;line-height:1.6;padding:8px 10px;background:var(--accent-soft);border-radius:6px;margin-bottom:14px">
+        {pipeline_html}
+      </div>
       <div class="sidebar-label">Combined portfolio</div>
-      <div class="sidebar-value">${total_current:,.2f}</div>
-      <div class="sidebar-delta {"gain" if total_change_pct >= 0 else "loss"}">{total_change_pct:+.2%} since inception</div>
+      <div class="sidebar-value">${total_current:,.0f} <span style="font-size:14px;color:var(--ink-soft);font-weight:400">/ ${total_deployed:,.0f}</span></div>
+      <div class="sidebar-delta {"gain" if total_change_pct >= 0 else "loss"}">{total_change_pct:+.2%} since inception &middot; {n_days} trading days</div>
       {mini_chart}
+      {eff_html}
       <div class="sidebar-divider"></div>
       <div class="sidebar-label">Category allocation</div>
       <div style="display:flex;align-items:center;gap:16px;margin-top:10px">
@@ -405,6 +437,9 @@ def build_index(data: dict) -> str:
             es = _elimination_status(s["returns_by_range"].get("1W"), benchmark_1w)
             elim_html = f'<span class="elim-badge" style="background:{es["color"]}18;color:{es["color"]}">{es["label"]}</span>'
 
+        val = s.get("validation", {})
+        val_html = f'<span class="elim-badge" style="background:var(--accent-soft);color:var(--accent)">{val.get("label","")} &middot; n={s.get("n_days",0)}d</span>' if val else ""
+
         rows.append(f'''
         <a href="strategy_{s["strategy_id"]}.html" style="text-decoration:none;color:inherit">
         <div class="strategy-card" data-returns='{json.dumps(s["returns_by_range"])}' style="border-left-color:{accent}">
@@ -412,7 +447,7 @@ def build_index(data: dict) -> str:
           <div class="name-block">
             <p class="name">{s["display_name"]}{badge}</p>
             <p class="sub"><span class="category-tag" style="background:{cat_bg};color:{cat_color}">{category}</span> {s["strategy_id"]}</p>
-            {elim_html}
+            {elim_html} {val_html}
           </div>
           {spark}
           <div class="figures">
@@ -842,6 +877,29 @@ def build_correlation(data: dict) -> str:
           <div class="stock-meta"><span class="delta {corr_class}">{p["correlation"]:+.3f}</span></div>
         </div>''')
 
+    family_rows = []
+    for fam in data.get("category_families", []):
+        cat_color = CATEGORY_COLORS.get(fam["category"], CATEGORY_COLORS["Other"])
+        if fam["avg_return"] is None:
+            family_rows.append(f'''
+            <div class="stock-card">
+              <div class="name-block"><p class="name">{fam["category"]}</p><p class="sub">{fam["n_signals"]} signals</p></div>
+              <div class="stock-meta"><span class="na">Insufficient history</span></div>
+            </div>''')
+            continue
+        avg_class = "gain" if fam["avg_return"] >= 0 else "loss"
+        family_rows.append(f'''
+        <div class="stock-card">
+          <div class="name-block">
+            <p class="name">{fam["category"]}</p>
+            <p class="sub">{fam["n_signals"]} signals &middot; best: {fam["best_signal"]} ({fam["best_return"]:+.1%}) &middot; worst: {fam["worst_signal"]} ({fam["worst_return"]:+.1%})</p>
+          </div>
+          <div class="stock-meta">
+            <span class="delta {avg_class}">{fam["avg_return"]:+.2%}</span>
+            <span class="n-strat">avg (median {fam["median_return"]:+.2%})</span>
+          </div>
+        </div>''')
+
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -872,6 +930,10 @@ def build_correlation(data: dict) -> str:
     per pair — shows blank/grey until then.
   </div>
   <div class="corr-heatmap">{"".join(heatmap_rows)}</div>
+  <h2 style="font-size:16px;margin:28px 0 12px;">Signal families</h2>
+  <div class="card-list">
+    {"".join(family_rows)}
+  </div>
   <h2 style="font-size:16px;margin:28px 0 12px;">Most correlated pairs</h2>
   <div class="card-list">
     {"".join(pair_rows) if pair_rows else '<p class="na">Not enough overlapping history yet.</p>'}
@@ -923,6 +985,25 @@ def build_strategy_detail(strategy: dict, data: dict) -> str:
     es = _elimination_status(strategy["returns_by_range"].get("1W"), benchmark_1w) if strategy["status"] == "active" else \
          {"label": f'Eliminated {strategy.get("eliminated_on","")}', "color": "var(--loss)"}
 
+    val = strategy.get("validation", {})
+    val_label = val.get("label", "n/a")
+    n_days = strategy.get("n_days", 0)
+    vol = strategy.get("annualized_volatility")
+    vol_str = f'{vol*100:.1f}%' if vol is not None else '<span class="na">Insufficient history</span>'
+    sharpe = strategy.get("sharpe_ratio")
+    sharpe_str = f'{sharpe:.2f}' if sharpe is not None else '<span class="na">Insufficient history</span>'
+    sortino = strategy.get("sortino_ratio")
+    sortino_str = f'{sortino:.2f}' if sortino is not None else '<span class="na">Insufficient history</span>'
+    beta = strategy.get("beta")
+    beta_str = f'{beta:.2f}' if beta is not None else '<span class="na">Insufficient history</span>'
+
+    validation_banner = f'''
+    <div class="empty-note" style="display:flex;justify-content:space-between;align-items:center">
+      <div><strong>{val_label}</strong> &middot; n = {n_days} trading days &middot;
+      signal strength and statistical confidence are DIFFERENT axes — a strong-looking
+      return with a short sample is not validated evidence of edge.</div>
+    </div>'''
+
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -940,6 +1021,8 @@ def build_strategy_detail(strategy: dict, data: dict) -> str:
   </header>
   <p class="subtitle"><span class="category-tag" style="background:{cat_bg};color:{cat_color}">{category}</span> {strategy["strategy_id"]}</p>
 
+  {validation_banner}
+
   <div style="display:flex; gap:16px; margin: 20px 0;">
     <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
       <p class="sub">Current equity</p><p class="equity">{equity_str}</p>
@@ -952,6 +1035,21 @@ def build_strategy_detail(strategy: dict, data: dict) -> str:
     </div>
     <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
       <p class="sub">Elimination status</p><p class="equity" style="color:{es["color"]};font-size:15px">{es["label"]}</p>
+    </div>
+  </div>
+
+  <div style="display:flex; gap:16px; margin: 0 0 20px;">
+    <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
+      <p class="sub">Annualized volatility</p><p class="equity" style="font-size:16px">{vol_str}</p>
+    </div>
+    <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
+      <p class="sub">Sharpe ratio</p><p class="equity" style="font-size:16px">{sharpe_str}</p>
+    </div>
+    <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
+      <p class="sub">Sortino ratio</p><p class="equity" style="font-size:16px">{sortino_str}</p>
+    </div>
+    <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
+      <p class="sub">Beta vs SPY</p><p class="equity" style="font-size:16px">{beta_str}</p>
     </div>
   </div>
 
