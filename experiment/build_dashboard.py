@@ -599,10 +599,17 @@ def build_holdings(data: dict) -> str:
 <meta charset="UTF-8">
 <title>Total Holdings — Strategy Lab</title>
 <style>{CSS}
-.big-chart {{ width: 100%; height: 280px; }}
+.big-chart {{ width: 100%; height: 320px; overflow: visible; }}
 .chart-header {{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; }}
 .chart-total {{ font-family: var(--mono); font-size: 28px; font-weight: 700; }}
 .chart-change {{ font-family: var(--mono); font-size: 15px; margin-top:4px; }}
+.chart-wrap {{ position: relative; }}
+.chart-tooltip {{
+  position: absolute; display: none; pointer-events: none; background: var(--ink);
+  color: #fff; font-family: var(--mono); font-size: 12px; padding: 6px 10px; border-radius: 6px;
+  white-space: nowrap; transform: translate(-50%, -110%); z-index: 5;
+}}
+.chart-tooltip .tt-date {{ color: #C7C9CE; font-size: 11px; margin-bottom: 2px; }}
 </style>
 </head>
 <body>
@@ -623,7 +630,10 @@ def build_holdings(data: dict) -> str:
         <div class="chart-change" id="chart-change"></div>
       </div>
     </div>
-    <svg class="big-chart" id="big-chart" viewBox="0 0 900 280" preserveAspectRatio="none"></svg>
+    <div class="chart-wrap">
+      <svg class="big-chart" id="big-chart" viewBox="0 0 900 320"></svg>
+      <div class="chart-tooltip" id="chart-tooltip"><div class="tt-date" id="tt-date"></div><div id="tt-value"></div></div>
+    </div>
   </div>
 
   <footer>data as of {data["generated_at"]}</footer>
@@ -632,6 +642,10 @@ def build_holdings(data: dict) -> str:
 <script>
 {RANGE_JS}
 const SERIES = {series_json};
+const CHART_W = 900, CHART_H = 320;
+const PAD_L = 12, PAD_R = 64, PAD_T = 16, PAD_B = 34;
+let currentPoints = [];
+let currentScale = null;
 
 function filterByRange(series, range) {{
   if (series.length === 0) return series;
@@ -647,23 +661,122 @@ function filterByRange(series, range) {{
   return series.filter(p => new Date(p.date) >= cutoff);
 }}
 
+function formatCompact(v) {{
+  if (Math.abs(v) >= 1000) return "$" + (v/1000).toFixed(1) + "K";
+  return "$" + v.toFixed(0);
+}}
+function formatDate(d) {{
+  const dt = new Date(d);
+  return dt.toLocaleDateString(undefined, {{month: "short", day: "numeric"}});
+}}
+
 function drawChart(points) {{
   const svg = document.getElementById("big-chart");
+  currentPoints = points;
+
   if (points.length < 2) {{
-    svg.innerHTML = '<line x1="20" y1="140" x2="880" y2="140" stroke="#D8D6CF" stroke-width="2"/>';
+    svg.innerHTML = '<line x1="' + PAD_L + '" y1="' + (CHART_H/2) + '" x2="' + (CHART_W-PAD_R) + '" y2="' + (CHART_H/2) + '" stroke="var(--grid-line)" stroke-width="2"/>' +
+      '<text x="' + (CHART_W/2) + '" y="' + (CHART_H/2 - 14) + '" text-anchor="middle" fill="var(--ink-soft)" font-size="13">Not enough history in this range yet</text>';
+    currentScale = null;
     return;
   }}
+
   const values = points.map(p => p.equity);
-  const lo = Math.min(...values), hi = Math.max(...values);
-  const span = (hi - lo) || 1;
-  const w = 900, h = 280, pad = 20;
-  const pts = points.map((p, i) => {{
-    const x = pad + (w - 2*pad) * (i / (points.length - 1));
-    const y = h - pad - (h - 2*pad) * ((p.equity - lo) / span);
-    return x.toFixed(1) + "," + y.toFixed(1);
-  }}).join(" ");
-  const color = values[values.length-1] >= values[0] ? "#1F7A5C" : "#B23A3A";
-  svg.innerHTML = '<polyline points="' + pts + '" fill="none" stroke="' + color + '" stroke-width="2.5"/>';
+  const rawLo = Math.min(...values), rawHi = Math.max(...values);
+  // FIX: a genuinely flat/near-flat series used to collapse to span=1 with
+  // every point mapped to the SAME y — which happens to sit at the very
+  // BOTTOM of the chart (not the center), because (v-lo)/1 = 0 for every
+  // point when lo===hi, and y is measured from the bottom up. That looked
+  // like a broken chart (flat line pinned low with empty space above) even
+  // though the underlying cause was just "no variance in this window," not
+  // a rendering failure. Now: pad the range artificially when it's flat/
+  // near-flat, so the line centers naturally instead of collapsing to an edge.
+  let lo = rawLo, hi = rawHi;
+  if (hi - lo < Math.abs(rawHi) * 0.001) {{
+    const mid = (hi + lo) / 2 || 1;
+    lo = mid - Math.abs(mid) * 0.01;
+    hi = mid + Math.abs(mid) * 0.01;
+  }}
+  const span = hi - lo;
+
+  const xFor = i => PAD_L + (CHART_W - PAD_L - PAD_R) * (i / (points.length - 1));
+  const yFor = v => CHART_H - PAD_B - (CHART_H - PAD_T - PAD_B) * ((v - lo) / span);
+
+  const linePts = points.map((p, i) => xFor(i).toFixed(1) + "," + yFor(p.equity).toFixed(1)).join(" ");
+  const areaPts = linePts + " " + xFor(points.length-1).toFixed(1) + "," + (CHART_H-PAD_B) + " " + xFor(0).toFixed(1) + "," + (CHART_H-PAD_B);
+  const color = values[values.length-1] >= values[0] ? "var(--gain)" : "var(--loss)";
+  const colorHex = values[values.length-1] >= values[0] ? "#21835F" : "#BE3B39";
+
+  // 3 horizontal gridlines with $ labels, evenly spaced across the (possibly padded) range
+  let gridSvg = "";
+  for (let i = 0; i < 3; i++) {{
+    const v = lo + span * (i / 2);
+    const y = yFor(v);
+    gridSvg += '<line x1="' + PAD_L + '" y1="' + y.toFixed(1) + '" x2="' + (CHART_W-PAD_R) + '" y2="' + y.toFixed(1) + '" stroke="var(--grid-line)" stroke-width="1" stroke-dasharray="3,4"/>';
+    gridSvg += '<text x="' + (CHART_W-PAD_R+8) + '" y="' + (y+4).toFixed(1) + '" font-size="12" fill="var(--ink-soft)" font-family="monospace">' + formatCompact(v) + '</text>';
+  }}
+
+  const dateLabelsSvg =
+    '<text x="' + PAD_L + '" y="' + (CHART_H-10) + '" font-size="12" fill="var(--ink-soft)">' + formatDate(points[0].date) + '</text>' +
+    '<text x="' + (CHART_W-PAD_R) + '" y="' + (CHART_H-10) + '" font-size="12" fill="var(--ink-soft)" text-anchor="end">' + formatDate(points[points.length-1].date) + '</text>';
+
+  svg.innerHTML =
+    '<defs><linearGradient id="holdingsGrad" x1="0" y1="0" x2="0" y2="1">' +
+      '<stop offset="0%" stop-color="' + colorHex + '" stop-opacity="0.15"/>' +
+      '<stop offset="100%" stop-color="' + colorHex + '" stop-opacity="0.01"/>' +
+    '</linearGradient></defs>' +
+    gridSvg +
+    '<polygon points="' + areaPts + '" fill="url(#holdingsGrad)"/>' +
+    '<polyline points="' + linePts + '" fill="none" stroke="' + color + '" stroke-width="2.5"/>' +
+    dateLabelsSvg +
+    '<line id="hover-line" x1="0" y1="' + PAD_T + '" x2="0" y2="' + (CHART_H-PAD_B) + '" stroke="var(--ink-soft)" stroke-width="1" style="display:none"/>' +
+    '<circle id="hover-dot" r="4" fill="' + color + '" style="display:none"/>';
+
+  currentScale = {{ xFor, yFor, lo, hi, span }};
+}}
+
+function setupHover() {{
+  const svg = document.getElementById("big-chart");
+  const tooltip = document.getElementById("chart-tooltip");
+  const ttDate = document.getElementById("tt-date");
+  const ttValue = document.getElementById("tt-value");
+
+  svg.addEventListener("mousemove", (e) => {{
+    if (!currentPoints.length || !currentScale) return;
+    const rect = svg.getBoundingClientRect();
+    const scaleX = CHART_W / rect.width;
+    const mouseXInViewBox = (e.clientX - rect.left) * scaleX;
+
+    const frac = Math.max(0, Math.min(1, (mouseXInViewBox - PAD_L) / (CHART_W - PAD_L - PAD_R)));
+    const idx = Math.round(frac * (currentPoints.length - 1));
+    const point = currentPoints[idx];
+    if (!point) return;
+
+    const x = currentScale.xFor(idx);
+    const y = currentScale.yFor(point.equity);
+
+    const hoverLine = document.getElementById("hover-line");
+    const hoverDot = document.getElementById("hover-dot");
+    hoverLine.setAttribute("x1", x); hoverLine.setAttribute("x2", x);
+    hoverLine.style.display = "block";
+    hoverDot.setAttribute("cx", x); hoverDot.setAttribute("cy", y);
+    hoverDot.style.display = "block";
+
+    const scaleXPx = rect.width / CHART_W;
+    tooltip.style.left = (x * scaleXPx) + "px";
+    tooltip.style.top = (y * (rect.height / CHART_H)) + "px";
+    tooltip.style.display = "block";
+    ttDate.textContent = formatDate(point.date);
+    ttValue.textContent = "$" + point.equity.toLocaleString(undefined, {{minimumFractionDigits:2, maximumFractionDigits:2}});
+  }});
+
+  svg.addEventListener("mouseleave", () => {{
+    tooltip.style.display = "none";
+    const hoverLine = document.getElementById("hover-line");
+    const hoverDot = document.getElementById("hover-dot");
+    if (hoverLine) hoverLine.style.display = "none";
+    if (hoverDot) hoverDot.style.display = "none";
+  }});
 }}
 
 function render() {{
@@ -686,6 +799,7 @@ function render() {{
   const change = (latest - start) / start;
   changeEl.innerHTML = '<span class="delta ' + deltaClass(change) + '">' + fmtPct(change) + ' over ' + currentRange + '</span>';
 }}
+setupHover();
 render();
 </script>
 </body>
