@@ -45,10 +45,18 @@ nav.tabs a.active { color: var(--accent); border-bottom-color: var(--accent); }
 
 .card-list { display: flex; flex-direction: column; gap: 10px; }
 .strategy-card, .stock-card {
-  background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+  background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--border); border-radius: 10px;
   padding: 16px 20px; display: flex; align-items: center; gap: 16px;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
 }
-.rank { font-family: var(--mono); font-size: 13px; color: var(--ink-soft); width: 24px; flex-shrink: 0; }
+a:has(.strategy-card):hover .strategy-card {
+  box-shadow: 0 4px 14px rgba(20,20,30,0.08); transform: translateY(-1px);
+}
+.rank { font-family: var(--mono); font-size: 13px; color: var(--ink-soft); width: 28px; flex-shrink: 0; text-align: center; }
+.rank.top3 {
+  width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-weight: 700; color: #fff; font-size: 12px;
+}
 .name-block { flex: 1; min-width: 0; }
 .name { font-weight: 600; font-size: 14px; margin: 0 0 2px; }
 .name .status-badge {
@@ -57,12 +65,13 @@ nav.tabs a.active { color: var(--accent); border-bottom-color: var(--accent); }
 }
 .sub { font-size: 12px; color: var(--ink-soft); }
 .category-tag {
-  font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em;
-  background: var(--accent-soft); color: var(--accent); padding: 1px 6px; border-radius: 4px; margin-right: 6px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.01em;
+  background: var(--accent-soft); color: var(--accent);
+  padding: 1px 7px; border-radius: 4px; margin-right: 6px;
 }
 .methodology-link { font-size: 13px; color: var(--accent); text-decoration: none; font-weight: 500; }
 .methodology-link:hover { text-decoration: underline; }
-.spark { width: 110px; height: 36px; flex-shrink: 0; }
+.spark { width: 150px; height: 48px; flex-shrink: 0; }
 .figures { text-align: right; flex-shrink: 0; width: 130px; }
 .equity { font-family: var(--mono); font-size: 14px; font-weight: 600; }
 .delta { font-family: var(--mono); font-size: 12px; margin-top: 2px; }
@@ -80,6 +89,16 @@ nav.tabs a.active { color: var(--accent); border-bottom-color: var(--accent); }
   background: var(--accent-soft); border: 1px solid var(--border); border-radius: 8px;
   padding: 14px 18px; font-size: 13px; color: var(--ink); margin-bottom: 20px; line-height: 1.5;
 }
+.hero-strip {
+  display: flex; gap: 0; margin: 4px 0 28px; background: var(--card);
+  border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+}
+.hero-stat { flex: 1; padding: 18px 22px; border-right: 1px solid var(--border); }
+.hero-stat:last-child { border-right: none; }
+.hero-stat .label { font-size: 12px; color: var(--ink-soft); margin-bottom: 6px; }
+.hero-stat .value { font-family: var(--mono); font-size: 22px; font-weight: 700; }
+.hero-stat .value.gain { color: var(--gain); }
+.hero-stat .value.loss { color: var(--loss); }
 footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family: var(--mono); }
 </style>
 </head>
@@ -89,7 +108,7 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
     <h1>Parabolic SAR Trend</h1>
     <a class="methodology-link" href="index.html">&larr; Back to all strategies</a>
   </header>
-  <p class="subtitle"><span class="category-tag">Trend</span> parabolic_sar</p>
+  <p class="subtitle"><span class="category-tag" style="background:#2B3A6722;color:#2B3A67">Trend</span> parabolic_sar</p>
 
   <div style="display:flex; gap:16px; margin: 20px 0;">
     <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
@@ -103,7 +122,14 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
     </div>
   </div>
 
-  <svg class="spark" viewBox="0 0 300 80"><polyline points="4.0,76.0 150.0,76.0 296.0,76.0" fill="none" stroke="#1F7A5C" stroke-width="2"/></svg>
+  <svg class="spark" viewBox="0 0 300 80">
+      <defs><linearGradient id="grad85" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#1F7A5C" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#1F7A5C" stop-opacity="0.02"/>
+      </linearGradient></defs>
+      <polygon points="2.0,40.0 100.7,40.0 199.3,40.0 298.0,40.0 298.0,80 2.0,80" fill="url(#grad85)"/>
+      <polyline points="2.0,40.0 100.7,40.0 199.3,40.0 298.0,40.0" fill="none" stroke="#1F7A5C" stroke-width="2"/>
+    </svg>
 
   <h2 style="font-size:16px;margin:24px 0 12px;">What this strategy does</h2>
   <p style="font-size:14px;line-height:1.6;color:var(--ink)">The 'stop and reverse' indicator — an accelerating trailing stop level that follows price. Scores symbols currently above their SAR level (in an uptrend per this indicator) by how far above it price sits.</p>
@@ -118,7 +144,7 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
   <h2 style="font-size:16px;margin:24px 0 12px;">Current positions</h2>
   <div class="card-list"><div class="stock-card"><div class="name-block"><p class="name">AI</p></div><div class="stock-meta">22.8309 shares @ $10.90<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">COIN</p></div><div class="stock-meta">1.7705 shares @ $192.70<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">CRM</p></div><div class="stock-meta">17.2160 shares @ $264.43<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">CVNA</p></div><div class="stock-meta">0.1915 shares @ $74.59<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">HOOD</p></div><div class="stock-meta">18.8691 shares @ $124.72<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">INTC</p></div><div class="stock-meta">0.3320 shares @ $95.80<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">MARA</p></div><div class="stock-meta">82.2597 shares @ $11.60<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">META</p></div><div class="stock-meta">0.0691 shares @ $610.68<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">MSTR</p></div><div class="stock-meta">4.6779 shares @ $144.82<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">NVDA</p></div><div class="stock-meta">0.0601 shares @ $228.45<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">RBLX</p></div><div class="stock-meta">0.5397 shares @ $43.31<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">RIOT</p></div><div class="stock-meta">16.1702 shares @ $21.80<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">SMCI</p></div><div class="stock-meta">0.5967 shares @ $39.59<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">SNOW</p></div><div class="stock-meta">0.7074 shares @ $356.47<span class="n-strat">entry 2026-09-04</span></div></div><div class="stock-card"><div class="name-block"><p class="name">TSLA</p></div><div class="stock-meta">0.3270 shares @ $376.37<span class="n-strat">entry 2026-09-04</span></div></div></div>
 
-  <footer>data as of 2026-09-06T23:37:50.273780+00:00</footer>
+  <footer>data as of 2026-09-07T00:02:56.331622+00:00</footer>
 </div>
 </body>
 </html>
