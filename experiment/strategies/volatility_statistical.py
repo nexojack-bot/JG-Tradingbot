@@ -169,7 +169,7 @@ def score_hurst_trending_regime(watchlist, cache):
     return scores
 
 
-@register("pairs_correlation_reversion", "Pairs Correlation Reversion")
+@register("pairs_correlation_reversion", "Correlation Reversion Proxy")
 def score_pairs_correlation_reversion(watchlist, cache):
     """
     SIMPLIFIED pairs-trading proxy — NOT a formal cointegration test (no
