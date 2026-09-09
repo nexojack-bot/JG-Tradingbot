@@ -28,9 +28,11 @@ from experiment.strategies.base import STRATEGIES
 from experiment.orchestrator import run_full_day
 from experiment.export_dashboard_data import export
 from experiment.build_dashboard import build
+from experiment.generate_briefing import generate_daily_briefing
 from experiment import iv_history
 from data.alpaca_client import fetch_daily_bars
 import config
+import json
 
 
 def main():
@@ -59,7 +61,19 @@ def main():
     logger.info(f"Day complete: {n_ok} strategies ran, {n_skipped} skipped (eliminated), cache: {cache_stats}")
 
     logger.info("Exporting dashboard data...")
-    export()
+    data = export()
+
+    logger.info("Generating daily briefing...")
+    briefing = generate_daily_briefing(data)
+    if briefing["generated"]:
+        logger.info("Briefing generated successfully.")
+    else:
+        logger.warning(f"Briefing not generated today: {briefing['error']} — dashboard will show 'unavailable' rather than a stale or fake one.")
+    data["daily_briefing"] = briefing
+
+    dashboard_data_path = os.path.join(os.path.dirname(__file__), "experiment", "dashboard_data.json")
+    with open(dashboard_data_path, "w") as f:
+        json.dump(data, f, indent=2, default=str)
 
     logger.info("Building dashboard site...")
     build()
