@@ -13,6 +13,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 HERE = os.path.dirname(__file__)
 from experiment.strategy_metadata import STRATEGY_DETAILS
+from experiment.risk_analytics import VALIDATION_TIER_THRESHOLDS
 
 CSS = """
 :root {
@@ -395,7 +396,13 @@ def build_index(data: dict) -> str:
     total_change = total_current - total_deployed
     total_change_pct = (total_change / total_deployed) if total_deployed else 0
     n_days = max((len(s["equity_history"]) for s in strategies), default=0)
-    best = max((s for s in active if s["roi"] is not None), key=lambda s: s["roi"], default=None)
+    # Only name a "current leader" once a strategy has reached at least
+    # "Emerging" validation tier — naming one from a handful of days is
+    # the exact false-confidence problem the validation-tier system exists
+    # to prevent. Strategies are already ROI-sorted (descending), so the
+    # first one meeting the day threshold is the best QUALIFYING leader.
+    min_days_for_leader = VALIDATION_TIER_THRESHOLDS[2][0]  # start of "Emerging"
+    best = next((s for s in active if s["roi"] is not None and s.get("n_days", 0) >= min_days_for_leader), None)
 
     hero = f'''
     <div class="hero-strip">
@@ -409,7 +416,7 @@ def build_index(data: dict) -> str:
       </div>
       <div class="hero-stat">
         <div class="label">Current leader</div>
-        <div class="value" style="font-size:15px">{best["display_name"] if best else "n/a"}</div>
+        <div class="value" style="font-size:13px;font-weight:500">{best["display_name"] if best else "No strategy has reached enough history yet"}</div>
       </div>
     </div>'''
 
@@ -575,15 +582,29 @@ def build_recommendations(data: dict) -> str:
               <div class="name-block"><p class="name">{item["symbol"]}</p></div>
               <div class="stock-bar-track"><div class="stock-bar-fill" style="width:{item["pct"]*100:.1f}%"></div></div>
               <div class="stock-meta">{item["count"]}/{item["n_active_strategies"]} strategies ({item["pct"]*100:.0f}%)
-                <div class="delta {stance_class}" style="margin-top:2px">Best strategy: {best_stance}</div>
+                <div class="delta {stance_class}" style="margin-top:2px">ROI leader's stance: {best_stance}</div>
               </div>
             </div>''')
         return "".join(rows)
 
-    best_block = ""
     if best:
         roi_str = f'{best["roi"]*100:+.2f}%' if best["roi"] is not None else "n/a"
-        best_block = f'<div class="empty-note"><strong>Currently best-performing strategy:</strong> {best["display_name"]} (ROI: {roi_str}) — its individual stance is cross-referenced in every list below.</div>'
+        best_block = f'''<div class="empty-note">
+          <strong>Current ROI leader:</strong> {best["display_name"]} (ROI: {roi_str}) — shown as
+          "ROI leader's stance" in every list below. This is a SEPARATE, INDEPENDENT measurement from
+          the strategy count/percentage on each row: a stock can have strong buy consensus across many
+          strategies while this one specific strategy (today's single highest-ROI signal, not
+          necessarily a validated one — see its own page for sample size and validation tier) wants
+          something different. That disagreement is real information, not an error — it means the
+          broad signal and the current top performer aren't looking at the same thing today.
+        </div>'''
+    else:
+        best_block = '''<div class="empty-note">
+          No strategy has reached enough history yet to name a "ROI leader" with any confidence —
+          see the methodology doc for the validation-tier thresholds. The lists below still show
+          consensus across all active strategies; there's just no single-strategy cross-reference
+          shown until one qualifies.
+        </div>'''
 
     date_str = rec.get("date") or "n/a"
 
@@ -871,19 +892,38 @@ def build_correlation(data: dict) -> str:
         a_name = name_by_id.get(p["strategy_a"], p["strategy_a"])
         b_name = name_by_id.get(p["strategy_b"], p["strategy_b"])
         corr_class = "loss" if p["correlation"] < 0 else "gain"
+        confidence = p.get("confidence", "Low confidence")
+        n_overlap = p.get("n_overlap", 0)
         pair_rows.append(f'''
         <div class="stock-card">
-          <div class="name-block"><p class="name">{a_name} &harr; {b_name}</p></div>
+          <div class="name-block">
+            <p class="name">{a_name} &harr; {b_name}</p>
+            <p class="sub">{confidence} &middot; {n_overlap} overlapping days</p>
+          </div>
           <div class="stock-meta"><span class="delta {corr_class}">{p["correlation"]:+.3f}</span></div>
         </div>''')
+
+    coherence_by_cat = {c["category"]: c for c in data.get("category_coherence", [])}
 
     family_rows = []
     for fam in data.get("category_families", []):
         cat_color = CATEGORY_COLORS.get(fam["category"], CATEGORY_COLORS["Other"])
+        coh = coherence_by_cat.get(fam["category"], {})
+        coh_html = ""
+        if coh.get("coherent") is not None:
+            coh_class = "gain" if coh["coherent"] else "loss"
+            coh_label = "Behaviorally coherent" if coh["coherent"] else "Label may not match behavior"
+            coh_html = f'<p class="sub"><span class="delta {coh_class}">{coh_label}</span> &middot; within-group corr {coh["within_group_corr"]:+.2f} vs. cross-group {coh["cross_group_corr"]:+.2f}</p>'
+        elim_html = ""
+        if fam.get("n_eliminated"):
+            elim_ret = fam.get("eliminated_avg_return_at_elimination")
+            elim_str = f'{elim_ret:+.1%}' if elim_ret is not None else "n/a"
+            elim_html = f'<p class="sub">{fam["n_eliminated"]} eliminated from this category &middot; avg return at elimination: {elim_str}</p>'
+
         if fam["avg_return"] is None:
             family_rows.append(f'''
             <div class="stock-card">
-              <div class="name-block"><p class="name">{fam["category"]}</p><p class="sub">{fam["n_signals"]} signals</p></div>
+              <div class="name-block"><p class="name">{fam["category"]}</p><p class="sub">{fam["n_signals"]} signals</p>{coh_html}{elim_html}</div>
               <div class="stock-meta"><span class="na">Insufficient history</span></div>
             </div>''')
             continue
@@ -893,6 +933,7 @@ def build_correlation(data: dict) -> str:
           <div class="name-block">
             <p class="name">{fam["category"]}</p>
             <p class="sub">{fam["n_signals"]} signals &middot; best: {fam["best_signal"]} ({fam["best_return"]:+.1%}) &middot; worst: {fam["worst_signal"]} ({fam["worst_return"]:+.1%})</p>
+            {coh_html}{elim_html}
           </div>
           <div class="stock-meta">
             <span class="delta {avg_class}">{fam["avg_return"]:+.2%}</span>
@@ -1038,7 +1079,7 @@ def build_strategy_detail(strategy: dict, data: dict) -> str:
     </div>
   </div>
 
-  <div style="display:flex; gap:16px; margin: 0 0 20px;">
+  <div style="display:flex; gap:16px; margin: 0 0 8px;">
     <div class="strategy-card" style="flex:1; flex-direction:column; align-items:flex-start">
       <p class="sub">Annualized volatility</p><p class="equity" style="font-size:16px">{vol_str}</p>
     </div>
@@ -1052,6 +1093,7 @@ def build_strategy_detail(strategy: dict, data: dict) -> str:
       <p class="sub">Beta vs SPY</p><p class="equity" style="font-size:16px">{beta_str}</p>
     </div>
   </div>
+  <p class="sub" style="margin: 0 0 20px;">These figures share the same maturity as the strategy overall: <strong>{val_label}</strong> (n = {n_days} days). A precise-looking Sharpe ratio from a short sample is not more trustworthy than the sample size supports.</p>
 
   {spark}
 

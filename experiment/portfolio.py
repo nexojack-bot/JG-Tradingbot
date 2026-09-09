@@ -21,6 +21,7 @@ position rule "sell if profitable, hold if not"):
 
 import sqlite3
 import os
+import datetime as dt
 
 import config
 from experiment.slippage import execution_price
@@ -249,36 +250,69 @@ def total_equity(strategy_id: str, current_prices: dict) -> float:
 
 
 def rebalance_to_targets(strategy_id: str, target_weights: dict, current_prices: dict, date: str,
-                          reasons: dict = None) -> dict:
+                          reasons: dict = None, avg_dollar_volumes: dict = None) -> dict:
     """
     target_weights: {symbol: weight} summing to ~1.0, from sizing.compute_weights().
     current_prices: {symbol: price} — must cover every currently-held symbol
                      AND every symbol in target_weights.
     reasons: optional {symbol: reason string} for the trade log.
+    avg_dollar_volumes: optional {symbol: avg daily dollar volume} — when
+                     provided, slippage scales with trade size relative to
+                     this (see slippage.py). Omit to use flat liquidity-tier
+                     slippage only, unchanged from the original behavior.
     Returns a summary dict of what happened, for logging/debugging.
     """
+    avg_dollar_volumes = avg_dollar_volumes or {}
     reasons = reasons or {}
     positions = get_positions(strategy_id)
     cash = get_cash(strategy_id)
 
     # 1. Identify frozen (losing) positions — untouched today, whether or
-    #    not they're also in target_weights.
+    #    not they're also in target_weights. EXCEPT: a position frozen
+    #    longer than config.MAX_FROZEN_DAYS is force-exited instead (see
+    #    config.py's docstring on why — otherwise capital can get trapped
+    #    in a dead position for the rest of the year).
     frozen = {}
+    forced_exit = {}
+    today_date = dt.date.fromisoformat(date)
     for symbol, pos in positions.items():
         price = current_prices.get(symbol)
         if price is None:
             continue  # can't price it — leave alone rather than guess
         if price <= pos["entry_price"]:
-            frozen[symbol] = pos
+            entry_date = dt.date.fromisoformat(pos["entry_date"])
+            days_frozen = (today_date - entry_date).days
+            if days_frozen >= config.MAX_FROZEN_DAYS:
+                forced_exit[symbol] = pos
+            else:
+                frozen[symbol] = pos
+
+    # 1b. Execute forced exits — a real sell, with real slippage, logged
+    # with a distinct reason so it's never confused with an ordinary
+    # profitable rotation in the trade log or stance history.
+    for symbol, pos in list(forced_exit.items()):
+        market_price = current_prices[symbol]
+        trade_value = pos["shares"] * market_price
+        exec_price = execution_price(symbol, market_price, "sell",
+                                      trade_value, avg_dollar_volumes.get(symbol))
+        proceeds = pos["shares"] * exec_price
+        cash += proceeds
+        _log_trade(strategy_id, date, "sell", symbol, pos["shares"], exec_price,
+                   f"forced exit: frozen {config.MAX_FROZEN_DAYS}+ days without recovering")
+        _log_slippage(strategy_id, date, symbol, "sell", market_price, exec_price, pos["shares"])
+        _delete_position(strategy_id, symbol)
+        del positions[symbol]
 
     # 2. Sell everything that's not frozen and not in today's targets.
-    sold = []
+    sold = list(forced_exit.keys())
     for symbol, pos in list(positions.items()):
         if symbol in frozen:
             continue
         if symbol not in target_weights:
             market_price = current_prices[symbol]
-            exec_price = execution_price(symbol, market_price, "sell")
+            trade_value = pos["shares"] * market_price
+            exec_price = execution_price(symbol, market_price, "sell",
+                                          trade_value, avg_dollar_volumes.get(symbol))
             proceeds = pos["shares"] * exec_price
             cash += proceeds
             _log_trade(strategy_id, date, "sell", symbol, pos["shares"], exec_price, "rotated out of target")
@@ -326,7 +360,8 @@ def rebalance_to_targets(strategy_id: str, target_weights: dict, current_prices:
 
         if delta_value > 0:
             market_price = price
-            exec_price = execution_price(symbol, market_price, "buy")
+            exec_price = execution_price(symbol, market_price, "buy",
+                                          delta_value, avg_dollar_volumes.get(symbol))
             additional_shares = delta_value / exec_price
             is_existing = symbol in positions
             new_shares = (positions[symbol]["shares"] if is_existing else 0.0) + additional_shares
@@ -343,7 +378,8 @@ def rebalance_to_targets(strategy_id: str, target_weights: dict, current_prices:
             resize_direction[symbol] = "increased" if is_existing else None
         else:
             market_price = price
-            exec_price = execution_price(symbol, market_price, "sell")
+            exec_price = execution_price(symbol, market_price, "sell",
+                                          abs(delta_value), avg_dollar_volumes.get(symbol))
             shares_to_sell = abs(delta_value) / exec_price
             remaining_shares = positions[symbol]["shares"] - shares_to_sell
             cash += abs(delta_value)
@@ -376,7 +412,7 @@ def rebalance_to_targets(strategy_id: str, target_weights: dict, current_prices:
     for s in get_positions(strategy_id):
         stances.setdefault(s, "hold")
 
-    return {"frozen": list(frozen.keys()), "sold": sold, "bought": bought,
+    return {"frozen": list(frozen.keys()), "forced_exit": list(forced_exit.keys()), "sold": sold, "bought": bought,
             "resized": resized, "stances": stances}
 
 

@@ -8,6 +8,7 @@ site rebuilds from real output, never from placeholder data).
 import json
 import datetime as dt
 import sys, os
+import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 from experiment import portfolio, diagnostics, correlation, risk_analytics
@@ -83,7 +84,14 @@ def compute_daily_recommendations(strategies_data: list) -> dict:
     active_ids = {s["strategy_id"] for s in active_strategies}
     stance_rows = [r for r in stance_rows if r["strategy_id"] in active_ids]
 
-    best_strategy = active_strategies[0] if active_strategies else None
+    # Only surface a "leader" once a strategy has reached at least the
+    # "Emerging" validation tier (see risk_analytics.py) — a leader named
+    # from 4 days of data is exactly the false-confidence problem this
+    # project's own validation-tier system exists to prevent. If no
+    # strategy qualifies yet, best_strategy stays None and the page says
+    # so honestly rather than naming a premature "leader."
+    min_days_for_leader = risk_analytics.VALIDATION_TIER_THRESHOLDS[2][0]  # start of "Emerging"
+    best_strategy = next((s for s in active_strategies if s.get("n_days", 0) >= min_days_for_leader), None)
     best_stance_by_symbol = {}
     if best_strategy:
         for r in stance_rows:
@@ -122,6 +130,65 @@ def compute_total_holdings_series(strategies_data: list) -> list:
             by_date.setdefault(row["date"], 0.0)
             by_date[row["date"]] += row["equity"]
     return [{"date": d, "equity": v} for d, v in sorted(by_date.items())]
+
+
+def category_coherence(strategies_data: list, category_map: dict) -> list:
+    """
+    Checks whether hand-assigned categories (Trend, Momentum, etc.) actually
+    match how strategies BEHAVE, not just how they were built. Computes,
+    per category: average correlation between strategies IN that category
+    vs. average correlation between those strategies and everything
+    OUTSIDE it. If a category's within-group correlation isn't meaningfully
+    higher than its cross-group correlation, that's evidence the label is
+    grouping by construction method, not actual behavior — worth knowing,
+    not something to assume away.
+    Requires the full pairwise correlation matrix already computed by
+    compute_correlation_matrix(); does not fetch data itself.
+    """
+    ids = [s["strategy_id"] for s in strategies_data]
+    equity_by_id = {s["strategy_id"]: s["equity_history"] for s in strategies_data}
+    matrix_result = correlation.compute_correlation_matrix(strategies_data)
+    matrix = matrix_result["matrix"]
+
+    categories = sorted(set(category_map.get(i, "Other") for i in ids))
+    results = []
+    for cat in categories:
+        in_group = [i for i in ids if category_map.get(i, "Other") == cat]
+        out_group = [i for i in ids if category_map.get(i, "Other") != cat]
+        if len(in_group) < 2:
+            results.append({"category": cat, "within_group_corr": None, "cross_group_corr": None,
+                             "n_in_group": len(in_group), "coherent": None,
+                             "reason": "fewer_than_2_members"})
+            continue
+
+        within_vals = [matrix[a].get(b) for i, a in enumerate(in_group) for b in in_group[i+1:]
+                        if matrix[a].get(b) is not None]
+        cross_vals = [matrix[a].get(b) for a in in_group for b in out_group if matrix[a].get(b) is not None]
+
+        if not within_vals or not cross_vals:
+            results.append({"category": cat, "within_group_corr": None, "cross_group_corr": None,
+                             "n_in_group": len(in_group), "coherent": None,
+                             "reason": "insufficient_correlation_data"})
+            continue
+
+        within_avg = float(np.mean(within_vals))
+        cross_avg = float(np.mean(cross_vals))
+        # "Coherent" requires the within-group correlation to be BOTH
+        # meaningfully positive on its own AND meaningfully higher than the
+        # cross-group figure — not just technically greater. Caught by
+        # testing: two near-zero noise values (e.g. -0.01 vs -0.04) would
+        # otherwise pass a bare ">" check and be labeled coherent even
+        # though neither number means anything.
+        MIN_WITHIN_GROUP_CORR = 0.15
+        MIN_GAP_OVER_CROSS_GROUP = 0.15
+        coherent = (within_avg > MIN_WITHIN_GROUP_CORR) and (within_avg - cross_avg > MIN_GAP_OVER_CROSS_GROUP)
+        results.append({
+            "category": cat, "within_group_corr": within_avg, "cross_group_corr": cross_avg,
+            "n_in_group": len(in_group),
+            "coherent": coherent,
+            "reason": None,
+        })
+    return results
 
 
 def export(output_path: str = None):
@@ -164,34 +231,60 @@ def export(output_path: str = None):
     strategies_data.sort(key=lambda s: (s["roi"] if s["roi"] is not None else -999), reverse=True)
 
     stock_positions = portfolio.positions_by_stock()
-    corr_data = correlation.compute_correlation_matrix(strategies_data)
-    all_corr_values = [p["correlation"] for p in corr_data["most_correlated_pairs"]]
-    effective_n = risk_analytics.effective_signal_count(all_corr_values, len(strategies_data))
+    corr_data = correlation.compute_correlation_matrix(strategies_data)  # full matrix, all strategies — for transparency/reference on the correlation page
+    active_only = [s for s in strategies_data if s["status"] == "active"]
+    # Effective-N should reflect the CURRENTLY LIVE strategy set, not a mix
+    # of active strategies and ones frozen at whatever return they had on
+    # their elimination date — that would blend two different time bases
+    # into one number. Uses a separate active-only correlation pass.
+    active_corr_data = correlation.compute_correlation_matrix(active_only)
+    active_corr_values = [p["correlation"] for p in active_corr_data["most_correlated_pairs"]]
+    effective_n = risk_analytics.effective_signal_count(active_corr_values, len(active_only))
 
     # Category-family stats — avg/median/best/worst return per signal
-    # family, computed from the actual strategies_data, not invented.
+    # family, computed from ACTIVE strategies only. Eliminated strategies
+    # are tracked separately (count + their return as of elimination) so
+    # they're never silently blended into a live average on a different
+    # time basis than the strategies still actually trading.
     family_stats = {}
+    eliminated_by_cat = {}
     for s in strategies_data:
         cat = s["category"]
-        family_stats.setdefault(cat, []).append(s)
+        if s["status"] == "active":
+            family_stats.setdefault(cat, []).append(s)
+        else:
+            eliminated_by_cat.setdefault(cat, []).append(s)
+
+    all_categories = sorted(set(family_stats.keys()) | set(eliminated_by_cat.keys()))
     category_families = []
-    for cat, members in sorted(family_stats.items()):
+    for cat in all_categories:
+        members = family_stats.get(cat, [])
+        eliminated_members = eliminated_by_cat.get(cat, [])
         rois = [m["roi"] for m in members if m["roi"] is not None]
+
+        entry = {"category": cat, "n_signals": len(members),
+                  "n_eliminated": len(eliminated_members)}
         if rois:
             best = max(members, key=lambda m: m["roi"] if m["roi"] is not None else -999)
             worst = min(members, key=lambda m: m["roi"] if m["roi"] is not None else 999)
-            category_families.append({
-                "category": cat, "n_signals": len(members),
+            entry.update({
                 "avg_return": sum(rois) / len(rois),
                 "median_return": sorted(rois)[len(rois)//2],
                 "best_signal": best["display_name"], "best_return": best["roi"],
                 "worst_signal": worst["display_name"], "worst_return": worst["roi"],
             })
         else:
-            category_families.append({"category": cat, "n_signals": len(members),
-                                        "avg_return": None, "median_return": None,
-                                        "best_signal": None, "best_return": None,
-                                        "worst_signal": None, "worst_return": None})
+            entry.update({"avg_return": None, "median_return": None,
+                           "best_signal": None, "best_return": None,
+                           "worst_signal": None, "worst_return": None})
+
+        if eliminated_members:
+            elim_rois = [m["roi"] for m in eliminated_members if m["roi"] is not None]
+            entry["eliminated_avg_return_at_elimination"] = (sum(elim_rois) / len(elim_rois)) if elim_rois else None
+        else:
+            entry["eliminated_avg_return_at_elimination"] = None
+
+        category_families.append(entry)
 
     data = {
         "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
@@ -205,6 +298,7 @@ def export(output_path: str = None):
         "correlation": corr_data,
         "effective_signal_count": effective_n,
         "category_families": category_families,
+        "category_coherence": category_coherence(strategies_data, {s["strategy_id"]: s["category"] for s in strategies_data}),
         "total_holdings": {
             "equity_history": compute_total_holdings_series(strategies_data),
             "returns_by_range": compute_returns_for_ranges(compute_total_holdings_series(strategies_data)),

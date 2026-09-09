@@ -49,12 +49,20 @@ def run_strategy_day(strategy_id: str, date: str, watchlist: list, cache: DailyD
     held_symbols = set(portfolio.get_positions(strategy_id).keys())
     needed_symbols = held_symbols | set(target_weights.keys())
     current_prices = {}
+    avg_dollar_volumes = {}
     for s in needed_symbols:
         df = cache.get_bars(s)
         if df is not None and len(df) > 0:
             current_prices[s] = float(df["close"].iloc[-1])
+            # Average daily dollar volume over the trailing 20 bars, for
+            # slippage.py's market-impact scaling (see portfolio.py's
+            # rebalance_to_targets) — reuses bars already fetched for
+            # pricing, no extra API calls.
+            recent = df.iloc[-20:]
+            avg_dollar_volumes[s] = float((recent["close"] * recent["volume"]).mean())
 
-    rebalance_result = portfolio.rebalance_to_targets(strategy_id, target_weights, current_prices, date)
+    rebalance_result = portfolio.rebalance_to_targets(strategy_id, target_weights, current_prices, date,
+                                                        avg_dollar_volumes=avg_dollar_volumes)
     portfolio.record_daily_stances(strategy_id, date, rebalance_result.get("stances", {}))
     equity = portfolio.record_equity_and_positions(strategy_id, date, current_prices)
 

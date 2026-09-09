@@ -142,12 +142,20 @@ def effective_signal_count(pairwise_correlations: list, n_strategies: int) -> di
     rho_bar = float(np.mean(pairwise_correlations))
     denom = 1 + rho_bar * (n_strategies - 1)
     if denom <= 0:
-        # only possible with strong negative average correlation — a real
-        # edge case, not a bug, but effective_n would exceed n_strategies
-        # and isn't a meaningful "count" past that point
+        # only possible with strong negative average correlation
         return {"effective_n": n_strategies, "nominal_n": n_strategies,
                 "mean_correlation": rho_bar, "reason": None}
 
     effective_n = n_strategies / denom
+    # Cap at n_strategies regardless: with a negative (but not extreme)
+    # average correlation, denom can land between 0 and 1, which the raw
+    # formula turns into effective_n > n_strategies — mathematically
+    # "more independent signals than you started with," which isn't a
+    # meaningful reading of the concept. Caught via testing: a real run
+    # showed "47.1 of 42 nominal," an impossible result the formula alone
+    # doesn't prevent. Negative correlation means diversification is
+    # unusually good, capped at "as good as fully independent" — not
+    # literally better than independent.
+    effective_n = min(effective_n, n_strategies)
     return {"effective_n": float(effective_n), "nominal_n": n_strategies,
             "mean_correlation": rho_bar, "reason": None}
