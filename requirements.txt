@@ -3,3 +3,4 @@ numpy
 pandas
 scipy
 yfinance
+anthropic
