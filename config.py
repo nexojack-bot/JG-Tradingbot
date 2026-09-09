@@ -53,6 +53,22 @@ GEX_MAX_EXPIRIES = 4           # nearest N expiries (0DTE/weekly noise dominates
 ENTRY_LONG_THRESHOLD = 2
 ENTRY_SHORT_THRESHOLD = -2
 
+# A frozen (losing) position that never recovers would otherwise sit
+# locked forever under the "don't sell at a loss" rule — over a year-long
+# run, this can trap a growing fraction of a strategy's capital in dead
+# positions. After this many calendar days frozen, force an exit
+# regardless of P/L, logged distinctly as a time-based exit, not an
+# ordinary profitable rotation. 90 days is a stated policy choice, not a
+# statistical result — adjust if it proves too aggressive or too lax.
+MAX_FROZEN_DAYS = 90
+
+# Elimination rule: eliminate if a strategy underperforms the benchmark by
+# more than this many percentage points over the trailing 7 days. Replaces
+# a pure direction check (which exempted ANY decline alongside ANY
+# benchmark decline, treating "down 5% while SPY dropped 0.01%" the same
+# as "down 5% during a real 5% crash") with a magnitude-based comparison.
+RELATIVE_UNDERPERFORMANCE_THRESHOLD = -0.02
+
 # --- Modes --------------------------------------------------------------------
 # "intraday": minute bars, live loop during market hours, uses VWAP (session-reset)
 # "daily":    daily bars, one decision per day at/after close, VWAP computed as
