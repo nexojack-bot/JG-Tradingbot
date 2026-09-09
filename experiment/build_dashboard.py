@@ -608,6 +608,21 @@ def build_recommendations(data: dict) -> str:
 
     date_str = rec.get("date") or "n/a"
 
+    briefing = data.get("daily_briefing", {})
+    briefing_html = ""
+    if briefing.get("generated") and briefing.get("text"):
+        briefing_html = f'''
+        <div class="strategy-card" style="flex-direction:column;align-items:stretch;padding:22px;margin-bottom:20px;background:var(--card)">
+          <p class="sub" style="text-transform:uppercase;letter-spacing:0.03em;font-weight:600;margin-bottom:10px">Today's Briefing — AI-Generated Explanation, Not Advice</p>
+          <p style="font-size:14px;line-height:1.7;color:var(--ink);margin:0">{briefing["text"]}</p>
+        </div>'''
+    else:
+        briefing_html = '''
+        <div class="empty-note">
+          Daily briefing unavailable today (generation failed or hasn't run yet) — shown honestly
+          rather than displaying a stale or fabricated summary. The data below is unaffected.
+        </div>'''
+
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -625,6 +640,7 @@ def build_recommendations(data: dict) -> str:
   </header>
   <p class="subtitle">Aggregated across {rec.get("n_active_strategies", 0)} active strategies for {date_str} — NOT investment advice, a research aggregation of mechanical signals. See methodology for what this can and can't tell you.</p>
   {_nav_html("recommendations.html")}
+  {briefing_html}
   {best_block}
 
   <h2 style="font-size:16px;margin:28px 0 12px;">Top 10 — Buy</h2>
