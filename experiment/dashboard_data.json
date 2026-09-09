@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T03:50:16.084966+00:00",
+  "generated_at": "2026-09-09T10:10:19.989233+00:00",
   "strategies": [
     {
       "strategy_id": "ma_slope_acceleration",
@@ -495,11 +495,11 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 10035.339421678347,
-      "roi": 0.003533942167834721,
-      "max_drawdown": 0.010083507278339851,
+      "latest_equity": 10034.842375667035,
+      "roi": 0.0034842375667034505,
+      "max_drawdown": 0.010132537413103115,
       "returns_by_range": {
-        "1D": 0.0,
+        "1D": -4.952956650763456e-05,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -529,7 +529,7 @@
         },
         {
           "date": "2026-09-09",
-          "equity": 10035.339421678347
+          "equity": 10034.842375667035
         }
       ],
       "current_positions": {
@@ -554,9 +554,14 @@
           "entry_date": "2026-09-05"
         },
         "LCID": {
-          "shares": 1545.8942575638855,
+          "shares": 1486.2364818484052,
           "entry_price": 4.604191247261194,
-          "entry_date": "2026-09-08"
+          "entry_date": "2026-09-09"
+        },
+        "NFLX": {
+          "shares": 3.5914869812604056,
+          "entry_price": 76.79303104708396,
+          "entry_date": "2026-09-09"
         },
         "NIO": {
           "shares": 51.78292753518491,
@@ -2007,11 +2012,11 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 9686.224871377319,
-      "roi": -0.03137751286226812,
-      "max_drawdown": 0.0007624132576593309,
+      "latest_equity": 9686.224518991388,
+      "roi": -0.031377548100861165,
+      "max_drawdown": 0.0007624496100330808,
       "returns_by_range": {
-        "1D": -1.2775051148399176e-07,
+        "1D": -1.6413061726481772e-07,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -2041,7 +2046,7 @@
         },
         {
           "date": "2026-09-09",
-          "equity": 9686.224871377319
+          "equity": 9686.224518991388
         }
       ],
       "current_positions": {
@@ -2066,7 +2071,7 @@
           "entry_date": "2026-09-04"
         },
         "INTC": {
-          "shares": 12.563960713272836,
+          "shares": 12.562231016694042,
           "entry_price": 101.36369032705004,
           "entry_date": "2026-09-09"
         },
@@ -2096,8 +2101,8 @@
           "entry_date": "2026-09-04"
         },
         "U": {
-          "shares": 40.15575985271517,
-          "entry_price": 42.08027260044201,
+          "shares": 40.16040976317058,
+          "entry_price": 42.08035756839841,
           "entry_date": "2026-09-09"
         }
       },
@@ -2296,11 +2301,11 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 9651.401105384843,
-      "roi": -0.03485988946151574,
-      "max_drawdown": 0.0,
+      "latest_equity": 9651.399068931838,
+      "roi": -0.0348600931068162,
+      "max_drawdown": 2.110007637631646e-07,
       "returns_by_range": {
-        "1D": 0.0,
+        "1D": -2.110007637631646e-07,
         "1W": null,
         "1M": null,
         "YTD": null,
@@ -2330,7 +2335,7 @@
         },
         {
           "date": "2026-09-09",
-          "equity": 9651.401105384843
+          "equity": 9651.399068931838
         }
       ],
       "current_positions": {
@@ -2380,14 +2385,14 @@
           "entry_date": "2026-09-05"
         },
         "RIOT": {
-          "shares": 0.1480651880962106,
-          "entry_price": 21.8,
-          "entry_date": "2026-09-08"
+          "shares": 0.17851439921779882,
+          "entry_price": 21.88415756009887,
+          "entry_date": "2026-09-09"
         },
         "SMCI": {
-          "shares": 1.2543759621496693,
+          "shares": 1.2374898247286237,
           "entry_price": 37.973621956505184,
-          "entry_date": "2026-09-08"
+          "entry_date": "2026-09-09"
         },
         "SNOW": {
           "shares": 0.0675325477860782,
@@ -4846,7 +4851,7 @@
     },
     {
       "symbol": "LCID",
-      "total_value": 16117.775030849221,
+      "total_value": 15841.559529286547,
       "n_strategies": 3
     },
     {
@@ -4861,12 +4866,12 @@
     },
     {
       "symbol": "U",
-      "total_value": 8343.821483784817,
+      "total_value": 8344.020267456786,
       "n_strategies": 7
     },
     {
       "symbol": "INTC",
-      "total_value": 8079.732828876067,
+      "total_value": 8079.552127474481,
       "n_strategies": 12
     },
     {
@@ -4921,7 +4926,7 @@
     },
     {
       "symbol": "RIOT",
-      "total_value": 3596.1308746346976,
+      "total_value": 3596.808674074264,
       "n_strategies": 14
     },
     {
@@ -4936,7 +4941,7 @@
     },
     {
       "symbol": "SMCI",
-      "total_value": 2882.9183662885935,
+      "total_value": 2882.2385303960223,
       "n_strategies": 19
     },
     {
@@ -4960,14 +4965,14 @@
       "n_strategies": 12
     },
     {
+      "symbol": "NFLX",
+      "total_value": 1273.359329697922,
+      "n_strategies": 5
+    },
+    {
       "symbol": "GME",
       "total_value": 1009.8238364896409,
       "n_strategies": 6
-    },
-    {
-      "symbol": "NFLX",
-      "total_value": 997.6408741465608,
-      "n_strategies": 4
     },
     {
       "symbol": "DKNG",
@@ -5051,63 +5056,21 @@
     "best_strategy": null,
     "top_buy": [
       {
-        "symbol": "SMCI",
-        "count": 9,
-        "n_active_strategies": 50,
-        "pct": 0.18,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "MARA",
-        "count": 5,
-        "n_active_strategies": 50,
-        "pct": 0.1,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "AMC",
-        "count": 3,
-        "n_active_strategies": 50,
-        "pct": 0.06,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "ARM",
-        "count": 2,
-        "n_active_strategies": 50,
-        "pct": 0.04,
-        "best_strategy_stance": "no position"
-      },
-      {
         "symbol": "U",
-        "count": 2,
-        "n_active_strategies": 50,
-        "pct": 0.04,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "CVNA",
-        "count": 2,
-        "n_active_strategies": 50,
-        "pct": 0.04,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "RIOT",
-        "count": 2,
-        "n_active_strategies": 50,
-        "pct": 0.04,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "AI",
         "count": 1,
         "n_active_strategies": 50,
         "pct": 0.02,
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "RBLX",
+        "symbol": "RIOT",
+        "count": 1,
+        "n_active_strategies": 50,
+        "pct": 0.02,
+        "best_strategy_stance": "no position"
+      },
+      {
+        "symbol": "NFLX",
         "count": 1,
         "n_active_strategies": 50,
         "pct": 0.02,
@@ -5144,6 +5107,13 @@
         "best_strategy_stance": "no position"
       },
       {
+        "symbol": "SMCI",
+        "count": 18,
+        "n_active_strategies": 50,
+        "pct": 0.36,
+        "best_strategy_stance": "no position"
+      },
+      {
         "symbol": "SNOW",
         "count": 15,
         "n_active_strategies": 50,
@@ -5165,93 +5135,37 @@
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "AI",
-        "count": 11,
+        "symbol": "MARA",
+        "count": 13,
         "n_active_strategies": 50,
-        "pct": 0.22,
+        "pct": 0.26,
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "META",
-        "count": 10,
+        "symbol": "RIOT",
+        "count": 13,
         "n_active_strategies": 50,
-        "pct": 0.2,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "ADBE",
-        "count": 10,
-        "n_active_strategies": 50,
-        "pct": 0.2,
+        "pct": 0.26,
         "best_strategy_stance": "no position"
       }
     ],
     "top_sell": [
       {
-        "symbol": "RBLX",
-        "count": 7,
+        "symbol": "SMCI",
+        "count": 1,
         "n_active_strategies": 50,
-        "pct": 0.14,
+        "pct": 0.02,
         "best_strategy_stance": "no position"
       },
       {
         "symbol": "INTC",
-        "count": 4,
-        "n_active_strategies": 50,
-        "pct": 0.08,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "SMCI",
-        "count": 3,
-        "n_active_strategies": 50,
-        "pct": 0.06,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "MARA",
-        "count": 3,
-        "n_active_strategies": 50,
-        "pct": 0.06,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "RIOT",
-        "count": 3,
-        "n_active_strategies": 50,
-        "pct": 0.06,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "AMC",
-        "count": 2,
-        "n_active_strategies": 50,
-        "pct": 0.04,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "CSCO",
         "count": 1,
         "n_active_strategies": 50,
         "pct": 0.02,
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "U",
-        "count": 1,
-        "n_active_strategies": 50,
-        "pct": 0.02,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "META",
-        "count": 1,
-        "n_active_strategies": 50,
-        "pct": 0.02,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "CVNA",
+        "symbol": "LCID",
         "count": 1,
         "n_active_strategies": 50,
         "pct": 0.02,
@@ -7923,12 +7837,12 @@
       "category": "Options-Derived",
       "n_signals": 7,
       "n_eliminated": 0,
-      "avg_return": -0.006984759246605322,
+      "avg_return": -0.0069918889960955705,
       "median_return": 0.0,
       "best_signal": "Max Pain Proximity",
-      "best_return": 0.003533942167834721,
+      "best_return": 0.0034842375667034505,
       "worst_signal": "Put/Call Open Interest Ratio",
-      "worst_return": -0.03485988946151574,
+      "worst_return": -0.0348600931068162,
       "eliminated_avg_return_at_elimination": null
     },
     {
@@ -7959,7 +7873,7 @@
       "category": "Volume",
       "n_signals": 7,
       "n_eliminated": 0,
-      "avg_return": -0.04471338192589436,
+      "avg_return": -0.044713386959979076,
       "median_return": -0.05533688439372836,
       "best_signal": "On-Balance Volume Trend",
       "best_return": -0.015064049727225939,
@@ -8058,16 +7972,21 @@
       },
       {
         "date": "2026-09-09",
-        "equity": 485411.103193233
+        "equity": 485410.6037583827
       }
     ],
     "returns_by_range": {
-      "1D": -1.8236594457255152e-05,
+      "1D": -1.926546614770233e-05,
       "1W": null,
       "1M": null,
       "YTD": null,
       "1Y": null,
       "5Y": null
     }
+  },
+  "daily_briefing": {
+    "text": null,
+    "generated": false,
+    "error": "ANTHROPIC_API_KEY not set"
   }
 }
