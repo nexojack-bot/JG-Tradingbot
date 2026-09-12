@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T21:41:07.515963+00:00",
+  "generated_at": "2026-09-12T21:42:06.666761+00:00",
   "strategies": [
     {
       "strategy_id": "ma_slope_acceleration",
@@ -8,12 +8,12 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 10402.904428279127,
-      "roi": 0.04029044282791274,
+      "latest_equity": 10402.903842697351,
+      "roi": 0.040290384269735115,
       "max_drawdown": 0.04872419761979514,
       "returns_by_range": {
-        "1D": 0.03164783440953365,
-        "1W": -0.001398022753007907,
+        "1D": -5.629021974455682e-08,
+        "1W": -0.0013980789645326435,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -51,6 +51,10 @@
         {
           "date": "2026-09-11",
           "equity": 10402.904428279127
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 10402.903842697351
         }
       ],
       "current_positions": {
@@ -75,9 +79,9 @@
           "entry_date": "2026-09-11"
         },
         "GME": {
-          "shares": 46.44755532464683,
-          "entry_price": 21.042961332618777,
-          "entry_date": "2026-09-11"
+          "shares": 46.45603805075231,
+          "entry_price": 21.042986670427045,
+          "entry_date": "2026-09-12"
         },
         "HOOD": {
           "shares": 7.480934456173031,
@@ -95,14 +99,14 @@
           "entry_date": "2026-09-08"
         },
         "MARA": {
-          "shares": 207.0288543791486,
+          "shares": 207.01684718382626,
           "entry_price": 11.326986498313039,
-          "entry_date": "2026-09-11"
+          "entry_date": "2026-09-12"
         },
         "META": {
-          "shares": 0.16277734703543634,
+          "shares": 0.16264453292618997,
           "entry_price": 626.7846687534097,
-          "entry_date": "2026-09-11"
+          "entry_date": "2026-09-12"
         },
         "MSTR": {
           "shares": 3.144085227125427,
@@ -110,9 +114,9 @@
           "entry_date": "2026-09-04"
         },
         "RBLX": {
-          "shares": 2.0395632117417986,
-          "entry_price": 42.692636691021576,
-          "entry_date": "2026-09-11"
+          "shares": 2.040660321374052,
+          "entry_price": 42.69418269210118,
+          "entry_date": "2026-09-12"
         },
         "RIOT": {
           "shares": 69.5824365516138,
@@ -120,10 +124,10 @@
           "entry_date": "2026-09-09"
         }
       },
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -143,7 +147,7 @@
       "roi": 0.024661356143598278,
       "max_drawdown": 0.014848468220805133,
       "returns_by_range": {
-        "1D": 0.0032256228816012313,
+        "1D": 0.0,
         "1W": 0.019703178628983156,
         "1M": null,
         "YTD": null,
@@ -181,6 +185,10 @@
         },
         {
           "date": "2026-09-11",
+          "equity": 10246.613561435983
+        },
+        {
+          "date": "2026-09-12",
           "equity": 10246.613561435983
         }
       ],
@@ -236,10 +244,10 @@
           "entry_date": "2026-09-04"
         }
       },
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -259,7 +267,7 @@
       "roi": 0.023303125577954414,
       "max_drawdown": 0.0,
       "returns_by_range": {
-        "1D": 0.004599648974157365,
+        "1D": 0.0,
         "1W": 0.040885432996801974,
         "1M": null,
         "YTD": null,
@@ -298,6 +306,10 @@
         {
           "date": "2026-09-11",
           "equity": 10233.031255779544
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 10233.031255779544
         }
       ],
       "current_positions": {
@@ -307,10 +319,10 @@
           "entry_date": "2026-09-04"
         }
       },
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -330,7 +342,7 @@
       "roi": 0.023303125577954414,
       "max_drawdown": 0.0,
       "returns_by_range": {
-        "1D": 0.004599648974157365,
+        "1D": 0.0,
         "1W": 0.040885432996801974,
         "1M": null,
         "YTD": null,
@@ -369,6 +381,10 @@
         {
           "date": "2026-09-11",
           "equity": 10233.031255779544
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 10233.031255779544
         }
       ],
       "current_positions": {
@@ -378,10 +394,10 @@
           "entry_date": "2026-09-04"
         }
       },
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -397,12 +413,12 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 10160.388541258759,
-      "roi": 0.016038854125875877,
+      "latest_equity": 10160.388402722088,
+      "roi": 0.016038840272208837,
       "max_drawdown": 0.029708702213133324,
       "returns_by_range": {
-        "1D": 0.01783090366377258,
-        "1W": 0.01740993032988306,
+        "1D": -1.3634977624850756e-08,
+        "1W": 0.017409916457521424,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -440,6 +456,10 @@
         {
           "date": "2026-09-11",
           "equity": 10160.388541258759
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 10160.388402722088
         }
       ],
       "current_positions": {
@@ -449,9 +469,9 @@
           "entry_date": "2026-09-09"
         },
         "ARM": {
-          "shares": 3.250971245122406,
-          "entry_price": 242.59321004674115,
-          "entry_date": "2026-09-11"
+          "shares": 3.2510840402859764,
+          "entry_price": 242.5939939363819,
+          "entry_date": "2026-09-12"
         },
         "BAC": {
           "shares": 2.028615758489067,
@@ -464,9 +484,9 @@
           "entry_date": "2026-09-11"
         },
         "INTC": {
-          "shares": 35.799246895629985,
+          "shares": 35.798503305123035,
           "entry_price": 92.33185284140235,
-          "entry_date": "2026-09-11"
+          "entry_date": "2026-09-12"
         },
         "JNJ": {
           "shares": 0.5796238379356705,
@@ -484,9 +504,9 @@
           "entry_date": "2026-09-04"
         },
         "U": {
-          "shares": 8.018613259641494,
-          "entry_price": 42.32637796287396,
-          "entry_date": "2026-09-11"
+          "shares": 8.019686546876246,
+          "entry_price": 42.32660541792828,
+          "entry_date": "2026-09-12"
         },
         "UNH": {
           "shares": 0.3256636741834167,
@@ -494,10 +514,10 @@
           "entry_date": "2026-09-04"
         }
       },
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -517,7 +537,7 @@
       "roi": 0.013956489773023713,
       "max_drawdown": 0.0002999476620376299,
       "returns_by_range": {
-        "1D": 0.01426071490315553,
+        "1D": 0.0,
         "1W": 0.013956489773023713,
         "1M": null,
         "YTD": null,
@@ -556,6 +576,10 @@
         {
           "date": "2026-09-11",
           "equity": 10139.564897730237
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 10139.564897730237
         }
       ],
       "current_positions": {
@@ -565,10 +589,10 @@
           "entry_date": "2026-09-11"
         }
       },
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -627,13 +651,17 @@
         {
           "date": "2026-09-11",
           "equity": 10000.0
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 10000.0
         }
       ],
       "current_positions": {},
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -692,13 +720,17 @@
         {
           "date": "2026-09-11",
           "equity": 10000.0
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 10000.0
         }
       ],
       "current_positions": {},
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -757,13 +789,17 @@
         {
           "date": "2026-09-11",
           "equity": 10000.0
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 10000.0
         }
       ],
       "current_positions": {},
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -822,13 +858,17 @@
         {
           "date": "2026-09-11",
           "equity": 10000.0
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 10000.0
         }
       ],
       "current_positions": {},
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -844,12 +884,12 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 9983.532225577526,
-      "roi": -0.0016467774422473666,
+      "latest_equity": 9983.532058842273,
+      "roi": -0.0016467941157727183,
       "max_drawdown": 0.01306198051289194,
       "returns_by_range": {
-        "1D": 0.010547777986218814,
-        "1W": 0.009506635617741517,
+        "1D": -1.6701028228055423e-08,
+        "1W": 0.0095066187579427,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -887,13 +927,17 @@
         {
           "date": "2026-09-11",
           "equity": 9983.532225577526
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 9983.532058842273
         }
       ],
       "current_positions": {
         "ARM": {
-          "shares": 0.5377240285454639,
-          "entry_price": 263.72984629021045,
-          "entry_date": "2026-09-11"
+          "shares": 0.5380737506161646,
+          "entry_price": 263.7307934903122,
+          "entry_date": "2026-09-12"
         },
         "COIN": {
           "shares": 0.9299665989986193,
@@ -911,9 +955,9 @@
           "entry_date": "2026-09-04"
         },
         "META": {
-          "shares": 7.777587065110636,
+          "shares": 7.777443908709922,
           "entry_price": 611.8385661140464,
-          "entry_date": "2026-09-11"
+          "entry_date": "2026-09-12"
         },
         "MSTR": {
           "shares": 2.4492209193771943,
@@ -926,10 +970,10 @@
           "entry_date": "2026-09-04"
         }
       },
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -945,12 +989,12 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 9968.042086346328,
-      "roi": -0.003195791365367222,
+      "latest_equity": 9968.041851015376,
+      "roi": -0.003195814898462413,
       "max_drawdown": 0.021368219342479813,
       "returns_by_range": {
-        "1D": 0.026292797552015305,
-        "1W": 0.025923878225142815,
+        "1D": -2.3608543169351334e-08,
+        "1W": 0.025923854004574646,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -988,6 +1032,10 @@
         {
           "date": "2026-09-11",
           "equity": 9968.042086346328
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 9968.041851015376
         }
       ],
       "current_positions": {
@@ -1007,14 +1055,14 @@
           "entry_date": "2026-09-09"
         },
         "GME": {
-          "shares": 7.422408989283785,
-          "entry_price": 19.91983513545237,
-          "entry_date": "2026-09-11"
+          "shares": 7.423955705149413,
+          "entry_price": 19.92009803910532,
+          "entry_date": "2026-09-12"
         },
         "MARA": {
-          "shares": 342.1848205060195,
+          "shares": 342.1782628001837,
           "entry_price": 11.6064828998315,
-          "entry_date": "2026-09-11"
+          "entry_date": "2026-09-12"
         },
         "RIOT": {
           "shares": 9.76680046896912,
@@ -1022,9 +1070,9 @@
           "entry_date": "2026-09-08"
         },
         "SMCI": {
-          "shares": 8.689210666298893,
-          "entry_price": 37.87847636445523,
-          "entry_date": "2026-09-11"
+          "shares": 8.690348146209205,
+          "entry_price": 37.87877501278078,
+          "entry_date": "2026-09-12"
         },
         "SOFI": {
           "shares": 12.75296596638165,
@@ -1032,10 +1080,10 @@
           "entry_date": "2026-09-04"
         }
       },
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -1051,12 +1099,12 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 9957.52005193268,
-      "roi": -0.004247994806731913,
+      "latest_equity": 9957.518672484975,
+      "roi": -0.004248132751502453,
       "max_drawdown": 0.024698354635440047,
       "returns_by_range": {
-        "1D": 0.017258405937568794,
-        "1W": -0.00015679994960898837,
+        "1D": -1.3853325910558377e-07,
+        "1W": -0.0001569384611460859,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -1094,13 +1142,17 @@
         {
           "date": "2026-09-11",
           "equity": 9957.52005193268
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 9957.518672484975
         }
       ],
       "current_positions": {
         "AAPL": {
-          "shares": 0.21310985945611743,
+          "shares": 0.21288332021635284,
           "entry_price": 328.21,
-          "entry_date": "2026-09-11"
+          "entry_date": "2026-09-12"
         },
         "ADBE": {
           "shares": 1.3956247412010987,
@@ -1118,9 +1170,9 @@
           "entry_date": "2026-09-04"
         },
         "ARM": {
-          "shares": 0.5134393954863514,
-          "entry_price": 255.7347496165656,
-          "entry_date": "2026-09-11"
+          "shares": 0.5139105538948284,
+          "entry_price": 255.74341570520266,
+          "entry_date": "2026-09-12"
         },
         "BAC": {
           "shares": 17.719671401270546,
@@ -1143,14 +1195,14 @@
           "entry_date": "2026-09-11"
         },
         "GME": {
-          "shares": 4.128526653989894,
+          "shares": 4.125349047391176,
           "entry_price": 19.382076606731676,
-          "entry_date": "2026-09-11"
+          "entry_date": "2026-09-12"
         },
         "INTC": {
-          "shares": 5.12816358529394,
+          "shares": 5.124401466017015,
           "entry_price": 96.4647363113662,
-          "entry_date": "2026-09-11"
+          "entry_date": "2026-09-12"
         },
         "JPM": {
           "shares": 0.3046382945513225,
@@ -1158,9 +1210,9 @@
           "entry_date": "2026-09-04"
         },
         "MARA": {
-          "shares": 30.42558901790352,
-          "entry_price": 11.937880113131,
-          "entry_date": "2026-09-11"
+          "shares": 30.463467056583365,
+          "entry_price": 11.93795482843037,
+          "entry_date": "2026-09-12"
         },
         "META": {
           "shares": 0.14622487089162703,
@@ -1198,9 +1250,9 @@
           "entry_date": "2026-09-09"
         },
         "SMCI": {
-          "shares": 2.5335641017722317,
-          "entry_price": 38.751623921477005,
-          "entry_date": "2026-09-11"
+          "shares": 2.5371249181374824,
+          "entry_price": 38.753600766478016,
+          "entry_date": "2026-09-12"
         },
         "SNOW": {
           "shares": 1.0628896789264666,
@@ -1218,15 +1270,15 @@
           "entry_date": "2026-09-04"
         },
         "XOM": {
-          "shares": 1.0011320181901082,
+          "shares": 0.9999695747224759,
           "entry_price": 160.70819799999998,
-          "entry_date": "2026-09-11"
+          "entry_date": "2026-09-12"
         }
       },
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -1242,12 +1294,12 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 9887.337211798735,
-      "roi": -0.011266278820126535,
+      "latest_equity": 9886.342573016653,
+      "roi": -0.011365742698334725,
       "max_drawdown": 0.03997684420046134,
       "returns_by_range": {
-        "1D": 0.022741271963332185,
-        "1W": -0.018144696523327602,
+        "1D": -0.00010059723470288569,
+        "1W": -0.018243468451735717,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -1285,6 +1337,10 @@
         {
           "date": "2026-09-11",
           "equity": 9887.337211798735
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 9886.342573016653
         }
       ],
       "current_positions": {
@@ -1299,14 +1355,19 @@
           "entry_date": "2026-09-09"
         },
         "BAC": {
-          "shares": 5.206521574739904,
+          "shares": 0.3651200772820058,
           "entry_price": 62.651547197790634,
-          "entry_date": "2026-09-11"
+          "entry_date": "2026-09-12"
+        },
+        "COIN": {
+          "shares": 0.2915228029666202,
+          "entry_price": 175.52289002584413,
+          "entry_date": "2026-09-12"
         },
         "CRM": {
-          "shares": 0.6833372419304247,
+          "shares": 0.465449888967527,
           "entry_price": 243.0729000820376,
-          "entry_date": "2026-09-11"
+          "entry_date": "2026-09-12"
         },
         "CVNA": {
           "shares": 3.539755197279919,
@@ -1328,15 +1389,15 @@
           "entry_price": 356.33686908539323,
           "entry_date": "2026-09-11"
         },
+        "MARA": {
+          "shares": 35.304588872707804,
+          "entry_price": 11.997970046084276,
+          "entry_date": "2026-09-12"
+        },
         "MSTR": {
           "shares": 0.9548382271616939,
           "entry_price": 144.82,
           "entry_date": "2026-09-04"
-        },
-        "RBLX": {
-          "shares": 2.583590878537286,
-          "entry_price": 45.10469809241872,
-          "entry_date": "2026-09-11"
         },
         "SNOW": {
           "shares": 0.3127001909728552,
@@ -1344,10 +1405,10 @@
           "entry_date": "2026-09-10"
         }
       },
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -1363,12 +1424,12 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 9667.88881147083,
-      "roi": -0.033211118852917026,
+      "latest_equity": 9667.878994337101,
+      "roi": -0.033212100566289884,
       "max_drawdown": 0.012868088869926235,
       "returns_by_range": {
-        "1D": 0.007344882399839072,
-        "1W": 0.005375317634934267,
+        "1D": -1.015437177652161e-06,
+        "1W": 0.005374296739459246,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -1406,9 +1467,18 @@
         {
           "date": "2026-09-11",
           "equity": 9667.88881147083
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 9667.878994337101
         }
       ],
       "current_positions": {
+        "AAPL": {
+          "shares": 0.0036615576248537006,
+          "entry_price": 332.369681000149,
+          "entry_date": "2026-09-12"
+        },
         "AI": {
           "shares": 886.7128271877792,
           "entry_price": 10.9,
@@ -1418,6 +1488,11 @@
           "shares": 25.63001766739674,
           "entry_price": 2.65,
           "entry_date": "2026-09-04"
+        },
+        "AMZN": {
+          "shares": 0.0036220558598235053,
+          "entry_price": 256.857034000144,
+          "entry_date": "2026-09-12"
         },
         "GME": {
           "shares": 0.4612770424594171,
@@ -1454,15 +1529,20 @@
           "entry_price": 146.44,
           "entry_date": "2026-09-05"
         },
+        "RBLX": {
+          "shares": 0.032819746521673875,
+          "entry_price": 45.56825000084896,
+          "entry_date": "2026-09-12"
+        },
         "RIOT": {
           "shares": 0.05835112718538962,
           "entry_price": 21.88415756009887,
           "entry_date": "2026-09-09"
         },
         "SMCI": {
-          "shares": 1.0481376569841936,
+          "shares": 0.9369140408429077,
           "entry_price": 37.98428254023189,
-          "entry_date": "2026-09-11"
+          "entry_date": "2026-09-12"
         },
         "SNOW": {
           "shares": 0.0675325477860782,
@@ -1473,12 +1553,17 @@
           "shares": 0.0022202127686933087,
           "entry_price": 367.9203430001059,
           "entry_date": "2026-09-09"
+        },
+        "XOM": {
+          "shares": 0.004881343159860793,
+          "entry_price": 166.03979700029802,
+          "entry_date": "2026-09-12"
         }
       },
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -1494,12 +1579,12 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 9656.209421032003,
-      "roi": -0.034379057896799715,
+      "latest_equity": 9656.209368824893,
+      "roi": -0.03437906311751067,
       "max_drawdown": 0.028518614298039403,
       "returns_by_range": {
-        "1D": 0.007761563609599599,
-        "1W": -0.020978399727371675,
+        "1D": -5.406584226906026e-09,
+        "1W": -0.020978405020534416,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -1537,13 +1622,17 @@
         {
           "date": "2026-09-11",
           "equity": 9656.209421032003
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 9656.209368824893
         }
       ],
       "current_positions": {
         "COIN": {
-          "shares": 0.6479677413385256,
+          "shares": 0.647868297804153,
           "entry_price": 174.98208005950238,
-          "entry_date": "2026-09-11"
+          "entry_date": "2026-09-12"
         },
         "CRM": {
           "shares": 1.7908495644066755,
@@ -1581,15 +1670,15 @@
           "entry_date": "2026-09-04"
         },
         "U": {
-          "shares": 15.500858338721846,
-          "entry_price": 42.08,
-          "entry_date": "2026-09-11"
+          "shares": 15.5012536132151,
+          "entry_price": 42.080049620531774,
+          "entry_date": "2026-09-12"
         }
       },
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -1609,7 +1698,7 @@
       "roi": -0.036242971780800326,
       "max_drawdown": 0.026890109066690163,
       "returns_by_range": {
-        "1D": -0.005456342004361642,
+        "1D": 0.0,
         "1W": -0.026890109066690163,
         "1M": null,
         "YTD": null,
@@ -1648,6 +1737,10 @@
         {
           "date": "2026-09-11",
           "equity": 9637.570282191997
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 9637.570282191997
         }
       ],
       "current_positions": {
@@ -1662,10 +1755,10 @@
           "entry_date": "2026-09-04"
         }
       },
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -1685,7 +1778,7 @@
       "roi": -0.03733718844115665,
       "max_drawdown": 0.028450726667361467,
       "returns_by_range": {
-        "1D": 0.002434350284759935,
+        "1D": 0.0,
         "1W": -0.02608563541716585,
         "1M": null,
         "YTD": null,
@@ -1724,6 +1817,10 @@
         {
           "date": "2026-09-11",
           "equity": 9626.628115588434
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 9626.628115588434
         }
       ],
       "current_positions": {
@@ -1753,10 +1850,10 @@
           "entry_date": "2026-09-04"
         }
       },
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -1772,12 +1869,12 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 9612.385202849697,
-      "roi": -0.03876147971503033,
+      "latest_equity": 9612.145169690993,
+      "roi": -0.03878548303090065,
       "max_drawdown": 0.05014995481698208,
       "returns_by_range": {
-        "1D": 0.02875085489242531,
-        "1W": -0.02284095399836151,
+        "1D": -2.4971238005741436e-05,
+        "1W": -0.02286535486946868,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -1815,6 +1912,10 @@
         {
           "date": "2026-09-11",
           "equity": 9612.385202849697
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 9612.145169690993
         }
       ],
       "current_positions": {
@@ -1834,19 +1935,14 @@
           "entry_date": "2026-09-04"
         },
         "DKNG": {
-          "shares": 4.9865539296193075,
-          "entry_price": 24.19,
-          "entry_date": "2026-09-11"
+          "shares": 6.844994163070696,
+          "entry_price": 24.349402457639073,
+          "entry_date": "2026-09-12"
         },
         "JNJ": {
           "shares": 0.1663377510540225,
           "entry_price": 269.200736,
           "entry_date": "2026-09-08"
-        },
-        "MARA": {
-          "shares": 8.57594356761013,
-          "entry_price": 11.978051267431695,
-          "entry_date": "2026-09-11"
         },
         "NIO": {
           "shares": 2266.2684522438435,
@@ -1864,15 +1960,15 @@
           "entry_date": "2026-09-08"
         },
         "WMT": {
-          "shares": 0.7147981514414833,
-          "entry_price": 106.08181499999999,
-          "entry_date": "2026-09-11"
+          "shares": 1.2423012723530862,
+          "entry_price": 106.54903460875536,
+          "entry_date": "2026-09-12"
         }
       },
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -2003,7 +2099,7 @@
       "roi": -0.04400502140842691,
       "max_drawdown": 0.02723670544296149,
       "returns_by_range": {
-        "1D": 0.004490328882727052,
+        "1D": 0.0,
         "1W": -0.022868678325355298,
         "1M": null,
         "YTD": null,
@@ -2041,6 +2137,10 @@
         },
         {
           "date": "2026-09-11",
+          "equity": 9559.94978591573
+        },
+        {
+          "date": "2026-09-12",
           "equity": 9559.94978591573
         }
       ],
@@ -2111,10 +2211,10 @@
           "entry_date": "2026-09-04"
         }
       },
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -2272,12 +2372,12 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 9551.91531617985,
-      "roi": -0.044808468382015056,
+      "latest_equity": 9551.915064820792,
+      "roi": -0.04480849351792076,
       "max_drawdown": 0.026936884107372553,
       "returns_by_range": {
-        "1D": 0.012660026894686212,
-        "1W": -0.014617878889944723,
+        "1D": -2.6315042455257413e-08,
+        "1W": -0.014617904820317074,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -2315,6 +2415,10 @@
         {
           "date": "2026-09-11",
           "equity": 9551.91531617985
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 9551.915064820792
         }
       ],
       "current_positions": {
@@ -2339,9 +2443,9 @@
           "entry_date": "2026-09-04"
         },
         "INTC": {
-          "shares": 8.1095331894007,
+          "shares": 8.108158064138983,
           "entry_price": 102.24238444666747,
-          "entry_date": "2026-09-11"
+          "entry_date": "2026-09-12"
         },
         "JNJ": {
           "shares": 0.4286797634440837,
@@ -2369,15 +2473,15 @@
           "entry_date": "2026-09-04"
         },
         "U": {
-          "shares": 50.33109493091388,
-          "entry_price": 42.70543789155978,
-          "entry_date": "2026-09-11"
+          "shares": 50.33426284779125,
+          "entry_price": 42.70552100077167,
+          "entry_date": "2026-09-12"
         }
       },
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -2473,7 +2577,7 @@
       "roi": -0.046008456180198665,
       "max_drawdown": 0.039875745028853715,
       "returns_by_range": {
-        "1D": 0.019596142673759545,
+        "1D": 0.0,
         "1W": -0.021061013143902043,
         "1M": null,
         "YTD": null,
@@ -2511,6 +2615,10 @@
         },
         {
           "date": "2026-09-11",
+          "equity": 9539.915438198013
+        },
+        {
+          "date": "2026-09-12",
           "equity": 9539.915438198013
         }
       ],
@@ -2566,10 +2674,10 @@
           "entry_date": "2026-09-11"
         }
       },
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -2751,12 +2859,12 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 9489.906309033862,
-      "roi": -0.05100936909661377,
+      "latest_equity": 9489.905884769873,
+      "roi": -0.05100941152301275,
       "max_drawdown": 0.04205079540416376,
       "returns_by_range": {
-        "1D": 0.017094015035896824,
-        "1W": -0.025675597297177128,
+        "1D": -4.4706868113888386e-08,
+        "1W": -0.0256756408561697,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -2794,6 +2902,10 @@
         {
           "date": "2026-09-11",
           "equity": 9489.906309033862
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 9489.905884769873
         }
       ],
       "current_positions": {
@@ -2828,9 +2940,9 @@
           "entry_date": "2026-09-04"
         },
         "SMCI": {
-          "shares": 7.786941536523919,
-          "entry_price": 39.25998081656587,
-          "entry_date": "2026-09-11"
+          "shares": 7.790462962910174,
+          "entry_price": 39.26038770888149,
+          "entry_date": "2026-09-12"
         },
         "SNOW": {
           "shares": 10.25479188137817,
@@ -2838,15 +2950,15 @@
           "entry_date": "2026-09-04"
         },
         "U": {
-          "shares": 28.830046073362812,
+          "shares": 28.826824202068924,
           "entry_price": 42.1882119679014,
-          "entry_date": "2026-09-11"
+          "entry_date": "2026-09-12"
         }
       },
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -2862,12 +2974,12 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 9488.403855675628,
-      "roi": -0.05115961443243723,
+      "latest_equity": 9488.403116036718,
+      "roi": -0.051159688396328236,
       "max_drawdown": 0.040473380142826317,
       "returns_by_range": {
-        "1D": 0.014529716471234928,
-        "1W": -0.026531730409699163,
+        "1D": -7.795187908744087e-08,
+        "1W": -0.02653180629338001,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -2905,6 +3017,10 @@
         {
           "date": "2026-09-11",
           "equity": 9488.403855675628
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 9488.403116036718
         }
       ],
       "current_positions": {
@@ -2944,9 +3060,9 @@
           "entry_date": "2026-09-04"
         },
         "SMCI": {
-          "shares": 7.359446453306109,
-          "entry_price": 40.02491013090491,
-          "entry_date": "2026-09-11"
+          "shares": 7.365585517725497,
+          "entry_price": 40.02502285056129,
+          "entry_date": "2026-09-12"
         },
         "SNOW": {
           "shares": 5.808122607886044,
@@ -2954,15 +3070,15 @@
           "entry_date": "2026-09-04"
         },
         "U": {
-          "shares": 43.3014598911053,
+          "shares": 43.29584305484219,
           "entry_price": 42.15421590105236,
-          "entry_date": "2026-09-11"
+          "entry_date": "2026-09-12"
         }
       },
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -2982,7 +3098,7 @@
       "roi": -0.05999935028900873,
       "max_drawdown": 0.01511769508983941,
       "returns_by_range": {
-        "1D": 0.001682038022254292,
+        "1D": 0.0,
         "1W": -0.011486456162744026,
         "1M": null,
         "YTD": null,
@@ -3021,6 +3137,10 @@
         {
           "date": "2026-09-11",
           "equity": 9400.006497109913
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 9400.006497109913
         }
       ],
       "current_positions": {
@@ -3040,10 +3160,10 @@
           "entry_date": "2026-09-04"
         }
       },
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -3865,12 +3985,12 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 9302.293487797906,
-      "roi": -0.0697706512202094,
-      "max_drawdown": 0.02140516298199689,
+      "latest_equity": 9302.293459052027,
+      "roi": -0.06977065409479728,
+      "max_drawdown": 0.021405166006043447,
       "returns_by_range": {
-        "1D": -0.001045211514213465,
-        "1W": -0.02140516298199689,
+        "1D": -3.0901926332118364e-09,
+        "1W": -0.021405166006043447,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -3908,13 +4028,17 @@
         {
           "date": "2026-09-11",
           "equity": 9302.293487797906
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 9302.293459052027
         }
       ],
       "current_positions": {
         "AAPL": {
-          "shares": 0.07714990961382312,
-          "entry_price": 328.21,
-          "entry_date": "2026-09-11"
+          "shares": 0.07720507474507306,
+          "entry_price": 328.21297220550696,
+          "entry_date": "2026-09-12"
         },
         "GME": {
           "shares": 12.160956085182587,
@@ -3947,9 +4071,9 @@
           "entry_date": "2026-09-04"
         },
         "RBLX": {
-          "shares": 0.4064130483451518,
+          "shares": 0.4060724335058187,
           "entry_price": 41.75973319473916,
-          "entry_date": "2026-09-11"
+          "entry_date": "2026-09-12"
         },
         "RIOT": {
           "shares": 0.7012922986842848,
@@ -3967,10 +4091,10 @@
           "entry_date": "2026-09-04"
         }
       },
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -4383,7 +4507,7 @@
       "roi": -0.07647618663872709,
       "max_drawdown": 0.025960905996828258,
       "returns_by_range": {
-        "1D": -0.002093236024391455,
+        "1D": 0.0,
         "1W": -0.025960905996828258,
         "1M": null,
         "YTD": null,
@@ -4422,6 +4546,10 @@
         {
           "date": "2026-09-11",
           "equity": 9235.23813361273
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 9235.23813361273
         }
       ],
       "current_positions": {
@@ -4441,10 +4569,10 @@
           "entry_date": "2026-09-04"
         }
       },
-      "n_days": 8,
+      "n_days": 9,
       "validation": {
         "label": "Building history",
-        "n_days": 8,
+        "n_days": 9,
         "min_days_for_next_tier": 30
       },
       "annualized_volatility": null,
@@ -5526,10 +5654,14 @@
       {
         "date": "2026-09-11",
         "equity": 9885.14815629163
+      },
+      {
+        "date": "2026-09-12",
+        "equity": 9885.14815629163
       }
     ],
     "returns_by_range": {
-      "1D": 0.00852433923175376,
+      "1D": 0.0,
       "1W": -0.007660447422064787,
       "1M": null,
       "YTD": null,
@@ -5539,94 +5671,69 @@
   },
   "positions_by_stock": [
     {
-      "symbol": "CRM",
-      "total_value": 58847.73973954366,
-      "n_strategies": 25
-    },
-    {
-      "symbol": "NIO",
-      "total_value": 55976.96345271286,
-      "n_strategies": 8
-    },
-    {
-      "symbol": "MSTR",
-      "total_value": 46363.84635866952,
-      "n_strategies": 26
-    },
-    {
       "symbol": "SNOW",
-      "total_value": 41708.010285592114,
-      "n_strategies": 16
-    },
-    {
-      "symbol": "HOOD",
-      "total_value": 31894.93311694875,
-      "n_strategies": 27
-    },
-    {
-      "symbol": "ADBE",
-      "total_value": 21112.800746265908,
+      "total_value": 39957.241331682126,
       "n_strategies": 12
     },
     {
       "symbol": "XOM",
-      "total_value": 20716.84311705863,
-      "n_strategies": 6
+      "total_value": 20690.7428391762,
+      "n_strategies": 5
+    },
+    {
+      "symbol": "NIO",
+      "total_value": 18502.09548651002,
+      "n_strategies": 2
     },
     {
       "symbol": "AI",
-      "total_value": 19522.723917111292,
+      "total_value": 16635.35315197541,
+      "n_strategies": 6
+    },
+    {
+      "symbol": "CRM",
+      "total_value": 14668.968204311086,
       "n_strategies": 10
     },
     {
       "symbol": "PFE",
-      "total_value": 15224.608935142236,
-      "n_strategies": 8
-    },
-    {
-      "symbol": "LCID",
-      "total_value": 14438.743242675859,
-      "n_strategies": 3
+      "total_value": 13124.898688206198,
+      "n_strategies": 5
     },
     {
       "symbol": "U",
-      "total_value": 10939.566516888748,
-      "n_strategies": 10
+      "total_value": 10870.762999138798,
+      "n_strategies": 7
     },
     {
       "symbol": "JNJ",
-      "total_value": 10462.052713408064,
-      "n_strategies": 9
+      "total_value": 9279.087954697645,
+      "n_strategies": 7
     },
     {
       "symbol": "MARA",
-      "total_value": 10381.516050701477,
-      "n_strategies": 16
+      "total_value": 7389.602386509337,
+      "n_strategies": 5
     },
     {
       "symbol": "AMC",
-      "total_value": 6675.234604211966,
-      "n_strategies": 11
-    },
-    {
-      "symbol": "INTC",
-      "total_value": 6614.339064061585,
-      "n_strategies": 17
+      "total_value": 6129.493062849859,
+      "n_strategies": 8
     },
     {
       "symbol": "V",
-      "total_value": 6180.801077091058,
-      "n_strategies": 4
+      "total_value": 6021.025724603216,
+      "n_strategies": 2
+    },
+    {
+      "symbol": "INTC",
+      "total_value": 5652.469964385025,
+      "n_strategies": 7
     },
     {
       "symbol": "META",
-      "total_value": 6037.065273557092,
-      "n_strategies": 16
-    },
-    {
-      "symbol": "COIN",
-      "total_value": 5831.142914321342,
-      "n_strategies": 20
+      "total_value": 5433.566767396559,
+      "n_strategies": 4
     },
     {
       "symbol": "UNH",
@@ -5634,63 +5741,73 @@
       "n_strategies": 4
     },
     {
-      "symbol": "TSLA",
-      "total_value": 4918.0235996322335,
-      "n_strategies": 15
+      "symbol": "HOOD",
+      "total_value": 4973.7660997736575,
+      "n_strategies": 11
     },
     {
       "symbol": "RIVN",
-      "total_value": 4612.542875809456,
-      "n_strategies": 3
+      "total_value": 4369.3891090862335,
+      "n_strategies": 1
     },
     {
-      "symbol": "PLTR",
-      "total_value": 4029.4479626308275,
-      "n_strategies": 14
+      "symbol": "MSTR",
+      "total_value": 3932.48923028225,
+      "n_strategies": 10
+    },
+    {
+      "symbol": "TSLA",
+      "total_value": 3795.6579358066024,
+      "n_strategies": 6
+    },
+    {
+      "symbol": "ADBE",
+      "total_value": 3539.7657981886628,
+      "n_strategies": 5
     },
     {
       "symbol": "JPM",
-      "total_value": 3687.6841930109476,
-      "n_strategies": 5
+      "total_value": 3516.1257207969393,
+      "n_strategies": 4
     },
     {
-      "symbol": "MSFT",
-      "total_value": 3212.102058286872,
-      "n_strategies": 7
-    },
-    {
-      "symbol": "RIOT",
-      "total_value": 2595.668024258074,
-      "n_strategies": 14
-    },
-    {
-      "symbol": "GME",
-      "total_value": 2479.613491051783,
-      "n_strategies": 20
+      "symbol": "PLTR",
+      "total_value": 3201.985766467901,
+      "n_strategies": 8
     },
     {
       "symbol": "AAPL",
-      "total_value": 2155.6552068944757,
-      "n_strategies": 14
+      "total_value": 2031.2579819648104,
+      "n_strategies": 6
     },
     {
       "symbol": "ARM",
-      "total_value": 2147.736923530265,
-      "n_strategies": 9
+      "total_value": 1910.9511692974302,
+      "n_strategies": 4
     },
     {
-      "symbol": "SMCI",
-      "total_value": 1975.2825198078212,
-      "n_strategies": 16
+      "symbol": "RIOT",
+      "total_value": 1907.5537055469968,
+      "n_strategies": 6
     },
     {
-      "symbol": "BAC",
-      "total_value": 1846.6450817671293,
+      "symbol": "MSFT",
+      "total_value": 1793.0932101029314,
       "n_strategies": 5
     },
     {
-      "symbol": "SOFI",
-      "total_value": 1461.3050663125662,
+      "symbol": "GME",
+      "total_value": 1696.667518095729,
+      "n_strategies": 7
+    },
+    {
+      "symbol": "BAC",
+      "total_value": 1527.0287469356188,
+      "n_strategies": 4
+    },
+    {
+      "symbol": "SMCI",
+      "total_value": 1157.9652681875682,
       "n_strategies": 6
     },
     {
@@ -5699,39 +5816,19 @@
       "n_strategies": 4
     },
     {
-      "symbol": "NFLX",
-      "total_value": 1015.9612157429367,
-      "n_strategies": 5
-    },
-    {
-      "symbol": "RBLX",
-      "total_value": 935.0756861102032,
-      "n_strategies": 15
-    },
-    {
-      "symbol": "UPST",
-      "total_value": 918.038783697361,
+      "symbol": "SOFI",
+      "total_value": 1102.0838365418435,
       "n_strategies": 2
     },
     {
-      "symbol": "IONQ",
-      "total_value": 908.1808693425738,
-      "n_strategies": 3
+      "symbol": "LCID",
+      "total_value": 849.6931297543206,
+      "n_strategies": 1
     },
     {
-      "symbol": "AFRM",
-      "total_value": 894.1525815686911,
-      "n_strategies": 2
-    },
-    {
-      "symbol": "SOUN",
-      "total_value": 764.0476827563272,
-      "n_strategies": 3
-    },
-    {
-      "symbol": "CVNA",
-      "total_value": 627.5803099231377,
-      "n_strategies": 8
+      "symbol": "COIN",
+      "total_value": 752.8428671975507,
+      "n_strategies": 7
     },
     {
       "symbol": "GOOGL",
@@ -5739,29 +5836,24 @@
       "n_strategies": 2
     },
     {
+      "symbol": "CVNA",
+      "total_value": 437.30590207320375,
+      "n_strategies": 3
+    },
+    {
       "symbol": "MA",
       "total_value": 270.35605012219526,
       "n_strategies": 1
     },
     {
-      "symbol": "HD",
-      "total_value": 246.62699989590658,
+      "symbol": "NFLX",
+      "total_value": 207.58835536775445,
       "n_strategies": 1
     },
     {
-      "symbol": "AMZN",
-      "total_value": 242.67277694690003,
-      "n_strategies": 2
-    },
-    {
       "symbol": "DKNG",
-      "total_value": 180.8046302134327,
-      "n_strategies": 3
-    },
-    {
-      "symbol": "NVDA",
-      "total_value": 172.7452292328252,
-      "n_strategies": 6
+      "total_value": 169.345155594369,
+      "n_strategies": 1
     },
     {
       "symbol": "PG",
@@ -5769,35 +5861,45 @@
       "n_strategies": 2
     },
     {
+      "symbol": "AMZN",
+      "total_value": 137.54727954596413,
+      "n_strategies": 2
+    },
+    {
+      "symbol": "WMT",
+      "total_value": 133.1125813326332,
+      "n_strategies": 1
+    },
+    {
+      "symbol": "RBLX",
+      "total_value": 112.81963881377028,
+      "n_strategies": 3
+    },
+    {
       "symbol": "KO",
       "total_value": 108.88929839284006,
       "n_strategies": 1
     },
     {
-      "symbol": "RKLB",
-      "total_value": 80.90757814378587,
+      "symbol": "NVDA",
+      "total_value": 40.11613890284462,
       "n_strategies": 2
-    },
-    {
-      "symbol": "WMT",
-      "total_value": 76.59062192695494,
-      "n_strategies": 1
     }
   ],
   "recommendations": {
-    "date": "2026-09-11",
+    "date": "2026-09-12",
     "n_active_strategies": 27,
     "best_strategy": null,
     "top_buy": [
       {
-        "symbol": "GME",
-        "count": 5,
+        "symbol": "SMCI",
+        "count": 4,
         "n_active_strategies": 27,
-        "pct": 0.18518518518518517,
+        "pct": 0.14814814814814814,
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "CSCO",
+        "symbol": "ARM",
         "count": 3,
         "n_active_strategies": 27,
         "pct": 0.1111111111111111,
@@ -5811,21 +5913,14 @@
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "MARA",
-        "count": 3,
-        "n_active_strategies": 27,
-        "pct": 0.1111111111111111,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "INTC",
+        "symbol": "GME",
         "count": 2,
         "n_active_strategies": 27,
         "pct": 0.07407407407407407,
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "ARM",
+        "symbol": "AAPL",
         "count": 2,
         "n_active_strategies": 27,
         "pct": 0.07407407407407407,
@@ -5839,21 +5934,28 @@
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "BAC",
+        "symbol": "MARA",
+        "count": 2,
+        "n_active_strategies": 27,
+        "pct": 0.07407407407407407,
+        "best_strategy_stance": "no position"
+      },
+      {
+        "symbol": "COIN",
         "count": 1,
         "n_active_strategies": 27,
         "pct": 0.037037037037037035,
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "JNJ",
+        "symbol": "XOM",
         "count": 1,
         "n_active_strategies": 27,
         "pct": 0.037037037037037035,
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "SMCI",
+        "symbol": "AMZN",
         "count": 1,
         "n_active_strategies": 27,
         "pct": 0.037037037037037035,
@@ -5905,9 +6007,9 @@
       },
       {
         "symbol": "JNJ",
-        "count": 6,
+        "count": 7,
         "n_active_strategies": 27,
-        "pct": 0.2222222222222222,
+        "pct": 0.25925925925925924,
         "best_strategy_stance": "no position"
       },
       {
@@ -5934,24 +6036,10 @@
     ],
     "top_sell": [
       {
-        "symbol": "SMCI",
-        "count": 6,
+        "symbol": "INTC",
+        "count": 3,
         "n_active_strategies": 27,
-        "pct": 0.2222222222222222,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "U",
-        "count": 5,
-        "n_active_strategies": 27,
-        "pct": 0.18518518518518517,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "AAPL",
-        "count": 4,
-        "n_active_strategies": 27,
-        "pct": 0.14814814814814814,
+        "pct": 0.1111111111111111,
         "best_strategy_stance": "no position"
       },
       {
@@ -5962,28 +6050,14 @@
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "INTC",
+        "symbol": "U",
         "count": 2,
         "n_active_strategies": 27,
         "pct": 0.07407407407407407,
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "ARM",
-        "count": 2,
-        "n_active_strategies": 27,
-        "pct": 0.07407407407407407,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "GME",
-        "count": 2,
-        "n_active_strategies": 27,
-        "pct": 0.07407407407407407,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "COIN",
+        "symbol": "META",
         "count": 2,
         "n_active_strategies": 27,
         "pct": 0.07407407407407407,
@@ -5997,10 +6071,38 @@
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "XOM",
-        "count": 2,
+        "symbol": "BAC",
+        "count": 1,
         "n_active_strategies": 27,
-        "pct": 0.07407407407407407,
+        "pct": 0.037037037037037035,
+        "best_strategy_stance": "no position"
+      },
+      {
+        "symbol": "CRM",
+        "count": 1,
+        "n_active_strategies": 27,
+        "pct": 0.037037037037037035,
+        "best_strategy_stance": "no position"
+      },
+      {
+        "symbol": "GME",
+        "count": 1,
+        "n_active_strategies": 27,
+        "pct": 0.037037037037037035,
+        "best_strategy_stance": "no position"
+      },
+      {
+        "symbol": "COIN",
+        "count": 1,
+        "n_active_strategies": 27,
+        "pct": 0.037037037037037035,
+        "best_strategy_stance": "no position"
+      },
+      {
+        "symbol": "SMCI",
+        "count": 1,
+        "n_active_strategies": 27,
+        "pct": 0.037037037037037035,
         "best_strategy_stance": "no position"
       }
     ]
@@ -8633,12 +8735,12 @@
       "category": "Fundamental",
       "n_signals": 1,
       "n_eliminated": 1,
-      "avg_return": -0.003195791365367222,
-      "median_return": -0.003195791365367222,
+      "avg_return": -0.003195814898462413,
+      "median_return": -0.003195814898462413,
       "best_signal": "Short Squeeze Candidate",
-      "best_return": -0.003195791365367222,
+      "best_return": -0.003195814898462413,
       "worst_signal": "Short Squeeze Candidate",
-      "worst_return": -0.003195791365367222,
+      "worst_return": -0.003195814898462413,
       "eliminated_avg_return_at_elimination": -0.04404145077720204
     },
     {
@@ -8657,44 +8759,44 @@
       "category": "Momentum",
       "n_signals": 4,
       "n_eliminated": 4,
-      "avg_return": -0.024478921737823928,
-      "median_return": -0.0016467774422473666,
+      "avg_return": -0.02447894511582499,
+      "median_return": -0.0016467941157727183,
       "best_signal": "Stochastic Oscillator Momentum",
       "best_return": 0.024661356143598278,
       "worst_signal": "CCI Momentum",
-      "worst_return": -0.0697706512202094,
+      "worst_return": -0.06977065409479728,
       "eliminated_avg_return_at_elimination": -0.07290507131557539
     },
     {
       "category": "Options-Derived",
       "n_signals": 5,
       "n_eliminated": 2,
-      "avg_return": -0.016647775477614778,
-      "median_return": -0.011266278820126535,
+      "avg_return": -0.016672665259105053,
+      "median_return": -0.011365742698334725,
       "best_signal": "Negative GEX + Uptrend",
       "best_return": 0.0,
       "worst_signal": "Open Interest Magnet Strike",
-      "worst_return": -0.03876147971503033,
+      "worst_return": -0.03878548303090065,
       "eliminated_avg_return_at_elimination": -0.0655439250836579
     },
     {
       "category": "Trend",
       "n_signals": 5,
       "n_eliminated": 5,
-      "avg_return": -0.015013517243964708,
-      "median_return": -0.034379057896799715,
+      "avg_return": -0.015013541255755625,
+      "median_return": -0.03437906311751067,
       "best_signal": "Moving Average Slope Acceleration",
-      "best_return": 0.04029044282791274,
+      "best_return": 0.040290384269735115,
       "worst_signal": "Multi-Timeframe Trend Alignment",
-      "worst_return": -0.05100936909661377,
+      "worst_return": -0.05100941152301275,
       "eliminated_avg_return_at_elimination": -0.06981601847828682
     },
     {
       "category": "Volatility / Statistical",
       "n_signals": 4,
       "n_eliminated": 5,
-      "avg_return": -0.021907010940968395,
-      "median_return": -0.004247994806731913,
+      "avg_return": -0.02190704542716103,
+      "median_return": -0.004248132751502453,
       "best_signal": "Near 52-Week Low (Reversion)",
       "best_return": 0.013956489773023713,
       "worst_signal": "Bollinger Squeeze Breakout",
@@ -8705,7 +8807,7 @@
       "category": "Volume",
       "n_signals": 4,
       "n_eliminated": 3,
-      "avg_return": -0.05038316205249234,
+      "avg_return": -0.050383168336468775,
       "median_return": -0.04400502140842691,
       "best_signal": "On-Balance Volume Trend",
       "best_return": -0.036242971780800326,
@@ -8813,11 +8915,15 @@
       {
         "date": "2026-09-11",
         "equity": 478496.93613884936
+      },
+      {
+        "date": "2026-09-12",
+        "equity": 264979.0276816532
       }
     ],
     "returns_by_range": {
-      "1D": 0.012706344814923784,
-      "1W": -0.0260854928666513,
+      "1D": -0.4462262813637701,
+      "1W": -0.46067174175099446,
       "1M": null,
       "YTD": null,
       "1Y": null,
