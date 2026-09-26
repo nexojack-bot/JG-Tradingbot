@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T21:44:21.346433+00:00",
+  "generated_at": "2026-09-26T21:41:44.475922+00:00",
   "strategies": [
     {
       "strategy_id": "risk_on_off",
@@ -8,12 +8,12 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 10912.13119696475,
-      "roi": 0.09121311969647504,
-      "max_drawdown": 0.03273728669093603,
+      "latest_equity": 10912.129701723861,
+      "roi": 0.09121297017238612,
+      "max_drawdown": 0.03273741923065109,
       "returns_by_range": {
-        "1D": -0.02695170115545784,
-        "1W": 0.04135535130260396,
+        "1D": -1.3702556010456684e-07,
+        "1W": 0.041355646832895006,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -107,6 +107,10 @@
         {
           "date": "2026-09-25",
           "equity": 10912.13119696475
+        },
+        {
+          "date": "2026-09-26",
+          "equity": 10912.129701723861
         }
       ],
       "current_positions": {
@@ -126,19 +130,19 @@
           "entry_date": "2026-09-24"
         },
         "INTC": {
-          "shares": 23.906914599435577,
+          "shares": 23.90191060594191,
           "entry_price": 120.81925238598961,
-          "entry_date": "2026-09-25"
+          "entry_date": "2026-09-26"
         },
         "META": {
-          "shares": 2.919426886733768,
+          "shares": 2.91913893178502,
           "entry_price": 720.9238021089445,
-          "entry_date": "2026-09-25"
+          "entry_date": "2026-09-26"
         },
         "MSTR": {
-          "shares": 1.2145486349396029,
-          "entry_price": 138.70703048281015,
-          "entry_date": "2026-09-25"
+          "shares": 1.2191242628918335,
+          "entry_price": 138.78262342848876,
+          "entry_date": "2026-09-26"
         },
         "RBLX": {
           "shares": 13.448811986743603,
@@ -151,18 +155,18 @@
           "entry_date": "2026-09-23"
         },
         "SMCI": {
-          "shares": 2.8654026170473257,
-          "entry_price": 41.60231002928571,
-          "entry_date": "2026-09-25"
+          "shares": 2.867822862680772,
+          "entry_price": 41.60376376853394,
+          "entry_date": "2026-09-26"
         }
       },
-      "n_days": 22,
+      "n_days": 23,
       "validation": {
         "label": "Building history",
-        "n_days": 22,
+        "n_days": 23,
         "min_days_for_next_tier": 30
       },
-      "annualized_volatility": 0.2929854506441819,
+      "annualized_volatility": 0.28660724249319053,
       "sharpe_ratio": null,
       "sortino_ratio": null,
       "beta": null,
@@ -179,7 +183,7 @@
       "roi": 0.06482081684846853,
       "max_drawdown": 0.017819067694428346,
       "returns_by_range": {
-        "1D": -0.01734754169668574,
+        "1D": 0.0,
         "1W": 0.05635668279975621,
         "1M": null,
         "YTD": null,
@@ -274,6 +278,10 @@
         {
           "date": "2026-09-25",
           "equity": 10648.208168484685
+        },
+        {
+          "date": "2026-09-26",
+          "equity": 10648.208168484685
         }
       ],
       "current_positions": {
@@ -298,13 +306,13 @@
           "entry_date": "2026-09-23"
         }
       },
-      "n_days": 22,
+      "n_days": 23,
       "validation": {
         "label": "Building history",
-        "n_days": 22,
+        "n_days": 23,
         "min_days_for_next_tier": 30
       },
-      "annualized_volatility": 0.28629636452598456,
+      "annualized_volatility": 0.2799790659510602,
       "sharpe_ratio": null,
       "sortino_ratio": null,
       "beta": null,
@@ -321,8 +329,8 @@
       "roi": 0.062297301131177485,
       "max_drawdown": 0.042415410868576996,
       "returns_by_range": {
-        "1D": -0.0012239470600884938,
-        "1W": 0.035659193923767915,
+        "1D": 0.0,
+        "1W": 0.036212152817679956,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -416,6 +424,10 @@
         {
           "date": "2026-09-25",
           "equity": 10622.973011311775
+        },
+        {
+          "date": "2026-09-26",
+          "equity": 10622.973011311775
         }
       ],
       "current_positions": {
@@ -480,13 +492,13 @@
           "entry_date": "2026-09-23"
         }
       },
-      "n_days": 22,
+      "n_days": 23,
       "validation": {
         "label": "Building history",
-        "n_days": 22,
+        "n_days": 23,
         "min_days_for_next_tier": 30
       },
-      "annualized_volatility": 0.2864977939477128,
+      "annualized_volatility": 0.28005415672796286,
       "sharpe_ratio": null,
       "sortino_ratio": null,
       "beta": null,
@@ -499,12 +511,12 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 10538.630318657111,
-      "roi": 0.053863031865711127,
+      "latest_equity": 10538.62996349735,
+      "roi": 0.05386299634973493,
       "max_drawdown": 0.0371703775833392,
       "returns_by_range": {
-        "1D": -0.01546331078704264,
-        "1W": 0.043539574652192964,
+        "1D": -3.370075154239422e-08,
+        "1W": 0.043539539484125034,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -598,6 +610,10 @@
         {
           "date": "2026-09-25",
           "equity": 10538.630318657111
+        },
+        {
+          "date": "2026-09-26",
+          "equity": 10538.62996349735
         }
       ],
       "current_positions": {
@@ -622,14 +638,14 @@
           "entry_date": "2026-09-17"
         },
         "INTC": {
-          "shares": 26.707817372526083,
+          "shares": 26.70623773394506,
           "entry_price": 109.60625677370483,
-          "entry_date": "2026-09-25"
+          "entry_date": "2026-09-26"
         },
         "IONQ": {
-          "shares": 1.793133763379738,
-          "entry_price": 45.18394881201145,
-          "entry_date": "2026-09-25"
+          "shares": 1.7937486304854435,
+          "entry_price": 45.18407367809762,
+          "entry_date": "2026-09-26"
         },
         "NVDA": {
           "shares": 0.4765383243692354,
@@ -637,18 +653,18 @@
           "entry_date": "2026-09-22"
         },
         "SMCI": {
-          "shares": 3.9879809748228197,
-          "entry_price": 42.59910037679897,
-          "entry_date": "2026-09-25"
+          "shares": 3.9919095441595336,
+          "entry_price": 42.59981465021303,
+          "entry_date": "2026-09-26"
         }
       },
-      "n_days": 22,
+      "n_days": 23,
       "validation": {
         "label": "Building history",
-        "n_days": 22,
+        "n_days": 23,
         "min_days_for_next_tier": 30
       },
-      "annualized_volatility": 0.2703242774258629,
+      "annualized_volatility": 0.26435656630824,
       "sharpe_ratio": null,
       "sortino_ratio": null,
       "beta": null,
@@ -832,8 +848,8 @@
       "roi": 0.011773316571236137,
       "max_drawdown": 0.03932698659845191,
       "returns_by_range": {
-        "1D": -0.0010632541790790747,
-        "1W": 0.018235535922991656,
+        "1D": 0.0,
+        "1W": 0.01840627550194294,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -927,6 +943,10 @@
         {
           "date": "2026-09-25",
           "equity": 10117.733165712361
+        },
+        {
+          "date": "2026-09-26",
+          "equity": 10117.733165712361
         }
       ],
       "current_positions": {
@@ -991,13 +1011,13 @@
           "entry_date": "2026-09-15"
         }
       },
-      "n_days": 22,
+      "n_days": 23,
       "validation": {
         "label": "Building history",
-        "n_days": 22,
+        "n_days": 23,
         "min_days_for_next_tier": 30
       },
-      "annualized_volatility": 0.25037179696746514,
+      "annualized_volatility": 0.24476015007227347,
       "sharpe_ratio": null,
       "sortino_ratio": null,
       "beta": null,
@@ -1525,12 +1545,12 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 9993.701614653632,
-      "roi": -0.0006298385346368377,
+      "latest_equity": 9993.701394205318,
+      "roi": -0.0006298605794681862,
       "max_drawdown": 0.0311677200959033,
       "returns_by_range": {
-        "1D": 6.463218732023667e-05,
-        "1W": 0.03206052440669447,
+        "1D": -2.2058724783360197e-08,
+        "1W": 0.032060524288401476,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -1624,6 +1644,10 @@
         {
           "date": "2026-09-25",
           "equity": 9993.701614653632
+        },
+        {
+          "date": "2026-09-26",
+          "equity": 9993.701394205318
         }
       ],
       "current_positions": {
@@ -1638,9 +1662,9 @@
           "entry_date": "2026-09-04"
         },
         "GME": {
-          "shares": 56.03248122143682,
+          "shares": 56.0317253592734,
           "entry_price": 23.07382613713613,
-          "entry_date": "2026-09-25"
+          "entry_date": "2026-09-26"
         },
         "MA": {
           "shares": 0.47498383689487733,
@@ -1653,14 +1677,14 @@
           "entry_date": "2026-09-24"
         },
         "MSFT": {
-          "shares": 0.13327405997387665,
-          "entry_price": 510.12,
-          "entry_date": "2026-09-25"
+          "shares": 0.13351097335198586,
+          "entry_price": 510.13101042239583,
+          "entry_date": "2026-09-26"
         },
         "MSTR": {
-          "shares": 2.8875251798154737,
+          "shares": 2.886864260512215,
           "entry_price": 154.53956507112116,
-          "entry_date": "2026-09-25"
+          "entry_date": "2026-09-26"
         },
         "PFE": {
           "shares": 252.00334978739195,
@@ -1683,13 +1707,13 @@
           "entry_date": "2026-09-23"
         }
       },
-      "n_days": 22,
+      "n_days": 23,
       "validation": {
         "label": "Building history",
-        "n_days": 22,
+        "n_days": 23,
         "min_days_for_next_tier": 30
       },
-      "annualized_volatility": 0.11059628430084935,
+      "annualized_volatility": 0.10807493372892206,
       "sharpe_ratio": null,
       "sortino_ratio": null,
       "beta": null,
@@ -1896,12 +1920,12 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 9889.408929226467,
-      "roi": -0.011059107077353292,
+      "latest_equity": 9889.408716697848,
+      "roi": -0.011059128330215207,
       "max_drawdown": 0.02723670544296149,
       "returns_by_range": {
-        "1D": -0.0007670639306852541,
-        "1W": 0.013407436915515644,
+        "1D": -2.149052796577712e-08,
+        "1W": 0.013408922228118162,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -1995,13 +2019,17 @@
         {
           "date": "2026-09-25",
           "equity": 9889.408929226467
+        },
+        {
+          "date": "2026-09-26",
+          "equity": 9889.408716697848
         }
       ],
       "current_positions": {
         "AAPL": {
-          "shares": 0.6163216845242934,
-          "entry_price": 338.7294098551038,
-          "entry_date": "2026-09-25"
+          "shares": 0.6166673447952102,
+          "entry_price": 338.7307791789951,
+          "entry_date": "2026-09-26"
         },
         "ADBE": {
           "shares": 0.46271886984968597,
@@ -2059,9 +2087,9 @@
           "entry_date": "2026-09-22"
         },
         "MSTR": {
-          "shares": 0.27322931360318153,
+          "shares": 0.2724846765864606,
           "entry_price": 156.83165081901268,
-          "entry_date": "2026-09-25"
+          "entry_date": "2026-09-26"
         },
         "PFE": {
           "shares": 161.57950924112902,
@@ -2094,13 +2122,13 @@
           "entry_date": "2026-09-25"
         }
       },
-      "n_days": 22,
+      "n_days": 23,
       "validation": {
         "label": "Building history",
-        "n_days": 22,
+        "n_days": 23,
         "min_days_for_next_tier": 30
       },
-      "annualized_volatility": 0.12081243466228181,
+      "annualized_volatility": 0.11804831578778331,
       "sharpe_ratio": null,
       "sortino_ratio": null,
       "beta": null,
@@ -3762,12 +3790,12 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 9488.152043552904,
-      "roi": -0.05118479564470963,
+      "latest_equity": 9488.151549979297,
+      "roi": -0.05118484500207032,
       "max_drawdown": 0.03256098608299208,
       "returns_by_range": {
-        "1D": 0.002953117217557382,
-        "1W": 0.013039347586054174,
+        "1D": -5.201999342758764e-08,
+        "1W": 0.013039294887753971,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -3861,6 +3889,10 @@
         {
           "date": "2026-09-25",
           "equity": 9488.152043552904
+        },
+        {
+          "date": "2026-09-26",
+          "equity": 9488.151549979297
         }
       ],
       "current_positions": {
@@ -3870,9 +3902,9 @@
           "entry_date": "2026-09-14"
         },
         "IONQ": {
-          "shares": 0.24383039385273708,
-          "entry_price": 45.0474700568056,
-          "entry_date": "2026-09-25"
+          "shares": 0.24744248156506146,
+          "entry_price": 45.05477984736969,
+          "entry_date": "2026-09-26"
         },
         "MSFT": {
           "shares": 0.44598611348431316,
@@ -3880,9 +3912,9 @@
           "entry_date": "2026-09-25"
         },
         "RKLB": {
-          "shares": 0.14634900382574456,
+          "shares": 0.144120858825547,
           "entry_price": 72.08797007196432,
-          "entry_date": "2026-09-25"
+          "entry_date": "2026-09-26"
         },
         "SNOW": {
           "shares": 22.37727568729297,
@@ -3890,13 +3922,13 @@
           "entry_date": "2026-09-04"
         }
       },
-      "n_days": 22,
+      "n_days": 23,
       "validation": {
         "label": "Building history",
-        "n_days": 22,
+        "n_days": 23,
         "min_days_for_next_tier": 30
       },
-      "annualized_volatility": 0.18158908646031613,
+      "annualized_volatility": 0.17741411622992007,
       "sharpe_ratio": null,
       "sortino_ratio": null,
       "beta": null,
@@ -3909,12 +3941,12 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 9441.898704662088,
-      "roi": -0.055810129533791226,
+      "latest_equity": 9441.898537840825,
+      "roi": -0.05581014621591748,
       "max_drawdown": 0.04641136879167424,
       "returns_by_range": {
-        "1D": -0.010468974480400742,
-        "1W": -0.004746573558768314,
+        "1D": -1.766819024733424e-08,
+        "1W": -0.004746540407543939,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -4008,6 +4040,10 @@
         {
           "date": "2026-09-25",
           "equity": 9441.898704662088
+        },
+        {
+          "date": "2026-09-26",
+          "equity": 9441.898537840825
         }
       ],
       "current_positions": {
@@ -4017,9 +4053,9 @@
           "entry_date": "2026-09-14"
         },
         "AMC": {
-          "shares": 33.83818908777556,
+          "shares": 33.83077408841157,
           "entry_price": 2.9229695455485873,
-          "entry_date": "2026-09-25"
+          "entry_date": "2026-09-26"
         },
         "COIN": {
           "shares": 0.06115446507837071,
@@ -4042,9 +4078,9 @@
           "entry_date": "2026-09-24"
         },
         "MSFT": {
-          "shares": 0.03841449437200978,
-          "entry_price": 510.12,
-          "entry_date": "2026-09-25"
+          "shares": 0.03846136085177512,
+          "entry_price": 510.1275608225345,
+          "entry_date": "2026-09-26"
         },
         "MSTR": {
           "shares": 15.732870628784621,
@@ -4052,14 +4088,14 @@
           "entry_date": "2026-09-22"
         },
         "PLTR": {
-          "shares": 0.4597268913397641,
+          "shares": 0.45949719329214744,
           "entry_price": 182.53,
-          "entry_date": "2026-09-25"
+          "entry_date": "2026-09-26"
         },
         "SMCI": {
-          "shares": 3.3243168977294366,
-          "entry_price": 43.08086925688303,
-          "entry_date": "2026-09-25"
+          "shares": 3.3252648643197635,
+          "entry_price": 43.08093882232255,
+          "entry_date": "2026-09-26"
         },
         "SNOW": {
           "shares": 5.808122607886044,
@@ -4077,13 +4113,13 @@
           "entry_date": "2026-09-15"
         }
       },
-      "n_days": 22,
+      "n_days": 23,
       "validation": {
         "label": "Building history",
-        "n_days": 22,
+        "n_days": 23,
         "min_days_for_next_tier": 30
       },
-      "annualized_volatility": 0.17875922127576416,
+      "annualized_volatility": 0.17471505788243852,
       "sharpe_ratio": null,
       "sortino_ratio": null,
       "beta": null,
@@ -6940,10 +6976,14 @@
       {
         "date": "2026-09-25",
         "equity": 9976.460545546257
+      },
+      {
+        "date": "2026-09-26",
+        "equity": 9976.460545546257
       }
     ],
     "returns_by_range": {
-      "1D": 0.005435491019056835,
+      "1D": 0.0,
       "1W": 0.01268232483031133,
       "1M": null,
       "YTD": null,
@@ -6964,13 +7004,8 @@
     },
     {
       "symbol": "AMC",
-      "total_value": 10691.93137478453,
+      "total_value": 10691.9095746864,
       "n_strategies": 3
-    },
-    {
-      "symbol": "NIO",
-      "total_value": 9837.301445494377,
-      "n_strategies": 1
     },
     {
       "symbol": "SNOW",
@@ -6979,32 +7014,22 @@
     },
     {
       "symbol": "ARM",
-      "total_value": 8635.8075728624,
-      "n_strategies": 5
+      "total_value": 8520.902646380695,
+      "n_strategies": 4
     },
     {
       "symbol": "META",
-      "total_value": 7312.899119028306,
+      "total_value": 7312.682674811531,
       "n_strategies": 4
-    },
-    {
-      "symbol": "AI",
-      "total_value": 7167.668774419563,
-      "n_strategies": 5
     },
     {
       "symbol": "INTC",
-      "total_value": 6838.8137211535595,
+      "total_value": 6838.0039344083725,
       "n_strategies": 3
     },
     {
-      "symbol": "MARA",
-      "total_value": 5127.815871499658,
-      "n_strategies": 4
-    },
-    {
       "symbol": "GME",
-      "total_value": 4279.802992715969,
+      "total_value": 4279.7853130999665,
       "n_strategies": 5
     },
     {
@@ -7014,7 +7039,7 @@
     },
     {
       "symbol": "MSTR",
-      "total_value": 3329.855047906798,
+      "total_value": 3330.3578529683896,
       "n_strategies": 5
     },
     {
@@ -7023,14 +7048,19 @@
       "n_strategies": 3
     },
     {
+      "symbol": "AI",
+      "total_value": 2523.2336681924257,
+      "n_strategies": 4
+    },
+    {
       "symbol": "HOOD",
       "total_value": 2430.8380068164943,
       "n_strategies": 4
     },
     {
       "symbol": "SMCI",
-      "total_value": 2252.162902207222,
-      "n_strategies": 6
+      "total_value": 1764.102529611898,
+      "n_strategies": 5
     },
     {
       "symbol": "JNJ",
@@ -7038,14 +7068,14 @@
       "n_strategies": 2
     },
     {
+      "symbol": "MARA",
+      "total_value": 872.4983107461164,
+      "n_strategies": 3
+    },
+    {
       "symbol": "KO",
       "total_value": 532.4354527942805,
       "n_strategies": 1
-    },
-    {
-      "symbol": "RIOT",
-      "total_value": 496.05699487552687,
-      "n_strategies": 3
     },
     {
       "symbol": "U",
@@ -7054,12 +7084,12 @@
     },
     {
       "symbol": "MSFT",
-      "total_value": 318.8251332939141,
+      "total_value": 318.9716119431532,
       "n_strategies": 3
     },
     {
       "symbol": "AAPL",
-      "total_value": 308.1511144003043,
+      "total_value": 308.26900874890595,
       "n_strategies": 2
     },
     {
@@ -7068,24 +7098,14 @@
       "n_strategies": 1
     },
     {
-      "symbol": "SOFI",
-      "total_value": 211.44417572260772,
-      "n_strategies": 1
-    },
-    {
-      "symbol": "PLTR",
-      "total_value": 203.4998052426447,
+      "symbol": "RIOT",
+      "total_value": 258.11961747929035,
       "n_strategies": 2
     },
     {
-      "symbol": "IONQ",
-      "total_value": 194.98230155858747,
-      "n_strategies": 3
-    },
-    {
-      "symbol": "COIN",
-      "total_value": 169.47105470924998,
-      "n_strategies": 3
+      "symbol": "PLTR",
+      "total_value": 203.45623841395323,
+      "n_strategies": 2
     },
     {
       "symbol": "XOM",
@@ -7098,13 +7118,18 @@
       "n_strategies": 2
     },
     {
-      "symbol": "CVNA",
-      "total_value": 130.74960787614725,
-      "n_strategies": 1
-    },
-    {
       "symbol": "NVDA",
       "total_value": 113.53376717736649,
+      "n_strategies": 2
+    },
+    {
+      "symbol": "IONQ",
+      "total_value": 92.83337177605696,
+      "n_strategies": 2
+    },
+    {
+      "symbol": "COIN",
+      "total_value": 37.44863526540338,
       "n_strategies": 2
     },
     {
@@ -7124,7 +7149,7 @@
     },
     {
       "symbol": "RKLB",
-      "total_value": 10.82250883291381,
+      "total_value": 10.657737510149202,
       "n_strategies": 1
     },
     {
@@ -7134,68 +7159,33 @@
     }
   ],
   "recommendations": {
-    "date": "2026-09-25",
+    "date": "2026-09-26",
     "n_active_strategies": 9,
     "best_strategy": null,
     "top_buy": [
       {
         "symbol": "SMCI",
-        "count": 4,
-        "n_active_strategies": 9,
-        "pct": 0.4444444444444444,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "AMC",
         "count": 3,
         "n_active_strategies": 9,
         "pct": 0.3333333333333333,
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "PFE",
-        "count": 2,
-        "n_active_strategies": 9,
-        "pct": 0.2222222222222222,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "GME",
-        "count": 2,
-        "n_active_strategies": 9,
-        "pct": 0.2222222222222222,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "META",
-        "count": 1,
-        "n_active_strategies": 9,
-        "pct": 0.1111111111111111,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "COIN",
-        "count": 1,
-        "n_active_strategies": 9,
-        "pct": 0.1111111111111111,
-        "best_strategy_stance": "no position"
-      },
-      {
         "symbol": "MSFT",
-        "count": 1,
+        "count": 2,
         "n_active_strategies": 9,
-        "pct": 0.1111111111111111,
+        "pct": 0.2222222222222222,
+        "best_strategy_stance": "no position"
+      },
+      {
+        "symbol": "IONQ",
+        "count": 2,
+        "n_active_strategies": 9,
+        "pct": 0.2222222222222222,
         "best_strategy_stance": "no position"
       },
       {
         "symbol": "MSTR",
-        "count": 1,
-        "n_active_strategies": 9,
-        "pct": 0.1111111111111111,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "XOM",
         "count": 1,
         "n_active_strategies": 9,
         "pct": 0.1111111111111111,
@@ -7222,6 +7212,20 @@
         "count": 5,
         "n_active_strategies": 9,
         "pct": 0.5555555555555556,
+        "best_strategy_stance": "no position"
+      },
+      {
+        "symbol": "PFE",
+        "count": 4,
+        "n_active_strategies": 9,
+        "pct": 0.4444444444444444,
+        "best_strategy_stance": "no position"
+      },
+      {
+        "symbol": "GME",
+        "count": 4,
+        "n_active_strategies": 9,
+        "pct": 0.4444444444444444,
         "best_strategy_stance": "no position"
       },
       {
@@ -7260,21 +7264,7 @@
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "GME",
-        "count": 3,
-        "n_active_strategies": 9,
-        "pct": 0.3333333333333333,
-        "best_strategy_stance": "no position"
-      },
-      {
         "symbol": "ADBE",
-        "count": 3,
-        "n_active_strategies": 9,
-        "pct": 0.3333333333333333,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "MARA",
         "count": 3,
         "n_active_strategies": 9,
         "pct": 0.3333333333333333,
@@ -7282,20 +7272,6 @@
       }
     ],
     "top_sell": [
-      {
-        "symbol": "MSFT",
-        "count": 4,
-        "n_active_strategies": 9,
-        "pct": 0.4444444444444444,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "SMCI",
-        "count": 2,
-        "n_active_strategies": 9,
-        "pct": 0.2222222222222222,
-        "best_strategy_stance": "no position"
-      },
       {
         "symbol": "MSTR",
         "count": 2,
@@ -7311,14 +7287,21 @@
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "IONQ",
-        "count": 2,
+        "symbol": "META",
+        "count": 1,
         "n_active_strategies": 9,
-        "pct": 0.2222222222222222,
+        "pct": 0.1111111111111111,
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "SNOW",
+        "symbol": "GME",
+        "count": 1,
+        "n_active_strategies": 9,
+        "pct": 0.1111111111111111,
+        "best_strategy_stance": "no position"
+      },
+      {
+        "symbol": "AMC",
         "count": 1,
         "n_active_strategies": 9,
         "pct": 0.1111111111111111,
@@ -7326,20 +7309,6 @@
       },
       {
         "symbol": "PLTR",
-        "count": 1,
-        "n_active_strategies": 9,
-        "pct": 0.1111111111111111,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "MARA",
-        "count": 1,
-        "n_active_strategies": 9,
-        "pct": 0.1111111111111111,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "AAPL",
         "count": 1,
         "n_active_strategies": 9,
         "pct": 0.1111111111111111,
@@ -9994,24 +9963,24 @@
       "category": "Macro",
       "n_signals": 2,
       "n_eliminated": 4,
-      "avg_return": 0.07253807578109309,
-      "median_return": 0.09121311969647504,
+      "avg_return": 0.07253798326106053,
+      "median_return": 0.09121297017238612,
       "best_signal": "Risk-On/Risk-Off Composite",
-      "best_return": 0.09121311969647504,
+      "best_return": 0.09121297017238612,
       "worst_signal": "Sector Rotation (Top Sector)",
-      "worst_return": 0.053863031865711127,
+      "worst_return": 0.05386299634973493,
       "eliminated_avg_return_at_elimination": -0.05682948891067299
     },
     {
       "category": "Momentum",
       "n_signals": 2,
       "n_eliminated": 6,
-      "avg_return": 0.004505343657338654,
+      "avg_return": 0.004505335316275526,
       "median_return": 0.06482081684846853,
       "best_signal": "MACD Histogram Momentum",
       "best_return": 0.06482081684846853,
       "worst_signal": "Cross-Sectional Momentum Ranking",
-      "worst_return": -0.055810129533791226,
+      "worst_return": -0.05581014621591748,
       "eliminated_avg_return_at_elimination": -0.06331039459012346
     },
     {
@@ -10030,36 +9999,36 @@
       "category": "Trend",
       "n_signals": 1,
       "n_eliminated": 9,
-      "avg_return": -0.0006298385346368377,
-      "median_return": -0.0006298385346368377,
+      "avg_return": -0.0006298605794681862,
+      "median_return": -0.0006298605794681862,
       "best_signal": "ADX Trend Strength",
-      "best_return": -0.0006298385346368377,
+      "best_return": -0.0006298605794681862,
       "worst_signal": "ADX Trend Strength",
-      "worst_return": -0.0006298385346368377,
+      "worst_return": -0.0006298605794681862,
       "eliminated_avg_return_at_elimination": -0.048866661936984364
     },
     {
       "category": "Volatility / Statistical",
       "n_signals": 1,
       "n_eliminated": 8,
-      "avg_return": -0.05118479564470963,
-      "median_return": -0.05118479564470963,
+      "avg_return": -0.05118484500207032,
+      "median_return": -0.05118484500207032,
       "best_signal": "Bollinger Squeeze Breakout",
-      "best_return": -0.05118479564470963,
+      "best_return": -0.05118484500207032,
       "worst_signal": "Bollinger Squeeze Breakout",
-      "worst_return": -0.05118479564470963,
+      "worst_return": -0.05118484500207032,
       "eliminated_avg_return_at_elimination": -0.056705669075969516
     },
     {
       "category": "Volume",
       "n_signals": 1,
       "n_eliminated": 6,
-      "avg_return": -0.011059107077353292,
-      "median_return": -0.011059107077353292,
+      "avg_return": -0.011059128330215207,
+      "median_return": -0.011059128330215207,
       "best_signal": "Chaikin Money Flow",
-      "best_return": -0.011059107077353292,
+      "best_return": -0.011059128330215207,
       "worst_signal": "Chaikin Money Flow",
-      "worst_return": -0.011059107077353292,
+      "worst_return": -0.011059128330215207,
       "eliminated_avg_return_at_elimination": -0.07242649008635947
     }
   ],
@@ -10218,11 +10187,15 @@
       {
         "date": "2026-09-25",
         "equity": 111807.66697567467
+      },
+      {
+        "date": "2026-09-26",
+        "equity": 91652.83420945331
       }
     ],
     "returns_by_range": {
-      "1D": -0.009474078841600253,
-      "1W": -0.40435280200117024,
+      "1D": -0.1802634229959053,
+      "1W": -0.4843061233821888,
       "1M": null,
       "YTD": null,
       "1Y": null,
