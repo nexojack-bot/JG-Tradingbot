@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T21:41:44.475922+00:00",
+  "generated_at": "2026-09-27T21:42:21.788811+00:00",
   "strategies": [
     {
       "strategy_id": "risk_on_off",
@@ -12,7 +12,7 @@
       "roi": 0.09121297017238612,
       "max_drawdown": 0.03273741923065109,
       "returns_by_range": {
-        "1D": -1.3702556010456684e-07,
+        "1D": 0.0,
         "1W": 0.041355646832895006,
         "1M": null,
         "YTD": null,
@@ -111,6 +111,10 @@
         {
           "date": "2026-09-26",
           "equity": 10912.129701723861
+        },
+        {
+          "date": "2026-09-27",
+          "equity": 10912.129701723861
         }
       ],
       "current_positions": {
@@ -160,13 +164,13 @@
           "entry_date": "2026-09-26"
         }
       },
-      "n_days": 23,
+      "n_days": 24,
       "validation": {
         "label": "Building history",
-        "n_days": 23,
+        "n_days": 24,
         "min_days_for_next_tier": 30
       },
-      "annualized_volatility": 0.28660724249319053,
+      "annualized_volatility": 0.28062668607813024,
       "sharpe_ratio": null,
       "sortino_ratio": null,
       "beta": null,
@@ -282,6 +286,10 @@
         {
           "date": "2026-09-26",
           "equity": 10648.208168484685
+        },
+        {
+          "date": "2026-09-27",
+          "equity": 10648.208168484685
         }
       ],
       "current_positions": {
@@ -306,13 +314,13 @@
           "entry_date": "2026-09-23"
         }
       },
-      "n_days": 23,
+      "n_days": 24,
       "validation": {
         "label": "Building history",
-        "n_days": 23,
+        "n_days": 24,
         "min_days_for_next_tier": 30
       },
-      "annualized_volatility": 0.2799790659510602,
+      "annualized_volatility": 0.27406144777799,
       "sharpe_ratio": null,
       "sortino_ratio": null,
       "beta": null,
@@ -330,7 +338,7 @@
       "max_drawdown": 0.042415410868576996,
       "returns_by_range": {
         "1D": 0.0,
-        "1W": 0.036212152817679956,
+        "1W": 0.036611769385484334,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -428,6 +436,10 @@
         {
           "date": "2026-09-26",
           "equity": 10622.973011311775
+        },
+        {
+          "date": "2026-09-27",
+          "equity": 10622.973011311775
         }
       ],
       "current_positions": {
@@ -492,13 +504,13 @@
           "entry_date": "2026-09-23"
         }
       },
-      "n_days": 23,
+      "n_days": 24,
       "validation": {
         "label": "Building history",
-        "n_days": 23,
+        "n_days": 24,
         "min_days_for_next_tier": 30
       },
-      "annualized_volatility": 0.28005415672796286,
+      "annualized_volatility": 0.2740263579281167,
       "sharpe_ratio": null,
       "sortino_ratio": null,
       "beta": null,
@@ -515,7 +527,7 @@
       "roi": 0.05386299634973493,
       "max_drawdown": 0.0371703775833392,
       "returns_by_range": {
-        "1D": -3.370075154239422e-08,
+        "1D": 0.0,
         "1W": 0.043539539484125034,
         "1M": null,
         "YTD": null,
@@ -614,6 +626,10 @@
         {
           "date": "2026-09-26",
           "equity": 10538.62996349735
+        },
+        {
+          "date": "2026-09-27",
+          "equity": 10538.62996349735
         }
       ],
       "current_positions": {
@@ -658,13 +674,13 @@
           "entry_date": "2026-09-26"
         }
       },
-      "n_days": 23,
+      "n_days": 24,
       "validation": {
         "label": "Building history",
-        "n_days": 23,
+        "n_days": 24,
         "min_days_for_next_tier": 30
       },
-      "annualized_volatility": 0.26435656630824,
+      "annualized_volatility": 0.25876660519108446,
       "sharpe_ratio": null,
       "sortino_ratio": null,
       "beta": null,
@@ -849,7 +865,7 @@
       "max_drawdown": 0.03932698659845191,
       "returns_by_range": {
         "1D": 0.0,
-        "1W": 0.01840627550194294,
+        "1W": 0.01840635478455148,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -947,6 +963,10 @@
         {
           "date": "2026-09-26",
           "equity": 10117.733165712361
+        },
+        {
+          "date": "2026-09-27",
+          "equity": 10117.733165712361
         }
       ],
       "current_positions": {
@@ -1011,13 +1031,13 @@
           "entry_date": "2026-09-15"
         }
       },
-      "n_days": 23,
+      "n_days": 24,
       "validation": {
         "label": "Building history",
-        "n_days": 23,
+        "n_days": 24,
         "min_days_for_next_tier": 30
       },
-      "annualized_volatility": 0.24476015007227347,
+      "annualized_volatility": 0.23950937515856843,
       "sharpe_ratio": null,
       "sortino_ratio": null,
       "beta": null,
@@ -1549,7 +1569,7 @@
       "roi": -0.0006298605794681862,
       "max_drawdown": 0.0311677200959033,
       "returns_by_range": {
-        "1D": -2.2058724783360197e-08,
+        "1D": 0.0,
         "1W": 0.032060524288401476,
         "1M": null,
         "YTD": null,
@@ -1648,6 +1668,10 @@
         {
           "date": "2026-09-26",
           "equity": 9993.701394205318
+        },
+        {
+          "date": "2026-09-27",
+          "equity": 9993.701394205318
         }
       ],
       "current_positions": {
@@ -1707,13 +1731,13 @@
           "entry_date": "2026-09-23"
         }
       },
-      "n_days": 23,
+      "n_days": 24,
       "validation": {
         "label": "Building history",
-        "n_days": 23,
+        "n_days": 24,
         "min_days_for_next_tier": 30
       },
-      "annualized_volatility": 0.10807493372892206,
+      "annualized_volatility": 0.10571850417679554,
       "sharpe_ratio": null,
       "sortino_ratio": null,
       "beta": null,
@@ -1924,7 +1948,7 @@
       "roi": -0.011059128330215207,
       "max_drawdown": 0.02723670544296149,
       "returns_by_range": {
-        "1D": -2.149052796577712e-08,
+        "1D": 0.0,
         "1W": 0.013408922228118162,
         "1M": null,
         "YTD": null,
@@ -2022,6 +2046,10 @@
         },
         {
           "date": "2026-09-26",
+          "equity": 9889.408716697848
+        },
+        {
+          "date": "2026-09-27",
           "equity": 9889.408716697848
         }
       ],
@@ -2122,13 +2150,13 @@
           "entry_date": "2026-09-25"
         }
       },
-      "n_days": 23,
+      "n_days": 24,
       "validation": {
         "label": "Building history",
-        "n_days": 23,
+        "n_days": 24,
         "min_days_for_next_tier": 30
       },
-      "annualized_volatility": 0.11804831578778331,
+      "annualized_volatility": 0.1154656277059885,
       "sharpe_ratio": null,
       "sortino_ratio": null,
       "beta": null,
@@ -3794,7 +3822,7 @@
       "roi": -0.05118484500207032,
       "max_drawdown": 0.03256098608299208,
       "returns_by_range": {
-        "1D": -5.201999342758764e-08,
+        "1D": 0.0,
         "1W": 0.013039294887753971,
         "1M": null,
         "YTD": null,
@@ -3893,6 +3921,10 @@
         {
           "date": "2026-09-26",
           "equity": 9488.151549979297
+        },
+        {
+          "date": "2026-09-27",
+          "equity": 9488.151549979297
         }
       ],
       "current_positions": {
@@ -3922,13 +3954,13 @@
           "entry_date": "2026-09-04"
         }
       },
-      "n_days": 23,
+      "n_days": 24,
       "validation": {
         "label": "Building history",
-        "n_days": 23,
+        "n_days": 24,
         "min_days_for_next_tier": 30
       },
-      "annualized_volatility": 0.17741411622992007,
+      "annualized_volatility": 0.1735144730951114,
       "sharpe_ratio": null,
       "sortino_ratio": null,
       "beta": null,
@@ -3945,7 +3977,7 @@
       "roi": -0.05581014621591748,
       "max_drawdown": 0.04641136879167424,
       "returns_by_range": {
-        "1D": -1.766819024733424e-08,
+        "1D": 0.0,
         "1W": -0.004746540407543939,
         "1M": null,
         "YTD": null,
@@ -4044,6 +4076,10 @@
         {
           "date": "2026-09-26",
           "equity": 9441.898537840825
+        },
+        {
+          "date": "2026-09-27",
+          "equity": 9441.898537840825
         }
       ],
       "current_positions": {
@@ -4113,13 +4149,13 @@
           "entry_date": "2026-09-15"
         }
       },
-      "n_days": 23,
+      "n_days": 24,
       "validation": {
         "label": "Building history",
-        "n_days": 23,
+        "n_days": 24,
         "min_days_for_next_tier": 30
       },
-      "annualized_volatility": 0.17471505788243852,
+      "annualized_volatility": 0.1709334296640922,
       "sharpe_ratio": null,
       "sortino_ratio": null,
       "beta": null,
@@ -6980,6 +7016,10 @@
       {
         "date": "2026-09-26",
         "equity": 9976.460545546257
+      },
+      {
+        "date": "2026-09-27",
+        "equity": 9976.460545546257
       }
     ],
     "returns_by_range": {
@@ -7159,46 +7199,10 @@
     }
   ],
   "recommendations": {
-    "date": "2026-09-26",
+    "date": "2026-09-27",
     "n_active_strategies": 9,
     "best_strategy": null,
-    "top_buy": [
-      {
-        "symbol": "SMCI",
-        "count": 3,
-        "n_active_strategies": 9,
-        "pct": 0.3333333333333333,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "MSFT",
-        "count": 2,
-        "n_active_strategies": 9,
-        "pct": 0.2222222222222222,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "IONQ",
-        "count": 2,
-        "n_active_strategies": 9,
-        "pct": 0.2222222222222222,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "MSTR",
-        "count": 1,
-        "n_active_strategies": 9,
-        "pct": 0.1111111111111111,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "AAPL",
-        "count": 1,
-        "n_active_strategies": 9,
-        "pct": 0.1111111111111111,
-        "best_strategy_stance": "no position"
-      }
-    ],
+    "top_buy": [],
     "top_hold": [
       {
         "symbol": "CRM",
@@ -7215,14 +7219,35 @@
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "PFE",
+        "symbol": "SMCI",
+        "count": 5,
+        "n_active_strategies": 9,
+        "pct": 0.5555555555555556,
+        "best_strategy_stance": "no position"
+      },
+      {
+        "symbol": "GME",
+        "count": 5,
+        "n_active_strategies": 9,
+        "pct": 0.5555555555555556,
+        "best_strategy_stance": "no position"
+      },
+      {
+        "symbol": "MSTR",
+        "count": 5,
+        "n_active_strategies": 9,
+        "pct": 0.5555555555555556,
+        "best_strategy_stance": "no position"
+      },
+      {
+        "symbol": "META",
         "count": 4,
         "n_active_strategies": 9,
         "pct": 0.4444444444444444,
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "GME",
+        "symbol": "PFE",
         "count": 4,
         "n_active_strategies": 9,
         "pct": 0.4444444444444444,
@@ -7248,80 +7273,9 @@
         "n_active_strategies": 9,
         "pct": 0.4444444444444444,
         "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "META",
-        "count": 3,
-        "n_active_strategies": 9,
-        "pct": 0.3333333333333333,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "U",
-        "count": 3,
-        "n_active_strategies": 9,
-        "pct": 0.3333333333333333,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "ADBE",
-        "count": 3,
-        "n_active_strategies": 9,
-        "pct": 0.3333333333333333,
-        "best_strategy_stance": "no position"
       }
     ],
-    "top_sell": [
-      {
-        "symbol": "MSTR",
-        "count": 2,
-        "n_active_strategies": 9,
-        "pct": 0.2222222222222222,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "INTC",
-        "count": 2,
-        "n_active_strategies": 9,
-        "pct": 0.2222222222222222,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "META",
-        "count": 1,
-        "n_active_strategies": 9,
-        "pct": 0.1111111111111111,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "GME",
-        "count": 1,
-        "n_active_strategies": 9,
-        "pct": 0.1111111111111111,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "AMC",
-        "count": 1,
-        "n_active_strategies": 9,
-        "pct": 0.1111111111111111,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "PLTR",
-        "count": 1,
-        "n_active_strategies": 9,
-        "pct": 0.1111111111111111,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "RKLB",
-        "count": 1,
-        "n_active_strategies": 9,
-        "pct": 0.1111111111111111,
-        "best_strategy_stance": "no position"
-      }
-    ]
+    "top_sell": []
   },
   "correlation": {
     "matrix": {
@@ -10191,11 +10145,15 @@
       {
         "date": "2026-09-26",
         "equity": 91652.83420945331
+      },
+      {
+        "date": "2026-09-27",
+        "equity": 91652.83420945331
       }
     ],
     "returns_by_range": {
-      "1D": -0.1802634229959053,
-      "1W": -0.4843061233821888,
+      "1D": 0.0,
+      "1W": -0.4842946535400767,
       "1M": null,
       "YTD": null,
       "1Y": null,
