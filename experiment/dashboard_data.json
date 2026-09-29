@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T21:43:16.637374+00:00",
+  "generated_at": "2026-09-29T21:43:44.623447+00:00",
   "strategies": [
     {
       "strategy_id": "iv_term_structure",
@@ -8,12 +8,12 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 11266.374263462498,
-      "roi": 0.12663742634624978,
+      "latest_equity": 10828.023202877845,
+      "roi": 0.08280232028778446,
       "max_drawdown": 0.042415410868576996,
       "returns_by_range": {
-        "1D": 0.06056696665477763,
-        "1W": 0.05103435144867218,
+        "1D": -0.03890790864335574,
+        "1W": 0.0039009879268394228,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -119,6 +119,10 @@
         {
           "date": "2026-09-28",
           "equity": 11266.374263462498
+        },
+        {
+          "date": "2026-09-29",
+          "equity": 10828.023202877845
         }
       ],
       "current_positions": {
@@ -128,14 +132,14 @@
           "entry_date": "2026-09-04"
         },
         "AMC": {
-          "shares": 2090.043002814519,
+          "shares": 1411.3332747701202,
           "entry_price": 2.9444112922680277,
-          "entry_date": "2026-09-28"
+          "entry_date": "2026-09-29"
         },
         "ARM": {
-          "shares": 0.32599883321050266,
-          "entry_price": 283.75499508341534,
-          "entry_date": "2026-09-28"
+          "shares": 2.0453059862132763,
+          "entry_price": 292.4599532528995,
+          "entry_date": "2026-09-29"
         },
         "BAC": {
           "shares": 0.1497404386144489,
@@ -147,10 +151,20 @@
           "entry_price": 254.49589905891554,
           "entry_date": "2026-09-15"
         },
+        "GME": {
+          "shares": 18.071828796235117,
+          "entry_price": 23.79564023962651,
+          "entry_date": "2026-09-29"
+        },
         "HOOD": {
           "shares": 1.084768457687379,
           "entry_price": 124.72,
           "entry_date": "2026-09-04"
+        },
+        "INTC": {
+          "shares": 2.053289601181696,
+          "entry_price": 115.96477901173986,
+          "entry_date": "2026-09-29"
         },
         "IONQ": {
           "shares": 3.291357627363352,
@@ -167,6 +181,11 @@
           "entry_price": 13.650445073456119,
           "entry_date": "2026-09-22"
         },
+        "MSTR": {
+          "shares": 3.786411293967365,
+          "entry_price": 154.90200513157288,
+          "entry_date": "2026-09-29"
+        },
         "RBLX": {
           "shares": 4.863497502245669,
           "entry_price": 51.366935148928896,
@@ -182,19 +201,29 @@
           "entry_price": 72.29828505039684,
           "entry_date": "2026-09-28"
         },
+        "SNOW": {
+          "shares": 0.5846135859376115,
+          "entry_price": 330.80546516841605,
+          "entry_date": "2026-09-29"
+        },
+        "TSLA": {
+          "shares": 0.37843678221379323,
+          "entry_price": 352.9458520166468,
+          "entry_date": "2026-09-29"
+        },
         "U": {
           "shares": 7.548879264714831,
           "entry_price": 43.69301653543286,
           "entry_date": "2026-09-23"
         }
       },
-      "n_days": 25,
+      "n_days": 26,
       "validation": {
         "label": "Building history",
-        "n_days": 25,
+        "n_days": 26,
         "min_days_for_next_tier": 30
       },
-      "annualized_volatility": 0.32545374113239794,
+      "annualized_volatility": 0.3467708753271892,
       "sharpe_ratio": null,
       "sortino_ratio": null,
       "beta": null,
@@ -403,195 +432,6 @@
       "sortino_ratio": null,
       "beta": null,
       "category": "Macro"
-    },
-    {
-      "strategy_id": "put_call_oi_ratio",
-      "display_name": "Put/Call Open Interest Ratio",
-      "status": "active",
-      "eliminated_on": null,
-      "elimination_reason": null,
-      "starting_cash": 10000.0,
-      "latest_equity": 10342.949237518435,
-      "roi": 0.034294923751843454,
-      "max_drawdown": 0.03932698659845191,
-      "returns_by_range": {
-        "1D": 0.022259538586103474,
-        "1W": 0.010276315444704183,
-        "1M": null,
-        "YTD": null,
-        "1Y": null,
-        "5Y": null
-      },
-      "equity_history": [
-        {
-          "date": "2026-09-04",
-          "equity": 9616.198689076406
-        },
-        {
-          "date": "2026-09-05",
-          "equity": 9616.198689076406
-        },
-        {
-          "date": "2026-09-06",
-          "equity": 9616.198689076406
-        },
-        {
-          "date": "2026-09-07",
-          "equity": 9616.198689076406
-        },
-        {
-          "date": "2026-09-08",
-          "equity": 9651.401105384843
-        },
-        {
-          "date": "2026-09-09",
-          "equity": 9527.206018241446
-        },
-        {
-          "date": "2026-09-10",
-          "equity": 9597.397058729897
-        },
-        {
-          "date": "2026-09-11",
-          "equity": 9667.88881147083
-        },
-        {
-          "date": "2026-09-12",
-          "equity": 9667.878994337101
-        },
-        {
-          "date": "2026-09-13",
-          "equity": 9667.878994337101
-        },
-        {
-          "date": "2026-09-14",
-          "equity": 10209.459297756568
-        },
-        {
-          "date": "2026-09-15",
-          "equity": 10022.027082435581
-        },
-        {
-          "date": "2026-09-16",
-          "equity": 9807.952028776255
-        },
-        {
-          "date": "2026-09-17",
-          "equity": 9932.864263822146
-        },
-        {
-          "date": "2026-09-18",
-          "equity": 9936.5351225353
-        },
-        {
-          "date": "2026-09-19",
-          "equity": 9934.869225668925
-        },
-        {
-          "date": "2026-09-20",
-          "equity": 9934.868452242537
-        },
-        {
-          "date": "2026-09-21",
-          "equity": 10237.742961405234
-        },
-        {
-          "date": "2026-09-22",
-          "equity": 10188.291363435654
-        },
-        {
-          "date": "2026-09-23",
-          "equity": 10138.175395126254
-        },
-        {
-          "date": "2026-09-24",
-          "equity": 10128.502338151213
-        },
-        {
-          "date": "2026-09-25",
-          "equity": 10117.733165712361
-        },
-        {
-          "date": "2026-09-26",
-          "equity": 10117.733165712361
-        },
-        {
-          "date": "2026-09-27",
-          "equity": 10117.733165712361
-        },
-        {
-          "date": "2026-09-28",
-          "equity": 10342.949237518435
-        }
-      ],
-      "current_positions": {
-        "AI": {
-          "shares": 24.499701678223573,
-          "entry_price": 10.9,
-          "entry_date": "2026-09-14"
-        },
-        "AMC": {
-          "shares": 1506.7841891379085,
-          "entry_price": 2.9574220821441823,
-          "entry_date": "2026-09-28"
-        },
-        "GME": {
-          "shares": 34.43166091425735,
-          "entry_price": 24.156042422668285,
-          "entry_date": "2026-09-24"
-        },
-        "JNJ": {
-          "shares": 0.06964846826495462,
-          "entry_price": 275.23,
-          "entry_date": "2026-09-05"
-        },
-        "KO": {
-          "shares": 6.063494508532974,
-          "entry_price": 89.37680518333119,
-          "entry_date": "2026-09-14"
-        },
-        "MARA": {
-          "shares": 18.07551107248493,
-          "entry_price": 13.54418919778269,
-          "entry_date": "2026-09-22"
-        },
-        "MSTR": {
-          "shares": 0.8858054869577334,
-          "entry_price": 164.16270304439206,
-          "entry_date": "2026-09-22"
-        },
-        "NVDA": {
-          "shares": 0.02789926028161317,
-          "entry_price": 230.36,
-          "entry_date": "2026-09-05"
-        },
-        "RBLX": {
-          "shares": 50.99659715196756,
-          "entry_price": 51.36320471507251,
-          "entry_date": "2026-09-14"
-        },
-        "SMCI": {
-          "shares": 30.000903031662254,
-          "entry_price": 43.32489018858406,
-          "entry_date": "2026-09-25"
-        },
-        "XOM": {
-          "shares": 0.03333860213913002,
-          "entry_price": 168.883080616369,
-          "entry_date": "2026-09-15"
-        }
-      },
-      "n_days": 25,
-      "validation": {
-        "label": "Building history",
-        "n_days": 25,
-        "min_days_for_next_tier": 30
-      },
-      "annualized_volatility": 0.24284458856561775,
-      "sharpe_ratio": null,
-      "sortino_ratio": null,
-      "beta": null,
-      "category": "Options-Derived"
     },
     {
       "strategy_id": "short_squeeze_candidate",
@@ -1391,200 +1231,6 @@
       "category": "Macro"
     },
     {
-      "strategy_id": "adx_trend",
-      "display_name": "ADX Trend Strength",
-      "status": "active",
-      "eliminated_on": null,
-      "elimination_reason": null,
-      "starting_cash": 10000.0,
-      "latest_equity": 10009.437864944635,
-      "roi": 0.0009437864944635294,
-      "max_drawdown": 0.0311677200959033,
-      "returns_by_range": {
-        "1D": 0.0015746388768871648,
-        "1W": 0.022650817692912065,
-        "1M": null,
-        "YTD": null,
-        "1Y": null,
-        "5Y": null
-      },
-      "equity_history": [
-        {
-          "date": "2026-09-04",
-          "equity": 9863.121935555902
-        },
-        {
-          "date": "2026-09-05",
-          "equity": 9863.121935555902
-        },
-        {
-          "date": "2026-09-06",
-          "equity": 9863.121935555902
-        },
-        {
-          "date": "2026-09-07",
-          "equity": 9863.121935555902
-        },
-        {
-          "date": "2026-09-08",
-          "equity": 9671.260468499318
-        },
-        {
-          "date": "2026-09-09",
-          "equity": 9640.776637682591
-        },
-        {
-          "date": "2026-09-10",
-          "equity": 9581.839365301252
-        },
-        {
-          "date": "2026-09-11",
-          "equity": 9656.209421032003
-        },
-        {
-          "date": "2026-09-12",
-          "equity": 9656.209368824893
-        },
-        {
-          "date": "2026-09-13",
-          "equity": 9656.209368824893
-        },
-        {
-          "date": "2026-09-14",
-          "equity": 9716.406921370828
-        },
-        {
-          "date": "2026-09-15",
-          "equity": 9616.665174378537
-        },
-        {
-          "date": "2026-09-16",
-          "equity": 9555.710911796732
-        },
-        {
-          "date": "2026-09-17",
-          "equity": 9629.06011505219
-        },
-        {
-          "date": "2026-09-18",
-          "equity": 9683.25149380048
-        },
-        {
-          "date": "2026-09-19",
-          "equity": 9683.251281310178
-        },
-        {
-          "date": "2026-09-20",
-          "equity": 9683.251281310178
-        },
-        {
-          "date": "2026-09-21",
-          "equity": 9787.737604831536
-        },
-        {
-          "date": "2026-09-22",
-          "equity": 9846.724113995082
-        },
-        {
-          "date": "2026-09-23",
-          "equity": 9904.325057725602
-        },
-        {
-          "date": "2026-09-24",
-          "equity": 9993.055741603039
-        },
-        {
-          "date": "2026-09-25",
-          "equity": 9993.701614653632
-        },
-        {
-          "date": "2026-09-26",
-          "equity": 9993.701394205318
-        },
-        {
-          "date": "2026-09-27",
-          "equity": 9993.701394205318
-        },
-        {
-          "date": "2026-09-28",
-          "equity": 10009.437864944635
-        }
-      ],
-      "current_positions": {
-        "AMC": {
-          "shares": 7.517338527584401,
-          "entry_price": 3.2949350049756685,
-          "entry_date": "2026-09-28"
-        },
-        "COIN": {
-          "shares": 0.13078154673754536,
-          "entry_price": 195.40266501338712,
-          "entry_date": "2026-09-25"
-        },
-        "CRM": {
-          "shares": 1.7908495644066755,
-          "entry_price": 264.43,
-          "entry_date": "2026-09-04"
-        },
-        "GME": {
-          "shares": 57.9419893920022,
-          "entry_price": 23.104226905454563,
-          "entry_date": "2026-09-28"
-        },
-        "MA": {
-          "shares": 0.47498383689487733,
-          "entry_price": 585.71,
-          "entry_date": "2026-09-04"
-        },
-        "META": {
-          "shares": 0.19654893502116427,
-          "entry_price": 754.2053678375362,
-          "entry_date": "2026-09-24"
-        },
-        "MSFT": {
-          "shares": 0.13351097335198586,
-          "entry_price": 510.13101042239583,
-          "entry_date": "2026-09-26"
-        },
-        "MSTR": {
-          "shares": 2.436859209480251,
-          "entry_price": 154.53956507112116,
-          "entry_date": "2026-09-28"
-        },
-        "PFE": {
-          "shares": 252.00334978739195,
-          "entry_price": 28.81,
-          "entry_date": "2026-09-04"
-        },
-        "RBLX": {
-          "shares": 0.5368507519770385,
-          "entry_price": 48.8148497606481,
-          "entry_date": "2026-09-24"
-        },
-        "SMCI": {
-          "shares": 0.5931688051734731,
-          "entry_price": 43.324890003728626,
-          "entry_date": "2026-09-25"
-        },
-        "U": {
-          "shares": 0.45289094057840923,
-          "entry_price": 42.105017279007185,
-          "entry_date": "2026-09-23"
-        }
-      },
-      "n_days": 25,
-      "validation": {
-        "label": "Building history",
-        "n_days": 25,
-        "min_days_for_next_tier": 30
-      },
-      "annualized_volatility": 0.10353931638060158,
-      "sharpe_ratio": null,
-      "sortino_ratio": null,
-      "beta": null,
-      "category": "Trend"
-    },
-    {
       "strategy_id": "seasonality_composite",
       "display_name": "Turn-of-Month + Day-of-Week Seasonality",
       "status": "eliminated",
@@ -1803,6 +1449,204 @@
       "category": "Options-Derived"
     },
     {
+      "strategy_id": "adx_trend",
+      "display_name": "ADX Trend Strength",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 9987.700485741048,
+      "roi": -0.0012299514258951605,
+      "max_drawdown": 0.0311677200959033,
+      "returns_by_range": {
+        "1D": -0.002171688310261281,
+        "1W": 0.01431708354107308,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 9863.121935555902
+        },
+        {
+          "date": "2026-09-05",
+          "equity": 9863.121935555902
+        },
+        {
+          "date": "2026-09-06",
+          "equity": 9863.121935555902
+        },
+        {
+          "date": "2026-09-07",
+          "equity": 9863.121935555902
+        },
+        {
+          "date": "2026-09-08",
+          "equity": 9671.260468499318
+        },
+        {
+          "date": "2026-09-09",
+          "equity": 9640.776637682591
+        },
+        {
+          "date": "2026-09-10",
+          "equity": 9581.839365301252
+        },
+        {
+          "date": "2026-09-11",
+          "equity": 9656.209421032003
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 9656.209368824893
+        },
+        {
+          "date": "2026-09-13",
+          "equity": 9656.209368824893
+        },
+        {
+          "date": "2026-09-14",
+          "equity": 9716.406921370828
+        },
+        {
+          "date": "2026-09-15",
+          "equity": 9616.665174378537
+        },
+        {
+          "date": "2026-09-16",
+          "equity": 9555.710911796732
+        },
+        {
+          "date": "2026-09-17",
+          "equity": 9629.06011505219
+        },
+        {
+          "date": "2026-09-18",
+          "equity": 9683.25149380048
+        },
+        {
+          "date": "2026-09-19",
+          "equity": 9683.251281310178
+        },
+        {
+          "date": "2026-09-20",
+          "equity": 9683.251281310178
+        },
+        {
+          "date": "2026-09-21",
+          "equity": 9787.737604831536
+        },
+        {
+          "date": "2026-09-22",
+          "equity": 9846.724113995082
+        },
+        {
+          "date": "2026-09-23",
+          "equity": 9904.325057725602
+        },
+        {
+          "date": "2026-09-24",
+          "equity": 9993.055741603039
+        },
+        {
+          "date": "2026-09-25",
+          "equity": 9993.701614653632
+        },
+        {
+          "date": "2026-09-26",
+          "equity": 9993.701394205318
+        },
+        {
+          "date": "2026-09-27",
+          "equity": 9993.701394205318
+        },
+        {
+          "date": "2026-09-28",
+          "equity": 10009.437864944635
+        },
+        {
+          "date": "2026-09-29",
+          "equity": 9987.700485741048
+        }
+      ],
+      "current_positions": {
+        "AMC": {
+          "shares": 7.517338527584401,
+          "entry_price": 3.2949350049756685,
+          "entry_date": "2026-09-28"
+        },
+        "COIN": {
+          "shares": 0.13078154673754536,
+          "entry_price": 195.40266501338712,
+          "entry_date": "2026-09-25"
+        },
+        "CRM": {
+          "shares": 1.7908495644066755,
+          "entry_price": 264.43,
+          "entry_date": "2026-09-04"
+        },
+        "GME": {
+          "shares": 61.120147657232465,
+          "entry_price": 23.14017937709081,
+          "entry_date": "2026-09-29"
+        },
+        "MA": {
+          "shares": 0.47498383689487733,
+          "entry_price": 585.71,
+          "entry_date": "2026-09-04"
+        },
+        "META": {
+          "shares": 0.19654893502116427,
+          "entry_price": 754.2053678375362,
+          "entry_date": "2026-09-24"
+        },
+        "MSFT": {
+          "shares": 0.13351097335198586,
+          "entry_price": 510.13101042239583,
+          "entry_date": "2026-09-26"
+        },
+        "MSTR": {
+          "shares": 1.947172004691796,
+          "entry_price": 154.53956507112116,
+          "entry_date": "2026-09-29"
+        },
+        "PFE": {
+          "shares": 252.00334978739195,
+          "entry_price": 28.81,
+          "entry_date": "2026-09-04"
+        },
+        "RBLX": {
+          "shares": 0.5368507519770385,
+          "entry_price": 48.8148497606481,
+          "entry_date": "2026-09-24"
+        },
+        "SMCI": {
+          "shares": 0.5931688051734731,
+          "entry_price": 43.324890003728626,
+          "entry_date": "2026-09-25"
+        },
+        "U": {
+          "shares": 0.45289094057840923,
+          "entry_price": 42.105017279007185,
+          "entry_date": "2026-09-23"
+        }
+      },
+      "n_days": 26,
+      "validation": {
+        "label": "Building history",
+        "n_days": 26,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": 0.10182244244216683,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Trend"
+    },
+    {
       "strategy_id": "stochastic_momentum",
       "display_name": "Stochastic Oscillator Momentum",
       "status": "eliminated",
@@ -1995,6 +1839,214 @@
       "sortino_ratio": null,
       "beta": null,
       "category": "Momentum"
+    },
+    {
+      "strategy_id": "put_call_oi_ratio",
+      "display_name": "Put/Call Open Interest Ratio",
+      "status": "active",
+      "eliminated_on": null,
+      "elimination_reason": null,
+      "starting_cash": 10000.0,
+      "latest_equity": 9952.224520656833,
+      "roi": -0.0047775479343166805,
+      "max_drawdown": 0.03932698659845191,
+      "returns_by_range": {
+        "1D": -0.03777691525781356,
+        "1W": -0.023170405552596505,
+        "1M": null,
+        "YTD": null,
+        "1Y": null,
+        "5Y": null
+      },
+      "equity_history": [
+        {
+          "date": "2026-09-04",
+          "equity": 9616.198689076406
+        },
+        {
+          "date": "2026-09-05",
+          "equity": 9616.198689076406
+        },
+        {
+          "date": "2026-09-06",
+          "equity": 9616.198689076406
+        },
+        {
+          "date": "2026-09-07",
+          "equity": 9616.198689076406
+        },
+        {
+          "date": "2026-09-08",
+          "equity": 9651.401105384843
+        },
+        {
+          "date": "2026-09-09",
+          "equity": 9527.206018241446
+        },
+        {
+          "date": "2026-09-10",
+          "equity": 9597.397058729897
+        },
+        {
+          "date": "2026-09-11",
+          "equity": 9667.88881147083
+        },
+        {
+          "date": "2026-09-12",
+          "equity": 9667.878994337101
+        },
+        {
+          "date": "2026-09-13",
+          "equity": 9667.878994337101
+        },
+        {
+          "date": "2026-09-14",
+          "equity": 10209.459297756568
+        },
+        {
+          "date": "2026-09-15",
+          "equity": 10022.027082435581
+        },
+        {
+          "date": "2026-09-16",
+          "equity": 9807.952028776255
+        },
+        {
+          "date": "2026-09-17",
+          "equity": 9932.864263822146
+        },
+        {
+          "date": "2026-09-18",
+          "equity": 9936.5351225353
+        },
+        {
+          "date": "2026-09-19",
+          "equity": 9934.869225668925
+        },
+        {
+          "date": "2026-09-20",
+          "equity": 9934.868452242537
+        },
+        {
+          "date": "2026-09-21",
+          "equity": 10237.742961405234
+        },
+        {
+          "date": "2026-09-22",
+          "equity": 10188.291363435654
+        },
+        {
+          "date": "2026-09-23",
+          "equity": 10138.175395126254
+        },
+        {
+          "date": "2026-09-24",
+          "equity": 10128.502338151213
+        },
+        {
+          "date": "2026-09-25",
+          "equity": 10117.733165712361
+        },
+        {
+          "date": "2026-09-26",
+          "equity": 10117.733165712361
+        },
+        {
+          "date": "2026-09-27",
+          "equity": 10117.733165712361
+        },
+        {
+          "date": "2026-09-28",
+          "equity": 10342.949237518435
+        },
+        {
+          "date": "2026-09-29",
+          "equity": 9952.224520656833
+        }
+      ],
+      "current_positions": {
+        "AI": {
+          "shares": 24.499701678223573,
+          "entry_price": 10.9,
+          "entry_date": "2026-09-14"
+        },
+        "AMC": {
+          "shares": 1252.0852432790227,
+          "entry_price": 2.9574220821441823,
+          "entry_date": "2026-09-29"
+        },
+        "GME": {
+          "shares": 34.43166091425735,
+          "entry_price": 24.156042422668285,
+          "entry_date": "2026-09-24"
+        },
+        "JNJ": {
+          "shares": 0.06964846826495462,
+          "entry_price": 275.23,
+          "entry_date": "2026-09-05"
+        },
+        "KO": {
+          "shares": 6.063494508532974,
+          "entry_price": 89.37680518333119,
+          "entry_date": "2026-09-14"
+        },
+        "MARA": {
+          "shares": 18.07551107248493,
+          "entry_price": 13.54418919778269,
+          "entry_date": "2026-09-22"
+        },
+        "MSFT": {
+          "shares": 0.49152815184041415,
+          "entry_price": 509.1126880601279,
+          "entry_date": "2026-09-29"
+        },
+        "MSTR": {
+          "shares": 0.8858054869577334,
+          "entry_price": 164.16270304439206,
+          "entry_date": "2026-09-22"
+        },
+        "NVDA": {
+          "shares": 0.02789926028161317,
+          "entry_price": 230.36,
+          "entry_date": "2026-09-05"
+        },
+        "PFE": {
+          "shares": 15.748107423239293,
+          "entry_price": 28.72861607037966,
+          "entry_date": "2026-09-29"
+        },
+        "PG": {
+          "shares": 0.5434686870528666,
+          "entry_price": 148.36449605114657,
+          "entry_date": "2026-09-29"
+        },
+        "RBLX": {
+          "shares": 50.99659715196756,
+          "entry_price": 51.36320471507251,
+          "entry_date": "2026-09-14"
+        },
+        "SMCI": {
+          "shares": 30.000903031662254,
+          "entry_price": 43.32489018858406,
+          "entry_date": "2026-09-25"
+        },
+        "XOM": {
+          "shares": 0.03333860213913002,
+          "entry_price": 168.883080616369,
+          "entry_date": "2026-09-15"
+        }
+      },
+      "n_days": 26,
+      "validation": {
+        "label": "Building history",
+        "n_days": 26,
+        "min_days_for_next_tier": 30
+      },
+      "annualized_volatility": 0.26986528191614284,
+      "sharpe_ratio": null,
+      "sortino_ratio": null,
+      "beta": null,
+      "category": "Options-Derived"
     },
     {
       "strategy_id": "distance_52w_low",
@@ -2257,12 +2309,12 @@
       "eliminated_on": null,
       "elimination_reason": null,
       "starting_cash": 10000.0,
-      "latest_equity": 9730.43200859705,
-      "roi": -0.02695679914029497,
+      "latest_equity": 9724.40794734687,
+      "roi": -0.027559205265312994,
       "max_drawdown": 0.02723670544296149,
       "returns_by_range": {
-        "1D": -0.01607545128884927,
-        "1W": -0.015101072572939035,
+        "1D": -0.0006190949430465007,
+        "1W": -0.019285579445416173,
         "1M": null,
         "YTD": null,
         "1Y": null,
@@ -2368,6 +2420,10 @@
         {
           "date": "2026-09-28",
           "equity": 9730.43200859705
+        },
+        {
+          "date": "2026-09-29",
+          "equity": 9724.40794734687
         }
       ],
       "current_positions": {
@@ -2402,9 +2458,9 @@
           "entry_date": "2026-09-04"
         },
         "GME": {
-          "shares": 13.312304839466924,
-          "entry_price": 23.39308062655693,
-          "entry_date": "2026-09-28"
+          "shares": 14.64503054066142,
+          "entry_price": 23.429714298662017,
+          "entry_date": "2026-09-29"
         },
         "HOOD": {
           "shares": 0.9732816063600804,
@@ -2431,6 +2487,11 @@
           "entry_price": 13.650445011474307,
           "entry_date": "2026-09-22"
         },
+        "MSFT": {
+          "shares": 0.018176426667682318,
+          "entry_price": 509.1126880022235,
+          "entry_date": "2026-09-29"
+        },
         "MSTR": {
           "shares": 0.3813184073302683,
           "entry_price": 156.98693309674866,
@@ -2442,9 +2503,9 @@
           "entry_date": "2026-09-04"
         },
         "PG": {
-          "shares": 0.38603968233017755,
+          "shares": 0.14203429035906956,
           "entry_price": 148.04248764595263,
-          "entry_date": "2026-09-28"
+          "entry_date": "2026-09-29"
         },
         "PLTR": {
           "shares": 0.6131881993052757,
@@ -2461,24 +2522,29 @@
           "entry_price": 41.84267000248509,
           "entry_date": "2026-09-28"
         },
+        "U": {
+          "shares": 0.2122822286040463,
+          "entry_price": 39.77958000396539,
+          "entry_date": "2026-09-29"
+        },
         "V": {
           "shares": 0.0760549351355211,
           "entry_price": 375.73268602536467,
           "entry_date": "2026-09-15"
         },
         "XOM": {
-          "shares": 0.13898023276426646,
+          "shares": 0.05695137312463497,
           "entry_price": 160.63817702339708,
-          "entry_date": "2026-09-28"
+          "entry_date": "2026-09-29"
         }
       },
-      "n_days": 25,
+      "n_days": 26,
       "validation": {
         "label": "Building history",
-        "n_days": 25,
+        "n_days": 26,
         "min_days_for_next_tier": 30
       },
-      "annualized_volatility": 0.12465701161461264,
+      "annualized_volatility": 0.12214550121837518,
       "sharpe_ratio": null,
       "sortino_ratio": null,
       "beta": null,
@@ -7095,11 +7161,15 @@
       {
         "date": "2026-09-28",
         "equity": 9902.220727653686
+      },
+      {
+        "date": "2026-09-29",
+        "equity": 9883.984117335127
       }
     ],
     "returns_by_range": {
-      "1D": -0.007441498671160788,
-      "1W": -0.010200387847446596,
+      "1D": -0.0018416687347344836,
+      "1W": -0.011869973363676236,
       "1M": null,
       "YTD": null,
       "1Y": null,
@@ -7108,185 +7178,204 @@
   },
   "positions_by_stock": [
     {
-      "symbol": "AMC",
-      "total_value": 12456.857551221206,
-      "n_strategies": 5
+      "symbol": "PFE",
+      "total_value": 12330.385356494555,
+      "n_strategies": 3
     },
     {
-      "symbol": "PFE",
-      "total_value": 11878.09971129912,
+      "symbol": "AMC",
+      "total_value": 8226.48243825632,
+      "n_strategies": 3
+    },
+    {
+      "symbol": "GME",
+      "total_value": 3047.6635495032597,
+      "n_strategies": 4
+    },
+    {
+      "symbol": "ADBE",
+      "total_value": 2662.753378815026,
+      "n_strategies": 2
+    },
+    {
+      "symbol": "RBLX",
+      "total_value": 2507.596021787317,
+      "n_strategies": 4
+    },
+    {
+      "symbol": "ARM",
+      "total_value": 1634.5828088204207,
+      "n_strategies": 2
+    },
+    {
+      "symbol": "JNJ",
+      "total_value": 1437.3050796331875,
+      "n_strategies": 2
+    },
+    {
+      "symbol": "SMCI",
+      "total_value": 1272.4451620870195,
+      "n_strategies": 3
+    },
+    {
+      "symbol": "MSTR",
+      "total_value": 1082.7993815331374,
+      "n_strategies": 4
+    },
+    {
+      "symbol": "MARA",
+      "total_value": 833.5661152068475,
+      "n_strategies": 3
+    },
+    {
+      "symbol": "INTC",
+      "total_value": 815.9929184215941,
       "n_strategies": 2
     },
     {
       "symbol": "CRM",
-      "total_value": 10441.369627947792,
-      "n_strategies": 7
-    },
-    {
-      "symbol": "SNOW",
-      "total_value": 9248.192888614138,
-      "n_strategies": 2
-    },
-    {
-      "symbol": "ARM",
-      "total_value": 7872.164639717225,
-      "n_strategies": 5
-    },
-    {
-      "symbol": "META",
-      "total_value": 6901.944440843543,
-      "n_strategies": 4
-    },
-    {
-      "symbol": "INTC",
-      "total_value": 6558.086563997203,
-      "n_strategies": 4
-    },
-    {
-      "symbol": "GME",
-      "total_value": 3726.9621382320015,
-      "n_strategies": 4
-    },
-    {
-      "symbol": "MSTR",
-      "total_value": 3298.665220634023,
-      "n_strategies": 5
-    },
-    {
-      "symbol": "RBLX",
-      "total_value": 3111.9708994886687,
-      "n_strategies": 5
-    },
-    {
-      "symbol": "ADBE",
-      "total_value": 2779.020446233391,
+      "total_value": 726.9213814144748,
       "n_strategies": 3
     },
     {
       "symbol": "AI",
-      "total_value": 2466.372064402174,
-      "n_strategies": 4
-    },
-    {
-      "symbol": "HOOD",
-      "total_value": 2413.4546950449135,
-      "n_strategies": 5
-    },
-    {
-      "symbol": "SMCI",
-      "total_value": 1650.8066639038016,
-      "n_strategies": 6
-    },
-    {
-      "symbol": "JNJ",
-      "total_value": 1460.833114348564,
+      "total_value": 665.5148322092734,
       "n_strategies": 2
-    },
-    {
-      "symbol": "MARA",
-      "total_value": 897.4053296998815,
-      "n_strategies": 4
     },
     {
       "symbol": "KO",
-      "total_value": 528.6154512539048,
+      "total_value": 526.5538631210035,
       "n_strategies": 1
-    },
-    {
-      "symbol": "U",
-      "total_value": 376.2311177538078,
-      "n_strategies": 3
     },
     {
       "symbol": "MSFT",
-      "total_value": 314.67680073172113,
+      "total_value": 327.3709872747075,
       "n_strategies": 3
     },
     {
-      "symbol": "IONQ",
-      "total_value": 295.1464406351838,
-      "n_strategies": 4
-    },
-    {
-      "symbol": "AAPL",
-      "total_value": 291.969036674723,
-      "n_strategies": 2
+      "symbol": "U",
+      "total_value": 326.2621626744002,
+      "n_strategies": 3
     },
     {
       "symbol": "MA",
-      "total_value": 269.91431515388297,
+      "total_value": 267.691390797215,
       "n_strategies": 1
     },
     {
-      "symbol": "RIOT",
-      "total_value": 242.63244043053294,
+      "symbol": "HOOD",
+      "total_value": 239.18657844359575,
       "n_strategies": 2
+    },
+    {
+      "symbol": "AAPL",
+      "total_value": 203.13022337554224,
+      "n_strategies": 1
+    },
+    {
+      "symbol": "SNOW",
+      "total_value": 193.10371357105245,
+      "n_strategies": 1
     },
     {
       "symbol": "RKLB",
-      "total_value": 229.99795838088755,
-      "n_strategies": 2
-    },
-    {
-      "symbol": "JPM",
-      "total_value": 152.72634115810064,
-      "n_strategies": 2
-    },
-    {
-      "symbol": "PLTR",
-      "total_value": 130.83110947779488,
-      "n_strategies": 2
-    },
-    {
-      "symbol": "XOM",
-      "total_value": 115.93534038816496,
-      "n_strategies": 3
-    },
-    {
-      "symbol": "NVDA",
-      "total_value": 81.80977951825022,
-      "n_strategies": 2
-    },
-    {
-      "symbol": "PG",
-      "total_value": 57.53149385766636,
+      "total_value": 178.45954658908946,
       "n_strategies": 1
     },
     {
-      "symbol": "COIN",
-      "total_value": 36.81140770617454,
+      "symbol": "JPM",
+      "total_value": 151.99581021759576,
       "n_strategies": 2
     },
     {
+      "symbol": "META",
+      "total_value": 145.20838770428594,
+      "n_strategies": 1
+    },
+    {
+      "symbol": "IONQ",
+      "total_value": 144.52351341752478,
+      "n_strategies": 1
+    },
+    {
+      "symbol": "TSLA",
+      "total_value": 133.52763423631478,
+      "n_strategies": 1
+    },
+    {
+      "symbol": "PLTR",
+      "total_value": 114.6477976241074,
+      "n_strategies": 1
+    },
+    {
+      "symbol": "PG",
+      "total_value": 101.67380160973836,
+      "n_strategies": 2
+    },
+    {
+      "symbol": "RIOT",
+      "total_value": 84.05369396642539,
+      "n_strategies": 1
+    },
+    {
       "symbol": "AMZN",
-      "total_value": 29.082088822883296,
+      "total_value": 29.143525695472768,
       "n_strategies": 1
     },
     {
       "symbol": "V",
-      "total_value": 27.96844184673653,
+      "total_value": 27.82697966738446,
       "n_strategies": 1
     },
     {
+      "symbol": "COIN",
+      "total_value": 24.85110951106837,
+      "n_strategies": 1
+    },
+    {
+      "symbol": "XOM",
+      "total_value": 14.568287508808481,
+      "n_strategies": 2
+    },
+    {
       "symbol": "BAC",
-      "total_value": 8.306102129943481,
+      "total_value": 8.229734506250113,
+      "n_strategies": 1
+    },
+    {
+      "symbol": "NVDA",
+      "total_value": 6.3389909285853285,
       "n_strategies": 1
     }
   ],
   "recommendations": {
-    "date": "2026-09-28",
+    "date": "2026-09-29",
     "n_active_strategies": 4,
     "best_strategy": null,
     "top_buy": [
       {
-        "symbol": "AMC",
+        "symbol": "GME",
+        "count": 3,
+        "n_active_strategies": 4,
+        "pct": 0.75,
+        "best_strategy_stance": "no position"
+      },
+      {
+        "symbol": "MSFT",
         "count": 2,
         "n_active_strategies": 4,
         "pct": 0.5,
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "SMCI",
+        "symbol": "PFE",
+        "count": 1,
+        "n_active_strategies": 4,
+        "pct": 0.25,
+        "best_strategy_stance": "no position"
+      },
+      {
+        "symbol": "U",
         "count": 1,
         "n_active_strategies": 4,
         "pct": 0.25,
@@ -7300,14 +7389,14 @@
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "GME",
+        "symbol": "ARM",
         "count": 1,
         "n_active_strategies": 4,
         "pct": 0.25,
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "ARM",
+        "symbol": "INTC",
         "count": 1,
         "n_active_strategies": 4,
         "pct": 0.25,
@@ -7321,14 +7410,14 @@
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "RKLB",
+        "symbol": "TSLA",
         "count": 1,
         "n_active_strategies": 4,
         "pct": 0.25,
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "IONQ",
+        "symbol": "SNOW",
         "count": 1,
         "n_active_strategies": 4,
         "pct": 0.25,
@@ -7351,6 +7440,13 @@
         "best_strategy_stance": "no position"
       },
       {
+        "symbol": "SMCI",
+        "count": 3,
+        "n_active_strategies": 4,
+        "pct": 0.75,
+        "best_strategy_stance": "no position"
+      },
+      {
         "symbol": "MARA",
         "count": 3,
         "n_active_strategies": 4,
@@ -7365,14 +7461,14 @@
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "SMCI",
+        "symbol": "U",
         "count": 2,
         "n_active_strategies": 4,
         "pct": 0.5,
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "U",
+        "symbol": "MSTR",
         "count": 2,
         "n_active_strategies": 4,
         "pct": 0.5,
@@ -7398,39 +7494,25 @@
         "n_active_strategies": 4,
         "pct": 0.5,
         "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "JNJ",
-        "count": 2,
-        "n_active_strategies": 4,
-        "pct": 0.5,
-        "best_strategy_stance": "no position"
       }
     ],
     "top_sell": [
       {
-        "symbol": "PFE",
-        "count": 2,
-        "n_active_strategies": 4,
-        "pct": 0.5,
-        "best_strategy_stance": "no position"
-      },
-      {
-        "symbol": "GME",
-        "count": 2,
-        "n_active_strategies": 4,
-        "pct": 0.5,
-        "best_strategy_stance": "no position"
-      },
-      {
         "symbol": "AMC",
+        "count": 2,
+        "n_active_strategies": 4,
+        "pct": 0.5,
+        "best_strategy_stance": "no position"
+      },
+      {
+        "symbol": "MSTR",
         "count": 1,
         "n_active_strategies": 4,
         "pct": 0.25,
         "best_strategy_stance": "no position"
       },
       {
-        "symbol": "MSTR",
+        "symbol": "PG",
         "count": 1,
         "n_active_strategies": 4,
         "pct": 0.25,
@@ -7449,16 +7531,16 @@
     "matrix": {
       "iv_term_structure": {
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -7501,16 +7583,16 @@
       },
       "risk_on_off": {
         "iv_term_structure": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -7551,70 +7633,18 @@
         "autocorrelation_momentum": null,
         "risk_on_off": 1.0
       },
-      "put_call_oi_ratio": {
-        "iv_term_structure": null,
-        "risk_on_off": null,
-        "short_squeeze_candidate": null,
-        "macd_momentum": null,
-        "oil_sensitivity_filter": null,
-        "ma_slope_acceleration": null,
-        "sector_rotation": null,
-        "adx_trend": null,
-        "seasonality_composite": null,
-        "iv_rank_low": null,
-        "stochastic_momentum": null,
-        "distance_52w_low": null,
-        "ema_50_200": null,
-        "chaikin_money_flow": null,
-        "ichimoku_cloud_signal": null,
-        "hurst_trending_regime": null,
-        "obv_trend": null,
-        "gex_regime": null,
-        "overnight_gap_fill": null,
-        "multi_timeframe_trend": null,
-        "bollinger_reversion": null,
-        "earnings_surprise_drift": null,
-        "zscore_reversion": null,
-        "distance_52w_high": null,
-        "supertrend": null,
-        "oi_concentration": null,
-        "rsi_momentum": null,
-        "max_pain_proximity": null,
-        "anchored_vwap_52w_low": null,
-        "ad_line_trend": null,
-        "parabolic_sar": null,
-        "mfi_momentum": null,
-        "keltner_breakout": null,
-        "options_skew": null,
-        "bollinger_squeeze_breakout": null,
-        "ema_9_20": null,
-        "vix_regime_filter": null,
-        "cross_sectional_momentum": null,
-        "credit_spread_proxy": null,
-        "relative_strength_market": null,
-        "dollar_strength_filter": null,
-        "cci_momentum": null,
-        "roc_momentum": null,
-        "vwma_deviation": null,
-        "unusual_volume_spike": null,
-        "session_vwap": null,
-        "donchian_breakout": null,
-        "pairs_correlation_reversion": null,
-        "autocorrelation_momentum": null,
-        "put_call_oi_ratio": 1.0
-      },
       "short_squeeze_candidate": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -7658,15 +7688,15 @@
       "macd_momentum": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -7710,15 +7740,15 @@
       "oil_sensitivity_filter": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -7762,15 +7792,15 @@
       "ma_slope_acceleration": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -7814,15 +7844,15 @@
       "sector_rotation": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -7863,70 +7893,18 @@
         "autocorrelation_momentum": null,
         "sector_rotation": 1.0
       },
-      "adx_trend": {
-        "iv_term_structure": null,
-        "risk_on_off": null,
-        "put_call_oi_ratio": null,
-        "short_squeeze_candidate": null,
-        "macd_momentum": null,
-        "oil_sensitivity_filter": null,
-        "ma_slope_acceleration": null,
-        "sector_rotation": null,
-        "seasonality_composite": null,
-        "iv_rank_low": null,
-        "stochastic_momentum": null,
-        "distance_52w_low": null,
-        "ema_50_200": null,
-        "chaikin_money_flow": null,
-        "ichimoku_cloud_signal": null,
-        "hurst_trending_regime": null,
-        "obv_trend": null,
-        "gex_regime": null,
-        "overnight_gap_fill": null,
-        "multi_timeframe_trend": null,
-        "bollinger_reversion": null,
-        "earnings_surprise_drift": null,
-        "zscore_reversion": null,
-        "distance_52w_high": null,
-        "supertrend": null,
-        "oi_concentration": null,
-        "rsi_momentum": null,
-        "max_pain_proximity": null,
-        "anchored_vwap_52w_low": null,
-        "ad_line_trend": null,
-        "parabolic_sar": null,
-        "mfi_momentum": null,
-        "keltner_breakout": null,
-        "options_skew": null,
-        "bollinger_squeeze_breakout": null,
-        "ema_9_20": null,
-        "vix_regime_filter": null,
-        "cross_sectional_momentum": null,
-        "credit_spread_proxy": null,
-        "relative_strength_market": null,
-        "dollar_strength_filter": null,
-        "cci_momentum": null,
-        "roc_momentum": null,
-        "vwma_deviation": null,
-        "unusual_volume_spike": null,
-        "session_vwap": null,
-        "donchian_breakout": null,
-        "pairs_correlation_reversion": null,
-        "autocorrelation_momentum": null,
-        "adx_trend": 1.0
-      },
       "seasonality_composite": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -7970,15 +7948,15 @@
       "iv_rank_low": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -8019,18 +7997,70 @@
         "autocorrelation_momentum": null,
         "iv_rank_low": 1.0
       },
-      "stochastic_momentum": {
+      "adx_trend": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
+        "distance_52w_low": null,
+        "ema_50_200": null,
+        "chaikin_money_flow": null,
+        "ichimoku_cloud_signal": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "gex_regime": null,
+        "overnight_gap_fill": null,
+        "multi_timeframe_trend": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "zscore_reversion": null,
+        "distance_52w_high": null,
+        "supertrend": null,
+        "oi_concentration": null,
+        "rsi_momentum": null,
+        "max_pain_proximity": null,
+        "anchored_vwap_52w_low": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "mfi_momentum": null,
+        "keltner_breakout": null,
+        "options_skew": null,
+        "bollinger_squeeze_breakout": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "cross_sectional_momentum": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "dollar_strength_filter": null,
+        "cci_momentum": null,
+        "roc_momentum": null,
+        "vwma_deviation": null,
+        "unusual_volume_spike": null,
+        "session_vwap": null,
+        "donchian_breakout": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "adx_trend": 1.0
+      },
+      "stochastic_momentum": {
+        "iv_term_structure": null,
+        "risk_on_off": null,
+        "short_squeeze_candidate": null,
+        "macd_momentum": null,
+        "oil_sensitivity_filter": null,
+        "ma_slope_acceleration": null,
+        "sector_rotation": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "adx_trend": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -8071,19 +8101,71 @@
         "autocorrelation_momentum": null,
         "stochastic_momentum": 1.0
       },
-      "distance_52w_low": {
+      "put_call_oi_ratio": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "distance_52w_low": null,
+        "ema_50_200": null,
+        "chaikin_money_flow": null,
+        "ichimoku_cloud_signal": null,
+        "hurst_trending_regime": null,
+        "obv_trend": null,
+        "gex_regime": null,
+        "overnight_gap_fill": null,
+        "multi_timeframe_trend": null,
+        "bollinger_reversion": null,
+        "earnings_surprise_drift": null,
+        "zscore_reversion": null,
+        "distance_52w_high": null,
+        "supertrend": null,
+        "oi_concentration": null,
+        "rsi_momentum": null,
+        "max_pain_proximity": null,
+        "anchored_vwap_52w_low": null,
+        "ad_line_trend": null,
+        "parabolic_sar": null,
+        "mfi_momentum": null,
+        "keltner_breakout": null,
+        "options_skew": null,
+        "bollinger_squeeze_breakout": null,
+        "ema_9_20": null,
+        "vix_regime_filter": null,
+        "cross_sectional_momentum": null,
+        "credit_spread_proxy": null,
+        "relative_strength_market": null,
+        "dollar_strength_filter": null,
+        "cci_momentum": null,
+        "roc_momentum": null,
+        "vwma_deviation": null,
+        "unusual_volume_spike": null,
+        "session_vwap": null,
+        "donchian_breakout": null,
+        "pairs_correlation_reversion": null,
+        "autocorrelation_momentum": null,
+        "put_call_oi_ratio": 1.0
+      },
+      "distance_52w_low": {
+        "iv_term_structure": null,
+        "risk_on_off": null,
+        "short_squeeze_candidate": null,
+        "macd_momentum": null,
+        "oil_sensitivity_filter": null,
+        "ma_slope_acceleration": null,
+        "sector_rotation": null,
+        "seasonality_composite": null,
+        "iv_rank_low": null,
+        "adx_trend": null,
+        "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
         "ichimoku_cloud_signal": null,
@@ -8126,16 +8208,16 @@
       "ema_50_200": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "chaikin_money_flow": null,
         "ichimoku_cloud_signal": null,
@@ -8178,16 +8260,16 @@
       "chaikin_money_flow": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "ichimoku_cloud_signal": null,
@@ -8230,16 +8312,16 @@
       "ichimoku_cloud_signal": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -8282,16 +8364,16 @@
       "hurst_trending_regime": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -8334,16 +8416,16 @@
       "obv_trend": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -8386,16 +8468,16 @@
       "gex_regime": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -8438,16 +8520,16 @@
       "overnight_gap_fill": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -8490,16 +8572,16 @@
       "multi_timeframe_trend": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -8542,16 +8624,16 @@
       "bollinger_reversion": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -8594,16 +8676,16 @@
       "earnings_surprise_drift": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -8646,16 +8728,16 @@
       "zscore_reversion": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -8698,16 +8780,16 @@
       "distance_52w_high": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -8750,16 +8832,16 @@
       "supertrend": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -8802,16 +8884,16 @@
       "oi_concentration": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -8854,16 +8936,16 @@
       "rsi_momentum": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -8906,16 +8988,16 @@
       "max_pain_proximity": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -8958,16 +9040,16 @@
       "anchored_vwap_52w_low": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -9010,16 +9092,16 @@
       "ad_line_trend": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -9062,16 +9144,16 @@
       "parabolic_sar": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -9114,16 +9196,16 @@
       "mfi_momentum": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -9166,16 +9248,16 @@
       "keltner_breakout": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -9218,16 +9300,16 @@
       "options_skew": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -9270,16 +9352,16 @@
       "bollinger_squeeze_breakout": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -9322,16 +9404,16 @@
       "ema_9_20": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -9374,16 +9456,16 @@
       "vix_regime_filter": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -9426,16 +9508,16 @@
       "cross_sectional_momentum": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -9478,16 +9560,16 @@
       "credit_spread_proxy": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -9530,16 +9612,16 @@
       "relative_strength_market": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -9582,16 +9664,16 @@
       "dollar_strength_filter": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -9634,16 +9716,16 @@
       "cci_momentum": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -9686,16 +9768,16 @@
       "roc_momentum": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -9738,16 +9820,16 @@
       "vwma_deviation": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -9790,16 +9872,16 @@
       "unusual_volume_spike": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -9842,16 +9924,16 @@
       "session_vwap": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -9894,16 +9976,16 @@
       "donchian_breakout": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -9946,16 +10028,16 @@
       "pairs_correlation_reversion": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -9998,16 +10080,16 @@
       "autocorrelation_momentum": {
         "iv_term_structure": null,
         "risk_on_off": null,
-        "put_call_oi_ratio": null,
         "short_squeeze_candidate": null,
         "macd_momentum": null,
         "oil_sensitivity_filter": null,
         "ma_slope_acceleration": null,
         "sector_rotation": null,
-        "adx_trend": null,
         "seasonality_composite": null,
         "iv_rank_low": null,
+        "adx_trend": null,
         "stochastic_momentum": null,
+        "put_call_oi_ratio": null,
         "distance_52w_low": null,
         "ema_50_200": null,
         "chaikin_money_flow": null,
@@ -10109,24 +10191,24 @@
       "category": "Options-Derived",
       "n_signals": 2,
       "n_eliminated": 5,
-      "avg_return": 0.08046617504904661,
-      "median_return": 0.12663742634624978,
+      "avg_return": 0.03901238617673389,
+      "median_return": 0.08280232028778446,
       "best_signal": "IV Term Structure Backwardation",
-      "best_return": 0.12663742634624978,
+      "best_return": 0.08280232028778446,
       "worst_signal": "Put/Call Open Interest Ratio",
-      "worst_return": 0.034294923751843454,
+      "worst_return": -0.0047775479343166805,
       "eliminated_avg_return_at_elimination": -0.04644959034676223
     },
     {
       "category": "Trend",
       "n_signals": 1,
       "n_eliminated": 9,
-      "avg_return": 0.0009437864944635294,
-      "median_return": 0.0009437864944635294,
+      "avg_return": -0.0012299514258951605,
+      "median_return": -0.0012299514258951605,
       "best_signal": "ADX Trend Strength",
-      "best_return": 0.0009437864944635294,
+      "best_return": -0.0012299514258951605,
       "worst_signal": "ADX Trend Strength",
-      "worst_return": 0.0009437864944635294,
+      "worst_return": -0.0012299514258951605,
       "eliminated_avg_return_at_elimination": -0.048866661936984364
     },
     {
@@ -10145,12 +10227,12 @@
       "category": "Volume",
       "n_signals": 1,
       "n_eliminated": 6,
-      "avg_return": -0.02695679914029497,
-      "median_return": -0.02695679914029497,
+      "avg_return": -0.027559205265312994,
+      "median_return": -0.027559205265312994,
       "best_signal": "Chaikin Money Flow",
-      "best_return": -0.02695679914029497,
+      "best_return": -0.027559205265312994,
       "worst_signal": "Chaikin Money Flow",
-      "worst_return": -0.02695679914029497,
+      "worst_return": -0.027559205265312994,
       "eliminated_avg_return_at_elimination": -0.07242649008635947
     }
   ],
@@ -10260,7 +10342,7 @@
       },
       {
         "date": "2026-09-13",
-        "equity": 264978.9497737648
+        "equity": 264978.9497737649
       },
       {
         "date": "2026-09-14",
@@ -10288,7 +10370,7 @@
       },
       {
         "date": "2026-09-20",
-        "equity": 177723.2577451587
+        "equity": 177723.25774515868
       },
       {
         "date": "2026-09-21",
@@ -10312,20 +10394,24 @@
       },
       {
         "date": "2026-09-26",
-        "equity": 91652.83420945333
+        "equity": 91652.83420945331
       },
       {
         "date": "2026-09-27",
-        "equity": 91652.83420945333
+        "equity": 91652.83420945331
       },
       {
         "date": "2026-09-28",
         "equity": 90362.78014021901
+      },
+      {
+        "date": "2026-09-29",
+        "equity": 40492.3561566226
       }
     ],
     "returns_by_range": {
-      "1D": -0.014075441096411402,
-      "1W": -0.5028873092108626,
+      "1D": -0.551891209037734,
+      "1W": -0.7172559381576931,
       "1M": null,
       "YTD": null,
       "1Y": null,
