@@ -10,6 +10,7 @@ import os
 import sys
 import datetime as dt
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
+import config
 
 HERE = os.path.dirname(__file__)
 from experiment.strategy_metadata import STRATEGY_DETAILS
@@ -151,7 +152,7 @@ footer { margin-top: 40px; font-size: 11px; color: var(--ink-soft); font-family:
 def _nav_html(active_page: str) -> str:
     pages = [("index.html", "Strategies"), ("recommendations.html", "Recommendations"),
              ("holdings.html", "Total Holdings"), ("positions.html", "Positions"),
-             ("correlation.html", "Correlation")]
+             ("correlation.html", "Correlation"), ("fundamentals.html", "Fundamentals Screener")]
     links = "\n".join(
         f'  <a href="{href}" class="{"active" if href == active_page else ""}">{label}</a>'
         for href, label in pages
@@ -1128,6 +1129,250 @@ def build_strategy_detail(strategy: dict, data: dict) -> str:
 </html>"""
 
 
+def build_fundamentals(data: dict) -> str:
+    """
+    Live fundamentals-value screener page. Unlike every other page in this
+    project, this one is NOT baked from dashboard_data.json at build time —
+    it calls a separately-hosted backend (see screener_backend/) live, in
+    the visitor's browser, because the whole point is letting the user type
+    in any ticker and any universe on demand rather than waiting for the
+    next daily build.
+
+    That's a deliberate architectural split from the rest of the static
+    site, so the honest-empty-state and "not baked at build time" framing
+    below calls it out rather than pretending it works the same way as
+    everything else.
+    """
+    api_base_url = getattr(config, "FUNDAMENTALS_API_BASE_URL", "") or ""
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fundamentals Screener — Strategy Lab</title>
+<style>{CSS}
+.metric-row {{ display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--ink-soft); font-family: var(--mono); margin-top: 4px; }}
+.metric-row span.missing {{ color: var(--ink-muted); font-style: italic; }}
+.weight-row {{ display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 13px; }}
+.weight-row label {{ flex: 1; }}
+.weight-row input[type="range"] {{ width: 140px; }}
+.weight-row .wval {{ font-family: var(--mono); width: 34px; text-align: right; color: var(--ink-soft); }}
+.screener-form {{ background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 20px 22px; margin-bottom: 22px; }}
+.screener-form label.field-label {{ display: block; font-size: 12px; font-weight: 600; color: var(--ink-soft); margin: 14px 0 6px; text-transform: uppercase; letter-spacing: 0.02em; }}
+.screener-form label.field-label:first-child {{ margin-top: 0; }}
+.screener-form input[type="text"], .screener-form select {{
+  width: 100%; padding: 9px 12px; border: 1px solid var(--border); border-radius: 6px;
+  font-family: var(--sans); font-size: 14px; background: var(--bg); color: var(--ink);
+}}
+.screener-form button.run-btn {{
+  margin-top: 16px; background: var(--accent); color: #fff; border: none; border-radius: 6px;
+  padding: 10px 22px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: var(--sans);
+}}
+.screener-form button.run-btn:disabled {{ opacity: 0.5; cursor: default; }}
+.preset-desc {{ font-size: 12px; color: var(--ink-soft); margin-top: 6px; line-height: 1.5; }}
+#customWeights {{ display: none; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border-light); }}
+.status-msg {{ font-size: 13px; color: var(--ink-soft); margin: 10px 0; }}
+.status-msg.error {{ color: var(--loss); }}
+</style>
+</head>
+<body>
+<div class="page-shell">
+{_sidebar_html(data)}
+<div class="wrap">
+  <header class="page-head">
+    <h1>Fundamentals Screener</h1>
+  </header>
+  <p class="subtitle">Scores any tickers you type against SEC-filed fundamentals, live — this page is not baked into the daily build like the rest of the site, it calls a separately-hosted backend in your browser each time you run it.</p>
+  {_nav_html("fundamentals.html")}
+
+  <div class="empty-note">
+    <strong>How to read this:</strong> every score is a <strong>percentile rank within the batch of tickers you typed</strong>,
+    not an absolute scale — add or remove a ticker and every score changes, because "cheap" only means
+    something relative to the alternatives you're actually comparing. Fundamentals come from each company's
+    most recent annual SEC filing (10-K), which can lag the current quarter by up to a year. This is a research
+    tool, not investment advice.
+  </div>
+
+  <div class="screener-form">
+    <label class="field-label">Tickers (comma-separated, up to 25)</label>
+    <input type="text" id="tickersInput" placeholder="AAPL, MSFT, KO, RIVN">
+
+    <label class="field-label">Scoring formula</label>
+    <select id="formulaSelect" onchange="onFormulaChange()"></select>
+    <div class="preset-desc" id="presetDesc"></div>
+
+    <div id="customWeights"></div>
+
+    <button class="run-btn" id="runBtn" onclick="runScreen()">Run screener</button>
+    <div class="status-msg" id="statusMsg"></div>
+  </div>
+
+  <div class="card-list" id="resultsList"></div>
+
+  <footer>
+    Backend: <span id="backendUrlDisplay">not configured</span> &middot;
+    <a class="methodology-link" href="https://github.com/nexojack-bot/JG-Tradingbot/blob/main/METHODOLOGY.md" target="_blank">Methodology &amp; limitations &rarr;</a>
+  </footer>
+</div>
+</div>
+
+<script>
+// Set FUNDAMENTALS_API_BASE_URL in config.py (see screener_backend/SETUP.md)
+// once the backend is deployed — this gets baked in at build time. Left
+// blank, the page says so honestly instead of silently failing.
+const API_BASE_URL = "{api_base_url}";
+
+document.getElementById("backendUrlDisplay").textContent = API_BASE_URL || "not configured yet";
+
+const METRIC_LABELS = {{
+  pe_ratio: "P/E", pb_ratio: "P/B", dividend_yield: "Div yield",
+  liabilities_to_equity: "Liab/Equity", roe: "ROE", fcf_yield: "FCF yield",
+  revenue_growth: "Rev growth (YoY)"
+}};
+const PCT_METRICS = new Set(["dividend_yield", "roe", "fcf_yield", "revenue_growth"]);
+
+let PRESETS = {{}};
+let METRICS = {{}};
+
+function fmtMetric(key, val) {{
+  if (val === null || val === undefined) return `<span class="missing">${{METRIC_LABELS[key]}}: n/a</span>`;
+  const shown = PCT_METRICS.has(key) ? (val * 100).toFixed(1) + "%" : val.toFixed(2);
+  return `<span>${{METRIC_LABELS[key]}}: ${{shown}}</span>`;
+}}
+
+function renderCustomWeights() {{
+  const box = document.getElementById("customWeights");
+  box.innerHTML = Object.keys(METRIC_LABELS).map(m => `
+    <div class="weight-row">
+      <label for="w_${{m}}">${{METRIC_LABELS[m]}} ${{METRICS[m] && METRICS[m].higher_is_better ? "(higher better)" : "(lower better)"}}</label>
+      <input type="range" id="w_${{m}}" min="0" max="100" value="0" oninput="document.getElementById('wv_${{m}}').textContent=this.value">
+      <span class="wval" id="wv_${{m}}">0</span>
+    </div>`).join("");
+}}
+
+function onFormulaChange() {{
+  const sel = document.getElementById("formulaSelect").value;
+  const customBox = document.getElementById("customWeights");
+  const descBox = document.getElementById("presetDesc");
+  if (sel === "custom") {{
+    customBox.style.display = "block";
+    descBox.textContent = "Set your own weights below — 0 means a metric is excluded entirely.";
+  }} else {{
+    customBox.style.display = "none";
+    descBox.textContent = (PRESETS[sel] && PRESETS[sel].description) || "";
+  }}
+}}
+
+async function loadPresets() {{
+  const sel = document.getElementById("formulaSelect");
+  const fallbackPresets = {{
+    classic_value: {{label: "Classic value", description: "Traditional Graham-style value screen: cheap relative to earnings and book value, paying a dividend, not overleveraged."}},
+    value_quality: {{label: "Value + quality", description: "Classic value plus profitability and growth."}},
+    deep_value: {{label: "Deep value", description: "Weighted toward book value and balance-sheet strength."}},
+    income_focus: {{label: "Income focus", description: "Weighted toward dividend yield and balance-sheet safety."}},
+  }};
+  const fallbackMetrics = {{
+    pe_ratio: {{higher_is_better: false}}, pb_ratio: {{higher_is_better: false}},
+    dividend_yield: {{higher_is_better: true}}, liabilities_to_equity: {{higher_is_better: false}},
+    roe: {{higher_is_better: true}}, fcf_yield: {{higher_is_better: true}}, revenue_growth: {{higher_is_better: true}},
+  }};
+  try {{
+    if (!API_BASE_URL) throw new Error("no backend configured");
+    const resp = await fetch(`${{API_BASE_URL}}/presets`);
+    if (!resp.ok) throw new Error("bad response");
+    const d = await resp.json();
+    PRESETS = d.presets; METRICS = d.metrics;
+  }} catch (e) {{
+    PRESETS = fallbackPresets; METRICS = fallbackMetrics;
+  }}
+  sel.innerHTML = Object.entries(PRESETS).map(([key, p]) => `<option value="${{key}}">${{p.label}}</option>`).join("")
+    + '<option value="custom">Custom weights</option>';
+  renderCustomWeights();
+  onFormulaChange();
+}}
+
+function collectCustomWeights() {{
+  const parts = [];
+  for (const m of Object.keys(METRIC_LABELS)) {{
+    const el = document.getElementById(`w_${{m}}`);
+    const v = el ? parseInt(el.value, 10) : 0;
+    if (v > 0) parts.push(`${{m}}:${{v/100}}`);
+  }}
+  return parts.join(",");
+}}
+
+async function runScreen() {{
+  const statusEl = document.getElementById("statusMsg");
+  const resultsEl = document.getElementById("resultsList");
+  const runBtn = document.getElementById("runBtn");
+  statusEl.className = "status-msg";
+  resultsEl.innerHTML = "";
+
+  if (!API_BASE_URL) {{
+    statusEl.className = "status-msg error";
+    statusEl.textContent = "This page's live backend hasn't been configured yet (API_BASE_URL is empty) — the screener can't run until it is. See the methodology link for setup status.";
+    return;
+  }}
+
+  const tickersRaw = document.getElementById("tickersInput").value.trim();
+  if (!tickersRaw) {{
+    statusEl.textContent = "Type at least one ticker.";
+    return;
+  }}
+  const formula = document.getElementById("formulaSelect").value;
+  const params = new URLSearchParams({{ tickers: tickersRaw, formula: formula }});
+  if (formula === "custom") {{
+    const w = collectCustomWeights();
+    if (!w) {{ statusEl.textContent = "Set at least one weight above 0 for a custom formula."; return; }}
+    params.set("weights", w);
+  }}
+
+  runBtn.disabled = true;
+  statusEl.textContent = "Fetching live fundamentals — first request can take up to a minute if the backend has been idle (free-tier hosting sleeps after inactivity).";
+
+  try {{
+    const resp = await fetch(`${{API_BASE_URL}}/screen?${{params.toString()}}`);
+    const d = await resp.json();
+    if (!resp.ok) throw new Error(d.detail || "request failed");
+
+    statusEl.textContent = d.note || "";
+
+    const errorEntries = Object.entries(d.errors || {{}});
+    const errorHtml = errorEntries.length
+      ? `<div class="empty-note">Couldn't score: ${{errorEntries.map(([t, e]) => `<strong>${{t}}</strong> (${{e}})`).join(", ")}}</div>`
+      : "";
+
+    const rows = (d.results || []).map((r, i) => {{
+      const scoreStr = r.score !== null && r.score !== undefined ? r.score.toFixed(1) : "n/a";
+      const barWidth = r.score !== null && r.score !== undefined ? r.score : 0;
+      const metricsHtml = Object.keys(METRIC_LABELS).map(m => fmtMetric(m, r.metrics ? r.metrics[m] : null)).join("");
+      return `
+      <div class="stock-card" style="align-items:flex-start">
+        <div class="rank">${{i+1}}</div>
+        <div class="name-block">
+          <p class="name">${{r.ticker}} <span class="sub" style="font-weight:400">$${{r.price ? r.price.toFixed(2) : "n/a"}}</span></p>
+          <p class="sub">fiscal period end: ${{r.fiscal_period_end || "n/a"}} &middot; ${{r.coverage || ""}}</p>
+          <div class="metric-row">${{metricsHtml}}</div>
+        </div>
+        <div class="stock-bar-track" style="width:100px;flex:none"><div class="stock-bar-fill" style="width:${{barWidth}}%"></div></div>
+        <div class="stock-meta" style="width:70px">${{scoreStr}}</div>
+      </div>`;
+    }}).join("");
+
+    resultsEl.innerHTML = errorHtml + (rows || '<p class="na">No tickers could be scored.</p>');
+  }} catch (e) {{
+    statusEl.className = "status-msg error";
+    statusEl.textContent = "Couldn't reach the backend (" + e.message + "). If it's been idle, free-tier hosting can take up to a minute to wake up — try again in a moment.";
+  }} finally {{
+    runBtn.disabled = false;
+  }}
+}}
+
+loadPresets();
+</script>
+</body>
+</html>"""
+
+
 def build(data_path: str = None, output_dir: str = None):
     data_path = data_path or os.path.join(HERE, "dashboard_data.json")
     output_dir = output_dir or os.path.join(HERE, "site")
@@ -1146,6 +1391,8 @@ def build(data_path: str = None, output_dir: str = None):
         f.write(build_holdings(data))
     with open(os.path.join(output_dir, "correlation.html"), "w") as f:
         f.write(build_correlation(data))
+    with open(os.path.join(output_dir, "fundamentals.html"), "w") as f:
+        f.write(build_fundamentals(data))
 
     for s in data["strategies"]:
         with open(os.path.join(output_dir, f'strategy_{s["strategy_id"]}.html'), "w") as f:
